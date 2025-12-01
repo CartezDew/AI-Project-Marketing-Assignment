@@ -1,34 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      height: '100vh',
+      fontFamily: 'sans-serif',
+      gap: '20px'
+    }}>
+      <h1>AI Project Marketing Assignment</h1>
+      <p>Select a prompt to view the website:</p>
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <a href="/Prompt 1/index.html" style={{
+          padding: '15px 30px',
+          backgroundColor: '#0f172a',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '8px',
+          fontWeight: 'bold'
+        }}>
+          Prompt 1: Mattel Experience
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="/Prompt 2/index.html" style={{
+          padding: '15px 30px',
+          backgroundColor: '#e3002b',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '8px',
+          fontWeight: 'bold'
+        }}>
+          Prompt 2: Brand Lab
         </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button disabled style={{
+          padding: '15px 30px',
+          backgroundColor: '#e2e8f0',
+          color: '#94a3b8',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'not-allowed'
+        }}>
+          Prompt 3 (Coming Soon)
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 

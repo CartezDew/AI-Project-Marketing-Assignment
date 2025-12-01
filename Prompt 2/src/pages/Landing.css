@@ -1,0 +1,145 @@
+.landing-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.landing-hero {
+  margin-bottom: 80px;
+}
+
+.landing-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.landing-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.brand-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.brand-card {
+  position: relative;
+  height: 400px;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+}
+
+.brand-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* UNO Card Styling */
+.brand-card-uno {
+  background-color: #111;
+  background-image: radial-gradient(circle at top right, #333, #000);
+}
+
+.brand-card-uno .card-title {
+  font-family: 'Inter', sans-serif; /* Keeping it clean as per Mattel parent brand, specific fonts inside exp */
+  color: #fff;
+}
+
+.uno-circle {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: #e3002b;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Hot Wheels Card Styling */
+.brand-card-hw {
+  background-color: #0046ad;
+  background-image: linear-gradient(135deg, #0046ad 0%, #002c6d 100%);
+}
+
+.hw-lines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.05) 10px,
+    rgba(255, 255, 255, 0.05) 20px
+  );
+}
+
+.card-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  z-index: 10;
+}
+
+.card-desc {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 24px;
+  max-width: 80%;
+  z-index: 10;
+}
+
+.card-cta {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 10;
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.brand-card:hover .card-cta {
+  background: rgba(255,255,255,0.25);
+}
+
+.landing-footer {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .brand-split {
+    grid-template-columns: 1fr;
+  }
+  .landing-title {
+    font-size: 2.5rem;
+  }
+}
+
