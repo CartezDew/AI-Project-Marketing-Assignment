@@ -787,7 +787,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
       strengths: ["Fast generation", "Clean code structure", "API integration ready"],
       weaknesses: ["Required manual file creation", "Less detailed styling"],
       color: "#0f172a",
-      link: "/Prompt 1/index.html",
+      link: "/prompt1/index.html",
       fullPrompt: prompt1FullText
     },
     {
@@ -803,7 +803,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
       strengths: ["Brand-specific styling", "Modular CSS", "Good component separation"],
       weaknesses: ["More verbose CSS", "Manual widget logic"],
       color: "#e3002b",
-      link: "/Prompt 2/index.html",
+      link: "/prompt2/index.html",
       fullPrompt: prompt2FullText
     },
     {
@@ -820,7 +820,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
       weaknesses: ["Longer generation time", "More complex codebase"],
       color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       isWinner: true,
-      link: "/Prompt 3/index.html",
+      link: "/prompt3/index.html",
       fullPrompt: prompt3FullText
     }
   ];
