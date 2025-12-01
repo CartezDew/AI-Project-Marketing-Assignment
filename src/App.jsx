@@ -965,7 +965,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
       <html>
       <head>
         <meta charset="UTF-8">
-        <title>AI Prompt Comparison Report - Mattel Marketing Project</title>
+        <title>Prompts Report - Mattel Marketing Project</title>
         <style>
           body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 850px; margin: 0 auto; padding: 50px; line-height: 1.7; color: #333; }
           h1 { color: #1a1a1a; border-bottom: 3px solid #667eea; padding-bottom: 15px; font-size: 28px; }
@@ -982,7 +982,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
         </style>
       </head>
       <body>
-        <h1>AI Prompt Comparison Report</h1>
+        <h1>Prompts Report</h1>
         <p><strong>Project:</strong> Mattel Marketing Assignment - UNO & Hot Wheels Digital Experience</p>
         <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
         <p><strong>Purpose:</strong> Compare AI-generated website outputs from different LLMs and prompting strategies</p>
@@ -1064,8 +1064,8 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
       {/* Header */}
       <header className="header">
         <div className="header-content">
-          <h1 className="main-title">AI Prompt Comparison Lab</h1>
-          <p className="subtitle">Mattel Marketing Assignment: UNO & Hot Wheels Digital Experiences</p>
+          <h1 className="main-title">Prompts</h1>
+          <p className="subtitle">AI Prompt Comparison Lab: Mattel Marketing Assignment</p>
         </div>
       </header>
 
@@ -1301,7 +1301,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
 
       {/* Footer */}
       <footer className="footer">
-        <p>Educational Use Only | Mattel Marketing Project | AI Prompt Comparison Study</p>
+        <p>Prompts | Educational Use Only | Mattel Marketing Project</p>
       </footer>
     </div>
   );
