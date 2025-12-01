@@ -3,21 +3,235 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mattel x AI Brand Lab</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Russo+One&display=swap" rel="stylesheet">
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://aistudiocdn.com/react@^19.2.0",
-          "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
-          "react-router-dom": "https://aistudiocdn.com/react-router-dom@^6.22.0"
-        }
+    <title>Prompt 2 | Mattel x AI Brand Lab</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; background-color: #f8f8f8; color: #333; }
+      a { text-decoration: none; color: inherit; }
+      button { cursor: pointer; font-family: 'Inter', sans-serif; border: none; }
+      
+      /* CSS Variables */
+      :root {
+        --mattel-red: #e3002b;
+        --uno-black: #000; --uno-red: #e3002b; --uno-yellow: #ffde00; --uno-blue: #0096ff; --uno-green: #55aa55;
+        --hw-blue: #0046ad; --hw-red: #e3002b; --hw-yellow: #ffde00; --hw-orange: #ff5c00;
       }
-    </script>
+      
+      /* Animations */
+      .fade-in { animation: fadeIn 0.5s ease-in; }
+      .slide-up { animation: slideUp 0.4s ease-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
+    
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      // Navbar Component
+      const Navbar = ({ currentPage, setCurrentPage }) => {
+        const isUno = currentPage === 'uno';
+        const isHotWheels = currentPage === 'hotwheels';
+        
+        let navStyle = { height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'sticky', top: 0, zIndex: 1000, transition: 'all 0.3s ease' };
+        if (isUno) { navStyle = { ...navStyle, backgroundColor: '#000', borderBottom: '4px solid #e3002b' }; }
+        else if (isHotWheels) { navStyle = { ...navStyle, background: 'linear-gradient(90deg, #0046ad 0%, #002c6d 100%)', borderBottom: '4px solid #ff5c00' }; }
+        else { navStyle = { ...navStyle, backgroundColor: '#fff', borderBottom: '1px solid #eaeaea' }; }
+        
+        const linkStyle = { fontWeight: 600, fontSize: '0.95rem', padding: '10px 20px', borderRadius: '100px', transition: 'all 0.2s', cursor: 'pointer' };
+        const textColor = (isUno || isHotWheels) ? '#fff' : '#666';
+        
+        return (
+          <nav style={navStyle}>
+            <div style={{ width: '100%', maxWidth: '1200px', padding: '0 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span onClick={() => setCurrentPage('landing')} style={{ fontWeight: 800, fontSize: '1.2rem', cursor: 'pointer', color: isUno || isHotWheels ? '#fff' : '#333' }}>
+                <span style={{ color: '#e3002b' }}>MATTEL</span> <span style={{ fontWeight: 300 }}>x AI LAB</span>
+              </span>
+              <div style={{ display: 'flex', gap: '24px' }}>
+                <span onClick={() => setCurrentPage('uno')} style={{ ...linkStyle, color: currentPage === 'uno' ? '#ffde00' : textColor, background: currentPage === 'uno' ? 'rgba(255,222,0,0.1)' : 'transparent' }}>UNO Community</span>
+                <span onClick={() => setCurrentPage('hotwheels')} style={{ ...linkStyle, color: currentPage === 'hotwheels' ? '#ffde00' : textColor, background: currentPage === 'hotwheels' ? 'rgba(255,222,0,0.1)' : 'transparent' }}>HW Collectors</span>
+              </div>
+            </div>
+          </nav>
+        );
+      };
+
+      // Landing Page
+      const Landing = ({ setCurrentPage }) => (
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 20px', textAlign: 'center' }}>
+          <div style={{ marginBottom: '80px' }}>
+            <h1 style={{ fontSize: '3.5rem', fontWeight: 800, color: '#111', marginBottom: '24px', letterSpacing: '-1px', lineHeight: 1.1 }}>Empowering Generations Through Play</h1>
+            <p style={{ fontSize: '1.25rem', color: '#666', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6 }}>
+              Welcome to the <strong>Mattel x AI Brand Lab</strong>. Explore how artificial intelligence is shaping the future of digital experiences for our most iconic brands.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px', marginBottom: '60px' }}>
+            <div onClick={() => setCurrentPage('uno')} style={{ position: 'relative', height: '400px', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', textAlign: 'left', overflow: 'hidden', cursor: 'pointer', color: 'white', background: 'radial-gradient(circle at top right, #333, #000)', transition: 'transform 0.3s' }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-8px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
+              <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', backgroundColor: '#e3002b', borderRadius: '50%', opacity: 0.8 }}></div>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '16px', zIndex: 10 }}>UNO Community</h2>
+              <p style={{ fontSize: '1.1rem', opacity: 0.9, marginBottom: '24px', maxWidth: '80%', zIndex: 10 }}>Social, fast, and unpredictable. Join the global game night.</p>
+              <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', zIndex: 10, display: 'inline-block', padding: '12px 24px', background: 'rgba(255,255,255,0.15)', borderRadius: '50px', backdropFilter: 'blur(4px)', width: 'fit-content' }}>Enter Experience →</span>
+            </div>
+            <div onClick={() => setCurrentPage('hotwheels')} style={{ position: 'relative', height: '400px', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', textAlign: 'left', overflow: 'hidden', cursor: 'pointer', color: 'white', background: 'linear-gradient(135deg, #0046ad 0%, #002c6d 100%)', transition: 'transform 0.3s' }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-8px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', background: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px)' }}></div>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '16px', zIndex: 10 }}>Hot Wheels Collectors</h2>
+              <p style={{ fontSize: '1.1rem', opacity: 0.9, marginBottom: '24px', maxWidth: '80%', zIndex: 10 }}>High-speed design and collector culture. Ignite your challenger spirit.</p>
+              <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', zIndex: 10, display: 'inline-block', padding: '12px 24px', background: 'rgba(255,255,255,0.15)', borderRadius: '50px', backdropFilter: 'blur(4px)', width: 'fit-content' }}>Enter Experience →</span>
+            </div>
+          </div>
+          <p style={{ color: '#999', fontSize: '0.9rem', marginTop: '60px' }}>Mattel x AI Brand Lab Prototype | Educational Use Only</p>
+        </div>
+      );
+
+      // UNO House Rules Widget
+      const UnoHouseRulesWidget = () => {
+        const [vibe, setVibe] = useState('chaotic');
+        const [generatedRule, setGeneratedRule] = useState(null);
+        const rulesDatabase = {
+          chaotic: { title: "The Shuffle Slam", desc: "Whenever a '7' is played, every player must pass their hand to the left. If a '0' is played, pass to the right." },
+          quick: { title: "Jump-In Speed Run", desc: "Playing out of turn is allowed if you have the EXACT matching card (number and color). First to 0 cards wins instantly." },
+          strategic: { title: "Stacking Protocol", desc: "Draw 2s and Wild Draw 4s can be stacked. If you can't stack, you draw the total sum. No mercy." },
+          family: { title: "Compassionate Swap", desc: "Once per game, a player can swap hands with the person who has the most cards to help them out." }
+        };
+        const generateRule = () => { setGeneratedRule(null); setTimeout(() => setGeneratedRule(rulesDatabase[vibe]), 600); };
+        
+        return (
+          <div style={{ backgroundColor: '#1a1a1a', border: '2px solid #333', borderRadius: '20px', padding: '30px', color: 'white', maxWidth: '500px', margin: '0 auto', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+              <h3 style={{ margin: 0, color: '#ffde00', fontWeight: 800, textTransform: 'uppercase' }}>AI House Rules Generator</h3>
+              <span style={{ background: '#55aa55', color: 'white', fontSize: '0.7rem', padding: '4px 8px', borderRadius: '4px', fontWeight: 'bold' }}>AI BETA</span>
+            </div>
+            <p style={{ color: '#ccc', fontSize: '0.9rem', marginBottom: '25px' }}>Tell us the vibe of your game night, and our AI will draft a custom rule to spice things up.</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <select value={vibe} onChange={(e) => setVibe(e.target.value)} style={{ background: '#333', color: 'white', padding: '12px', borderRadius: '10px', border: '1px solid #444', fontSize: '1rem' }}>
+                <option value="chaotic">Chaotic & Wild</option>
+                <option value="quick">Fast Paced</option>
+                <option value="strategic">Ruthless Strategy</option>
+                <option value="family">Family Friendly</option>
+              </select>
+              <button onClick={generateRule} style={{ backgroundColor: '#e3002b', color: 'white', padding: '14px', borderRadius: '30px', fontWeight: 'bold', fontSize: '1rem' }}>Generate Rule</button>
+            </div>
+            {generatedRule && (
+              <div className="fade-in" style={{ marginTop: '25px', background: '#333', padding: '20px', borderRadius: '12px', borderLeft: '5px solid #0096ff' }}>
+                <h4 style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '1.2rem' }}>{generatedRule.title}</h4>
+                <p style={{ margin: 0, color: '#ddd', lineHeight: 1.5 }}>{generatedRule.desc}</p>
+              </div>
+            )}
+          </div>
+        );
+      };
+
+      // UNO Experience Page
+      const UnoExperience = ({ setCurrentPage }) => (
+        <div style={{ backgroundColor: '#111', color: 'white', minHeight: '100vh' }}>
+          <section style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '80px 5%', background: 'radial-gradient(circle at bottom left, #222, #000)', minHeight: '80vh' }}>
+            <div style={{ maxWidth: '500px', zIndex: 10 }}>
+              <h1 style={{ fontSize: '4rem', fontWeight: 800, lineHeight: 1, marginBottom: '20px' }}>
+                Make Every Game Night <span style={{ background: 'linear-gradient(90deg, #e3002b, #ffde00, #55aa55, #0096ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wild</span>
+              </h1>
+              <p style={{ fontSize: '1.2rem', color: '#ccc', marginBottom: '40px' }}>The world's most beloved card game. Fast, fun, and impossible to put down. Join the community and rewrite the rules.</p>
+              <div style={{ display: 'flex', gap: '15px' }}>
+                <button style={{ backgroundColor: '#e3002b', color: 'white', padding: '15px 30px', borderRadius: '50px', fontWeight: 'bold' }}>Join Community</button>
+                <button style={{ background: 'transparent', border: '2px solid white', color: 'white', padding: '15px 30px', borderRadius: '50px', fontWeight: 'bold' }}>Learn Rules</button>
+              </div>
+            </div>
+            <div style={{ position: 'relative', width: '400px', height: '400px' }}>
+              <div style={{ width: '180px', height: '260px', borderRadius: '15px', position: 'absolute', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '2rem', color: 'white', boxShadow: '0 10px 20px rgba(0,0,0,0.5)', border: '8px solid white', background: '#e3002b', transform: 'rotate(-15deg) translate(-50px, 0)', zIndex: 1 }}>1</div>
+              <div style={{ width: '180px', height: '260px', borderRadius: '15px', position: 'absolute', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '2rem', color: 'white', boxShadow: '0 10px 20px rgba(0,0,0,0.5)', border: '8px solid white', background: '#0096ff', transform: 'rotate(5deg) translate(50px, -20px)', zIndex: 2 }}>4</div>
+              <div style={{ width: '180px', height: '260px', borderRadius: '15px', position: 'absolute', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '1.5rem', color: 'black', boxShadow: '0 10px 20px rgba(0,0,0,0.5)', border: '8px solid white', background: '#ffde00', transform: 'rotate(25deg) translate(120px, 40px)', zIndex: 3 }}>Skip</div>
+            </div>
+          </section>
+          <section style={{ padding: '80px 0', backgroundColor: '#1a1a1a' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px' }}>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '30px', textAlign: 'center' }}>Create Your Perfect Game Night</h2>
+              <UnoHouseRulesWidget />
+            </div>
+          </section>
+        </div>
+      );
+
+      // Hot Wheels Hub Widget
+      const HotWheelsCollectorsHub = () => {
+        const [mood, setMood] = useState('stunt');
+        const [suggestion, setSuggestion] = useState(null);
+        const trackIdeas = {
+          stunt: { title: "The Gravity Loop Challenge", desc: "Use a high vertical drop to fuel a double loop. Add a jump at the end into a catch cup." },
+          race: { title: "6-Lane Drag Strip", desc: "Pure speed. A straight 20ft downhill run with digital finish line. Use side barriers to keep cars locked in." },
+          garage: { title: "The Ultimate Garage Display", desc: "Multi-level parking structure with spiral ramps. LED lighting on each deck to showcase the chrome finish." }
+        };
+        const generateTrack = () => { setSuggestion(null); setTimeout(() => setSuggestion(trackIdeas[mood]), 600); };
+        
+        return (
+          <div style={{ background: 'linear-gradient(135deg, #002c6d, #00183b)', border: '1px solid #0046ad', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 15px 30px rgba(0,0,0,0.4)', maxWidth: '500px', margin: '0 auto' }}>
+            <div style={{ background: '#ff5c00', padding: '15px 25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)', marginBottom: '-10px', paddingBottom: '30px' }}>
+              <h3 style={{ margin: 0, color: 'white', fontStyle: 'italic', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1px' }}>Track & Display Builder</h3>
+              <span style={{ background: 'black', color: '#ffde00', fontSize: '0.7rem', padding: '4px 8px', fontWeight: 'bold', transform: 'skew(-10deg)' }}>AI CONCEPT</span>
+            </div>
+            <div style={{ padding: '25px', color: 'white' }}>
+              <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                {['stunt', 'race', 'garage'].map((m) => (
+                  <button key={m} onClick={() => setMood(m)} style={{ flex: 1, background: mood === m ? '#ffde00' : 'rgba(255,255,255,0.1)', border: mood === m ? '1px solid #ffde00' : '1px solid rgba(255,255,255,0.2)', color: mood === m ? 'black' : 'white', padding: '10px', fontWeight: 'bold', textTransform: 'uppercase', fontStyle: 'italic', transform: mood === m ? 'skew(-10deg)' : 'none' }}>{m}</button>
+                ))}
+              </div>
+              <button onClick={generateTrack} style={{ width: '100%', background: '#e3002b', color: 'white', fontWeight: 900, fontStyle: 'italic', fontSize: '1.2rem', padding: '15px', textTransform: 'uppercase', clipPath: 'polygon(5% 0, 100% 0, 95% 100%, 0% 100%)' }}>IGNITE CONCEPT</button>
+              {suggestion && (
+                <div className="slide-up" style={{ marginTop: '20px', border: '1px solid #0096ff', background: 'rgba(0, 150, 255, 0.1)', padding: '15px' }}>
+                  <h4 style={{ color: '#ffde00', margin: '0 0 5px 0', fontStyle: 'italic' }}>{suggestion.title}</h4>
+                  <p style={{ fontSize: '0.9rem', color: '#ddd', margin: 0 }}>{suggestion.desc}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      };
+
+      // Hot Wheels Experience Page
+      const HotWheelsExperience = ({ setCurrentPage }) => (
+        <div style={{ backgroundColor: '#f4f4f4', color: '#333', minHeight: '100vh' }}>
+          <section style={{ position: 'relative', height: '85vh', background: 'linear-gradient(120deg, #0046ad 0%, #002255 100%)', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', zIndex: 10, paddingLeft: '10%', color: 'white', maxWidth: '600px' }}>
+              <span style={{ fontStyle: 'italic', fontWeight: 900, color: '#ffde00', letterSpacing: '2px', fontSize: '1.2rem', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>CHALLENGE ACCEPTED</span>
+              <h1 style={{ fontSize: '5rem', fontWeight: 900, fontStyle: 'italic', lineHeight: 0.9, textTransform: 'uppercase', marginBottom: '20px', textShadow: '5px 5px 0px #ff5c00' }}>Artistry Meets<br/>Adrenaline</h1>
+              <p style={{ fontSize: '1.2rem', marginBottom: '40px', lineHeight: 1.5 }}>For the racers, the builders, and the serious collectors. Discover the legacy of speed and the thrill of the chase.</p>
+              <button style={{ background: '#e3002b', color: 'white', fontSize: '1.1rem', fontWeight: 800, fontStyle: 'italic', padding: '16px 40px', textTransform: 'uppercase', clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0% 100%)' }}>Start Your Collection</button>
+            </div>
+          </section>
+          <section style={{ padding: '80px 20px', background: '#111', color: 'white' }}>
+            <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', alignItems: 'center' }}>
+                <div>
+                  <h2 style={{ fontSize: '3rem', fontStyle: 'italic', textTransform: 'uppercase', color: '#ffde00' }}>Design Your Dream Track</h2>
+                  <p style={{ color: '#888', fontSize: '1.1rem', lineHeight: 1.7 }}>Need inspiration for your next build or display? Our AI analyzes thousands of track configurations to suggest the ultimate setup for your space.</p>
+                </div>
+                <HotWheelsCollectorsHub />
+              </div>
+            </div>
+          </section>
+        </div>
+      );
+
+      // Main App
+      const App = () => {
+        const [currentPage, setCurrentPage] = useState('landing');
+        useEffect(() => { window.scrollTo(0, 0); }, [currentPage]);
+        return (
+          <div>
+            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            {currentPage === 'landing' && <Landing setCurrentPage={setCurrentPage} />}
+            {currentPage === 'uno' && <UnoExperience setCurrentPage={setCurrentPage} />}
+            {currentPage === 'hotwheels' && <HotWheelsExperience setCurrentPage={setCurrentPage} />}
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
   </body>
 </html>
-
