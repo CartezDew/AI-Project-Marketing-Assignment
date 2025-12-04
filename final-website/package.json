@@ -1,0 +1,12 @@
+{
+  "name": "mattel-ai-brand-lab-opus",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Mattel x AI Brand Lab powered by Opus 4.5 - A creative exploration of UNO and Hot Wheels digital experiences",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0"
+  }
+}
+

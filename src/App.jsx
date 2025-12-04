@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
+import aiIcon from './assets/icons/ai-icon.webp';
 
 function App() {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedPrompt, setExpandedPrompt] = useState(null);
+  const [finalWebsiteAccordionOpen, setFinalWebsiteAccordionOpen] = useState(false);
 
   const prompt1FullText = `⭐ Prompt for Gemini 3 Pro – Build Full Website (Modern, Apple-Level UI)
 
@@ -1061,6 +1063,87 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
 
   return (
     <div className="app-container">
+      {/* Final Website Section */}
+      <section className="final-website-section">
+        <div className="final-website-content">
+          {/* Floating AI Doodle Icons */}
+          <img 
+            src={aiIcon} 
+            alt="" 
+            className="floating-ai-icon floating-ai-1"
+          />
+          <img 
+            src={aiIcon} 
+            alt="" 
+            className="floating-ai-icon floating-ai-2"
+          />
+          
+          <div className="final-badge">
+            <span>✨ Final Project</span>
+          </div>
+          <h1 className="final-title">Mattel x AI Brand Lab</h1>
+          <p className="final-subtitle">The completed website combining all prompt iterations with enhanced features</p>
+          
+          <a href="/final-website/index.html" className="final-website-btn">
+            🚀 View Final Website
+          </a>
+          
+          {/* Final Website Accordion */}
+          <div className="final-accordion">
+            <div 
+              className={`final-accordion-header ${finalWebsiteAccordionOpen ? 'open' : ''}`}
+              onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
+            >
+              <span className="accordion-title">
+                Improvements & Features <span className="accordion-meta">(AI Images, Features)</span>
+              </span>
+              <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
+            </div>
+            
+            {finalWebsiteAccordionOpen && (
+              <div className="final-accordion-content">
+                <div className="improvements-grid">
+                  <div className="improvement-category">
+                    <h4>🎨 AI Generated Images</h4>
+                    <ul>
+                      <li>Hero section images created with Google Gemini Imagen 3</li>
+                      <li>Team headshot backgrounds and styling</li>
+                      <li>Brand-specific visual assets</li>
+                    </ul>
+                  </div>
+                  <div className="improvement-category">
+                    <h4>⚡ Features</h4>
+                    <ul>
+                      <li>Responsive navigation with brand theming</li>
+                      <li>Interactive brand selection cards</li>
+                      <li>UNO House Rules Generator widget</li>
+                      <li>Hot Wheels Collectors Hub</li>
+                      <li>AI-powered section explanations</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="final-meta">
+                  <div className="meta-item">
+                    <span className="meta-label">LLM:</span>
+                    <span className="meta-value">Google Gemini 3 Pro</span>
+                  </div>
+                  <div className="meta-item">
+                    <span className="meta-label">IDE:</span>
+                    <span className="meta-value">Google AI Studio</span>
+                  </div>
+                  <div className="meta-item">
+                    <span className="meta-label">Framework:</span>
+                    <span className="meta-value">Nano Banana</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="bottom-accent"></div>
+      </section>
+
       {/* Header */}
       <header className="header">
         <div className="header-content">

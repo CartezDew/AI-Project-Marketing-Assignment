@@ -8,7 +8,7 @@ const copyPromptFolders = () => {
   return {
     name: 'copy-prompt-folders',
     closeBundle() {
-      const folders = ['prompt1', 'prompt2', 'prompt3'];
+      const folders = ['prompt1', 'prompt2', 'prompt3', 'final-website'];
       folders.forEach(folder => {
         const src = resolve(__dirname, folder);
         const dest = resolve(__dirname, 'dist', folder);
