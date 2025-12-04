@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:prompt3": "cd prompt3 && npm install && npm run build",
+    "build:final": "cd final-website && npm install && npm run build",
+    "build:main": "vite build",
+    "build": "npm run build:prompt3 && npm run build:final && npm run build:main",
     "lint": "eslint .",
     "preview": "vite preview"
   },

@@ -1,2 +1,8 @@
-/*    /index.html   200
+# Serve prompt folders as-is (don't redirect to SPA)
+/prompt1/*  /prompt1/:splat  200
+/prompt2/*  /prompt2/:splat  200
+/prompt3/*  /prompt3/:splat  200
+/final-website/*  /final-website/:splat  200
 
+# SPA fallback for main app only
+/*  /index.html  200
