@@ -3,21 +3,464 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mattel x AI Brand Lab | Opus Edition</title>
+    <title>Prompt 3 | Mattel x AI Brand Lab - Opus Edition</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://esm.sh/react@18.2.0",
-          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-          "react-router-dom": "https://esm.sh/react-router-dom@6.22.0"
-        }
+    <style>
+      :root {
+        --mattel-red: #e4002b; --mattel-white: #ffffff; --mattel-gray: #f5f5f5; --mattel-dark: #1a1a1a;
+        --uno-black: #0d0d0d; --uno-red: #ed1c24; --uno-yellow: #ffed00; --uno-green: #00a651; --uno-blue: #0072bc;
+        --hw-navy: #002855; --hw-red: #c8102e; --hw-flame: #ff6b00; --hw-yellow: #ffd100; --hw-track-orange: #ff8c00;
+        --font-display: 'Bebas Neue', sans-serif; --font-body: 'Outfit', sans-serif;
       }
-    </script>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; background: var(--mattel-white); color: var(--mattel-dark); line-height: 1.6; }
+      a { text-decoration: none; color: inherit; }
+      button { font-family: var(--font-body); cursor: pointer; border: none; outline: none; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+      ::selection { background: var(--mattel-red); color: white; }
+      
+      /* Animations */
+      @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(5deg); } }
+      @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+      @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .slide-up { animation: slideUp 0.4s ease-out; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
+    
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      // Navbar Component
+      const Navbar = ({ currentPage, setCurrentPage }) => {
+        const [scrolled, setScrolled] = useState(false);
+        const isLanding = currentPage === 'landing';
+        const isUno = currentPage === 'uno';
+        const isHotWheels = currentPage === 'hotwheels';
+        
+        useEffect(() => {
+          const handleScroll = () => setScrolled(window.scrollY > 50);
+          window.addEventListener('scroll', handleScroll);
+          return () => window.removeEventListener('scroll', handleScroll);
+        }, []);
+
+        let navStyle = { position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, height: '72px', display: 'flex', alignItems: 'center', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' };
+        
+        if (isUno) {
+          navStyle.background = 'var(--uno-black)';
+          navStyle.borderBottom = '3px solid var(--uno-red)';
+        } else if (isHotWheels) {
+          navStyle.background = 'linear-gradient(90deg, var(--hw-navy) 0%, #001a3d 100%)';
+          navStyle.borderBottom = '3px solid var(--hw-flame)';
+        } else {
+          navStyle.background = scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent';
+          navStyle.backdropFilter = scrolled ? 'blur(20px)' : 'none';
+          navStyle.boxShadow = scrolled ? '0 2px 20px rgba(0, 0, 0, 0.08)' : 'none';
+        }
+
+        const textColor = (isUno || isHotWheels) ? 'white' : 'var(--mattel-dark)';
+        const linkStyle = { display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 20px', borderRadius: '100px', fontWeight: 600, fontSize: '0.9rem', transition: 'all 0.3s ease', cursor: 'pointer', color: textColor, background: 'rgba(0,0,0,0.05)' };
+
+        return (
+          <nav style={navStyle}>
+            <div style={{ width: '100%', maxWidth: '1400px', margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span onClick={() => setCurrentPage('landing')} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-display)', fontSize: '1.5rem', letterSpacing: '2px', cursor: 'pointer' }}>
+                <span style={{ color: (isUno || isHotWheels) ? 'var(--hw-flame)' : 'var(--mattel-red)' }}>MATTEL</span>
+                <span style={{ opacity: 0.4, color: textColor }}>×</span>
+                <span style={{ fontWeight: 300, color: textColor }}>AI LAB</span>
+              </span>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <span onClick={() => setCurrentPage('uno')} style={{ ...linkStyle, background: isUno ? 'var(--uno-red)' : linkStyle.background, color: isUno ? 'white' : textColor }}>🃏 UNO</span>
+                <span onClick={() => setCurrentPage('hotwheels')} style={{ ...linkStyle, background: isHotWheels ? 'var(--hw-red)' : linkStyle.background, color: isHotWheels ? 'white' : textColor }}>🏎️ Hot Wheels</span>
+              </div>
+              <div style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '6px 14px', borderRadius: '20px' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'white', textTransform: 'uppercase', letterSpacing: '1px' }}>Powered by Opus 4.5</span>
+              </div>
+            </div>
+          </nav>
+        );
+      };
+
+      // Landing Page
+      const Landing = ({ setCurrentPage }) => (
+        <div style={{ minHeight: '100vh', background: 'var(--mattel-white)' }}>
+          {/* Hero */}
+          <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '120px 24px 80px' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f4f8 100%)' }}></div>
+            <div style={{ position: 'absolute', inset: 0, opacity: 0.4, backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(228, 0, 43, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(0, 40, 85, 0.08) 0%, transparent 50%)' }}></div>
+            <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '900px' }}>
+              <div style={{ display: 'inline-block', background: 'rgba(0, 0, 0, 0.05)', padding: '10px 24px', borderRadius: '100px', marginBottom: '32px', fontSize: '0.9rem', fontWeight: 500 }}>🧪 Experimental Brand Lab</div>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 1, letterSpacing: '2px', marginBottom: '24px', color: 'var(--mattel-dark)' }}>
+                Where <span style={{ color: 'var(--mattel-red)' }}>Play</span> Meets<br/>
+                <span style={{ background: 'linear-gradient(135deg, var(--mattel-red), #ff6b6b, #ffd93d)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Intelligence</span>
+              </h1>
+              <p style={{ fontSize: '1.25rem', color: '#666', maxWidth: '600px', margin: '0 auto 48px', lineHeight: 1.7 }}>
+                Explore how AI transforms iconic Mattel brands into immersive digital experiences. Two worlds. Two communities. One vision for the future of play.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px' }}>
+                <div style={{ textAlign: 'center' }}><span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '3rem', color: 'var(--mattel-red)', lineHeight: 1 }}>50+</span><span style={{ fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '1px' }}>Years of Play</span></div>
+                <div style={{ width: '1px', height: '50px', background: '#ddd' }}></div>
+                <div style={{ textAlign: 'center' }}><span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '3rem', color: 'var(--mattel-red)', lineHeight: 1 }}>2</span><span style={{ fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '1px' }}>Iconic Brands</span></div>
+                <div style={{ width: '1px', height: '50px', background: '#ddd' }}></div>
+                <div style={{ textAlign: 'center' }}><span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '3rem', color: 'var(--mattel-red)', lineHeight: 1 }}>∞</span><span style={{ fontSize: '0.85rem', color: '#888', textTransform: 'uppercase', letterSpacing: '1px' }}>Possibilities</span></div>
+              </div>
+            </div>
+          </section>
+
+          {/* Brand Selection */}
+          <section style={{ padding: '100px 24px', background: '#fafafa' }}>
+            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', letterSpacing: '2px', marginBottom: '12px' }}>Choose Your Experience</h2>
+              <p style={{ color: '#666', fontSize: '1.1rem' }}>Each brand has its own universe. Which one calls to you?</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px', maxWidth: '1100px', margin: '0 auto' }}>
+              {/* UNO Card */}
+              <div onClick={() => setCurrentPage('uno')} style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', minHeight: '480px', display: 'flex', background: 'var(--uno-black)', color: 'white', cursor: 'pointer', transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-8px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 30%, rgba(237, 28, 36, 0.3) 0%, transparent 60%)' }}></div>
+                <div style={{ position: 'relative', zIndex: 10, width: '100%', padding: '40px', display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ flex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', paddingTop: '20px' }}>
+                    <div style={{ position: 'relative', width: '120px', height: '160px' }}>
+                      <div style={{ position: 'absolute', width: '80px', height: '120px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)', background: 'var(--uno-red)', transform: 'rotate(-15deg) translate(0, 0)', zIndex: 4 }}></div>
+                      <div style={{ position: 'absolute', width: '80px', height: '120px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)', background: 'var(--uno-blue)', transform: 'rotate(-5deg) translate(20px, 10px)', zIndex: 3 }}></div>
+                      <div style={{ position: 'absolute', width: '80px', height: '120px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)', background: 'var(--uno-yellow)', transform: 'rotate(5deg) translate(40px, 5px)', zIndex: 2 }}></div>
+                      <div style={{ position: 'absolute', width: '80px', height: '120px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)', background: 'var(--uno-green)', transform: 'rotate(15deg) translate(60px, 15px)', zIndex: 1 }}></div>
+                    </div>
+                  </div>
+                  <div style={{ marginBottom: '24px' }}>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '4rem', letterSpacing: '4px', marginBottom: '8px', color: 'var(--uno-red)', textShadow: '0 0 40px rgba(237, 28, 36, 0.5)' }}>UNO</h3>
+                    <p style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.8, marginBottom: '16px' }}>The World's #1 Card Game</p>
+                    <p style={{ fontSize: '1rem', lineHeight: 1.6, opacity: 0.9 }}>Fast. Social. Unpredictable. Join millions in the ultimate game night experience.</p>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '24px', borderTop: '1px solid rgba(255, 255, 255, 0.15)' }}>
+                    <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Enter Community</span>
+                    <span style={{ fontSize: '1.5rem' }}>→</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Hot Wheels Card */}
+              <div onClick={() => setCurrentPage('hotwheels')} style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', minHeight: '480px', display: 'flex', background: 'linear-gradient(135deg, var(--hw-navy) 0%, #001530 100%)', color: 'white', cursor: 'pointer', transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-8px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 70%, rgba(255, 107, 0, 0.3) 0%, transparent 60%)' }}></div>
+                <div style={{ position: 'relative', zIndex: 10, width: '100%', padding: '40px', display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ flex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', paddingTop: '20px' }}>
+                    <div style={{ display: 'flex', gap: '8px', transform: 'rotate(-10deg)' }}>
+                      <div style={{ width: '30px', height: '100px', background: 'var(--hw-track-orange)', borderRadius: '4px', boxShadow: '0 4px 15px rgba(255, 140, 0, 0.4)' }}></div>
+                      <div style={{ width: '30px', height: '100px', background: 'var(--hw-track-orange)', borderRadius: '4px', boxShadow: '0 4px 15px rgba(255, 140, 0, 0.4)', transform: 'translateY(15px)' }}></div>
+                      <div style={{ width: '30px', height: '100px', background: 'var(--hw-track-orange)', borderRadius: '4px', boxShadow: '0 4px 15px rgba(255, 140, 0, 0.4)', transform: 'translateY(30px)' }}></div>
+                    </div>
+                  </div>
+                  <div style={{ marginBottom: '24px' }}>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '4rem', letterSpacing: '4px', marginBottom: '8px', color: 'var(--hw-yellow)', textShadow: '0 0 40px rgba(255, 209, 0, 0.4)' }}>HOT WHEELS</h3>
+                    <p style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '2px', opacity: 0.8, marginBottom: '16px' }}>Challenge Accepted</p>
+                    <p style={{ fontSize: '1rem', lineHeight: 1.6, opacity: 0.9 }}>From epic tracks to rare collectibles. Where speed meets artistry.</p>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '24px', borderTop: '1px solid rgba(255, 255, 255, 0.2)' }}>
+                    <span style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Start Your Engines</span>
+                    <span style={{ fontSize: '1.5rem' }}>→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* AI Section */}
+          <section style={{ padding: '120px 24px', background: 'white' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+              <span style={{ display: 'inline-block', background: 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white', padding: '8px 20px', borderRadius: '100px', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px' }}>Powered by Opus 4.5</span>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', letterSpacing: '2px', marginBottom: '16px' }}>AI-Crafted Brand Experiences</h2>
+              <p style={{ color: '#666', maxWidth: '600px', margin: '0 auto 60px', fontSize: '1.1rem' }}>This isn't just a website—it's a demonstration of how AI can understand brand DNA and translate it into authentic digital experiences.</p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+                {[
+                  { icon: '🎨', title: 'Brand-Aware Design', desc: 'AI analyzed official Mattel branding to create visually authentic experiences.' },
+                  { icon: '🎯', title: 'Persona-Driven UX', desc: 'Content tailored to real user personas—from 10-year-old players to adult collectors.' },
+                  { icon: '🔮', title: 'Interactive AI Widgets', desc: 'House rules generators and track builders powered by intelligent suggestions.' }
+                ].map((feature, i) => (
+                  <div key={i} style={{ textAlign: 'center', padding: '40px 30px', background: '#f8f9fa', borderRadius: '20px', transition: 'transform 0.3s, box-shadow 0.3s' }} onMouseOver={e => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.08)'; }} onMouseOut={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
+                    <div style={{ fontSize: '3rem', marginBottom: '20px' }}>{feature.icon}</div>
+                    <h4 style={{ fontSize: '1.2rem', marginBottom: '12px', color: 'var(--mattel-dark)' }}>{feature.title}</h4>
+                    <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.6 }}>{feature.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer style={{ background: 'var(--mattel-dark)', color: 'white', padding: '60px 24px' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', letterSpacing: '2px' }}>MATTEL × AI LAB</span>
+                <p style={{ color: '#888', marginTop: '8px' }}>Empowering Generations Through Play</p>
+              </div>
+              <p style={{ color: '#666', fontSize: '0.9rem' }}>Educational Prototype | Built with Opus 4.5</p>
+            </div>
+          </footer>
+        </div>
+      );
+
+      // UNO House Rules Widget
+      const UnoHouseRulesWidget = () => {
+        const [selectedVibe, setSelectedVibe] = useState(null);
+        const [playerCount, setPlayerCount] = useState('4');
+        const [generatedRule, setGeneratedRule] = useState(null);
+        const [isGenerating, setIsGenerating] = useState(false);
+
+        const vibes = [
+          { id: 'chaos', label: 'Total Chaos', emoji: '🌪️', color: 'var(--uno-red)' },
+          { id: 'speed', label: 'Speed Demon', emoji: '⚡', color: 'var(--uno-yellow)' },
+          { id: 'strategy', label: 'Big Brain', emoji: '🧠', color: 'var(--uno-blue)' },
+          { id: 'family', label: 'Family Fun', emoji: '💚', color: 'var(--uno-green)' },
+        ];
+
+        const ruleDatabase = {
+          chaos: { name: "The Shuffle Storm", rule: "Every time a 7 is played, all players must pass their entire hand to the left. When a 0 is played, everyone swaps with the person across from them.", tip: "Keep your poker face ready." },
+          speed: { name: "Blitz Mode", rule: "No turns. Everyone plays simultaneously. First valid card on the pile wins that round. Collisions = both players draw 1.", tip: "Reflexes > Strategy" },
+          strategy: { name: "The Long Game", rule: "Draw 2s and Wild Draw 4s can be stacked infinitely. The chain only breaks when someone can't add to it. That person draws the total.", tip: "Save your power cards for the endgame." },
+          family: { name: "Helper Hand", rule: "Once per game, you can ask to see another player's hand and give them one piece of advice. They don't have to take it!", tip: "Great for teaching younger players." }
+        };
+
+        const handleGenerate = () => {
+          if (!selectedVibe) return;
+          setIsGenerating(true);
+          setGeneratedRule(null);
+          setTimeout(() => { setGeneratedRule(ruleDatabase[selectedVibe]); setIsGenerating(false); }, 1200);
+        };
+
+        return (
+          <div style={{ background: '#0a0a0a', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)', maxWidth: '500px', margin: '0 auto' }}>
+            <div style={{ background: 'linear-gradient(180deg, #1a1a1a 0%, #111 100%)', padding: '14px 20px', display: 'flex', alignItems: 'center', gap: '12px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--uno-red)' }}></span>
+                <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--uno-yellow)' }}></span>
+                <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--uno-green)' }}></span>
+              </div>
+              <span style={{ flex: 1, fontWeight: 600, color: 'white', fontSize: '0.9rem' }}>AI House Rules Generator</span>
+              <span style={{ background: 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white', fontSize: '0.65rem', fontWeight: 700, padding: '4px 10px', borderRadius: '10px', letterSpacing: '1px' }}>OPUS 4.5</span>
+            </div>
+            <div style={{ padding: '30px' }}>
+              <p style={{ color: '#888', fontSize: '0.95rem', marginBottom: '30px', lineHeight: 1.5 }}>Tell us about your game night, and our AI will craft a custom house rule just for you.</p>
+              <div style={{ marginBottom: '25px' }}>
+                <label style={{ display: 'block', color: 'white', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>How many players?</label>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  {['2', '4', '6', '8+'].map((count) => (
+                    <button key={count} onClick={() => setPlayerCount(count)} style={{ flex: 1, background: playerCount === count ? 'var(--uno-blue)' : '#1a1a1a', border: `2px solid ${playerCount === count ? 'var(--uno-blue)' : '#333'}`, color: playerCount === count ? 'white' : '#888', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '1rem' }}>{count}</button>
+                  ))}
+                </div>
+              </div>
+              <div style={{ marginBottom: '25px' }}>
+                <label style={{ display: 'block', color: 'white', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>What's the vibe?</label>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
+                  {vibes.map((vibe) => (
+                    <button key={vibe.id} onClick={() => setSelectedVibe(vibe.id)} style={{ background: selectedVibe === vibe.id ? 'rgba(255, 255, 255, 0.05)' : '#1a1a1a', border: `2px solid ${selectedVibe === vibe.id ? vibe.color : '#333'}`, padding: '16px', borderRadius: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', boxShadow: selectedVibe === vibe.id ? '0 0 20px rgba(255, 255, 255, 0.1)' : 'none' }}>
+                      <span style={{ fontSize: '1.8rem' }}>{vibe.emoji}</span>
+                      <span style={{ color: selectedVibe === vibe.id ? 'white' : '#aaa', fontSize: '0.85rem', fontWeight: 500 }}>{vibe.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <button onClick={handleGenerate} disabled={!selectedVibe || isGenerating} style={{ width: '100%', background: isGenerating ? '#333' : 'var(--uno-red)', color: 'white', padding: '18px 30px', borderRadius: '14px', fontSize: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginTop: '10px', opacity: !selectedVibe ? 0.5 : 1, cursor: !selectedVibe ? 'not-allowed' : 'pointer' }}>
+                {isGenerating ? <><span style={{ display: 'inline-block', width: '18px', height: '18px', border: '2px solid rgba(255, 255, 255, 0.3)', borderTopColor: 'white', borderRadius: '50%', animation: 'spin 0.8s linear infinite', marginRight: '10px' }}></span>Consulting the deck...</> : 'Generate House Rule'}
+              </button>
+              {generatedRule && (
+                <div className="slide-up" style={{ marginTop: '30px', background: 'linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%)', border: '1px solid #333', borderRadius: '16px', padding: '24px' }}>
+                  <h4 style={{ color: 'var(--uno-yellow)', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 16px 0' }}>{generatedRule.name}</h4>
+                  <p style={{ color: '#ddd', fontSize: '1rem', lineHeight: 1.7, marginBottom: '20px' }}>{generatedRule.rule}</p>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', background: 'rgba(0, 166, 81, 0.1)', borderLeft: '3px solid var(--uno-green)', padding: '12px 16px', borderRadius: '0 10px 10px 0' }}>
+                    <span style={{ fontSize: '1.2rem' }}>💡</span>
+                    <span style={{ color: '#aaa', fontSize: '0.9rem', fontStyle: 'italic' }}>{generatedRule.tip}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div style={{ background: '#0f0f0f', padding: '14px 20px', borderTop: '1px solid rgba(255, 255, 255, 0.05)', textAlign: 'center' }}>
+              <span style={{ color: '#555', fontSize: '0.8rem' }}>✨ This widget demonstrates AI-assisted game design</span>
+            </div>
+          </div>
+        );
+      };
+
+      // UNO Experience Page
+      const UnoExperience = ({ setCurrentPage }) => (
+        <div style={{ background: 'var(--uno-black)', color: 'white', minHeight: '100vh' }}>
+          {/* Hero */}
+          <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '100px 24px' }}>
+            <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', opacity: 0.15 }}>
+              <div style={{ position: 'absolute', width: '120px', height: '180px', borderRadius: '16px', background: 'var(--uno-red)', top: '10%', left: '10%', animation: 'float 8s ease-in-out infinite' }}></div>
+              <div style={{ position: 'absolute', width: '120px', height: '180px', borderRadius: '16px', background: 'var(--uno-blue)', top: '60%', left: '5%', animation: 'float 8s ease-in-out infinite 2s' }}></div>
+              <div style={{ position: 'absolute', width: '120px', height: '180px', borderRadius: '16px', background: 'var(--uno-yellow)', top: '20%', right: '10%', animation: 'float 8s ease-in-out infinite 4s' }}></div>
+              <div style={{ position: 'absolute', width: '120px', height: '180px', borderRadius: '16px', background: 'var(--uno-green)', bottom: '15%', right: '15%', animation: 'float 8s ease-in-out infinite 6s' }}></div>
+            </div>
+            <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '800px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255, 255, 255, 0.1)', padding: '10px 24px', borderRadius: '100px', marginBottom: '40px', fontSize: '0.95rem', color: '#ccc' }}>
+                <span style={{ fontSize: '1.2rem' }}>🃏</span><span>The World's #1 Card Game</span>
+              </div>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 10vw, 6rem)', lineHeight: 0.95, letterSpacing: '3px', marginBottom: '30px' }}>
+                Every Game Night<br/><span style={{ color: '#888', fontSize: '0.5em', letterSpacing: '4px' }}>Deserves to be</span><br/>
+                <span style={{ background: 'linear-gradient(90deg, var(--uno-red), var(--uno-yellow), var(--uno-green), var(--uno-blue))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: '1.5em' }}>WILD</span>
+              </h1>
+              <p style={{ fontSize: '1.25rem', color: '#999', maxWidth: '500px', margin: '0 auto 40px', lineHeight: 1.7 }}>Easy to learn. Impossible to put down. Join millions of players in the ultimate social card game experience.</p>
+              <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <button style={{ background: 'var(--uno-red)', color: 'white', padding: '16px 36px', borderRadius: '100px', fontWeight: 700, fontSize: '1rem' }}>Join the Community</button>
+                <button style={{ background: 'transparent', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', padding: '16px 36px', borderRadius: '100px', fontWeight: 600, fontSize: '1rem' }}>Learn the Rules</button>
+              </div>
+            </div>
+          </section>
+
+          {/* Widget Section */}
+          <section style={{ padding: '100px 24px', background: 'var(--uno-black)' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', letterSpacing: '2px', marginBottom: '16px' }}>Create Your Perfect Game Night</h2>
+                <p style={{ color: '#888', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto' }}>Standard rules are just the beginning. Let our AI help you craft custom house rules that match your group's energy.</p>
+              </div>
+              <UnoHouseRulesWidget />
+            </div>
+          </section>
+        </div>
+      );
+
+      // Hot Wheels Hub Widget
+      const HotWheelsCollectorsHub = () => {
+        const [buildMode, setBuildMode] = useState(null);
+        const [complexity, setComplexity] = useState('medium');
+        const [suggestion, setSuggestion] = useState(null);
+        const [isGenerating, setIsGenerating] = useState(false);
+
+        const modes = [
+          { id: 'stunt', label: 'Epic Stunts', icon: '🔥', desc: 'Loops, jumps, and crashes' },
+          { id: 'race', label: 'Speed Race', icon: '⚡', desc: 'Pure velocity showdown' },
+          { id: 'display', label: 'Collector Display', icon: '🏆', desc: 'Showcase your collection' },
+          { id: 'garage', label: 'Garage Scene', icon: '🔧', desc: 'Custom diorama vibes' },
+        ];
+
+        const suggestionDatabase = {
+          stunt: { name: "Double Trouble Loop", desc: "Two consecutive loops followed by a corkscrew section. The key is maintaining enough momentum through the first loop to complete the second.", tip: "Angle the entry slightly downward for consistent runs." },
+          race: { name: "The Switchback", desc: "6-lane downhill with banked curves. Lanes weave and cross, creating exciting near-misses. Best for 4-6 car races.", tip: "Add slight elevation changes for drama." },
+          display: { name: "The Collector's Grid", desc: "Wall-mounted grid system with modular slots. Each car gets its own illuminated compartment. Expandable as your collection grows.", tip: "Group by series or era for visual storytelling." },
+          garage: { name: "The Pit Stop", desc: "Race day garage with tire racks, fuel station, and crew figures. Captures the energy of a real racing team.", tip: "Use real brand decals for authenticity." }
+        };
+
+        const handleGenerate = () => {
+          if (!buildMode) return;
+          setIsGenerating(true);
+          setSuggestion(null);
+          setTimeout(() => { setSuggestion(suggestionDatabase[buildMode]); setIsGenerating(false); }, 1500);
+        };
+
+        return (
+          <div style={{ background: 'linear-gradient(145deg, var(--hw-navy) 0%, #001530 100%)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)', maxWidth: '550px', margin: '0 auto', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: 0, right: 0, width: '200px', height: '100%', background: 'repeating-linear-gradient(-60deg, transparent, transparent 8px, rgba(255, 107, 0, 0.05) 8px, rgba(255, 107, 0, 0.05) 16px)', pointerEvents: 'none' }}></div>
+            <div style={{ background: 'linear-gradient(90deg, var(--hw-flame) 0%, #ff8c00 100%)', padding: '24px 28px', position: 'relative', clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0 100%)', paddingBottom: '40px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', letterSpacing: '2px', color: 'white', textTransform: 'uppercase', margin: 0 }}>Track & Display Builder</h3>
+                <span style={{ background: 'black', color: 'var(--hw-yellow)', fontSize: '0.7rem', padding: '5px 12px', fontWeight: 'bold', transform: 'skewX(-5deg)', letterSpacing: '1px' }}>AI CONCEPT</span>
+              </div>
+              <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.95rem', margin: 0 }}>Tell us what you want to build, and our AI will design it for you.</p>
+            </div>
+            <div style={{ padding: '30px 28px', position: 'relative', zIndex: 10 }}>
+              <label style={{ display: 'block', color: 'white', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: '14px' }}>What are you building?</label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '28px' }}>
+                {modes.map((mode) => (
+                  <button key={mode.id} onClick={() => setBuildMode(mode.id)} style={{ background: buildMode === mode.id ? 'rgba(255, 107, 0, 0.15)' : 'rgba(255, 255, 255, 0.05)', border: `2px solid ${buildMode === mode.id ? 'var(--hw-flame)' : 'rgba(255, 255, 255, 0.1)'}`, borderRadius: '12px', padding: '18px 14px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '6px', boxShadow: buildMode === mode.id ? '0 0 25px rgba(255, 107, 0, 0.2)' : 'none' }}>
+                    <span style={{ fontSize: '2rem' }}>{mode.icon}</span>
+                    <span style={{ color: 'white', fontWeight: 700, fontSize: '0.95rem' }}>{mode.label}</span>
+                    <span style={{ color: buildMode === mode.id ? '#bbb' : '#888', fontSize: '0.75rem' }}>{mode.desc}</span>
+                  </button>
+                ))}
+              </div>
+              <label style={{ display: 'block', color: 'white', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: '14px' }}>Complexity Level</label>
+              <div style={{ display: 'flex', background: 'rgba(0, 0, 0, 0.3)', borderRadius: '10px', padding: '4px', marginBottom: '20px' }}>
+                {['simple', 'medium', 'complex'].map((level) => (
+                  <button key={level} onClick={() => setComplexity(level)} style={{ flex: 1, background: complexity === level ? 'var(--hw-red)' : 'transparent', color: complexity === level ? 'white' : '#888', padding: '12px', fontWeight: 600, fontSize: '0.9rem', borderRadius: '8px' }}>{level.charAt(0).toUpperCase() + level.slice(1)}</button>
+                ))}
+              </div>
+              <button onClick={handleGenerate} disabled={!buildMode || isGenerating} style={{ width: '100%', background: isGenerating ? '#333' : 'var(--hw-red)', color: 'white', padding: '18px', fontFamily: 'var(--font-display)', fontSize: '1.3rem', letterSpacing: '3px', textTransform: 'uppercase', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', clipPath: 'polygon(3% 0, 100% 0, 97% 100%, 0% 100%)', opacity: !buildMode ? 0.5 : 1 }}>
+                {isGenerating ? <><span style={{ width: '20px', height: '20px', border: '3px solid rgba(255, 255, 255, 0.3)', borderTopColor: 'white', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }}></span>Designing...</> : 'IGNITE CONCEPT'}
+              </button>
+              {suggestion && (
+                <div className="slide-up" style={{ marginTop: '30px', background: 'rgba(0, 0, 0, 0.4)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '12px', padding: '24px' }}>
+                  <h4 style={{ color: 'var(--hw-yellow)', fontFamily: 'var(--font-display)', fontSize: '1.5rem', letterSpacing: '2px', margin: '0 0 12px 0' }}>{suggestion.name}</h4>
+                  <p style={{ color: '#ccc', fontSize: '1rem', lineHeight: 1.7, marginBottom: '16px' }}>{suggestion.desc}</p>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', background: 'rgba(0, 114, 188, 0.15)', borderLeft: '3px solid var(--hw-yellow)', padding: '14px', borderRadius: '0 8px 8px 0' }}>
+                    <span style={{ background: 'var(--hw-yellow)', color: 'black', fontSize: '0.65rem', fontWeight: 800, padding: '4px 8px', borderRadius: '4px', whiteSpace: 'nowrap' }}>PRO TIP</span>
+                    <p style={{ color: '#aaa', fontSize: '0.9rem', margin: 0, lineHeight: 1.5 }}>{suggestion.tip}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div style={{ background: 'rgba(0, 0, 0, 0.3)', padding: '14px 28px', textAlign: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <span style={{ color: '#555', fontSize: '0.8rem' }}>🤖 Powered by AI-assisted design concepts</span>
+            </div>
+          </div>
+        );
+      };
+
+      // Hot Wheels Experience Page
+      const HotWheelsExperience = ({ setCurrentPage }) => (
+        <div style={{ background: '#0a0f1a', color: 'white', minHeight: '100vh' }}>
+          {/* Hero */}
+          <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', padding: '120px 24px', background: 'linear-gradient(135deg, var(--hw-navy) 0%, #001030 100%)' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 50%, rgba(200, 16, 46, 0.15) 0%, transparent 50%)' }}></div>
+            <div style={{ position: 'absolute', top: 0, right: '-200px', width: '600px', height: '100%', background: 'repeating-linear-gradient(-70deg, transparent, transparent 30px, rgba(255, 107, 0, 0.03) 30px, rgba(255, 107, 0, 0.03) 60px)', transform: 'skewX(-15deg)' }}></div>
+            <div style={{ position: 'relative', zIndex: 10, maxWidth: '700px', paddingLeft: '5%' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255, 255, 255, 0.1)', padding: '10px 20px', borderRadius: '100px', marginBottom: '30px', fontSize: '0.9rem', color: '#ccc' }}>
+                <span style={{ fontSize: '1.2rem' }}>🏁</span><span>Since 1968</span>
+              </div>
+              <h1 style={{ fontFamily: 'var(--font-display)', lineHeight: 0.9, marginBottom: '24px' }}>
+                <span style={{ display: 'block', fontSize: 'clamp(4rem, 12vw, 8rem)', letterSpacing: '6px', color: 'white' }}>CHALLENGE</span>
+                <span style={{ display: 'block', fontSize: 'clamp(3rem, 10vw, 6rem)', letterSpacing: '4px', color: 'var(--hw-yellow)', textShadow: '0 0 60px rgba(255, 209, 0, 0.4)' }}>ACCEPTED</span>
+              </h1>
+              <p style={{ fontSize: '1.3rem', color: '#aaa', maxWidth: '500px', lineHeight: 1.7, marginBottom: '40px' }}>Where artistry meets adrenaline. Build epic tracks. Curate legendary collections. Join the chase.</p>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <button style={{ background: 'var(--hw-red)', color: 'white', padding: '18px 40px', fontWeight: 700, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', clipPath: 'polygon(8% 0, 100% 0, 92% 100%, 0% 100%)' }}>Start Collecting</button>
+                <button style={{ background: 'transparent', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', padding: '18px 40px', fontWeight: 600, fontSize: '1rem' }}>Watch Legends Tour</button>
+              </div>
+            </div>
+          </section>
+
+          {/* Builder Widget Section */}
+          <section style={{ padding: '100px 24px', background: '#0a0f1a' }}>
+            <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+                <div>
+                  <span style={{ display: 'inline-block', color: 'var(--hw-flame)', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '12px' }}>AI-POWERED</span>
+                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', letterSpacing: '2px', marginBottom: '20px', color: 'var(--hw-yellow)' }}>Design Your Dream Build</h2>
+                  <p style={{ color: '#888', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '30px' }}>Whether you're planning an epic stunt track or designing the ultimate display shelf, our AI will help you bring it to life.</p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    {['🎯 Custom recommendations', '📦 Parts list included', '💡 Pro tips from collectors'].map((feature, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#aaa' }}>{feature}</div>
+                    ))}
+                  </div>
+                </div>
+                <HotWheelsCollectorsHub />
+              </div>
+            </div>
+          </section>
+        </div>
+      );
+
+      // Main App
+      const App = () => {
+        const [currentPage, setCurrentPage] = useState('landing');
+        useEffect(() => { window.scrollTo(0, 0); }, [currentPage]);
+        return (
+          <div>
+            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            {currentPage === 'landing' && <Landing setCurrentPage={setCurrentPage} />}
+            {currentPage === 'uno' && <UnoExperience setCurrentPage={setCurrentPage} />}
+            {currentPage === 'hotwheels' && <HotWheelsExperience setCurrentPage={setCurrentPage} />}
+          </div>
+        );
+      };
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
   </body>
 </html>
-

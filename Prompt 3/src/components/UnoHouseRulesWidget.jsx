@@ -201,4 +201,3 @@ const UnoHouseRulesWidget = () => {
 };
 
 export default UnoHouseRulesWidget;
-

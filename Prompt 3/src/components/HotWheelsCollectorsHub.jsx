@@ -208,4 +208,3 @@ const HotWheelsCollectorsHub = () => {
 };
 
 export default HotWheelsCollectorsHub;
-
