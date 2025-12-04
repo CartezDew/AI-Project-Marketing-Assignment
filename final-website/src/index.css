@@ -1,0 +1,100 @@
+/* ============================================
+   MATTEL AI BRAND LAB - OPUS EDITION
+   Global Styles & CSS Variables
+   ============================================ */
+
+:root {
+  /* Mattel Parent Brand */
+  --mattel-red: #e4002b;
+  --mattel-white: #ffffff;
+  --mattel-gray: #f5f5f5;
+  --mattel-dark: #1a1a1a;
+  
+  /* UNO Brand Palette */
+  --uno-black: #0d0d0d;
+  --uno-red: #ed1c24;
+  --uno-yellow: #ffed00;
+  --uno-green: #00a651;
+  --uno-blue: #0072bc;
+  --uno-glow: rgba(255, 237, 0, 0.3);
+  
+  /* Hot Wheels Brand Palette */
+  --hw-navy: #002855;
+  --hw-red: #c8102e;
+  --hw-flame: #ff6b00;
+  --hw-chrome: #c0c0c0;
+  --hw-yellow: #ffd100;
+  --hw-track-orange: #ff8c00;
+  
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--mattel-white);
+  color: var(--mattel-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Selection Colors */
+::selection {
+  background: var(--mattel-red);
+  color: white;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
