@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedPrompt, setExpandedPrompt] = useState(null);
+  const [optimizationOpen, setOptimizationOpen] = useState(false);
 
   const prompt1FullText = `⭐ Prompt for Gemini 3 Pro – Build Full Website (Modern, Apple-Level UI)
 
@@ -582,6 +583,57 @@ Create a **landing experience** that:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+### 2.1.1 HERO SECTION – Youthful, Playful, Conference-Style Layout (FOCUS HERE)
+
+Design the global hero to feel like a **modern creative summit landing page**.
+
+**Layout**
+• Use a **two-column CSS grid** for the hero:
+  - Left grid column: headline, subheading, and two primary call-to-action buttons.
+  - Right grid column: a vertical collage of character portraits and colorful shapes/doodles.
+• Full-width hero on a **mostly white background** with pops of color.
+
+**Typography & Copy**
+• Use a bold, expressive headline with mixed weights & sizes, for example:
+  - "Mattel x AI Brand Lab:"
+  - "Unleashing Playful Brand Experiences"
+• Under the headline, add a concise subheading such as:
+  - "Explore how AI reimagines UNO game nights and Hot Wheels collector worlds — all in one playful digital lab."
+
+**Primary CTAs (LEFT SIDE OF THE GRID)**
+• Place the CTAs directly under the subheading, clearly aligned in the left grid column:
+  - Solid primary button: **"Let's Play UNO"**
+  - Secondary / outline button: **"HotWheels Collectors Edition"**
+• Buttons should feel friendly and tappable, with clear hover states.
+
+**Right-Side Visuals (RIGHT SIDE OF THE GRID)**
+• The right grid column should contain 2–3 portrait-style images representing:
+  - A kid or family enjoying UNO.
+  - A teen/young adult in a game-night vibe.
+  - A Hot Wheels fan/collector.
+• Mask these photos in **rounded vertical shapes/ovals** with backgrounds using UNO/Hot Wheels colors (yellow, blue, red, cyan).
+• Add **hand-drawn doodles** around them:
+  - Stars, bursts, scribbles, motion lines, card icons, track curves.
+• The composition should feel **dynamic and youthful**, with slight overlaps and depth.
+
+**Hero Micro-Details**
+• Include a small "Powered with AI-assisted design" tag near the hero or nav.
+• Optionally, add a narrow strip under the hero with either:
+  - A countdown to a fictional "Live AI Brand Lab Demo", or
+  - A stats row: **"2 Iconic Brands • 1 AI Lab • Unlimited Play"**.
+
+**Navigation Bar**
+• Top navigation with:
+  - Mattel x AI Brand Lab logo/wordmark on the left.
+  - Simple nav links in the center (e.g., "Overview", "UNO", "Hot Wheels", "How AI Helps").
+  - A right-side CTA such as "View the Case Study" or "Watch AI in Action".
+
+The hero should instantly feel **fun, optimistic, and youth-friendly**, while clearly showing:
+  - CTAs on the LEFT ("Let's Play UNO" + "HotWheels Collectors Edition")
+  - Portrait images and shapes on the RIGHT of the grid container.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 ### 2.2 UNO Experience (Sub-Brand Microsite)
 
 Once the user chooses UNO:
@@ -773,6 +825,65 @@ Your response should include:
 
 Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, while remaining faithful to Mattel's brand identities and the idea of using AI to power modern branded websites.`;
 
+  const prompt4FullText = `You are a world-class brand UI/UX designer + front-end architect tasked with building a React/Vite web experience for a Mattel x AI Brand Lab.
+
+We are NOT building a generic "AI website."
+We are building a branded digital experience that shows how AI can help Mattel express TWO of its iconic sub-brands in distinct, authentic ways:
+
+• UNO® – the world's most beloved card game, social, fast, playful
+• Hot Wheels® – high-speed play and deep collector culture, full-throttle, bold, imaginative
+
+The site must celebrate Mattel as the parent brand and then split into two clearly different brand experiences: an UNO Player Community and a Hot Wheels Collectors Community.
+
+Important for this iteration:
+Your primary task is to design and implement a NEW global LANDING HERO SECTION that feels youthful, playful, and energetic, similar to a modern creative conference site (big typography on the left, colorful character portraits and shapes on the right, fun doodles, clear CTAs). The rest of the site can be stubbed out.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2.1.1 HERO SECTION – Youthful, Playful, Conference-Style Layout (FOCUS HERE)
+
+Design the global hero to feel like a modern creative summit landing page.
+
+Layout:
+• Use a two-column CSS grid for the hero
+• Left grid column: headline, subheading, and two primary call-to-action buttons
+• Right grid column: a vertical collage of character portraits and colorful shapes/doodles
+• Full-width hero on a mostly white background with pops of color
+
+Typography & Copy:
+• Use a bold, expressive headline with mixed weights & sizes
+• "Mattel x AI Brand Lab:" / "Unleashing Playful Brand Experiences"
+• Under the headline, add a concise subheading
+
+Primary CTAs (LEFT SIDE OF THE GRID):
+• Solid primary button: "Let's Play UNO"
+• Secondary / outline button: "HotWheels Collectors Edition"
+• Buttons should feel friendly and tappable, with clear hover states
+
+Right-Side Visuals (RIGHT SIDE OF THE GRID):
+• Display 2–3 portrait-style images representing:
+  - A kid or family enjoying UNO
+  - A teen/young adult in a game-night vibe
+  - A Hot Wheels fan/collector
+• Mask these photos in rounded vertical shapes/ovals with backgrounds using UNO/Hot Wheels colors
+• Add hand-drawn doodles: Stars, bursts, scribbles, motion lines, card icons, track curves
+
+Hero Micro-Details:
+• Include a small "Powered with AI-assisted design" tag near the hero or nav
+• Add a stats row: "2 Iconic Brands • 1 AI Lab • Unlimited Play"
+
+Navigation Bar:
+• Mattel x AI Brand Lab logo/wordmark on the left
+• Simple nav links in the center (e.g., "Overview", "UNO", "Hot Wheels", "How AI Helps")
+• A right-side CTA such as "View the Case Study"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TECHNICAL REQUIREMENTS:
+• All styling must be in separate .css files (No inline styles, No CSS-in-JS, No Tailwind)
+• Use React Router for routing
+• Make the hero section responsive and visually engaging on both desktop and mobile`;
+
   const prompts = [
     {
       id: 1,
@@ -819,9 +930,26 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
       strengths: ["Most creative design", "Best UX details", "Comprehensive features", "Polished animations"],
       weaknesses: ["Longer generation time", "More complex codebase"],
       color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      isWinner: true,
+      isWinner: false,
       link: "/prompt3/index.html",
       fullPrompt: prompt3FullText
+    },
+    {
+      id: 4,
+      title: "Prompt 4",
+      subtitle: "Conference Hero",
+      llm: "Claude Opus 4.5",
+      platform: "Cursor IDE",
+      thinkTime: "~90 seconds",
+      filesGenerated: 16,
+      linesOfCode: "~3,200",
+      features: ["React 18 + Vite", "Two-column hero grid", "Portrait collage", "Hand-drawn doodles", "Separate CSS"],
+      strengths: ["Modern conference-style design", "Youthful & playful aesthetic", "Clear dual CTAs", "Best hero section"],
+      weaknesses: ["More complex CSS structure", "Longer generation time"],
+      color: "linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%)",
+      isWinner: true,
+      link: "/prompt4/index.html",
+      fullPrompt: prompt4FullText
     }
   ];
 
@@ -1061,6 +1189,81 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
 
   return (
     <div className="app-container">
+      {/* Completed Website Section */}
+      <section className="completed-website-section">
+        <div className="completed-website-content">
+          <h1 className="completed-title">✨ Completed Website</h1>
+          <p className="completed-subtitle">Scroll down to see all prompts used</p>
+          
+          <a href="/prompt3/index.html" className="view-completed-btn">
+            🚀 View Final Website
+          </a>
+          
+          {/* Optimization Accordion */}
+          <div className="optimization-accordion">
+            <div 
+              className={`accordion-header ${optimizationOpen ? 'open' : ''}`}
+              onClick={() => setOptimizationOpen(!optimizationOpen)}
+            >
+              <span className="accordion-title">
+                Optimization <span className="accordion-meta">(Features, Media, Prompts)</span>
+              </span>
+              <span className="accordion-icon">{optimizationOpen ? '−' : '+'}</span>
+            </div>
+            
+            {optimizationOpen && (
+              <div className="accordion-content">
+                <ul className="optimization-list">
+                  <li>
+                    <span className="opt-icon">🎨</span>
+                    <span className="opt-text">Hero images generated with <strong>Google Gemini Imagen 3</strong></span>
+                  </li>
+                  <li>
+                    <span className="opt-icon">🎠</span>
+                    <span className="opt-text"><strong>Infinite carousel</strong> with 5x duplicated cards for seamless looping</span>
+                  </li>
+                  <li>
+                    <span className="opt-icon">🎨</span>
+                    <span className="opt-text"><strong>18 CSS variables</strong> for UNO/Hot Wheels brand colors (--uno-red, --hw-flame, etc.)</span>
+                  </li>
+                  <li>
+                    <span className="opt-icon">✨</span>
+                    <span className="opt-text"><strong>77+ @keyframes animations</strong> including float, wiggle, pulse, and glow effects</span>
+                  </li>
+                  <li>
+                    <span className="opt-icon">🤖</span>
+                    <span className="opt-text"><strong>AI team doodles</strong> with color-cycling stars, spirals, and floating AI icons</span>
+                  </li>
+                  <li>
+                    <span className="opt-icon">🔗</span>
+                    <span className="opt-text"><strong>Dynamic navbar dropdown</strong> with conditional Home/Prompts links</span>
+                  </li>
+                  <li>
+                    <span className="opt-icon">🃏</span>
+                    <span className="opt-text">Brand logos (UNO, Hot Wheels, Mattel) integrated into navigation</span>
+                  </li>
+                  <li>
+                    <span className="opt-icon">👥</span>
+                    <span className="opt-text">Team cards with <strong>individual brand colors</strong> and higher z-index layering</span>
+                  </li>
+                </ul>
+                
+                <div className="prompts-used-section">
+                  <h4 className="prompts-used-title">💬 Sample Prompts Used:</h4>
+                  <ul className="prompts-used-list">
+                    <li>"make the carousel scroll infinite with animation, it should never get to the end because the scroll is looped"</li>
+                    <li>"add star doodles in the section, basically use similar doodles to the hero section"</li>
+                    <li>"replace the ai robot doodle with the ai-icon doodle in the logos folder"</li>
+                    <li>"add light brand colors of purple, red, yellow, orange, blue for team cards with light gradients"</li>
+                    <li>"add an About dropdown that takes users to different sections of the home page"</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Header */}
       <header className="header">
         <div className="header-content">

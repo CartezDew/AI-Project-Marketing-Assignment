@@ -1,0 +1,185 @@
+/* ============================================
+   NAVBAR COMPONENT STYLES
+   Adapts to Landing / UNO / Hot Wheels themes
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.logo-mattel {
+  color: var(--mattel-red);
+}
+
+.logo-divider {
+  opacity: 0.4;
+}
+
+.logo-ai {
+  font-weight: 300;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.link-icon {
+  font-size: 1.1rem;
+}
+
+/* Badge */
+.nav-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.badge-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========== DEFAULT THEME (Landing) ========== */
+.nav-default {
+  background: transparent;
+}
+
+.nav-default.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-default .nav-link {
+  color: var(--mattel-dark);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-default .nav-link:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ========== UNO THEME ========== */
+.nav-uno {
+  background: var(--uno-black);
+  border-bottom: 3px solid var(--uno-red);
+}
+
+.nav-uno .logo-mattel,
+.nav-uno .logo-divider,
+.nav-uno .logo-ai {
+  color: white;
+}
+
+.nav-uno .logo-mattel {
+  color: var(--uno-red);
+}
+
+.nav-uno .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+}
+
+.nav-uno .nav-link:hover,
+.nav-uno .nav-link.active {
+  color: var(--uno-yellow);
+  background: rgba(255, 237, 0, 0.1);
+}
+
+.nav-uno .nav-link-uno.active {
+  background: var(--uno-red);
+  color: white;
+}
+
+/* ========== HOT WHEELS THEME ========== */
+.nav-hw {
+  background: linear-gradient(90deg, var(--hw-navy) 0%, #001a3d 100%);
+  border-bottom: 3px solid var(--hw-flame);
+}
+
+.nav-hw .logo-mattel,
+.nav-hw .logo-divider,
+.nav-hw .logo-ai {
+  color: white;
+}
+
+.nav-hw .logo-mattel {
+  color: var(--hw-flame);
+}
+
+.nav-hw .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+}
+
+.nav-hw .nav-link:hover,
+.nav-hw .nav-link.active {
+  color: var(--hw-yellow);
+}
+
+.nav-hw .nav-link-hw.active {
+  background: var(--hw-red);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-badge {
+    display: none;
+  }
+  
+  .nav-link {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .link-icon {
+    display: none;
+  }
+}
+
