@@ -33,7 +33,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 6px;
+  height: 4px;
   display: flex;
   z-index: 100;
 }
@@ -47,11 +47,11 @@
   transform: scaleY(1.5);
 }
 
-.fwh-accent-red { background: var(--fwh-red); }
-.fwh-accent-orange { background: var(--fwh-orange); }
-.fwh-accent-yellow { background: var(--fwh-yellow); }
-.fwh-accent-green { background: var(--fwh-green); }
-.fwh-accent-blue { background: var(--fwh-blue); }
+.fwh-accent-red { background: var(--fwh-red); opacity: .4; }
+.fwh-accent-orange { background: var(--fwh-orange); opacity: .4; }
+.fwh-accent-yellow { background: var(--fwh-yellow); opacity: .4; }
+.fwh-accent-green { background: var(--fwh-green); opacity: .4; }
+.fwh-accent-blue { background: var(--fwh-blue); opacity: .4; }
 
 /* Background Pattern - Subtle dots */
 .fwh-bg-pattern {
@@ -336,6 +336,8 @@
   font-weight: bold;
   margin: 0 2px;
   animation: fwh-blink 1s ease-in-out infinite;
+  align-self: flex-start;
+  margin-top: -15px; /* Position to align with center of numbers (2.8rem / 2 - 2.5rem / 2) */
 }
 
 @keyframes fwh-blink {
@@ -404,13 +406,13 @@
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .fwh-pill {
   position: relative;
-  width: 190px;
   height: 300px;
+  width: 200px;
   border-radius: 100px;
   overflow: visible;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -495,10 +497,10 @@
 /* Pill Images */
 .fwh-pill-image {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 15px);
+  height: calc(100% - 15px);
   object-fit: cover;
   object-position: center top;
   border-radius: 90px;
@@ -507,6 +509,11 @@
 
 .fwh-pill:hover .fwh-pill-image {
   transform: scale(1.05);
+}
+
+/* Hot Wheels pill - shift image left to show the girl */
+.fwh-pill-red .fwh-pill-image {
+  object-position: -210px center;
 }
 
 /* Pill Labels */

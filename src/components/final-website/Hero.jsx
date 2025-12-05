@@ -151,7 +151,7 @@ const Hero = () => {
 
           {/* Countdown Timer - Playful addition */}
           <div className="fwh-countdown">
-            <div className="fwh-countdown-label">Next Community Event</div>
+            <div className="fwh-countdown-label">Next UNO Community Meetup</div>
             <div className="fwh-countdown-timer">
               <div className="fwh-countdown-block">
                 <span className="fwh-countdown-number">{String(timeLeft.days).padStart(2, '0')}</span>

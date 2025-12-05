@@ -9,7 +9,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 78px; /* Increased to accommodate bottom border */
+  /* height: 78px; Increased to accommodate bottom border */
   display: flex;
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -106,7 +106,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 6px;
+  height: 4px;
   display: flex;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
