@@ -7,6 +7,203 @@ function PromptsPage() {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedPrompt, setExpandedPrompt] = useState(null);
   const [finalWebsiteAccordionOpen, setFinalWebsiteAccordionOpen] = useState(false);
+  const [expandedEnhancement, setExpandedEnhancement] = useState(null);
+
+  const aiEnhancements = [
+    {
+      id: 1,
+      title: "Hero Section Imagery (Lifestyle AI Images)",
+      model: "Google Gemini Imagen 3",
+      type: "🎨 AI Images",
+      description: "Custom hero illustrations showcasing Mattel brands and community play.",
+      prompt: `"Generate 3 lifestyle images for a Mattel brand website:
+
+(1) A diverse group playing UNO at game night—warm, fun atmosphere.
+(2) Parent + child racing Hot Wheels cars on an orange track—colorful, vibrant.
+(3) A family enjoying board games in a modern living room—authentic and joyful.
+
+Style: photorealistic, warm, inclusive, brand-aligned."`,
+      challenge: "Gemini Imagen 3 struggled with consistent brand colors and sometimes generated images with incorrect product representations. Multiple iterations were needed to get usable results. The model also had difficulty with text on UNO cards and Hot Wheels logos appearing correctly."
+    },
+    {
+      id: 2,
+      title: "Team Headshot Backgrounds (Brand Gradient Visuals)",
+      model: "Google Gemini Imagen 3",
+      type: "🎨 AI Images",
+      description: "Professional headshot backgrounds using Mattel's signature color energy.",
+      prompt: `"Create professional headshot backgrounds using subtle Mattel-inspired gradients in red, yellow, blue, and orange. Clean, modern, corporate-friendly with soft glow lighting."`,
+      challenge: "Image generation was inconsistent—some outputs were too vibrant and overpowering for headshot backgrounds. Required multiple regenerations to achieve the right balance of subtle gradients without distracting from the subject."
+    },
+    {
+      id: 3,
+      title: "Core Website Feature Enhancements",
+      model: "Claude Opus 4.5",
+      type: "⚡ Features",
+      description: "UI/UX redesign, interactivity, component-level upgrades.",
+      prompt: `"Enhance the website with:
+
+• Playful hero section (doodles, countdown timer, image pills)
+• Updated Mattel Overview with stats + brand highlights
+• Separate UNO + Hot Wheels mini-experiences
+• Auto-scrolling 'What We're Creating' carousel
+• Team Section with animated doodles + newsletter signup
+• Interactive brand selection cards
+
+Use youthful Mattel colors: red, yellow, blue, green, orange."`
+    },
+    {
+      id: 4,
+      title: "Hero Section UI/UX Improvements",
+      model: "Claude Opus 4.5",
+      type: "🎨 Design",
+      description: "Senior web developer approach to make the hero section more playful, youthful, and visually appealing while keeping the same layout.",
+      prompt: `"You are a senior web developer with extensive experience in UI and UX design for front-end websites. Help me improve the hero section of the final website to make it more playful, youthful, engaging, and visually appealing.
+
+I like this image I've uploaded (Design Hub conference site), but I don't want to change the content on the hero section, just the design. I also want to keep the same layout it currently has with the hero content in the top center, and the hero images below. But add more flare and creativity to the webpage.
+
+This is a family games and collectors website, so keep it fun and youthful. Ideal colors are yellow, red, black, green, blue, orange. Be intentional with your use of the colors not to overwhelm the users."`,
+      outputs: [
+        "Colorful top accent bar (red, orange, yellow, green, blue)",
+        "Playful SVG doodles (stars, loops, squiggles, arrows)",
+        "Animated countdown timer for community events",
+        "Image pills with hover effects and labels",
+        "Hand-drawn underline effects on key words"
+      ]
+    },
+    {
+      id: 5,
+      title: "Mattel Overview Section",
+      model: "Claude Opus 4.5",
+      type: "📝 Content",
+      description: "New section explaining Mattel's brand history and highlights with creative, unique design styling.",
+      prompt: `"You are a senior web developer. Add a section for Mattel explaining the brand and its history. You have full permission to be creative and use your own unique design style for the new section. Add a component called Overview and its own CSS file. This is for the final website page only."`,
+      outputs: [
+        "Brand marquee with iconic Mattel brands",
+        "6 highlight cards (Global Leadership, Iconic Brands, Innovation, Entertainment, Sustainability, Community)",
+        "Hot Wheels spotlight section with stats (1968, 6B+ cars, 20K+ models)",
+        "UNO spotlight section with live deck counter (17 decks sold/minute)",
+        "Colorful stat tiles and animated elements"
+      ]
+    },
+    {
+      id: 6,
+      title: "Brand Identity Expansion: UNO & Hot Wheels",
+      model: "ChatGPT 5.1 (OpenAI)",
+      type: "🔍 Research",
+      description: "Ensure the site reflects true brand identity, not generic AI styling.",
+      prompt: `"Do a deep dive into official UNO and Hot Wheels branding across websites, marketing, product pages, and collector communities. Extract tone, colors, taglines, messaging, and user experiences. Use this to guide the design of two unique brand experiences—not generic AI designs."`,
+      outputs: [
+        "UNO page tone (social, competitive, community-driven)",
+        "Hot Wheels page tone (speed, collectors, customization, showcasing builds)",
+        "Color palettes, micro-cues, typographic energy"
+      ]
+    },
+    {
+      id: 7,
+      title: "Section Title & Subtitle Improvements",
+      model: "ChatGPT 5.1",
+      type: "✏️ Copy",
+      description: "Multiple upgrades for subtitles, headers, and brand storytelling.",
+      prompts: [
+        {
+          prompt: `"Improve the 'Our Brands' subtitle — make it playful, nostalgic, aligned with Mattel's mission."`,
+          output: `"Where nostalgia, innovation, and AI collide to elevate Mattel's most iconic brands."`
+        },
+        {
+          prompt: `"Revise 'Who We're Designing For' to be more engaging."`,
+          output: `"Who We're Creating For — Designing experiences that bring communities together."`
+        },
+        {
+          prompt: `"Create an event header describing community UNO games with rotating dates."`,
+          output: "Output themed around community-hosted UNO Nights."
+        }
+      ]
+    },
+    {
+      id: 8,
+      title: "Team Leadership Titles (Website Roles)",
+      model: "ChatGPT 5.1",
+      type: "👔 Branding",
+      description: "Professional C-suite style titles for team members.",
+      prompt: `"Assign leadership titles like CMO, Chief Data Architect, etc., based on each team member's contribution."`,
+      outputs: ["CSO", "CAIO", "CCO", "CCMO", "CDEO"]
+    },
+    {
+      id: 9,
+      title: "Content Section: 'What We're Creating'",
+      model: "ChatGPT 5.1",
+      type: "📝 Content",
+      description: "Community + AI Play Experiences section.",
+      prompt: `"Help me create a section telling users what we are creating using AI and community, bringing everything into one experience across UNO + Hot Wheels."`,
+      outputs: [
+        "A unified 'A New Way to Play & Create' section",
+        "Hot Wheels custom car design + collector energy",
+        "UNO rule variations + community play",
+        "Emojis, playful separators, micro-animations",
+        "Countdown timer integration"
+      ]
+    },
+    {
+      id: 10,
+      title: "Header Pill Replacement Concepts (Navigation)",
+      model: "ChatGPT 5.1",
+      type: "🧭 Navigation",
+      description: "Ideas to replace navigation labels with brand-aligned options.",
+      prompt: `"Give ideas to replace 'Family Hub' with something brand-aligned for Games & Collectibles."`,
+      outputs: ["Play Studio", "Community Events", "Creator Lab", "Collector Zone", "Game Night Center"]
+    },
+    {
+      id: 11,
+      title: "Event Header Naming",
+      model: "ChatGPT 5.1",
+      type: "🎯 Naming",
+      description: "Community event naming for UNO experiences.",
+      prompt: `"What can I name the event header? I want to say UNO games hosted in local communities."`,
+      outputs: ["UNO Community Game Nights", "Local UNO Meetups", "Upcoming UNO Events"]
+    },
+    {
+      id: 12,
+      title: "Technical Fixes & Development Support",
+      model: "ChatGPT 5.1",
+      type: "🔧 Dev Support",
+      description: "Cursor, Vite, Git, and dev-server troubleshooting.",
+      prompts: [
+        { prompt: `"Why is Cursor formatting my CSS this way?"` },
+        { prompt: `"Why do I see a build folder now?"` },
+        { prompt: `"Why isn't my CSS updating in dev tools?"` },
+        { prompt: `"How do I hide build folders?"` },
+        { prompt: `"How to stash changes and switch branches?"` },
+        { prompt: `"How to discard changes and move branches safely?"` }
+      ],
+      note: "Resulted in improved workflow instructions, Git cleanup, and local dev troubleshooting."
+    },
+    {
+      id: 13,
+      title: "Team Presentation Structure Prompts",
+      model: "ChatGPT 5.1",
+      type: "📊 Presentation",
+      description: "Group presentation content and structure.",
+      outputs: ["Assigning sections", "Speaking durations", "Role descriptions", "Narrative alignment"],
+      note: "Both website and class deliverables benefited from these."
+    },
+    {
+      id: 14,
+      title: "Additional Creative Content Prompts",
+      model: "ChatGPT 5.1",
+      type: "✨ Creative",
+      description: "Various improvements to headers, taglines, CTAs, and microcopy.",
+      outputs: [
+        "Section headers",
+        "Taglines",
+        "CTA structure",
+        "Brand identity microcopy",
+        "Accordion formatting",
+        "Professional tone refinement",
+        "Tone alignment with Mattel, UNO, Hot Wheels"
+      ],
+      note: "All powered primarily by ChatGPT 5.1."
+    }
+  ];
 
   const prompt1FullText = `⭐ Prompt for Gemini 3 Pro – Build Full Website (Modern, Apple-Level UI)
 
@@ -1084,6 +1281,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
           </div>
           <h1 className="final-title">Mattel x AI Brand Lab</h1>
           <p className="final-subtitle">The completed website combining all prompt iterations with enhanced features</p>
+          <p className="final-scroll-hint">*scroll down to view prompts</p>
           
           <Link to="/final-website" className="final-website-btn">
             🚀 View Final Website
@@ -1096,46 +1294,118 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
               onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
             >
               <span className="accordion-title">
-                Improvements & Features <span className="accordion-meta">(AI Images, Features)</span>
+                AI Enhancements & Feature Build-Out <span className="accordion-meta">(14 Items)</span>
               </span>
               <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
             </div>
             
             {finalWebsiteAccordionOpen && (
               <div className="final-accordion-content">
-                <div className="improvements-grid">
-                  <div className="improvement-category">
-                    <h4>🎨 AI Generated Images</h4>
-                    <ul>
-                      <li>Hero section images created with Google Gemini Imagen 3</li>
-                      <li>Team headshot backgrounds and styling</li>
-                      <li>Brand-specific visual assets</li>
-                    </ul>
-                  </div>
-                  <div className="improvement-category">
-                    <h4>⚡ Features</h4>
-                    <ul>
-                      <li>Responsive navigation with brand theming</li>
-                      <li>Interactive brand selection cards</li>
-                      <li>UNO House Rules Generator widget</li>
-                      <li>Hot Wheels Collectors Hub</li>
-                      <li>AI-powered section explanations</li>
-                    </ul>
-                  </div>
+                <div className="accordion-intro">
+                  <h4 className="accordion-section-title">⭐ AI Enhancements & Feature Build-Out</h4>
+                  <p className="accordion-description">A consolidated record of all AI models, prompts, and feature upgrades applied throughout the website creation process.</p>
                 </div>
                 
-                <div className="final-meta">
-                  <div className="meta-item">
-                    <span className="meta-label">LLM:</span>
-                    <span className="meta-value">Google Gemini 3 Pro</span>
-                  </div>
-                  <div className="meta-item">
-                    <span className="meta-label">IDE:</span>
-                    <span className="meta-value">Google AI Studio</span>
-                  </div>
-                  <div className="meta-item">
-                    <span className="meta-label">Framework:</span>
-                    <span className="meta-value">Nano Banana</span>
+                {/* Expandable Enhancement Items */}
+                <div className="enhancements-list">
+                  {aiEnhancements.map((item) => (
+                    <div key={item.id} className={`enhancement-item ${expandedEnhancement === item.id ? 'expanded' : ''}`}>
+                      <div 
+                        className="enhancement-header"
+                        onClick={() => setExpandedEnhancement(expandedEnhancement === item.id ? null : item.id)}
+                      >
+                        <div className="enhancement-header-left">
+                          <span className="enhancement-number">{item.id}</span>
+                          <div className="enhancement-title-group">
+                            <h5 className="enhancement-title">{item.title}</h5>
+                            <div className="enhancement-tags">
+                              <span className="etag etag-model">🤖 {item.model}</span>
+                              <span className="etag etag-type">{item.type}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <span className="enhancement-toggle">{expandedEnhancement === item.id ? '−' : '+'}</span>
+                      </div>
+                      
+                      {expandedEnhancement === item.id && (
+                        <div className="enhancement-content">
+                          <p className="enhancement-desc">{item.description}</p>
+                          
+                          {item.prompt && (
+                            <div className="enhancement-prompt-block">
+                              <span className="prompt-label">Prompt Used:</span>
+                              <code className="prompt-code-block">{item.prompt}</code>
+                            </div>
+                          )}
+                          
+                          {item.prompts && (
+                            <div className="enhancement-prompts-list">
+                              {item.prompts.map((p, idx) => (
+                                <div key={idx} className="multi-prompt-item">
+                                  <span className="prompt-label">Prompt {idx + 1}:</span>
+                                  <code className="prompt-code-block">{p.prompt}</code>
+                                  {p.output && (
+                                    <div className="prompt-output">
+                                      <span className="output-label">Output:</span>
+                                      <span className="output-text">{p.output}</span>
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                          
+                          {item.outputs && (
+                            <div className="enhancement-outputs">
+                              <span className="outputs-label">Outputs:</span>
+                              <ul className="outputs-list">
+                                {item.outputs.map((output, idx) => (
+                                  <li key={idx}>{output}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          
+                          {item.challenge && (
+                            <div className="enhancement-challenge">
+                              <span className="challenge-label">⚠️ Challenge:</span>
+                              <p className="challenge-text">{item.challenge}</p>
+                            </div>
+                          )}
+                          
+                          {item.note && (
+                            <p className="enhancement-note">💡 {item.note}</p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Tools & Models Summary */}
+                <div className="tools-summary">
+                  <h5 className="tools-title">⭐ Tools & Models Used</h5>
+                  <div className="tools-grid">
+                    <div className="tool-row">
+                      <span className="tool-purpose">Website content, branding, UX writing</span>
+                      <span className="tool-name">ChatGPT 5.1</span>
+                    </div>
+                    <div className="tool-row">
+                      <span className="tool-purpose">Image generation (Hero, Headshots)</span>
+                      <span className="tool-name">Google Gemini Imagen 3</span>
+                    </div>
+                    <div className="tool-row">
+                      <span className="tool-purpose">Feature enhancements, components</span>
+                      <span className="tool-name">Claude Opus 4.5</span>
+                    </div>
+                    <div className="tool-row">
+                      <span className="tool-purpose">Development environment</span>
+                      <span className="tool-name">Cursor IDE & Google AI Studio</span>
+                    </div>
+                    <div className="tool-row">
+                      <span className="tool-purpose">Framework</span>
+                      <span className="tool-name">Vite + React</span>
+                    </div>
                   </div>
                 </div>
               </div>
