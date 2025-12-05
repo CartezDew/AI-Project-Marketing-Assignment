@@ -14,6 +14,7 @@ import aiIcon from '../../assets/icons/ai-icon.webp';
 const TeamSection = () => {
   const [email, setEmail] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [expandedCard, setExpandedCard] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +28,10 @@ const TeamSection = () => {
     setShowModal(false);
   };
 
+  const toggleCard = (id) => {
+    setExpandedCard(expandedCard === id ? null : id);
+  };
+
   const teamMembers = [
     {
       id: 1,
@@ -34,7 +39,12 @@ const TeamSection = () => {
       role: "Chief Strategy Officer",
       abbr: "CSO",
       image: akendaiImg,
-      color: "#C8102E"
+      color: "#C8102E",
+      contributions: [
+        "Led AI ideation and early content brainstorming",
+        "Shaped the strategic direction for website narratives",
+        "Supported full-content drafting across all sections"
+      ]
     },
     {
       id: 2,
@@ -42,7 +52,12 @@ const TeamSection = () => {
       role: "Chief Audience & Insights Officer",
       abbr: "CAIO",
       image: kethelyImg,
-      color: "#0057B8"
+      color: "#0057B8",
+      contributions: [
+        "Conducted audience research and created detailed persona profiles",
+        "Grounded the website content in real user needs",
+        "Informed content tone, messaging, and brand alignment"
+      ]
     },
     {
       id: 3,
@@ -50,7 +65,12 @@ const TeamSection = () => {
       role: "Chief Content Officer",
       abbr: "CCO",
       image: camilaImg,
-      color: "#FFD53D"
+      color: "#FFD53D",
+      contributions: [
+        "Developed the AI-driven content outline and CTAs",
+        "Structured narrative flow for brand, hero, and feature sections",
+        "Collaborated on full content drafting with the team"
+      ]
     },
     {
       id: 4,
@@ -58,7 +78,12 @@ const TeamSection = () => {
       role: "Chief Creative & Media Officer",
       abbr: "CCMO",
       image: lesleyImg,
-      color: "#00A651"
+      color: "#00A651",
+      contributions: [
+        "Led all AI editing and content refinement",
+        "Edited and assembled the full team presentation",
+        "Ensured brand consistency and storytelling clarity across sections"
+      ]
     },
     {
       id: 5,
@@ -66,7 +91,12 @@ const TeamSection = () => {
       role: "Chief Digital Experience Officer",
       abbr: "CDXO",
       image: cartezImg,
-      color: "#FF6B00"
+      color: "#FF6B00",
+      contributions: [
+        "Created all core AI prompts for content, visuals, and features",
+        "Built and optimized the complete website (UI/UX, SEO, accessibility)",
+        "Delivered the Optimization Report and integrated advanced components"
+      ]
     }
   ];
 
@@ -162,7 +192,10 @@ const TeamSection = () => {
       {/* Team Cards Grid */}
       <div className="team-grid">
         {teamMembers.map((member) => (
-          <div key={member.id} className="team-card">
+          <div 
+            key={member.id} 
+            className={`team-card ${expandedCard === member.id ? 'showing-contrib' : ''}`}
+          >
             <div 
               className="team-card-accent" 
               style={{ background: member.color }}
@@ -179,10 +212,58 @@ const TeamSection = () => {
               >
                 {member.abbr}
               </div>
+              
+              {/* Contributions Overlay - Inside Image Container */}
+              <div 
+                className={`team-contrib-overlay ${expandedCard === member.id ? 'visible' : ''}`}
+                style={{ '--overlay-color': member.color }}
+              >
+                <button 
+                  className="contrib-close-btn"
+                  onClick={() => toggleCard(member.id)}
+                  aria-label="Close contributions"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+                <div className="contrib-content">
+                  <span className="contrib-label">Key Contributions</span>
+                  <ul className="contrib-list">
+                    {member.contributions.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
             <div className="team-card-info">
               <h3 className="team-card-name">{member.name}</h3>
               <p className="team-card-role">{member.role}</p>
+              
+              {/* Toggle Button */}
+              <button 
+                className="team-card-toggle"
+                onClick={() => toggleCard(member.id)}
+                style={{ '--toggle-color': member.color }}
+                aria-label={expandedCard === member.id ? "Hide contributions" : "Show contributions"}
+              >
+                <span className="toggle-text">
+                  {expandedCard === member.id ? 'Hide' : 'Contributions'}
+                </span>
+                <svg 
+                  className={`toggle-arrow ${expandedCard === member.id ? 'up' : 'down'}`}
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2.5"
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
         ))}
