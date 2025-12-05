@@ -1,8 +1,11 @@
 import React from 'react';
 import UnoHouseRulesWidget from '../../components/final-website/UnoHouseRulesWidget';
+import { useLanguage } from '../../context/LanguageContext';
 import './UnoExperience.css';
 
 const FinalWebsiteUnoExperience = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="uno-experience">
       {/* Hero Section */}
@@ -17,25 +20,24 @@ const FinalWebsiteUnoExperience = () => {
         <div className="uno-hero-content">
           <div className="uno-hero-eyebrow">
             <span className="uno-eyebrow-icon">🃏</span>
-            <span>The World's #1 Card Game</span>
+            <span>{t('uno.worldsNo1')}</span>
           </div>
           
           <h1 className="uno-hero-title">
-            Every Game Night
+            {t('uno.everyGameNight')}
             <br />
-            <span className="uno-title-accent">Deserves to be</span>
+            <span className="uno-title-accent">{t('uno.deservesToBe')}</span>
             <br />
-            <span className="uno-title-wild">WILD</span>
+            <span className="uno-title-wild">{t('uno.wild')}</span>
           </h1>
           
           <p className="uno-hero-desc">
-            Easy to learn. Impossible to put down. Join millions of players 
-            in the ultimate social card game experience.
+            {t('uno.heroDesc')}
           </p>
           
           <div className="uno-hero-ctas">
-            <button className="uno-cta-primary">Join the Community</button>
-            <button className="uno-cta-secondary">Learn the Rules</button>
+            <button className="uno-cta-primary">{t('uno.joinCommunity')}</button>
+            <button className="uno-cta-secondary">{t('uno.learnRules')}</button>
           </div>
         </div>
       </section>
@@ -75,10 +77,9 @@ const FinalWebsiteUnoExperience = () => {
       <section className="uno-section uno-section-widget">
         <div className="uno-section-container">
           <div className="uno-widget-intro">
-            <h2>Create Your Perfect Game Night</h2>
+            <h2>{t('uno.createPerfect')}</h2>
             <p>
-              Standard rules are just the beginning. Let our AI help you craft 
-              custom house rules that match your group's energy.
+              {t('uno.standardRules')}
             </p>
           </div>
           
@@ -142,9 +143,9 @@ const FinalWebsiteUnoExperience = () => {
       <section className="uno-section uno-section-cta">
         <div className="uno-section-container">
           <div className="uno-cta-card">
-            <h2>Ready to Play?</h2>
-            <p>Join the UNO community and never have a boring game night again.</p>
-            <button className="uno-cta-button">Get Started</button>
+            <h2>{t('uno.readyToPlay')}</h2>
+            <p>{t('uno.joinUnoComm')}</p>
+            <button className="uno-cta-button">{t('uno.getStarted')}</button>
           </div>
         </div>
       </section>

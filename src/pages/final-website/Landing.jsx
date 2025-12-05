@@ -4,6 +4,7 @@ import Hero from '../../components/final-website/Hero';
 import Overview from '../../components/final-website/Overview';
 import WhatWereCreating from '../../components/final-website/WhatWereCreating';
 import TeamSection from '../../components/final-website/TeamSection';
+import { useLanguage } from '../../context/LanguageContext';
 import './Landing.css';
 
 // Import logos and icons
@@ -14,6 +15,8 @@ import unoCardIcon from '../../assets/icons/Uno-card.webp';
 import aiIcon from '../../assets/icons/ai-icon.webp';
 
 const FinalWebsiteLanding = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="landing-page">
       {/* New Conference-Style Hero Section */}
@@ -38,9 +41,9 @@ const FinalWebsiteLanding = () => {
         </div>
 
         <div className="landing-selection-header">
-          <span className="landing-sel-badge">Pick Your Adventure</span>
-          <h2>Choose Your <span className="landing-sel-highlight">Experience</span></h2>
-          <p>Each brand has its own universe. Which one calls to you?</p>
+          <span className="landing-sel-badge">{t('brandSelection.pickAdventure')}</span>
+          <h2>{t('brandSelection.chooseExperience')} <span className="landing-sel-highlight">{t('brandSelection.experience')}</span></h2>
+          <p>{t('brandSelection.eachBrand')}</p>
         </div>
 
         <div className="landing-brand-cards">
@@ -49,10 +52,10 @@ const FinalWebsiteLanding = () => {
             <div className="landing-card-glow"></div>
             <div className="landing-card-inner">
               <img src={unoLogo} alt="UNO Logo" className="landing-card-logo" />
-              <p className="landing-card-tagline">The World's #1 Card Game</p>
+              <p className="landing-card-tagline">{t('brandSelection.worldsNo1Card')}</p>
               <span className="landing-card-cta landing-cta-uno">
                 <img src={unoCardIcon} alt="" className="landing-cta-icon-img" />
-                Let's Play
+                {t('brandSelection.letsPlay')}
                 <span className="landing-cta-sparkle">✨</span>
               </span>
             </div>
@@ -63,9 +66,9 @@ const FinalWebsiteLanding = () => {
             <div className="landing-card-glow"></div>
             <div className="landing-card-inner">
               <img src={hotwheelsLogo} alt="Hot Wheels Logo" className="landing-card-logo landing-hw-logo" />
-              <p className="landing-card-tagline">Challenge Accepted</p>
+              <p className="landing-card-tagline">{t('brandSelection.challengeAccepted')}</p>
               <span className="landing-card-cta landing-cta-hw">
-                Start Your Engines
+                {t('brandSelection.startEngines')}
                 <span className="landing-cta-arrow">→</span>
               </span>
             </div>
@@ -74,13 +77,13 @@ const FinalWebsiteLanding = () => {
 
         {/* Bottom Accent */}
         <div className="landing-sel-bottom-accent">
-          <span>PLAY</span>
+          <span>{t('brandSelection.play')}</span>
           <span>•</span>
-          <span>COLLECT</span>
+          <span>{t('brandSelection.collect')}</span>
           <span>•</span>
-          <span>CREATE</span>
+          <span>{t('brandSelection.create')}</span>
           <span>•</span>
-          <span>SHARE</span>
+          <span>{t('brandSelection.share')}</span>
         </div>
       </section>
 
@@ -94,11 +97,11 @@ const FinalWebsiteLanding = () => {
       <footer className="landing-footer">
         <div className="landing-footer-content">
           <div className="landing-footer-brand">
-            <span className="landing-footer-logo">MATTEL × AI LAB</span>
-            <p>Empowering Generations Through Play</p>
+            <span className="landing-footer-logo">{t('footer.mattelAiLab')}</span>
+            <p>{t('footer.empowering')}</p>
           </div>
           <div className="landing-footer-note">
-            <p>Educational Prototype | Built with Opus 4.5</p>
+            <p>{t('footer.educationalPrototype')}</p>
           </div>
         </div>
       </footer>

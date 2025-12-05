@@ -5,11 +5,15 @@ import './Navbar.css';
 import mattelLogo from '../../assets/logos/Mattel_logo.svg.png';
 import unoLogo from '../../assets/logos/Uno_logo.webp';
 import hotwheelsLogo from '../../assets/logos/hotwheels_logo.png';
+import LanguageDropdown from './LanguageDropdown';
+import { useLanguage } from '../../context/LanguageContext';
+import './LanguageDropdown.css';
 
 const FinalWebsiteNavbar = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { t } = useLanguage();
   
   const isLanding = location.pathname === '/final-website';
   const isUno = location.pathname === '/final-website/uno';
@@ -36,6 +40,11 @@ const FinalWebsiteNavbar = () => {
         
         {/* Right Side Navigation */}
         <div className="fnav-right-group">
+          {/* Language Dropdown */}
+          <LanguageDropdown />
+
+          <span className="fnav-divider">|</span>
+
           {/* About Dropdown */}
           <div className="fnav-dropdown-container">
             <button 
@@ -43,18 +52,18 @@ const FinalWebsiteNavbar = () => {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
             >
-              About <ChevronDown size={16} />
+              {t('nav.about')} <ChevronDown size={16} />
             </button>
             
             <div className={`fnav-dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
               <Link to="/" className="fnav-dropdown-item">
-                <Home size={16} /> Back to Prompts
+                <Home size={16} /> {t('nav.backToPrompts')}
               </Link>
               <a href="#team" className="fnav-dropdown-item">
-                <Users size={16} /> Team
+                <Users size={16} /> {t('nav.team')}
               </a>
               <a href="#overview" className="fnav-dropdown-item">
-                <BookOpen size={16} /> Overview
+                <BookOpen size={16} /> {t('nav.overview')}
               </a>
             </div>
           </div>

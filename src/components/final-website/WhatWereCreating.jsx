@@ -13,90 +13,147 @@ import {
   Star,
   UsersRound,
   Dices,
-  Newspaper
+  Newspaper,
+  Languages,
+  Palette,
+  Smartphone,
+  Shield,
+  MessageCircle,
+  TrendingUp
 } from 'lucide-react';
 import './WhatWereCreating.css';
 
 // Import AI icon
 import aiIconImg from '../../assets/icons/ai-icon.webp';
+import { useLanguage } from '../../context/LanguageContext';
 
 const WhatWereCreating = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef(null);
+  const { t } = useLanguage();
 
   const features = [
     {
       id: 1,
       icon: <Dices size={32} strokeWidth={2.5} />,
-      title: "Two Worlds, One Destination",
-      description: "Explore the joy of UNO game nights and the thrill of Hot Wheels collecting side-by-side—each with its own identity, personality, and community energy.",
+      title: t('whatWereCreating.feature1Title'),
+      description: t('whatWereCreating.feature1Desc'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #C8102E 0%, #E63946 100%)"
     },
     {
       id: 2,
       icon: <Globe2 size={32} strokeWidth={2.5} />,
-      title: "Global Community Voices",
-      description: "Discover how people around the world play, collect, and create. Learn UNO house rules from different cultures. Connect with Hot Wheels fans sharing track builds and rare finds.",
+      title: t('whatWereCreating.feature2Title'),
+      description: t('whatWereCreating.feature2Desc'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #0057B8 0%, #4A8CFF 100%)"
     },
     {
       id: 3,
       icon: "ai-image",
-      title: "Intelligent Experiences",
-      description: "AI helps spark creativity: Get new UNO rule variations based on how you like to play. Explore Hot Wheels concepts, track inspirations, and collector content tailored to you.",
+      title: t('whatWereCreating.feature3Title'),
+      description: t('whatWereCreating.feature3Desc'),
       color: "#1a1a1a",
       gradient: "linear-gradient(145deg, #FFD53D 0%, #FFE066 100%)"
     },
     {
       id: 4,
       icon: <Sparkles size={32} strokeWidth={2.5} />,
-      title: "Made for Every Fan",
-      description: "From kids discovering UNO for the first time to adult collectors curating prized Hot Wheels pieces—this experience meets each user where they are.",
+      title: t('whatWereCreating.feature4Title'),
+      description: t('whatWereCreating.feature4Desc'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #00A651 0%, #00C853 100%)"
     },
     {
       id: 5,
       icon: <Newspaper size={32} strokeWidth={2.5} />,
-      title: "Stories & Cultural Insights",
-      description: "Each brand features its own editorial hub: UNO Blog with game tips and creator spotlights. Hot Wheels Blog with collector showcases and history deep-dives.",
+      title: t('whatWereCreating.feature5Title'),
+      description: t('whatWereCreating.feature5Desc'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #FF6B00 0%, #FF8C42 100%)"
     },
     {
       id: 6,
       icon: <UsersRound size={32} strokeWidth={2.5} />,
-      title: "Play, Collect, Create, Share",
-      description: "This space encourages fans to try new things, share ideas, build community, and celebrate what they love. It's an evolving brand lab where fans shape the future of play.",
+      title: t('whatWereCreating.feature6Title'),
+      description: t('whatWereCreating.feature6Desc'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #4A8CFF 0%, #6BA3FF 100%)"
     },
     {
       id: 7,
       icon: <Brush size={32} strokeWidth={2.5} />,
-      title: "Brand-True Design",
-      description: "UNO stays bold, social, fast-paced. Hot Wheels stays dynamic, high-energy, and collector-focused. Each experience feels unique—while still unmistakably Mattel.",
+      title: t('whatWereCreating.feature7Title'),
+      description: t('whatWereCreating.feature7Desc'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #C8102E 0%, #FF6B00 100%)"
     },
     {
       id: 8,
       icon: <Zap size={32} strokeWidth={2.5} />,
-      title: "Interactive Moments",
-      description: "House rules generators. Track build inspiration. Collector showcases. Game-night ideas. All crafted to spark imagination and bring communities together.",
+      title: t('whatWereCreating.feature8Title'),
+      description: t('whatWereCreating.feature8Desc'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #00A651 0%, #4A8CFF 100%)"
     },
     {
       id: 9,
       icon: <Rocket size={32} strokeWidth={2.5} />,
-      title: "The Heart of the Vision",
-      description: "One platform. Two iconic brands. Endless ways to play, collect, and create—together. This is where global play cultures converge.",
+      title: t('whatWereCreating.feature9Title'),
+      description: t('whatWereCreating.feature9Desc'),
       color: "#1a1a1a",
       gradient: "linear-gradient(145deg, #FFD53D 0%, #FF6B00 100%)"
+    },
+    {
+      id: 10,
+      icon: <Palette size={32} strokeWidth={2.5} />,
+      title: t('whatWereCreating.feature10Title'),
+      description: t('whatWereCreating.feature10Desc'),
+      color: "#fff",
+      gradient: "linear-gradient(145deg, #E91E63 0%, #F06292 100%)"
+    },
+    {
+      id: 11,
+      icon: <Smartphone size={32} strokeWidth={2.5} />,
+      title: t('whatWereCreating.feature11Title'),
+      description: t('whatWereCreating.feature11Desc'),
+      color: "#fff",
+      gradient: "linear-gradient(145deg, #607D8B 0%, #78909C 100%)"
+    },
+    {
+      id: 12,
+      icon: <Shield size={32} strokeWidth={2.5} />,
+      title: t('whatWereCreating.feature12Title'),
+      description: t('whatWereCreating.feature12Desc'),
+      color: "#fff",
+      gradient: "linear-gradient(145deg, #3F51B5 0%, #5C6BC0 100%)"
+    },
+    {
+      id: 13,
+      icon: <MessageCircle size={32} strokeWidth={2.5} />,
+      title: t('whatWereCreating.feature13Title'),
+      description: t('whatWereCreating.feature13Desc'),
+      color: "#fff",
+      gradient: "linear-gradient(145deg, #009688 0%, #26A69A 100%)"
+    },
+    {
+      id: 14,
+      icon: <TrendingUp size={32} strokeWidth={2.5} />,
+      title: t('whatWereCreating.feature14Title'),
+      description: t('whatWereCreating.feature14Desc'),
+      color: "#1a1a1a",
+      gradient: "linear-gradient(145deg, #FFEB3B 0%, #FFF176 100%)"
+    },
+    {
+      id: 15,
+      icon: <Languages size={32} strokeWidth={2.5} />,
+      title: t('whatWereCreating.feature15Title'),
+      description: t('whatWereCreating.feature15Desc'),
+      prompt: t('whatWereCreating.feature15Prompt'),
+      color: "#fff",
+      gradient: "linear-gradient(145deg, #9B59B6 0%, #8E44AD 100%)"
     }
   ];
 
@@ -151,24 +208,24 @@ const WhatWereCreating = () => {
       <div className="wwc-header">
         <div className="wwc-badge">
           <Star size={14} />
-          <span>Mattel × AI LAB</span>
+          <span>{t('whatWereCreating.badge')}</span>
         </div>
         <h2 className="wwc-title">
-          A New Digital Playground for<br />
-          <span className="wwc-title-highlight">Fans, Players & Collectors</span>
+          {t('whatWereCreating.title')}<br />
+          <span className="wwc-title-highlight">{t('whatWereCreating.titleHighlight')}</span>
         </h2>
         <p className="wwc-subtitle">
-          We're creating a space where UNO and Hot Wheels come alive in ways never before possible—powered by creativity, community stories, and intelligent digital experiences.
+          {t('whatWereCreating.subtitle')}
         </p>
         <p className="wwc-tagline">
-          This is where global play cultures, collector passion, and modern technology converge.
+          {t('whatWereCreating.tagline')}
         </p>
       </div>
 
       {/* Section Label */}
       <div className="wwc-section-label">
         <Trophy size={18} />
-        <span>What This Platform Brings Together</span>
+        <span>{t('whatWereCreating.sectionLabel')}</span>
       </div>
 
       {/* Netflix-Style Carousel */}
@@ -199,6 +256,12 @@ const WhatWereCreating = () => {
                 </div>
                 <h3 className="wwc-card-title">{feature.title}</h3>
                 <p className="wwc-card-desc">{feature.description}</p>
+                {feature.prompt && (
+                  <div className="wwc-card-prompt">
+                    <span className="wwc-prompt-label">📝 Prompt Used:</span>
+                    <p className="wwc-prompt-text">{feature.prompt}</p>
+                  </div>
+                )}
               </div>
               <div className="wwc-card-shine"></div>
             </div>
@@ -227,7 +290,7 @@ const WhatWereCreating = () => {
           <Sparkles size={20} className="wwc-bottom-icon" />
         </div>
         <p className="wwc-bottom-text">
-          It's more than a website—it's an evolving brand lab, where fans shape the future of play.
+          {t('whatWereCreating.bottomText')}
         </p>
       </div>
     </section>

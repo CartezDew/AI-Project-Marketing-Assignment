@@ -1,8 +1,11 @@
 import React from 'react';
 import HotWheelsCollectorsHub from '../../components/final-website/HotWheelsCollectorsHub';
+import { useLanguage } from '../../context/LanguageContext';
 import './HotWheelsExperience.css';
 
 const FinalWebsiteHotWheelsExperience = () => {
+  const { t } = useLanguage();
+  
   const upcomingDrops = [
     { id: 1, name: "'71 Datsun 510", series: "Red Line Club", date: "Dec 15", rarity: "Ultra Rare" },
     { id: 2, name: "Porsche 911 GT3 RS", series: "Car Culture", date: "Dec 22", rarity: "Premium" },
@@ -25,22 +28,21 @@ const FinalWebsiteHotWheelsExperience = () => {
         <div className="hw-hero-content">
           <div className="hw-hero-badge">
             <span className="hw-badge-icon">🏁</span>
-            <span>Since 1968</span>
+            <span>{t('hotWheels.since1968')}</span>
           </div>
           
           <h1 className="hw-hero-title">
-            <span className="hw-title-line-1">CHALLENGE</span>
-            <span className="hw-title-line-2">ACCEPTED</span>
+            <span className="hw-title-line-1">{t('hotWheels.challengeAccepted')}</span>
+            <span className="hw-title-line-2">{t('hotWheels.accepted')}</span>
           </h1>
           
           <p className="hw-hero-tagline">
-            Where artistry meets adrenaline. Build epic tracks. 
-            Curate legendary collections. Join the chase.
+            {t('hotWheels.tagline')}
           </p>
           
           <div className="hw-hero-actions">
-            <button className="hw-btn-primary">Start Collecting</button>
-            <button className="hw-btn-ghost">Watch Legends Tour</button>
+            <button className="hw-btn-primary">{t('hotWheels.startCollecting')}</button>
+            <button className="hw-btn-ghost">{t('hotWheels.watchLegends')}</button>
           </div>
         </div>
         
@@ -176,10 +178,10 @@ const FinalWebsiteHotWheelsExperience = () => {
         <div className="hw-section-container">
           <div className="hw-cta-banner">
             <div className="hw-cta-content">
-              <h2>Join the Community</h2>
-              <p>Get early access to drops, exclusive content, and connect with collectors worldwide.</p>
+              <h2>{t('hotWheels.joinCommunity')}</h2>
+              <p>{t('hotWheels.getEarlyAccess')}</p>
             </div>
-            <button className="hw-cta-button">Sign Up Now</button>
+            <button className="hw-cta-button">{t('hotWheels.signUpNow')}</button>
           </div>
         </div>
       </section>

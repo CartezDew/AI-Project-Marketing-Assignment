@@ -6,8 +6,11 @@ import familyImg from '../../assets/final-website/hero-images/family.webp';
 import aiIcon from '../../assets/icons/ai-icon.webp';
 import unoCardIcon from '../../assets/icons/Uno-card.webp';
 import hotwheelsIcon from '../../assets/icons/Hotwheels-icon.webp';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   // Countdown timer state (for visual flair like the reference)
   const [timeLeft, setTimeLeft] = useState({
     days: 12,
@@ -111,22 +114,22 @@ const Hero = () => {
           {/* Eyebrow Badge */}
           <div className="fwh-eyebrow">
         
-            <span>Play Studio</span>
+            <span>{t('hero.playStudio')}</span>
             <span className="fwh-eyebrow-dot">•</span>
-            <span className="fwh-eyebrow-highlight">Games & Collectibles</span>
+            <span className="fwh-eyebrow-highlight">{t('hero.gamesCollectibles')}</span>
           </div>
 
           <h1 className="fwh-title">
-            A New Way to{' '}
+            {t('hero.titlePart1')}{' '}
             <span className="fwh-title-highlight">
-              Play
+              {t('hero.titlePlay')}
               <svg className="fwh-underline-svg" viewBox="0 0 100 12" preserveAspectRatio="none">
                 <path d="M0 8 Q 25 2, 50 8 T 100 6" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round"/>
               </svg>
             </span>
-            {' '}& {' '}
+            {' '}{t('hero.titleAnd')}{' '}
             <span className="fwh-title-highlight-hw">
-              Create
+              {t('hero.titleCreate')}
               <svg className="fwh-underline-svg fwh-underline-blue" viewBox="0 0 100 12" preserveAspectRatio="none">
                 <path d="M0 6 Q 30 12, 50 4 T 100 8" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round"/>
               </svg>
@@ -134,43 +137,43 @@ const Hero = () => {
           </h1>
 
           <p className="fwh-subtitle">
-            Discover new UNO rule variations and dive into Hot Wheels custom car designs, track concepts, and collector showcases—all powered by AI and community creativity.
+            {t('hero.subtitle')}
           </p>
 
           <div className="fwh-ctas">
             <a href="#uno" className="fwh-cta-btn fwh-cta-primary">
               <img src={unoCardIcon} alt="" className="fwh-btn-icon-img" />
-              Let's Play UNO
+              {t('hero.letsPlayUno')}
               <span className="fwh-btn-sparkle">✨</span>
             </a>
             <a href="#hotwheels" className="fwh-cta-btn fwh-cta-secondary">
-              <span className="fwh-btn-text"> Explore Hot Wheels Collections</span>
+              <span className="fwh-btn-text">{t('hero.exploreHotWheels')}</span>
               <span className="fwh-btn-arrow">→</span>
             </a>
           </div>
 
           {/* Countdown Timer - Playful addition */}
           <div className="fwh-countdown">
-            <div className="fwh-countdown-label">Next UNO Community Meetup</div>
+            <div className="fwh-countdown-label">{t('hero.nextMeetup')}</div>
             <div className="fwh-countdown-timer">
               <div className="fwh-countdown-block">
                 <span className="fwh-countdown-number">{String(timeLeft.days).padStart(2, '0')}</span>
-                <span className="fwh-countdown-unit">Days</span>
+                <span className="fwh-countdown-unit">{t('hero.days')}</span>
               </div>
               <span className="fwh-countdown-sep">:</span>
               <div className="fwh-countdown-block">
                 <span className="fwh-countdown-number">{String(timeLeft.hours).padStart(2, '0')}</span>
-                <span className="fwh-countdown-unit">Hours</span>
+                <span className="fwh-countdown-unit">{t('hero.hours')}</span>
               </div>
               <span className="fwh-countdown-sep">:</span>
               <div className="fwh-countdown-block">
                 <span className="fwh-countdown-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                <span className="fwh-countdown-unit">Minutes</span>
+                <span className="fwh-countdown-unit">{t('hero.minutes')}</span>
               </div>
               <span className="fwh-countdown-sep">:</span>
               <div className="fwh-countdown-block">
                 <span className="fwh-countdown-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                <span className="fwh-countdown-unit">Seconds</span>
+                <span className="fwh-countdown-unit">{t('hero.seconds')}</span>
               </div>
             </div>
           </div>
@@ -179,17 +182,17 @@ const Hero = () => {
           <div className="fwh-stats">
             <div className="fwh-stat-item">
               <span className="fwh-stat-number">50+</span>
-              <span className="fwh-stat-label">YEARS OF PLAY</span>
+              <span className="fwh-stat-label">{t('hero.yearsOfPlay')}</span>
             </div>
             <div className="fwh-stat-divider"></div>
             <div className="fwh-stat-item">
               <span className="fwh-stat-number fwh-stat-blue">2</span>
-              <span className="fwh-stat-label">ICONIC BRANDS</span>
+              <span className="fwh-stat-label">{t('hero.iconicBrands')}</span>
             </div>
             <div className="fwh-stat-divider"></div>
             <div className="fwh-stat-item">
               <span className="fwh-stat-number fwh-stat-green">∞</span>
-              <span className="fwh-stat-label">POSSIBILITIES</span>
+              <span className="fwh-stat-label">{t('hero.possibilities')}</span>
             </div>
           </div>
         </div>
@@ -203,7 +206,7 @@ const Hero = () => {
             <div className="fwh-pill-doodle fwh-pill-doodle-plus">+</div>
             <img src={unoImg} alt="UNO game night experience" className="fwh-pill-image" />
             <div className="fwh-pill-label">
-              <span>UNO</span>
+              <span>{t('hero.uno')}</span>
             </div>
           </div>
 
@@ -218,7 +221,7 @@ const Hero = () => {
             </div>
             <img src={hotwheelsImg} alt="Hot Wheels collector experience" className="fwh-pill-image" />
             <div className="fwh-pill-label">
-              <span>HOT WHEELS</span>
+              <span>{t('hero.hotWheels')}</span>
             </div>
           </div>
 
@@ -229,7 +232,7 @@ const Hero = () => {
             <div className="fwh-pill-doodle fwh-pill-doodle-heart">♥</div>
             <img src={familyImg} alt="Family playing together" className="fwh-pill-image" />
             <div className="fwh-pill-label">
-              <span>FAMILY</span>
+              <span>{t('hero.family')}</span>
             </div>
           </div>
         </div>

@@ -202,6 +202,31 @@ This is a family games and collectors website, so keep it fun and youthful. Idea
         "Tone alignment with Mattel, UNO, Hot Wheels"
       ],
       note: "All powered primarily by ChatGPT 5.1."
+    },
+    {
+      id: 15,
+      title: "Global Language Support (35 Languages)",
+      model: "Claude Opus 4.5",
+      type: "🌍 Internationalization",
+      description: "Added a comprehensive language selection dropdown to the navbar, enabling users worldwide to experience the website in their native language. Supports 35+ languages including major world languages and African languages for true global accessibility.",
+      prompt: `"Add a new feature: a dropdown list of the most common spoken languages in the world. Be sure to include all languages in the list and feel free to add other common languages. Use country flags associated with the languages to the left of the language name and add the dropdown to the navbar so users across the globe can change the language of the text so it's readable in their most fluent language.
+
+English should be the first language and set as default. The language selected should change the text on the final website page, the UNO page, and the Hot Wheels page of the final website build.
+
+Languages to include: English, Chinese (Mandarin), Hindi, Spanish, Arabic (Modern Standard), French, Bengali, Igbo, Kinyarwanda, Amharic, Portuguese (pt-BR for Brazil), Russian, Yoruba, Urdu, Indonesian (Bahasa Indonesia), German, Japanese, Swahili (Kiswahili), Marathi, Telugu, Vietnamese, Turkish, Italian, Tamil, Tagalog/Filipino, Korean, Persian (Farsi), Thai, Polish, Ukrainian, Hausa, Oromo, Somali, Gujarati, Punjabi.
+
+Be creative and intentional, thoughtful in the UX/UI design of the language dropdown feature on the navbar. There should be a country flag next to the language listed."`,
+      outputs: [
+        "Language Context API for global state management",
+        "LanguageDropdown component with search functionality",
+        "35+ language translations for all UI text",
+        "Country flags for visual language identification",
+        "localStorage persistence for user preference",
+        "RTL (Right-to-Left) support for Arabic, Urdu, Persian",
+        "Responsive dropdown design for mobile devices",
+        "Animated globe icon in dropdown header"
+      ],
+      challenge: "Creating accurate translations for 35 languages required careful attention to cultural nuances and proper character encoding for non-Latin scripts (Arabic, Hindi, Chinese, Japanese, Korean, etc.). The dropdown needed to be both visually appealing and functional across all device sizes."
     }
   ];
 
@@ -1294,7 +1319,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
               onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
             >
               <span className="accordion-title">
-                AI Enhancements & Feature Build-Out <span className="accordion-meta">(14 Items)</span>
+                AI Enhancements & Feature Build-Out <span className="accordion-meta">(15 Items)</span>
               </span>
               <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
             </div>

@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './index.css';
 
+// Language Provider
+import { LanguageProvider } from './context/LanguageContext';
+
 // Main Prompts Page
 import PromptsPage from './PromptsPage';
 
@@ -65,29 +68,31 @@ const FinalWebsiteLayout = ({ children }) => (
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        {/* Main Prompts Comparison Page */}
-        <Route path="/" element={<PromptsPage />} />
-        
-        {/* Prompt 1 - Wrapped static site */}
-        <Route path="/prompt1" element={<Prompt1Wrapper />} />
-        
-        {/* Prompt 2 - Wrapped static site */}
-        <Route path="/prompt2" element={<Prompt2Wrapper />} />
-        
-        {/* Prompt3 Routes */}
-        <Route path="/prompt3" element={<Prompt3Layout><Prompt3Landing /></Prompt3Layout>} />
-        <Route path="/prompt3/uno" element={<Prompt3Layout><Prompt3UnoExperience /></Prompt3Layout>} />
-        <Route path="/prompt3/hotwheels" element={<Prompt3Layout><Prompt3HotWheelsExperience /></Prompt3Layout>} />
-        
-        {/* Final Website Routes */}
-        <Route path="/final-website" element={<FinalWebsiteLayout><FinalWebsiteLanding /></FinalWebsiteLayout>} />
-        <Route path="/final-website/uno" element={<FinalWebsiteLayout><FinalWebsiteUnoExperience /></FinalWebsiteLayout>} />
-        <Route path="/final-website/hotwheels" element={<FinalWebsiteLayout><FinalWebsiteHotWheelsExperience /></FinalWebsiteLayout>} />
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          {/* Main Prompts Comparison Page */}
+          <Route path="/" element={<PromptsPage />} />
+          
+          {/* Prompt 1 - Wrapped static site */}
+          <Route path="/prompt1" element={<Prompt1Wrapper />} />
+          
+          {/* Prompt 2 - Wrapped static site */}
+          <Route path="/prompt2" element={<Prompt2Wrapper />} />
+          
+          {/* Prompt3 Routes */}
+          <Route path="/prompt3" element={<Prompt3Layout><Prompt3Landing /></Prompt3Layout>} />
+          <Route path="/prompt3/uno" element={<Prompt3Layout><Prompt3UnoExperience /></Prompt3Layout>} />
+          <Route path="/prompt3/hotwheels" element={<Prompt3Layout><Prompt3HotWheelsExperience /></Prompt3Layout>} />
+          
+          {/* Final Website Routes */}
+          <Route path="/final-website" element={<FinalWebsiteLayout><FinalWebsiteLanding /></FinalWebsiteLayout>} />
+          <Route path="/final-website/uno" element={<FinalWebsiteLayout><FinalWebsiteUnoExperience /></FinalWebsiteLayout>} />
+          <Route path="/final-website/hotwheels" element={<FinalWebsiteLayout><FinalWebsiteHotWheelsExperience /></FinalWebsiteLayout>} />
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 

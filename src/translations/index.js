@@ -1,0 +1,1260 @@
+/**
+ * Translations for Mattel AI Brand Lab
+ * Supports 35+ languages for global accessibility
+ */
+
+export const translations = {
+  en: {
+    // Navigation
+    nav: {
+      about: 'About',
+      backToPrompts: 'Back to Prompts',
+      team: 'Team',
+      overview: 'Overview',
+      language: 'Language',
+      selectLanguage: 'Select Language',
+    },
+    // Hero Section
+    hero: {
+      playStudio: 'Play Studio',
+      gamesCollectibles: 'Games & Collectibles',
+      titlePart1: 'A New Way to',
+      titlePlay: 'Play',
+      titleAnd: '&',
+      titleCreate: 'Create',
+      subtitle: 'Discover new UNO rule variations and dive into Hot Wheels custom car designs, track concepts, and collector showcases—all powered by AI and community creativity.',
+      letsPlayUno: "Let's Play UNO",
+      exploreHotWheels: 'Explore Hot Wheels Collections',
+      nextMeetup: 'Next UNO Community Meetup',
+      days: 'Days',
+      hours: 'Hours',
+      minutes: 'Minutes',
+      seconds: 'Seconds',
+      yearsOfPlay: 'YEARS OF PLAY',
+      iconicBrands: 'ICONIC BRANDS',
+      possibilities: 'POSSIBILITIES',
+      uno: 'UNO',
+      hotWheels: 'HOT WHEELS',
+      family: 'FAMILY',
+    },
+    // Overview Section
+    overview: {
+      aboutCompany: 'About The Company',
+      worldOfMattel: 'The World of',
+      mattel: 'Mattel',
+      companyDesc: 'A leading global toy and family entertainment company, creating innovative products that inspire fans, entertain audiences, and develop children through play.',
+      globalLeadership: 'Global Leadership',
+      globalToyCompany: 'Global Toy Company',
+      leadingIn: 'Leading in dolls, vehicles, action figures & preschool toys',
+      productsIn: 'Products sold in 195+ countries worldwide',
+      reachingMillions: 'Reaching millions of families every year',
+      iconicPortfolio: 'Iconic Brand Portfolio',
+      legendaryBrands: 'Legendary Brands',
+      barbieHotWheels: 'Barbie®, Hot Wheels®, Fisher-Price®, UNO®',
+      thomasFriends: 'Thomas & Friends™, American Girl®, MEGA®',
+      multiGenerational: 'Multi-generational fanbases with deep cultural impact',
+      innovationDesign: 'Innovation & Design',
+      yearsInnovation: 'Years of Innovation',
+      leaderInToy: 'Leader in toy innovation and immersive play',
+      techIntegration: 'Technology integration & digital-first experiences',
+      collectibleCulture: 'Collectible culture and community building',
+      entertainmentPowerhouse: 'Entertainment Powerhouse',
+      barbieMovieBox: 'Barbie Movie Box Office',
+      moviesTV: 'Movies, TV, digital games & live experiences',
+      barbieHighest: 'Barbie The Movie - highest-grossing film of 2023',
+      publishingStreaming: 'Publishing, streaming & consumer products',
+      sustainability: 'Sustainability & Purpose',
+      sustainabilityGoal: 'Sustainability Goal',
+      playbackProgram: 'Mattel PlayBack toy recycling program',
+      recycledPlastics: '100% recycled/recyclable plastics commitment',
+      diversityInclusion: 'Diversity & inclusion in brand storytelling',
+      fanCommunities: 'Fan Communities',
+      hotWheelsMade: 'Hot Wheels Cars Made',
+      redLineClub: 'Hot Wheels Red Line Club collectors',
+      barbieSignature: 'Barbie Signature & UNO competitive play',
+      globalCreator: 'Global creator challenges & events',
+      brandSpotlight: 'BRAND SPOTLIGHT',
+      hotWheelsTitle: 'HOT WHEELS',
+      bestSelling: 'One of the best-selling toys ever created',
+      yearLaunched: 'Year Launched',
+      carsProduced: 'Cars Produced',
+      models: 'Models',
+      years: 'Years',
+      redLineClubTitle: 'RED LINE CLUB',
+      premiumMembership: 'Premium membership for serious collectors. Limited-edition drops, behind-the-scenes content, and voting on new releases.',
+      globalCommunity: 'From kids to hobbyists to hardcore adult collectors — a',
+      globalCommunityBold: 'global community',
+      unitedByCar: 'united by car culture.',
+      unoTitle: 'UNO',
+      worldsNo1: "The World's #1 Card Game",
+      decksSold: 'decks sold every minute',
+      totalSold: 'Total Sold:',
+      countries: 'Countries',
+      editions: 'Editions',
+      players: 'Players',
+      ages: 'Ages',
+      sayUno: 'Say "UNO!" or draw two.',
+      fastSocial: 'Fast. Social. Unpredictable. The game that brings everyone together.',
+      awardWinning: 'Award-Winning Innovation',
+      toyOfYear: 'Recipient of numerous Toy of the Year awards. Consistently recognized for product design, innovation, and safety.',
+      mattelBrands: 'Mattel brands actively shape fashion, gaming, nostalgia, and pop culture — inspiring both kids and adults across generations.',
+    },
+    // Brand Selection
+    brandSelection: {
+      pickAdventure: 'Pick Your Adventure',
+      chooseExperience: 'Choose Your',
+      experience: 'Experience',
+      eachBrand: 'Each brand has its own universe. Which one calls to you?',
+      worldsNo1Card: "The World's #1 Card Game",
+      letsPlay: "Let's Play",
+      challengeAccepted: 'Challenge Accepted',
+      startEngines: 'Start Your Engines',
+      play: 'PLAY',
+      collect: 'COLLECT',
+      create: 'CREATE',
+      share: 'SHARE',
+    },
+    // What We're Creating
+    whatWereCreating: {
+      badge: 'Mattel × AI LAB',
+      title: 'A New Digital Playground for',
+      titleHighlight: 'Fans, Players & Collectors',
+      subtitle: "We're creating a space where UNO and Hot Wheels come alive in ways never before possible—powered by creativity, community stories, and intelligent digital experiences.",
+      tagline: 'This is where global play cultures, collector passion, and modern technology converge.',
+      sectionLabel: 'What This Platform Brings Together',
+      bottomText: "It's more than a website—it's an evolving brand lab, where fans shape the future of play.",
+      feature1Title: 'Two Worlds, One Destination',
+      feature1Desc: 'Explore the joy of UNO game nights and the thrill of Hot Wheels collecting side-by-side—each with its own identity, personality, and community energy.',
+      feature2Title: 'Global Community Voices',
+      feature2Desc: 'Discover how people around the world play, collect, and create. Learn UNO house rules from different cultures. Connect with Hot Wheels fans sharing track builds and rare finds.',
+      feature3Title: 'Intelligent Experiences',
+      feature3Desc: 'AI helps spark creativity: Get new UNO rule variations based on how you like to play. Explore Hot Wheels concepts, track inspirations, and collector content tailored to you.',
+      feature4Title: 'Made for Every Fan',
+      feature4Desc: 'From kids discovering UNO for the first time to adult collectors curating prized Hot Wheels pieces—this experience meets each user where they are.',
+      feature5Title: 'Stories & Cultural Insights',
+      feature5Desc: 'Each brand features its own editorial hub: UNO Blog with game tips and creator spotlights. Hot Wheels Blog with collector showcases and history deep-dives.',
+      feature6Title: 'Play, Collect, Create, Share',
+      feature6Desc: 'This space encourages fans to try new things, share ideas, build community, and celebrate what they love. It\'s an evolving brand lab where fans shape the future of play.',
+      feature7Title: 'Brand-True Design',
+      feature7Desc: 'UNO stays bold, social, fast-paced. Hot Wheels stays dynamic, high-energy, and collector-focused. Each experience feels unique—while still unmistakably Mattel.',
+      feature8Title: 'Interactive Moments',
+      feature8Desc: 'House rules generators. Track build inspiration. Collector showcases. Game-night ideas. All crafted to spark imagination and bring communities together.',
+      feature9Title: 'The Heart of the Vision',
+      feature9Desc: 'One platform. Two iconic brands. Endless ways to play, collect, and create—together. This is where global play cultures converge.',
+      feature10Title: 'Dynamic Theme System',
+      feature10Desc: 'Experience seamless visual transitions between UNO and Hot Wheels. Each brand has its own color palette, typography, and design language that feels authentic and immersive.',
+      feature11Title: 'Mobile-First Experience',
+      feature11Desc: 'Designed for the way you play today. Responsive layouts, touch-friendly interactions, and optimized performance ensure a great experience on any device.',
+      feature12Title: 'Family-Safe Environment',
+      feature12Desc: 'Built with families in mind. Age-appropriate content, safe community features, and parental controls create a trusted space for players of all ages.',
+      feature13Title: 'Community Feedback Loop',
+      feature13Desc: 'Your voice matters! Rate house rules, share track builds, and vote on new features. The platform evolves based on what fans actually want.',
+      feature14Title: 'Real-Time Updates',
+      feature14Desc: 'Stay in the loop with live drop calendars, trending content, and community highlights. Never miss the next big moment in the UNO or Hot Wheels universe.',
+      feature15Title: 'Global Language Support',
+      feature15Desc: 'Breaking language barriers worldwide! Our platform speaks your language with 35+ translations, bringing the magic of UNO and Hot Wheels to fans everywhere in their native tongue.',
+      feature15Prompt: '"Add a dropdown list of the most common spoken languages in the world with country flags. Add it to the navbar so users can change the language of the text across the final website, UNO page, and Hot Wheels page. Include English as default, Chinese, Hindi, Spanish, Arabic, French, Bengali, Portuguese, Russian, Japanese, German, Korean, Turkish, Vietnamese, Italian, Thai, Polish, Ukrainian, Indonesian, Swahili, Urdu, Persian, Tamil, Telugu, Marathi, Gujarati, Punjabi, Tagalog, Yoruba, Igbo, Hausa, Kinyarwanda, Amharic, Oromo, and Somali."',
+    },
+    // Team Section
+    team: {
+      badge: 'The Creators',
+      title: 'Meet the',
+      titleHighlight: 'Dream Team',
+      subtitle: 'Passionate innovators bridging AI technology with beloved brands to create magical digital experiences.',
+      viewProject: 'View Project',
+      member1Name: 'Cartez Dewberry',
+      member1Role: 'Full-Stack Engineer',
+      member1Bio: 'Building the future of play, one line of code at a time.',
+      member2Name: 'Akendai Kouassi',
+      member2Role: 'Creative Director',
+      member2Bio: 'Crafting experiences that inspire wonder and joy.',
+      member3Name: 'Camilla Ojeda',
+      member3Role: 'UX Designer',
+      member3Bio: 'Making every interaction feel magical and intuitive.',
+      member4Name: 'Kethely Veloso',
+      member4Role: 'Brand Strategist',
+      member4Bio: 'Connecting hearts to brands through authentic storytelling.',
+      member5Name: 'Lesley Gonzalez',
+      member5Role: 'Product Manager',
+      member5Bio: 'Turning bold visions into unforgettable products.',
+    },
+    // UNO Experience
+    uno: {
+      worldsNo1: "The World's #1 Card Game",
+      everyGameNight: 'Every Game Night',
+      deservesToBe: 'Deserves to be',
+      wild: 'WILD',
+      heroDesc: 'Easy to learn. Impossible to put down. Join millions of players in the ultimate social card game experience.',
+      joinCommunity: 'Join the Community',
+      learnRules: 'Learn the Rules',
+      meetPlayer: 'Meet Our Player',
+      playerName: 'Teddy, 10',
+      playerBio: '"I love playing UNO with my family every Friday night! My favorite move is saving my Wild Draw 4 until someone\'s about to win. The look on their face is SO funny!"',
+      interests: {
+        roblox: 'Roblox',
+        mrbeast: 'MrBeast',
+        challenges: 'Challenges',
+      },
+      quote: '"UNO isn\'t just a game—it\'s where memories happen."',
+      createPerfect: 'Create Your Perfect Game Night',
+      standardRules: 'Standard rules are just the beginning. Let our AI help you craft custom house rules that match your group\'s energy.',
+      communityHighlights: 'Community Highlights',
+      watchHow: 'Watch how players around the world are making UNO their own.',
+      ultimateTournament: 'Ultimate UNO Tournament Finals',
+      views: 'views',
+      communityEvent: 'Community Event',
+      top10Rules: 'Top 10 House Rules',
+      familyTips: 'Family Game Night Tips',
+      videoNote: 'Videos curated from YouTube creators and official UNO channels',
+      readyToPlay: 'Ready to Play?',
+      joinUnoComm: 'Join the UNO community and never have a boring game night again.',
+      getStarted: 'Get Started',
+      // Widget
+      aiHouseRules: 'AI House Rules Generator',
+      tellUs: 'Tell us about your game night, and our AI will craft a custom house rule just for you.',
+      howManyPlayers: 'How many players?',
+      whatsVibe: "What's the vibe?",
+      totalChaos: 'Total Chaos',
+      speedDemon: 'Speed Demon',
+      bigBrain: 'Big Brain',
+      familyFun: 'Family Fun',
+      generateRule: 'Generate House Rule',
+      consultingDeck: 'Consulting the deck...',
+      widgetNote: 'This widget demonstrates AI-assisted game design',
+    },
+    // Hot Wheels Experience
+    hotWheels: {
+      since1968: 'Since 1968',
+      challengeAccepted: 'CHALLENGE',
+      accepted: 'ACCEPTED',
+      tagline: 'Where artistry meets adrenaline. Build epic tracks. Curate legendary collections. Join the chase.',
+      startCollecting: 'Start Collecting',
+      watchLegends: 'Watch Legends Tour',
+      trackBuilders: 'Track Builders',
+      trackBuildersDesc: 'Build the wildest tracks. Launch cars through loops, corkscrews, and mega jumps. Your imagination is the only limit.',
+      epicStunts: 'Epic stunt tracks',
+      multiCarRaces: 'Multi-car races',
+      crashZones: 'Crash zones',
+      seriousCollectors: 'Serious Collectors',
+      seriousCollectorsDesc: 'Precision detail. Limited releases. The thrill of the chase. Join the Red Line Club and access exclusive drops.',
+      redLineAccess: 'Red Line Club access',
+      rareDrops: 'Rare drops calendar',
+      collectionShowcase: 'Collection showcase',
+      collectorsHub: 'COLLECTORS HUB',
+      thrillOfChase: 'The Thrill of the Chase',
+      stayAhead: 'Stay ahead of the drops. Spotlight your collection. Connect with the community.',
+      upcomingDrops: 'Upcoming Drops',
+      viewFullCalendar: 'View Full Calendar',
+      carOfWeek: 'Car of the Week',
+      produced: 'Produced',
+      year: 'Year',
+      value: 'Value',
+      aiPowered: 'AI-POWERED',
+      designDream: 'Design Your Dream Build',
+      whetherPlanning: "Whether you're planning an epic stunt track or designing the ultimate display shelf, our AI will help you bring it to life.",
+      customRecommendations: 'Custom recommendations',
+      partsListIncluded: 'Parts list included',
+      proTipsCollectors: 'Pro tips from collectors',
+      joinCommunity: 'Join the Community',
+      getEarlyAccess: 'Get early access to drops, exclusive content, and connect with collectors worldwide.',
+      signUpNow: 'Sign Up Now',
+      // Widget
+      trackDisplayBuilder: 'Track & Display Builder',
+      aiConcept: 'AI CONCEPT',
+      tellUsWhatBuild: 'Tell us what you want to build, and our AI will design it for you.',
+      whatBuilding: 'What are you building?',
+      epicStuntsOption: 'Epic Stunts',
+      loopsJumps: 'Loops, jumps, and crashes',
+      speedRace: 'Speed Race',
+      pureVelocity: 'Pure velocity showdown',
+      collectorDisplay: 'Collector Display',
+      showcaseCollection: 'Showcase your collection',
+      garageScene: 'Garage Scene',
+      customDiorama: 'Custom diorama vibes',
+      complexityLevel: 'Complexity Level',
+      simple: 'Simple',
+      medium: 'Medium',
+      complex: 'Complex',
+      igniteConcept: 'IGNITE CONCEPT',
+      designing: 'Designing...',
+      youllNeed: "You'll need:",
+      proTip: 'PRO TIP',
+      poweredByAI: 'Powered by AI-assisted design concepts',
+    },
+    // Footer
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Empowering Generations Through Play',
+      educationalPrototype: 'Educational Prototype | Built with Opus 4.5',
+    },
+  },
+
+  // Chinese (Simplified)
+  zh: {
+    nav: {
+      about: '关于',
+      backToPrompts: '返回提示',
+      team: '团队',
+      overview: '概览',
+      language: '语言',
+      selectLanguage: '选择语言',
+    },
+    hero: {
+      playStudio: '游戏工作室',
+      gamesCollectibles: '游戏与收藏品',
+      titlePart1: '一种新的方式',
+      titlePlay: '玩耍',
+      titleAnd: '&',
+      titleCreate: '创造',
+      subtitle: '发现新的UNO规则变体，深入了解风火轮定制汽车设计、赛道概念和收藏家展示——全部由AI和社区创意驱动。',
+      letsPlayUno: '让我们玩UNO',
+      exploreHotWheels: '探索风火轮收藏',
+      nextMeetup: '下一次UNO社区聚会',
+      days: '天',
+      hours: '小时',
+      minutes: '分钟',
+      seconds: '秒',
+      yearsOfPlay: '游戏历史年数',
+      iconicBrands: '标志性品牌',
+      possibilities: '无限可能',
+      uno: 'UNO',
+      hotWheels: '风火轮',
+      family: '家庭',
+    },
+    overview: {
+      aboutCompany: '关于公司',
+      worldOfMattel: '美泰的世界',
+      mattel: '美泰',
+      companyDesc: '全球领先的玩具和家庭娱乐公司，创造激发粉丝热情、娱乐观众并通过游戏促进儿童发展的创新产品。',
+    },
+    brandSelection: {
+      pickAdventure: '选择你的冒险',
+      chooseExperience: '选择你的',
+      experience: '体验',
+      eachBrand: '每个品牌都有自己的宇宙。哪一个在召唤你？',
+      worldsNo1Card: '世界第一卡牌游戏',
+      letsPlay: '开始游戏',
+      challengeAccepted: '挑战已接受',
+      startEngines: '启动引擎',
+      play: '玩耍',
+      collect: '收藏',
+      create: '创造',
+      share: '分享',
+    },
+    whatWereCreating: {
+      badge: '美泰 × AI实验室',
+      title: '为粉丝、玩家和收藏家打造的',
+      titleHighlight: '全新数字乐园',
+      subtitle: '我们正在创造一个空间，让UNO和风火轮以前所未有的方式焕发活力——由创意、社区故事和智能数字体验驱动。',
+      tagline: '这是全球游戏文化、收藏家热情和现代技术交汇的地方。',
+      sectionLabel: '这个平台汇集的内容',
+      bottomText: '这不仅仅是一个网站——它是一个不断发展的品牌实验室，粉丝们在这里塑造游戏的未来。',
+      feature10Title: '全球语言支持',
+      feature10Desc: '打破全球语言障碍！我们的平台支持35+种语言翻译，用您的母语将UNO和风火轮的魔力带给全球粉丝。',
+    },
+    team: {
+      badge: '创作者',
+      title: '认识',
+      titleHighlight: '梦之队',
+      subtitle: '充满热情的创新者，将AI技术与心爱的品牌联系起来，创造神奇的数字体验。',
+      viewProject: '查看项目',
+    },
+    uno: {
+      worldsNo1: '世界第一卡牌游戏',
+      everyGameNight: '每个游戏之夜',
+      deservesToBe: '都值得',
+      wild: '疯狂',
+      heroDesc: '易学难精。让数百万玩家加入这款终极社交卡牌游戏体验。',
+      joinCommunity: '加入社区',
+      learnRules: '学习规则',
+      readyToPlay: '准备好玩了吗？',
+      getStarted: '开始',
+      aiHouseRules: 'AI房规生成器',
+      generateRule: '生成房规',
+    },
+    hotWheels: {
+      since1968: '自1968年',
+      challengeAccepted: '挑战',
+      accepted: '已接受',
+      tagline: '艺术与肾上腺素的交汇。建造史诗般的赛道。策划传奇收藏。加入追逐。',
+      startCollecting: '开始收藏',
+      joinCommunity: '加入社区',
+      signUpNow: '立即注册',
+    },
+    footer: {
+      mattelAiLab: '美泰 × AI实验室',
+      empowering: '通过游戏赋能世代',
+      educationalPrototype: '教育原型 | 使用Opus 4.5构建',
+    },
+  },
+
+  // Spanish
+  es: {
+    nav: {
+      about: 'Acerca de',
+      backToPrompts: 'Volver a Prompts',
+      team: 'Equipo',
+      overview: 'Descripción general',
+      language: 'Idioma',
+      selectLanguage: 'Seleccionar idioma',
+    },
+    hero: {
+      playStudio: 'Estudio de Juego',
+      gamesCollectibles: 'Juegos y Coleccionables',
+      titlePart1: 'Una Nueva Forma de',
+      titlePlay: 'Jugar',
+      titleAnd: '&',
+      titleCreate: 'Crear',
+      subtitle: 'Descubre nuevas variaciones de reglas de UNO y sumérgete en diseños de autos personalizados de Hot Wheels, conceptos de pistas y exhibiciones de coleccionistas—todo impulsado por IA y creatividad comunitaria.',
+      letsPlayUno: 'Juguemos UNO',
+      exploreHotWheels: 'Explorar Colecciones Hot Wheels',
+      nextMeetup: 'Próximo Encuentro de la Comunidad UNO',
+      days: 'Días',
+      hours: 'Horas',
+      minutes: 'Minutos',
+      seconds: 'Segundos',
+      yearsOfPlay: 'AÑOS DE JUEGO',
+      iconicBrands: 'MARCAS ICÓNICAS',
+      possibilities: 'POSIBILIDADES',
+      uno: 'UNO',
+      hotWheels: 'HOT WHEELS',
+      family: 'FAMILIA',
+    },
+    overview: {
+      aboutCompany: 'Sobre la Empresa',
+      worldOfMattel: 'El Mundo de',
+      mattel: 'Mattel',
+      companyDesc: 'Una empresa líder global de juguetes y entretenimiento familiar, creando productos innovadores que inspiran a los fans, entretienen a las audiencias y desarrollan a los niños a través del juego.',
+    },
+    brandSelection: {
+      pickAdventure: 'Elige Tu Aventura',
+      chooseExperience: 'Elige Tu',
+      experience: 'Experiencia',
+      eachBrand: 'Cada marca tiene su propio universo. ¿Cuál te llama?',
+      worldsNo1Card: 'El Juego de Cartas #1 del Mundo',
+      letsPlay: 'Juguemos',
+      challengeAccepted: 'Desafío Aceptado',
+      startEngines: 'Enciende Tus Motores',
+      play: 'JUGAR',
+      collect: 'COLECCIONAR',
+      create: 'CREAR',
+      share: 'COMPARTIR',
+    },
+    whatWereCreating: {
+      badge: 'Mattel × AI LAB',
+      title: 'Un Nuevo Patio Digital para',
+      titleHighlight: 'Fans, Jugadores y Coleccionistas',
+      subtitle: 'Estamos creando un espacio donde UNO y Hot Wheels cobran vida de maneras nunca antes posibles—impulsado por creatividad, historias comunitarias y experiencias digitales inteligentes.',
+      tagline: 'Aquí es donde convergen las culturas de juego globales, la pasión de los coleccionistas y la tecnología moderna.',
+      sectionLabel: 'Lo Que Esta Plataforma Reúne',
+      bottomText: 'Es más que un sitio web—es un laboratorio de marca en evolución, donde los fans moldean el futuro del juego.',
+      feature10Title: 'Soporte de Idiomas Global',
+      feature10Desc: '¡Rompiendo barreras lingüísticas en todo el mundo! Nuestra plataforma habla tu idioma con más de 35 traducciones, llevando la magia de UNO y Hot Wheels a los fans de todas partes en su lengua materna.',
+    },
+    team: {
+      badge: 'Los Creadores',
+      title: 'Conoce al',
+      titleHighlight: 'Equipo de Ensueño',
+      subtitle: 'Innovadores apasionados que conectan la tecnología de IA con marcas queridas para crear experiencias digitales mágicas.',
+      viewProject: 'Ver Proyecto',
+    },
+    uno: {
+      worldsNo1: 'El Juego de Cartas #1 del Mundo',
+      everyGameNight: 'Cada Noche de Juegos',
+      deservesToBe: 'Merece ser',
+      wild: 'SALVAJE',
+      heroDesc: 'Fácil de aprender. Imposible de dejar. Únete a millones de jugadores en la experiencia definitiva de juego de cartas social.',
+      joinCommunity: 'Únete a la Comunidad',
+      learnRules: 'Aprende las Reglas',
+      readyToPlay: '¿Listo para Jugar?',
+      getStarted: 'Comenzar',
+      aiHouseRules: 'Generador de Reglas de Casa con IA',
+      generateRule: 'Generar Regla de Casa',
+    },
+    hotWheels: {
+      since1968: 'Desde 1968',
+      challengeAccepted: 'DESAFÍO',
+      accepted: 'ACEPTADO',
+      tagline: 'Donde el arte se encuentra con la adrenalina. Construye pistas épicas. Cuida colecciones legendarias. Únete a la caza.',
+      startCollecting: 'Empezar a Coleccionar',
+      joinCommunity: 'Únete a la Comunidad',
+      signUpNow: 'Regístrate Ahora',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Empoderando Generaciones a Través del Juego',
+      educationalPrototype: 'Prototipo Educativo | Construido con Opus 4.5',
+    },
+  },
+
+  // Hindi
+  hi: {
+    nav: {
+      about: 'के बारे में',
+      backToPrompts: 'प्रॉम्प्ट्स पर वापस',
+      team: 'टीम',
+      overview: 'अवलोकन',
+      language: 'भाषा',
+      selectLanguage: 'भाषा चुनें',
+    },
+    hero: {
+      playStudio: 'प्ले स्टूडियो',
+      gamesCollectibles: 'गेम्स और कलेक्टिबल्स',
+      titlePart1: 'एक नया तरीका',
+      titlePlay: 'खेलने',
+      titleAnd: 'और',
+      titleCreate: 'बनाने',
+      subtitle: 'नए UNO नियम विविधताओं की खोज करें और हॉट व्हील्स कस्टम कार डिज़ाइन, ट्रैक कॉन्सेप्ट्स और कलेक्टर शोकेस में गोता लगाएं—सभी AI और समुदाय की रचनात्मकता द्वारा संचालित।',
+      letsPlayUno: 'चलो UNO खेलें',
+      exploreHotWheels: 'हॉट व्हील्स संग्रह देखें',
+      nextMeetup: 'अगली UNO समुदाय बैठक',
+      days: 'दिन',
+      hours: 'घंटे',
+      minutes: 'मिनट',
+      seconds: 'सेकंड',
+    },
+    whatWereCreating: {
+      feature10Title: 'वैश्विक भाषा समर्थन',
+      feature10Desc: 'दुनिया भर में भाषा की बाधाओं को तोड़ना! हमारा प्लेटफॉर्म 35+ अनुवादों के साथ आपकी भाषा बोलता है, UNO और हॉट व्हील्स का जादू उनकी मातृभाषा में दुनिया भर के प्रशंसकों तक पहुंचाता है।',
+    },
+    footer: {
+      mattelAiLab: 'मैटल × AI लैब',
+      empowering: 'खेल के माध्यम से पीढ़ियों को सशक्त बनाना',
+      educationalPrototype: 'शैक्षिक प्रोटोटाइप | Opus 4.5 के साथ निर्मित',
+    },
+  },
+
+  // Arabic
+  ar: {
+    nav: {
+      about: 'حول',
+      backToPrompts: 'العودة إلى المطالبات',
+      team: 'الفريق',
+      overview: 'نظرة عامة',
+      language: 'اللغة',
+      selectLanguage: 'اختر اللغة',
+    },
+    hero: {
+      playStudio: 'استوديو اللعب',
+      gamesCollectibles: 'الألعاب والمقتنيات',
+      titlePart1: 'طريقة جديدة لـ',
+      titlePlay: 'اللعب',
+      titleAnd: 'و',
+      titleCreate: 'الإبداع',
+      subtitle: 'اكتشف تنويعات قواعد UNO الجديدة واستمتع بتصاميم سيارات هوت ويلز المخصصة ومفاهيم المسارات وعروض هواة الجمع - كل ذلك مدعوم بالذكاء الاصطناعي وإبداع المجتمع.',
+      letsPlayUno: 'هيا نلعب UNO',
+      exploreHotWheels: 'استكشف مجموعات هوت ويلز',
+    },
+    whatWereCreating: {
+      feature10Title: 'دعم اللغات العالمية',
+      feature10Desc: 'كسر حواجز اللغة في جميع أنحاء العالم! منصتنا تتحدث لغتك مع أكثر من 35 ترجمة، لتقديم سحر UNO وهوت ويلز للمعجبين في كل مكان بلغتهم الأم.',
+    },
+    footer: {
+      mattelAiLab: 'ماتيل × مختبر الذكاء الاصطناعي',
+      empowering: 'تمكين الأجيال من خلال اللعب',
+      educationalPrototype: 'نموذج تعليمي | مبني بـ Opus 4.5',
+    },
+  },
+
+  // French
+  fr: {
+    nav: {
+      about: 'À propos',
+      backToPrompts: 'Retour aux Prompts',
+      team: 'Équipe',
+      overview: 'Aperçu',
+      language: 'Langue',
+      selectLanguage: 'Sélectionner la langue',
+    },
+    hero: {
+      playStudio: 'Studio de Jeu',
+      gamesCollectibles: 'Jeux et Objets de Collection',
+      titlePart1: 'Une Nouvelle Façon de',
+      titlePlay: 'Jouer',
+      titleAnd: '&',
+      titleCreate: 'Créer',
+      subtitle: 'Découvrez de nouvelles variations de règles UNO et plongez dans les designs de voitures personnalisées Hot Wheels, les concepts de pistes et les vitrines de collectionneurs—le tout propulsé par l\'IA et la créativité communautaire.',
+      letsPlayUno: 'Jouons au UNO',
+      exploreHotWheels: 'Explorer les Collections Hot Wheels',
+    },
+    whatWereCreating: {
+      badge: 'Mattel × AI LAB',
+      title: 'Un Nouveau Terrain de Jeu Numérique pour',
+      titleHighlight: 'Fans, Joueurs et Collectionneurs',
+      feature10Title: 'Support Linguistique Mondial',
+      feature10Desc: 'Briser les barrières linguistiques dans le monde entier! Notre plateforme parle votre langue avec plus de 35 traductions, apportant la magie de UNO et Hot Wheels aux fans du monde entier dans leur langue maternelle.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Donner du Pouvoir aux Générations par le Jeu',
+      educationalPrototype: 'Prototype Éducatif | Construit avec Opus 4.5',
+    },
+  },
+
+  // Portuguese
+  pt: {
+    nav: {
+      about: 'Sobre',
+      backToPrompts: 'Voltar aos Prompts',
+      team: 'Equipe',
+      overview: 'Visão Geral',
+      language: 'Idioma',
+      selectLanguage: 'Selecionar idioma',
+    },
+    hero: {
+      playStudio: 'Estúdio de Jogos',
+      gamesCollectibles: 'Jogos e Colecionáveis',
+      titlePart1: 'Uma Nova Forma de',
+      titlePlay: 'Jogar',
+      titleAnd: '&',
+      titleCreate: 'Criar',
+      subtitle: 'Descubra novas variações de regras do UNO e mergulhe nos designs de carros personalizados Hot Wheels, conceitos de pistas e vitrines de colecionadores—tudo impulsionado por IA e criatividade da comunidade.',
+      letsPlayUno: 'Vamos Jogar UNO',
+      exploreHotWheels: 'Explorar Coleções Hot Wheels',
+    },
+    whatWereCreating: {
+      feature10Title: 'Suporte a Idiomas Global',
+      feature10Desc: 'Quebrando barreiras linguísticas ao redor do mundo! Nossa plataforma fala seu idioma com mais de 35 traduções, levando a magia do UNO e Hot Wheels para fãs em todos os lugares em sua língua nativa.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Capacitando Gerações Através da Diversão',
+      educationalPrototype: 'Protótipo Educacional | Construído com Opus 4.5',
+    },
+  },
+
+  // Russian
+  ru: {
+    nav: {
+      about: 'О нас',
+      backToPrompts: 'Назад к подсказкам',
+      team: 'Команда',
+      overview: 'Обзор',
+      language: 'Язык',
+      selectLanguage: 'Выберите язык',
+    },
+    hero: {
+      playStudio: 'Игровая студия',
+      gamesCollectibles: 'Игры и Коллекционные предметы',
+      titlePart1: 'Новый способ',
+      titlePlay: 'Играть',
+      titleAnd: 'и',
+      titleCreate: 'Создавать',
+      subtitle: 'Откройте для себя новые вариации правил UNO и погрузитесь в дизайн кастомных машин Hot Wheels, концепции треков и витрины коллекционеров—всё это работает на ИИ и творчестве сообщества.',
+    },
+    whatWereCreating: {
+      feature10Title: 'Глобальная языковая поддержка',
+      feature10Desc: 'Преодолеваем языковые барьеры по всему миру! Наша платформа говорит на вашем языке с более чем 35 переводами, принося магию UNO и Hot Wheels фанатам везде на их родном языке.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI ЛАБ',
+      empowering: 'Вдохновляем поколения через игру',
+      educationalPrototype: 'Образовательный прототип | Создано с Opus 4.5',
+    },
+  },
+
+  // Japanese
+  ja: {
+    nav: {
+      about: 'について',
+      backToPrompts: 'プロンプトに戻る',
+      team: 'チーム',
+      overview: '概要',
+      language: '言語',
+      selectLanguage: '言語を選択',
+    },
+    hero: {
+      playStudio: 'プレイスタジオ',
+      gamesCollectibles: 'ゲームとコレクティブル',
+      titlePart1: '新しい方法で',
+      titlePlay: '遊ぶ',
+      titleAnd: '&',
+      titleCreate: '創る',
+      subtitle: '新しいUNOルールのバリエーションを発見し、ホットウィールのカスタムカーデザイン、トラックコンセプト、コレクターショーケースに飛び込もう—すべてAIとコミュニティの創造性で動いています。',
+      letsPlayUno: 'UNOで遊ぼう',
+      exploreHotWheels: 'ホットウィールコレクションを探索',
+    },
+    whatWereCreating: {
+      feature10Title: 'グローバル言語サポート',
+      feature10Desc: '世界中の言語の壁を打ち破る！私たちのプラットフォームは35以上の翻訳であなたの言語を話し、UNOとホットウィールの魔法を世界中のファンに母国語で届けます。',
+    },
+    footer: {
+      mattelAiLab: 'マテル × AIラボ',
+      empowering: '遊びを通じて世代を力づける',
+      educationalPrototype: '教育プロトタイプ | Opus 4.5で構築',
+    },
+  },
+
+  // German
+  de: {
+    nav: {
+      about: 'Über uns',
+      backToPrompts: 'Zurück zu Prompts',
+      team: 'Team',
+      overview: 'Übersicht',
+      language: 'Sprache',
+      selectLanguage: 'Sprache auswählen',
+    },
+    hero: {
+      playStudio: 'Spielstudio',
+      gamesCollectibles: 'Spiele & Sammlerstücke',
+      titlePart1: 'Eine neue Art zu',
+      titlePlay: 'Spielen',
+      titleAnd: '&',
+      titleCreate: 'Erschaffen',
+      subtitle: 'Entdecken Sie neue UNO-Regelvarianten und tauchen Sie ein in Hot Wheels Custom-Autodesigns, Streckenkonzepte und Sammler-Showcases—alles angetrieben von KI und Community-Kreativität.',
+      letsPlayUno: 'Lass uns UNO spielen',
+      exploreHotWheels: 'Hot Wheels Sammlungen erkunden',
+    },
+    whatWereCreating: {
+      feature10Title: 'Globale Sprachunterstützung',
+      feature10Desc: 'Sprachbarrieren weltweit überwinden! Unsere Plattform spricht Ihre Sprache mit über 35 Übersetzungen und bringt die Magie von UNO und Hot Wheels zu Fans überall in ihrer Muttersprache.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Generationen durch Spielen stärken',
+      educationalPrototype: 'Bildungsprototyp | Erstellt mit Opus 4.5',
+    },
+  },
+
+  // Korean
+  ko: {
+    nav: {
+      about: '소개',
+      backToPrompts: '프롬프트로 돌아가기',
+      team: '팀',
+      overview: '개요',
+      language: '언어',
+      selectLanguage: '언어 선택',
+    },
+    hero: {
+      playStudio: '플레이 스튜디오',
+      gamesCollectibles: '게임 & 수집품',
+      titlePart1: '새로운 방식으로',
+      titlePlay: '놀다',
+      titleAnd: '&',
+      titleCreate: '창조하다',
+      subtitle: '새로운 UNO 규칙 변형을 발견하고 핫휠 커스텀 자동차 디자인, 트랙 컨셉, 컬렉터 쇼케이스에 빠져보세요—모두 AI와 커뮤니티 창의성으로 구동됩니다.',
+      letsPlayUno: 'UNO 하자',
+      exploreHotWheels: '핫휠 컬렉션 탐험하기',
+    },
+    whatWereCreating: {
+      feature10Title: '글로벌 언어 지원',
+      feature10Desc: '전 세계 언어 장벽을 허물다! 우리 플랫폼은 35개 이상의 번역으로 여러분의 언어를 사용하여 UNO와 핫휠의 마법을 모국어로 전 세계 팬들에게 전달합니다.',
+    },
+    footer: {
+      mattelAiLab: '마텔 × AI 랩',
+      empowering: '놀이를 통해 세대에 힘을',
+      educationalPrototype: '교육용 프로토타입 | Opus 4.5로 제작',
+    },
+  },
+
+  // Turkish
+  tr: {
+    nav: {
+      about: 'Hakkında',
+      backToPrompts: 'Promptlara Dön',
+      team: 'Ekip',
+      overview: 'Genel Bakış',
+      language: 'Dil',
+      selectLanguage: 'Dil Seçin',
+    },
+    hero: {
+      playStudio: 'Oyun Stüdyosu',
+      gamesCollectibles: 'Oyunlar ve Koleksiyon',
+      titlePart1: 'Yeni Bir Yol',
+      titlePlay: 'Oynamak',
+      titleAnd: '&',
+      titleCreate: 'Yaratmak',
+      subtitle: 'Yeni UNO kural varyasyonlarını keşfedin ve Hot Wheels özel araba tasarımlarına, pist konseptlerine ve koleksiyoner vitrinlerine dalın—hepsi yapay zeka ve topluluk yaratıcılığıyla destekleniyor.',
+    },
+    whatWereCreating: {
+      feature10Title: 'Küresel Dil Desteği',
+      feature10Desc: 'Dünya çapında dil engellerini yıkıyoruz! Platformumuz 35+ çeviri ile sizin dilinizi konuşuyor, UNO ve Hot Wheels\'in büyüsünü her yerdeki hayranlara ana dillerinde ulaştırıyor.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Oyun Yoluyla Nesilleri Güçlendirmek',
+      educationalPrototype: 'Eğitim Prototipi | Opus 4.5 ile Yapıldı',
+    },
+  },
+
+  // Vietnamese
+  vi: {
+    nav: {
+      about: 'Giới thiệu',
+      backToPrompts: 'Quay lại Prompts',
+      team: 'Đội ngũ',
+      overview: 'Tổng quan',
+      language: 'Ngôn ngữ',
+      selectLanguage: 'Chọn ngôn ngữ',
+    },
+    hero: {
+      playStudio: 'Studio Chơi',
+      gamesCollectibles: 'Trò chơi & Sưu tầm',
+      titlePart1: 'Một Cách Mới Để',
+      titlePlay: 'Chơi',
+      titleAnd: '&',
+      titleCreate: 'Sáng Tạo',
+    },
+    whatWereCreating: {
+      feature10Title: 'Hỗ Trợ Ngôn Ngữ Toàn Cầu',
+      feature10Desc: 'Phá vỡ rào cản ngôn ngữ trên toàn thế giới! Nền tảng của chúng tôi nói ngôn ngữ của bạn với hơn 35 bản dịch, mang phép màu của UNO và Hot Wheels đến người hâm mộ ở khắp nơi bằng tiếng mẹ đẻ của họ.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Trao Quyền Cho Các Thế Hệ Qua Trò Chơi',
+    },
+  },
+
+  // Italian
+  it: {
+    nav: {
+      about: 'Chi siamo',
+      backToPrompts: 'Torna ai Prompt',
+      team: 'Squadra',
+      overview: 'Panoramica',
+      language: 'Lingua',
+      selectLanguage: 'Seleziona lingua',
+    },
+    hero: {
+      playStudio: 'Studio di Gioco',
+      gamesCollectibles: 'Giochi e Collezionabili',
+      titlePart1: 'Un Nuovo Modo di',
+      titlePlay: 'Giocare',
+      titleAnd: '&',
+      titleCreate: 'Creare',
+    },
+    whatWereCreating: {
+      feature10Title: 'Supporto Linguistico Globale',
+      feature10Desc: 'Abbattere le barriere linguistiche in tutto il mondo! La nostra piattaforma parla la tua lingua con oltre 35 traduzioni, portando la magia di UNO e Hot Wheels ai fan ovunque nella loro lingua madre.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Potenziare le Generazioni Attraverso il Gioco',
+    },
+  },
+
+  // Thai
+  th: {
+    nav: {
+      about: 'เกี่ยวกับ',
+      backToPrompts: 'กลับไปที่ Prompts',
+      team: 'ทีม',
+      overview: 'ภาพรวม',
+      language: 'ภาษา',
+      selectLanguage: 'เลือกภาษา',
+    },
+    whatWereCreating: {
+      feature10Title: 'การสนับสนุนภาษาทั่วโลก',
+      feature10Desc: 'ทำลายกำแพงภาษาทั่วโลก! แพลตฟอร์มของเราพูดภาษาของคุณด้วยการแปลมากกว่า 35 ภาษา นำความมหัศจรรย์ของ UNO และ Hot Wheels มาสู่แฟนๆ ทุกที่ในภาษาแม่ของพวกเขา',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'เสริมพลังให้รุ่นต่อรุ่นผ่านการเล่น',
+    },
+  },
+
+  // Polish
+  pl: {
+    nav: {
+      about: 'O nas',
+      backToPrompts: 'Powrót do Promptów',
+      team: 'Zespół',
+      overview: 'Przegląd',
+      language: 'Język',
+      selectLanguage: 'Wybierz język',
+    },
+    whatWereCreating: {
+      feature10Title: 'Globalne Wsparcie Językowe',
+      feature10Desc: 'Przełamujemy bariery językowe na całym świecie! Nasza platforma mówi w Twoim języku z ponad 35 tłumaczeniami, przynosząc magię UNO i Hot Wheels fanom wszędzie w ich ojczystym języku.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Wzmacnianie Pokoleń Przez Zabawę',
+    },
+  },
+
+  // Ukrainian
+  uk: {
+    nav: {
+      about: 'Про нас',
+      backToPrompts: 'Назад до підказок',
+      team: 'Команда',
+      overview: 'Огляд',
+      language: 'Мова',
+      selectLanguage: 'Виберіть мову',
+    },
+    whatWereCreating: {
+      feature10Title: 'Глобальна мовна підтримка',
+      feature10Desc: 'Руйнуємо мовні бар\'єри по всьому світу! Наша платформа говорить вашою мовою з понад 35 перекладами, приносячи магію UNO та Hot Wheels фанатам скрізь рідною мовою.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI ЛАБ',
+      empowering: 'Надихаємо покоління через гру',
+    },
+  },
+
+  // Indonesian
+  id: {
+    nav: {
+      about: 'Tentang',
+      backToPrompts: 'Kembali ke Prompt',
+      team: 'Tim',
+      overview: 'Ikhtisar',
+      language: 'Bahasa',
+      selectLanguage: 'Pilih bahasa',
+    },
+    whatWereCreating: {
+      feature10Title: 'Dukungan Bahasa Global',
+      feature10Desc: 'Mendobrak hambatan bahasa di seluruh dunia! Platform kami berbicara dalam bahasa Anda dengan lebih dari 35 terjemahan, membawa keajaiban UNO dan Hot Wheels kepada penggemar di mana saja dalam bahasa ibu mereka.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Memberdayakan Generasi Melalui Permainan',
+    },
+  },
+
+  // Swahili
+  sw: {
+    nav: {
+      about: 'Kuhusu',
+      backToPrompts: 'Rudi kwa Prompts',
+      team: 'Timu',
+      overview: 'Muhtasari',
+      language: 'Lugha',
+      selectLanguage: 'Chagua lugha',
+    },
+    whatWereCreating: {
+      feature10Title: 'Msaada wa Lugha Duniani',
+      feature10Desc: 'Kuvunja vikwazo vya lugha duniani kote! Jukwaa letu linazungumza lugha yako na tafsiri zaidi ya 35, kuleta uchawi wa UNO na Hot Wheels kwa mashabiki kila mahali kwa lugha yao ya asili.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Kuwawezesha Vizazi Kupitia Kucheza',
+    },
+  },
+
+  // Bengali
+  bn: {
+    nav: {
+      about: 'সম্পর্কে',
+      backToPrompts: 'প্রম্পটে ফিরে যান',
+      team: 'দল',
+      overview: 'সংক্ষিপ্ত বিবরণ',
+      language: 'ভাষা',
+      selectLanguage: 'ভাষা নির্বাচন করুন',
+    },
+    whatWereCreating: {
+      feature10Title: 'বিশ্বব্যাপী ভাষা সমর্থন',
+      feature10Desc: 'বিশ্বজুড়ে ভাষার বাধা ভাঙছে! আমাদের প্ল্যাটফর্ম ৩৫+ অনুবাদ সহ আপনার ভাষায় কথা বলে, UNO এবং Hot Wheels-এর জাদু সারা বিশ্বের ভক্তদের কাছে তাদের মাতৃভাষায় পৌঁছে দেয়।',
+    },
+    footer: {
+      mattelAiLab: 'ম্যাটেল × AI ল্যাব',
+      empowering: 'খেলার মাধ্যমে প্রজন্মকে শক্তিশালী করা',
+    },
+  },
+
+  // Urdu
+  ur: {
+    nav: {
+      about: 'کے بارے میں',
+      backToPrompts: 'پرامپٹس پر واپس',
+      team: 'ٹیم',
+      overview: 'جائزہ',
+      language: 'زبان',
+      selectLanguage: 'زبان منتخب کریں',
+    },
+    whatWereCreating: {
+      feature10Title: 'عالمی زبان کی حمایت',
+      feature10Desc: 'دنیا بھر میں زبان کی رکاوٹوں کو توڑنا! ہمارا پلیٹ فارم 35 سے زیادہ ترجموں کے ساتھ آپ کی زبان بولتا ہے، UNO اور Hot Wheels کا جادو ہر جگہ کے شائقین کو ان کی مادری زبان میں لاتا ہے۔',
+    },
+    footer: {
+      mattelAiLab: 'میٹل × AI لیب',
+      empowering: 'کھیل کے ذریعے نسلوں کو بااختیار بنانا',
+    },
+  },
+
+  // Persian (Farsi)
+  fa: {
+    nav: {
+      about: 'درباره',
+      backToPrompts: 'بازگشت به پرامپت‌ها',
+      team: 'تیم',
+      overview: 'نمای کلی',
+      language: 'زبان',
+      selectLanguage: 'انتخاب زبان',
+    },
+    whatWereCreating: {
+      feature10Title: 'پشتیبانی زبان جهانی',
+      feature10Desc: 'شکستن موانع زبانی در سراسر جهان! پلتفرم ما با بیش از ۳۵ ترجمه به زبان شما صحبت می‌کند و جادوی UNO و Hot Wheels را به طرفداران همه جا به زبان مادری‌شان می‌رساند.',
+    },
+    footer: {
+      mattelAiLab: 'متل × آزمایشگاه هوش مصنوعی',
+      empowering: 'توانمندسازی نسل‌ها از طریق بازی',
+    },
+  },
+
+  // Tamil
+  ta: {
+    nav: {
+      about: 'பற்றி',
+      backToPrompts: 'ப்ராம்ப்ட்களுக்கு திரும்பு',
+      team: 'அணி',
+      overview: 'கண்ணோட்டம்',
+      language: 'மொழி',
+      selectLanguage: 'மொழியைத் தேர்ந்தெடுக்கவும்',
+    },
+    whatWereCreating: {
+      feature10Title: 'உலகளாவிய மொழி ஆதரவு',
+      feature10Desc: 'உலகம் முழுவதும் மொழி தடைகளை உடைக்கிறோம்! எங்கள் தளம் 35+ மொழிபெயர்ப்புகளுடன் உங்கள் மொழியில் பேசுகிறது, UNO மற்றும் Hot Wheels-ன் மாயத்தை எல்லா இடங்களிலும் உள்ள ரசிகர்களுக்கு அவர்களின் தாய்மொழியில் கொண்டு செல்கிறது.',
+    },
+    footer: {
+      mattelAiLab: 'மேட்டல் × AI ஆய்வகம்',
+      empowering: 'விளையாட்டின் மூலம் தலைமுறைகளை மேம்படுத்துதல்',
+    },
+  },
+
+  // Telugu
+  te: {
+    nav: {
+      about: 'గురించి',
+      backToPrompts: 'ప్రాంప్ట్‌లకు తిరిగి',
+      team: 'జట్టు',
+      overview: 'అవలోకనం',
+      language: 'భాష',
+      selectLanguage: 'భాషను ఎంచుకోండి',
+    },
+    whatWereCreating: {
+      feature10Title: 'ప్రపంచవ్యాప్త భాషా మద్దతు',
+      feature10Desc: 'ప్రపంచవ్యాప్తంగా భాషా అడ్డంకులను అధిగమించడం! మా ప్లాట్‌ఫారమ్ 35+ అనువాదాలతో మీ భాషలో మాట్లాడుతుంది, UNO మరియు Hot Wheels యొక్క మాయను ప్రతిచోటా అభిమానులకు వారి మాతృభాషలో అందిస్తుంది.',
+    },
+    footer: {
+      mattelAiLab: 'మాటెల్ × AI ల్యాబ్',
+      empowering: 'ఆటల ద్వారా తరాలను శక్తివంతం చేయడం',
+    },
+  },
+
+  // Marathi
+  mr: {
+    nav: {
+      about: 'बद्दल',
+      backToPrompts: 'प्रॉम्प्ट्सवर परत',
+      team: 'टीम',
+      overview: 'आढावा',
+      language: 'भाषा',
+      selectLanguage: 'भाषा निवडा',
+    },
+    whatWereCreating: {
+      feature10Title: 'जागतिक भाषा समर्थन',
+      feature10Desc: 'जगभरात भाषेच्या अडथळ्यांना तोडणे! आमचे प्लॅटफॉर्म 35+ भाषांतरांसह तुमची भाषा बोलते, UNO आणि Hot Wheels ची जादू सर्वत्र चाहत्यांना त्यांच्या मातृभाषेत पोहोचवते.',
+    },
+    footer: {
+      mattelAiLab: 'मॅटेल × AI लॅब',
+      empowering: 'खेळातून पिढ्यांना सक्षम करणे',
+    },
+  },
+
+  // Gujarati
+  gu: {
+    nav: {
+      about: 'વિશે',
+      backToPrompts: 'પ્રોમ્પ્ટ્સ પર પાછા',
+      team: 'ટીમ',
+      overview: 'ઝાંખી',
+      language: 'ભાષા',
+      selectLanguage: 'ભાષા પસંદ કરો',
+    },
+    whatWereCreating: {
+      feature10Title: 'વૈશ્વિક ભાષા સમર્થન',
+      feature10Desc: 'વિશ્વભરમાં ભાષાની અવરોધો તોડવી! અમારું પ્લેટફોર્મ 35+ અનુવાદો સાથે તમારી ભાષામાં વાત કરે છે, UNO અને Hot Wheels ની જાદુ દરેક જગ્યાએ ચાહકોને તેમની માતૃભાષામાં લાવે છે.',
+    },
+    footer: {
+      mattelAiLab: 'મેટેલ × AI લેબ',
+      empowering: 'રમત દ્વારા પેઢીઓને સશક્ત બનાવવી',
+    },
+  },
+
+  // Punjabi
+  pa: {
+    nav: {
+      about: 'ਬਾਰੇ',
+      backToPrompts: 'ਪ੍ਰੌਂਪਟਸ ਤੇ ਵਾਪਸ',
+      team: 'ਟੀਮ',
+      overview: 'ਸੰਖੇਪ',
+      language: 'ਭਾਸ਼ਾ',
+      selectLanguage: 'ਭਾਸ਼ਾ ਚੁਣੋ',
+    },
+    whatWereCreating: {
+      feature10Title: 'ਗਲੋਬਲ ਭਾਸ਼ਾ ਸਹਾਇਤਾ',
+      feature10Desc: 'ਦੁਨੀਆ ਭਰ ਵਿੱਚ ਭਾਸ਼ਾ ਦੀਆਂ ਰੁਕਾਵਟਾਂ ਤੋੜਨਾ! ਸਾਡਾ ਪਲੇਟਫਾਰਮ 35+ ਅਨੁਵਾਦਾਂ ਨਾਲ ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਬੋਲਦਾ ਹੈ, UNO ਅਤੇ Hot Wheels ਦਾ ਜਾਦੂ ਹਰ ਥਾਂ ਦੇ ਪ੍ਰਸ਼ੰਸਕਾਂ ਨੂੰ ਉਨ੍ਹਾਂ ਦੀ ਮਾਤ ਭਾਸ਼ਾ ਵਿੱਚ ਲਿਆਉਂਦਾ ਹੈ।',
+    },
+    footer: {
+      mattelAiLab: 'ਮੈਟੇਲ × AI ਲੈਬ',
+      empowering: 'ਖੇਡ ਰਾਹੀਂ ਪੀੜ੍ਹੀਆਂ ਨੂੰ ਸ਼ਕਤੀਸ਼ਾਲੀ ਬਣਾਉਣਾ',
+    },
+  },
+
+  // Tagalog / Filipino
+  tl: {
+    nav: {
+      about: 'Tungkol',
+      backToPrompts: 'Bumalik sa Prompts',
+      team: 'Koponan',
+      overview: 'Pangkalahatang-ideya',
+      language: 'Wika',
+      selectLanguage: 'Pumili ng wika',
+    },
+    whatWereCreating: {
+      feature10Title: 'Pandaigdigang Suporta sa Wika',
+      feature10Desc: 'Sinisira ang mga hadlang sa wika sa buong mundo! Ang aming platform ay nagsasalita ng iyong wika na may 35+ na pagsasalin, dinadala ang mahika ng UNO at Hot Wheels sa mga tagahanga saanman sa kanilang sariling wika.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Pagbibigay-lakas sa mga Henerasyon sa pamamagitan ng Paglalaro',
+    },
+  },
+
+  // Yoruba
+  yo: {
+    nav: {
+      about: 'Nipa',
+      backToPrompts: 'Pada si Prompts',
+      team: 'Ẹgbẹ́',
+      overview: 'Àkópọ̀',
+      language: 'Èdè',
+      selectLanguage: 'Yan ede',
+    },
+    whatWereCreating: {
+      feature10Title: 'Ìtìlẹ́yìn Èdè Àgbáyé',
+      feature10Desc: 'Fífọ́ àwọn ìdènà èdè ní àgbáyé! Pẹpẹ wa sọ èdè rẹ pẹ̀lú àwọn ìtumọ̀ 35+, mú ìdán UNO àti Hot Wheels wá sí àwọn olólùfẹ́ níbikíbi ní èdè ìbílẹ̀ wọn.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Fífi agbára fún àwọn ìran nípasẹ̀ eré',
+    },
+  },
+
+  // Igbo
+  ig: {
+    nav: {
+      about: 'Gbasara',
+      backToPrompts: 'Laghachi na Prompts',
+      team: 'Otu',
+      overview: 'Nkọwa',
+      language: 'Asụsụ',
+      selectLanguage: 'Họrọ asụsụ',
+    },
+    whatWereCreating: {
+      feature10Title: 'Nkwado Asụsụ Ụwa niile',
+      feature10Desc: 'Na-akwatu ihe mgbochi asụsụ n\'ụwa niile! Ikpo okwu anyị na-asụ asụsụ gị na ntụgharị 35+, na-eweta anwansi UNO na Hot Wheels nye ndị na-eso ụzọ ebe niile n\'asụsụ nne ha.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Inye ọgbọ niile ike site na egwuregwu',
+    },
+  },
+
+  // Hausa
+  ha: {
+    nav: {
+      about: 'Game da',
+      backToPrompts: 'Koma zuwa Prompts',
+      team: 'Ƙungiya',
+      overview: 'Bayyani',
+      language: 'Harshe',
+      selectLanguage: 'Zaɓi harshe',
+    },
+    whatWereCreating: {
+      feature10Title: 'Tallafin Harshen Duniya',
+      feature10Desc: 'Karya shingen harshe a duniya! Dandamalinmu yana magana da harshenka tare da fassarori 35+, yana kawo sihirin UNO da Hot Wheels ga magoya baya ko\'ina cikin yarensu na asali.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Ba da ƙarfi ga tsararraki ta hanyar wasa',
+    },
+  },
+
+  // Kinyarwanda
+  rw: {
+    nav: {
+      about: 'Ibyerekeye',
+      backToPrompts: 'Subira kuri Prompts',
+      team: 'Itsinda',
+      overview: 'Incamake',
+      language: 'Ururimi',
+      selectLanguage: 'Hitamo ururimi',
+    },
+    whatWereCreating: {
+      feature10Title: 'Ubufasha bw\'indimi ku isi yose',
+      feature10Desc: 'Guca inzitizi z\'ururimi ku isi yose! Urubuga rwacu ruvuga ururimi rwawe hamwe n\'ubusobanuro 35+, kuzana ubumaji bwa UNO na Hot Wheels ku bakunda aho bose mu rurimi rwabo.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Guha imimaro ibihe byose binyuze mu gukina',
+    },
+  },
+
+  // Amharic
+  am: {
+    nav: {
+      about: 'ስለ',
+      backToPrompts: 'ወደ Prompts ተመለስ',
+      team: 'ቡድን',
+      overview: 'አጠቃላይ እይታ',
+      language: 'ቋንቋ',
+      selectLanguage: 'ቋንቋ ይምረጡ',
+    },
+    whatWereCreating: {
+      feature10Title: 'የዓለም አቀፍ ቋንቋ ድጋፍ',
+      feature10Desc: 'በዓለም ዙሪያ የቋንቋ መሰናክሎችን መስበር! መድረካችን ከ35+ ትርጉሞች ጋር ቋንቋዎን ይናገራል፣ የUNO እና Hot Wheels አስማት በሁሉም ቦታ ላሉ አድናቂዎች በእናት ቋንቋቸው ያደርሳል።',
+    },
+    footer: {
+      mattelAiLab: 'ማቴል × AI ላብ',
+      empowering: 'በጨዋታ ትውልዶችን ማብቃት',
+    },
+  },
+
+  // Oromo
+  om: {
+    nav: {
+      about: 'Waa\'ee',
+      backToPrompts: 'Gara Prompts deebi\'i',
+      team: 'Garee',
+      overview: 'Cuunfaa',
+      language: 'Afaan',
+      selectLanguage: 'Afaan filadhu',
+    },
+    whatWereCreating: {
+      feature10Title: 'Deeggarsa Afaan Addunyaa',
+      feature10Desc: 'Daangaa afaanii addunyaa guutuu cabsuu! Platform keenya afaan kee hiikkaa 35+ waliin dubbata, faaya UNO fi Hot Wheels jaalattoota bakka hundatti afaan haadha isaaniitiin fida.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Dhaloota taphaatiin cimsuu',
+    },
+  },
+
+  // Somali
+  so: {
+    nav: {
+      about: 'Ku saabsan',
+      backToPrompts: 'Ku noqo Prompts',
+      team: 'Kooxda',
+      overview: 'Guud ahaan',
+      language: 'Luuqad',
+      selectLanguage: 'Dooro luuqad',
+    },
+    whatWereCreating: {
+      feature10Title: 'Taageerada Luuqadaha Caalamiga ah',
+      feature10Desc: 'Jebin xannibaadaha luuqadda adduunka oo dhan! Madalkayagu wuxuu ku hadlaa luuqaddaada 35+ turjumaad, wuxuuna keenayaa sixirka UNO iyo Hot Wheels taageerayaasha meel kasta luuqaddooda hooyo.',
+    },
+    footer: {
+      mattelAiLab: 'MATTEL × AI LAB',
+      empowering: 'Xoojinta jiilalka iyada oo loo marayo ciyaar',
+    },
+  },
+};
+
+export default translations;
+
