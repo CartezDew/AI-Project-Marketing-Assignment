@@ -144,7 +144,7 @@ const Hero = () => {
               <span className="fwh-btn-sparkle">✨</span>
             </a>
             <a href="#hotwheels" className="fwh-cta-btn fwh-cta-secondary">
-              <span className="fwh-btn-text"> Explore HotWheels Collections</span>
+              <span className="fwh-btn-text"> Explore Hot Wheels Collections</span>
               <span className="fwh-btn-arrow">→</span>
             </a>
           </div>
