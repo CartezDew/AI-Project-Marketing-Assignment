@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../../components/final-website/Hero';
 import Overview from '../../components/final-website/Overview';
+import WhatWereCreating from '../../components/final-website/WhatWereCreating';
+import TeamSection from '../../components/final-website/TeamSection';
 import './Landing.css';
 
 // Import logos and icons
@@ -82,37 +84,11 @@ const FinalWebsiteLanding = () => {
         </div>
       </section>
 
-      {/* AI Explanation Section */}
-      <section className="landing-ai-section">
-        <div className="landing-ai-container">
-          <div className="landing-ai-header">
-            <span className="landing-ai-label">Powered by Opus 4.5</span>
-            <h2>AI-Crafted Brand Experiences</h2>
-            <p>
-              This isn't just a website—it's a demonstration of how AI can understand brand DNA 
-              and translate it into authentic digital experiences.
-            </p>
-          </div>
-          
-          <div className="landing-ai-features">
-            <div className="landing-ai-feature">
-              <div className="landing-feature-icon">🎨</div>
-              <h4>Brand-Aware Design</h4>
-              <p>AI analyzed official Mattel branding to create visually authentic experiences.</p>
-            </div>
-            <div className="landing-ai-feature">
-              <div className="landing-feature-icon">🎯</div>
-              <h4>Persona-Driven UX</h4>
-              <p>Content tailored to real user personas—from 10-year-old players to adult collectors.</p>
-            </div>
-            <div className="landing-ai-feature">
-              <div className="landing-feature-icon">🔮</div>
-              <h4>Interactive AI Widgets</h4>
-              <p>House rules generators and track builders powered by intelligent suggestions.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* What We're Creating Section */}
+      <WhatWereCreating />
+
+      {/* Team Section */}
+      <TeamSection />
 
       {/* Footer */}
       <footer className="landing-footer">

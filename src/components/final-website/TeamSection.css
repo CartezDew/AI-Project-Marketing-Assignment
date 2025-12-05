@@ -1,0 +1,716 @@
+/* ============================================
+   TEAM SECTION - Mattel x AI Brand Lab
+   ============================================ */
+
+.team-section {
+  position: relative;
+  padding: 100px 24px 80px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 50%, #F5F7FA 100%);
+  overflow: hidden;
+}
+
+/* Background Elements */
+.team-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.team-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 10% 20%, rgba(200, 16, 46, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 80%, rgba(0, 87, 184, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 213, 61, 0.03) 0%, transparent 50%);
+}
+
+/* Floating Doodles */
+.team-doodle {
+  position: absolute;
+  opacity: 0.3;
+  animation: team-doodle-float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.team-doodle-star-1 {
+  top: 8%;
+  left: 6%;
+  font-size: 2.2rem;
+  color: #FFD53D;
+  animation-delay: 0s;
+}
+
+.team-doodle-star-2 {
+  top: 22%;
+  right: 8%;
+  font-size: 1.6rem;
+  color: #C8102E;
+  animation-delay: 1s;
+}
+
+.team-doodle-star-3 {
+  bottom: 25%;
+  left: 12%;
+  font-size: 1.8rem;
+  color: #4A8CFF;
+  animation-delay: 2s;
+}
+
+.team-doodle-burst {
+  top: 45%;
+  right: 4%;
+  font-size: 2.5rem;
+  color: #FF6B00;
+  animation-delay: 0.5s;
+  animation-name: team-doodle-spin;
+}
+
+.team-doodle-spark {
+  bottom: 35%;
+  right: 15%;
+  font-size: 1.4rem;
+  color: #00A651;
+  animation-delay: 1.5s;
+}
+
+.team-doodle-plus {
+  top: 15%;
+  left: 25%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00A651;
+  animation-delay: 3.5s;
+  animation-name: team-doodle-rotate;
+}
+
+.team-doodle-squiggle {
+  top: 12%;
+  right: 18%;
+  width: 90px;
+  color: #FFD53D;
+  animation-delay: 2.5s;
+  opacity: 0.4;
+}
+
+.team-doodle-loop {
+  bottom: 18%;
+  left: 6%;
+  width: 55px;
+  color: #C8102E;
+  animation-delay: 3s;
+  animation-name: team-doodle-spin;
+}
+
+.team-doodle-arrow {
+  top: 35%;
+  left: 3%;
+  width: 60px;
+  color: #4A8CFF;
+  animation-delay: 1.8s;
+  opacity: 0.35;
+}
+
+.team-doodle-zigzag {
+  bottom: 40%;
+  right: 6%;
+  width: 70px;
+  color: #FFD53D;
+  animation-delay: 2.8s;
+  opacity: 0.35;
+}
+
+.team-doodle-spiral {
+  top: 55%;
+  right: 20%;
+  width: 50px;
+  color: #FF6B00;
+  animation-delay: 0.8s;
+  animation-name: team-doodle-spin;
+  opacity: 0.35;
+}
+
+.team-doodle-swish {
+  bottom: 12%;
+  right: 25%;
+  width: 100px;
+  color: #00A651;
+  animation-delay: 3.2s;
+  opacity: 0.3;
+}
+
+.team-doodle-dots {
+  top: 70%;
+  left: 18%;
+  width: 45px;
+  color: #4A8CFF;
+  animation-delay: 1.2s;
+  opacity: 0.4;
+}
+
+.team-doodle-bolt {
+  top: 28%;
+  left: 8%;
+  width: 35px;
+  color: #FFD53D;
+  animation-delay: 2s;
+  opacity: 0.4;
+  animation-name: team-doodle-flash;
+}
+
+/* Doodle Animations */
+@keyframes team-doodle-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+@keyframes team-doodle-spin {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+}
+
+@keyframes team-doodle-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+}
+
+@keyframes team-doodle-rotate {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+}
+
+@keyframes team-doodle-flash {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.15); }
+}
+
+/* Floating AI Icons */
+.team-ai-icon {
+  position: absolute;
+  width: 45px;
+  height: auto;
+  opacity: 0.15;
+  animation: team-ai-float 5s ease-in-out infinite;
+}
+
+.team-ai-1 {
+  top: 20%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.team-ai-2 {
+  top: 60%;
+  right: 8%;
+  width: 35px;
+  animation-delay: 2s;
+}
+
+.team-ai-3 {
+  bottom: 25%;
+  left: 50%;
+  width: 40px;
+  animation-delay: 4s;
+}
+
+@keyframes team-ai-float {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+    opacity: 0.15;
+  }
+  50% { 
+    transform: translateY(-15px) scale(1.1); 
+    opacity: 0.25;
+  }
+}
+
+/* Header */
+.team-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.team-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(74, 140, 255, 0.1), rgba(0, 87, 184, 0.08));
+  border: 1px solid rgba(74, 140, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  color: #0057B8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.team-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.team-title-highlight {
+  background: linear-gradient(135deg, #C8102E, #FF6B00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.team-subtitle {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Team Grid - Flexbox for centered rows */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Team Card */
+.team-card {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex: 0 0 calc(33.333% - 20px);
+  max-width: 280px;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Card Accent Bar */
+.team-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: 2;
+}
+
+/* Card Image Container */
+.team-card-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.team-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-card-image {
+  transform: scale(1.05);
+}
+
+/* Role Badge */
+.team-card-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+}
+
+/* Card Info */
+.team-card-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.team-card-name {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.team-card-role {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Newsletter CTA */
+.team-newsletter {
+  text-align: center;
+  margin-top: 40px;
+  padding: 40px 20px 0;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(215, 9, 9, 0.08);
+}
+
+.team-newsletter-text {
+  font-size: 0.95rem;
+  color: #888;
+  color:black;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.team-newsletter-form {
+  display: flex;
+  align-items: center;
+  max-width: 420px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #3d2a3a 0%, #2d1f2d 100%);
+  border-radius: 50px;
+  padding: 6px;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.team-newsletter-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 14px 20px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.team-newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.team-newsletter-btn {
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-newsletter-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  transform: scale(1.02);
+}
+
+.team-newsletter-btn:active {
+  transform: scale(0.98);
+}
+
+/* Thank You Modal */
+.team-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: team-modal-fade-in 0.3s ease-out;
+}
+
+@keyframes team-modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.team-modal {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.25),
+    0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: team-modal-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes team-modal-pop {
+  from { 
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.team-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.team-modal-close:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.team-modal-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  animation: team-modal-bounce 0.6s ease-out 0.2s both;
+}
+
+@keyframes team-modal-bounce {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.team-modal-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.team-modal-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.team-modal-btn {
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #C8102E 0%, #E63946 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(200, 16, 46, 0.3);
+}
+
+.team-modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(200, 16, 46, 0.4);
+}
+
+/* Bottom Text */
+.team-bottom-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #999;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+.team-dot {
+  color: #ddd;
+}
+
+.team-bottom-text span:nth-child(1) { color: #C8102E; }
+.team-bottom-text span:nth-child(3) { color: #0057B8; }
+.team-bottom-text span:nth-child(5) { color: #FFD53D; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .team-grid {
+    gap: 24px;
+  }
+  
+  .team-card {
+    flex: 0 0 calc(33.333% - 16px);
+    max-width: 250px;
+  }
+  
+  .team-card-info {
+    padding: 16px;
+  }
+  
+  .team-card-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .team-section {
+    padding: 70px 20px 60px;
+  }
+  
+  .team-grid {
+    gap: 20px;
+  }
+  
+  .team-card {
+    flex: 0 0 calc(50% - 10px);
+    max-width: 200px;
+  }
+  
+  .team-card-info {
+    padding: 14px;
+  }
+  
+  .team-card-name {
+    font-size: 1rem;
+  }
+  
+  .team-card-role {
+    font-size: 0.8rem;
+  }
+  
+  .team-card-badge {
+    padding: 5px 10px;
+    font-size: 0.6rem;
+    bottom: 8px;
+    right: 8px;
+  }
+  
+  /* Hide some doodles on mobile */
+  .team-doodle-squiggle,
+  .team-doodle-loop,
+  .team-ai-3 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    gap: 15px;
+  }
+  
+  .team-card {
+    flex: 0 0 calc(50% - 8px);
+    max-width: 160px;
+    border-radius: 16px;
+  }
+  
+  .team-card-info {
+    padding: 12px;
+  }
+  
+  .team-card-name {
+    font-size: 0.9rem;
+  }
+  
+  .team-card-role {
+    font-size: 0.75rem;
+  }
+  
+  .team-bottom-text {
+    font-size: 0.7rem;
+    gap: 10px;
+    letter-spacing: 2px;
+  }
+  
+  /* Newsletter responsive */
+  .team-newsletter-form {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .team-newsletter-input {
+    width: 100%;
+    text-align: center;
+    padding: 12px 16px;
+  }
+  
+  .team-newsletter-btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+  
+  /* Modal responsive */
+  .team-modal {
+    padding: 30px 24px;
+    margin: 20px;
+  }
+  
+  .team-modal-icon {
+    font-size: 3rem;
+  }
+  
+  .team-modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .team-modal-text {
+    font-size: 0.9rem;
+  }
+}
+
