@@ -1,0 +1,295 @@
+/* ============================================
+   UNO HOUSE RULES WIDGET
+   All classes prefixed with 'unow-' to avoid conflicts
+   ============================================ */
+
+.unow-widget {
+  background: #0a0a0a;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Chrome Bar */
+.unow-chrome {
+  background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.unow-chrome-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.unow-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.unow-dot-red { background: var(--uno-red); }
+.unow-dot-yellow { background: var(--uno-yellow); }
+.unow-dot-green { background: var(--uno-green); }
+
+.unow-chrome-title {
+  flex: 1;
+  font-weight: 600;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.unow-chrome-badge {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+
+/* Widget Body */
+.unow-body {
+  padding: 30px;
+}
+
+.unow-intro p {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Form */
+.unow-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.unow-form-group label {
+  display: block;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Player Selector */
+.unow-player-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.unow-player-btn {
+  flex: 1;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  color: #888;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.unow-player-btn:hover {
+  border-color: #555;
+  color: white;
+}
+
+.unow-player-btn.active {
+  background: var(--uno-blue);
+  border-color: var(--uno-blue);
+  color: white;
+}
+
+/* Vibe Grid */
+.unow-vibe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.unow-vibe-btn {
+  background: #1a1a1a;
+  border: 2px solid #333;
+  padding: 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.unow-vibe-btn:hover {
+  border-color: var(--vibe-color);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.unow-vibe-btn.active {
+  border-color: var(--vibe-color);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.unow-vibe-emoji {
+  font-size: 1.8rem;
+}
+
+.unow-vibe-label {
+  color: #aaa;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.unow-vibe-btn.active .unow-vibe-label {
+  color: white;
+}
+
+/* Generate Button */
+.unow-generate-btn {
+  background: var(--uno-red);
+  color: white;
+  padding: 18px 30px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.unow-generate-btn:hover:not(:disabled) {
+  background: #ff1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(237, 28, 36, 0.3);
+}
+
+.unow-generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.unow-generate-btn.loading {
+  background: #333;
+}
+
+.unow-loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.unow-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: unow-spin 0.8s linear infinite;
+}
+
+@keyframes unow-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Rule Result */
+.unow-rule-result {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 24px;
+  animation: unow-slideUp 0.4s ease-out;
+}
+
+@keyframes unow-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.unow-rule-header {
+  margin-bottom: 16px;
+}
+
+.unow-rule-name {
+  color: var(--uno-yellow);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.unow-rule-text {
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.unow-rule-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(0, 166, 81, 0.1);
+  border-left: 3px solid var(--uno-green);
+  padding: 12px 16px;
+  border-radius: 0 10px 10px 0;
+}
+
+.unow-tip-icon {
+  font-size: 1.2rem;
+}
+
+.unow-tip-text {
+  color: #aaa;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Widget Footer */
+.unow-footer {
+  background: #0f0f0f;
+  padding: 14px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.unow-ai-note {
+  color: #555;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .unow-body {
+    padding: 20px;
+  }
+  
+  .unow-vibe-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .unow-vibe-btn {
+    padding: 12px;
+  }
+}

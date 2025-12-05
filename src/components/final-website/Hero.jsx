@@ -3,6 +3,9 @@ import './Hero.css';
 import unoImg from '../../assets/final-website/hero-images/uno.webp';
 import hotwheelsImg from '../../assets/final-website/hero-images/hotwheels.webp';
 import familyImg from '../../assets/final-website/hero-images/family.webp';
+import aiIcon from '../../assets/icons/ai-icon.webp';
+import unoCardIcon from '../../assets/icons/Uno-card.webp';
+import hotwheelsIcon from '../../assets/icons/Hotwheels-icon.webp';
 
 const Hero = () => {
   // Countdown timer state (for visual flair like the reference)
@@ -44,6 +47,25 @@ const Hero = () => {
 
       {/* Floating Doodles - More playful and scattered */}
       <div className="fwh-doodle fwh-doodle-star-1">✦</div>
+      
+      {/* Hot Wheels Icon Doodle - below star-1 */}
+      <img src={hotwheelsIcon} alt="" className="fwh-doodle fwh-doodle-car" />
+
+      {/* Draw 2 UNO Card Doodle */}
+      <div className="fwh-doodle fwh-doodle-uno-card">
+        <svg viewBox="0 0 50 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="46" height="66" rx="6" stroke="#C8102E" strokeWidth="3" fill="#C8102E"/>
+          <ellipse cx="25" cy="35" rx="18" ry="25" fill="#FEFEFE"/>
+          <text x="25" y="30" textAnchor="middle" fill="#C8102E" fontSize="12" fontWeight="bold" fontFamily="Arial Black">+2</text>
+          <rect x="18" y="38" width="14" height="18" rx="2" fill="#FFD53D" stroke="#1a1a1a" strokeWidth="1"/>
+          <rect x="21" y="42" width="14" height="18" rx="2" fill="#00A651" stroke="#1a1a1a" strokeWidth="1"/>
+        </svg>
+      </div>
+
+      {/* AI Icon Doodles */}
+      <img src={aiIcon} alt="" className="fwh-doodle fwh-doodle-ai-1" />
+      <img src={aiIcon} alt="" className="fwh-doodle fwh-doodle-ai-2" />
+
       <div className="fwh-doodle fwh-doodle-star-2">✧</div>
       <div className="fwh-doodle fwh-doodle-star-3">★</div>
       <div className="fwh-doodle fwh-doodle-star-4">✦</div>
@@ -88,8 +110,8 @@ const Hero = () => {
         <div className="fwh-content">
           {/* Eyebrow Badge */}
           <div className="fwh-eyebrow">
-            <span className="fwh-eyebrow-icon">🎮</span>
-            <span>Family Fun Hub</span>
+        
+            <span>Play Studio</span>
             <span className="fwh-eyebrow-dot">•</span>
             <span className="fwh-eyebrow-highlight">Games & Collectibles</span>
           </div>
@@ -117,12 +139,12 @@ const Hero = () => {
 
           <div className="fwh-ctas">
             <a href="#uno" className="fwh-cta-btn fwh-cta-primary">
-              <span className="fwh-btn-icon">🎴</span>
+              <img src={unoCardIcon} alt="" className="fwh-btn-icon-img" />
               Let's Play UNO
               <span className="fwh-btn-sparkle">✨</span>
             </a>
             <a href="#hotwheels" className="fwh-cta-btn fwh-cta-secondary">
-              <span className="fwh-btn-text">Start Your Hot Wheels Journey</span>
+              <span className="fwh-btn-text"> Explore HotWheels Collections</span>
               <span className="fwh-btn-arrow">→</span>
             </a>
           </div>

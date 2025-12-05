@@ -70,7 +70,7 @@
   flex-direction: column;
   align-items: center;
   gap: 60px;
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   position: relative;
   z-index: 10;
@@ -99,6 +99,7 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   animation: fwh-bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0.7;
 }
 
 .fwh-eyebrow-icon {
@@ -166,9 +167,10 @@
 .fwh-subtitle {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #555;
+  color: black;
   max-width: 620px;
   margin-top: 8px;
+  opacity: 0.8;
 }
 
 /* ========== CTA BUTTONS ========== */
@@ -228,6 +230,13 @@
 .fwh-btn-icon {
   font-size: 1.3rem;
   animation: fwh-wiggle 2s ease-in-out infinite;
+}
+
+.fwh-btn-icon-img {
+  width: 28px;
+  height: auto;
+  /* animation: fwh-wiggle 2s ease-in-out infinite;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2)); */
 }
 
 /* Secondary Button - Bold angled style */
@@ -590,6 +599,71 @@
   text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
 }
 
+/* Hot Wheels Icon Doodle - below star-1 */
+.fwh-doodle-car {
+  top: 22%;
+  left: 3%;
+  width: 70px;
+  height: auto;
+  animation: fwh-drive 5s ease-in-out infinite;
+  filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.25));
+  opacity: 0.9;
+}
+
+@keyframes fwh-drive {
+  0%, 100% {
+    transform: translateX(0) rotate(-2deg);
+  }
+  25% {
+    transform: translateX(8px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(0) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(0deg);
+  }
+}
+
+/* Draw 2 UNO Card Doodle */
+.fwh-doodle-uno-card {
+  top: 28%;
+  right: 6%;
+  width: 45px;
+  animation: fwh-card-float 4s ease-in-out infinite;
+  filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.2));
+}
+
+@keyframes fwh-card-float {
+  0%, 100% {
+    transform: rotate(-8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-3deg) translateY(-10px);
+  }
+}
+
+/* AI Icon Doodles */
+.fwh-doodle-ai-1 {
+  top: 55%;
+  left: 6%;
+  width: 50px;
+  height: auto;
+  opacity: 0.85;
+  animation: fwh-float 5s ease-in-out infinite;
+  filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
+}
+
+.fwh-doodle-ai-2 {
+  bottom: 20%;
+  right: 8%;
+  width: 45px;
+  height: auto;
+  opacity: 0.8;
+  animation: fwh-float 4.5s ease-in-out infinite reverse;
+  filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.15));
+}
+
 .fwh-doodle-star-2 {
   top: 20%;
   right: 7%;
@@ -667,10 +741,11 @@
 }
 
 .fwh-doodle-script {
-  top: 25%;
+  top: 100px;
   left: 10%;
   width: 80px;
   animation: fwh-wiggle 5s ease-in-out infinite;
+  opacity: 0.4;
 }
 
 .fwh-doodle-star-bottom {
@@ -811,7 +886,7 @@
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .fwh-pills {
     gap: 16px;
   }

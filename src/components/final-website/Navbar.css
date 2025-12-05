@@ -9,9 +9,9 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 72px;
+  height: 78px; /* Increased to accommodate bottom border */
   display: flex;
-  align-items: center;
+  flex-direction: column;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -23,6 +23,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex: 1;
+  height: 72px;
 }
 
 /* Logo */
@@ -35,54 +37,25 @@
   letter-spacing: 2px;
 }
 
+.fnav-logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
 .fnav-logo-mattel {
   color: var(--mattel-red);
 }
 
 .fnav-logo-divider {
   opacity: 0.4;
+  font-size: 1.2rem;
 }
 
 .fnav-logo-ai {
   font-weight: 300;
 }
 
-/* Navigation Links */
-.fnav-links {
-  display: flex;
-  gap: 8px;
-}
-
-.fnav-link {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
-  border-radius: 100px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-
-.fnav-link-icon {
-  font-size: 1.1rem;
-}
-
-/* Badge */
-.fnav-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 6px 14px;
-  border-radius: 20px;
-}
-
-.fnav-badge-text {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
 
 /* ========== DEFAULT THEME (Landing) ========== */
 .fnav-default {
@@ -93,15 +66,6 @@
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-}
-
-.fnav-default .fnav-link {
-  color: var(--mattel-dark);
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.fnav-default .fnav-link:hover {
-  background: rgba(0, 0, 0, 0.1);
 }
 
 /* ========== UNO THEME ========== */
@@ -120,22 +84,6 @@
   color: var(--uno-red);
 }
 
-.fnav-uno .fnav-link {
-  color: rgba(255, 255, 255, 0.7);
-  background: transparent;
-}
-
-.fnav-uno .fnav-link:hover,
-.fnav-uno .fnav-link.active {
-  color: var(--uno-yellow);
-  background: rgba(255, 237, 0, 0.1);
-}
-
-.fnav-uno .fnav-link-uno.active {
-  background: var(--uno-red);
-  color: white;
-}
-
 /* ========== HOT WHEELS THEME ========== */
 .fnav-hw {
   background: linear-gradient(90deg, var(--hw-navy) 0%, #001a3d 100%);
@@ -152,33 +100,195 @@
   color: var(--hw-flame);
 }
 
-.fnav-hw .fnav-link {
-  color: rgba(255, 255, 255, 0.7);
-  background: transparent;
+/* ========== COLORFUL BOTTOM BORDER ========== */
+.fnav-bottom-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  display: flex;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.fnav-hw .fnav-link:hover,
-.fnav-hw .fnav-link.active {
-  color: var(--hw-yellow);
+.fnav-bottom-border.hidden {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
 }
 
-.fnav-hw .fnav-link-hw.active {
-  background: var(--hw-red);
-  color: white;
+.fnav-border-segment {
+  flex: 1;
+  transition: transform 0.3s ease;
+}
+
+.fnav-border-segment:hover {
+  transform: scaleY(1.5);
+}
+
+.fnav-border-red { background: #C8102E; opacity: .4;}
+.fnav-border-orange { background: #FF6B00; opacity: .4;}
+.fnav-border-yellow { background: #FFD53D; opacity: .4;}
+.fnav-border-green { background: #00A651; opacity: .4;}
+.fnav-border-blue { background: #4A8CFF; opacity: .4; }
+
+/* Right Side Group */
+.fnav-right-group {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* Icons */
+.fnav-brand-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.fnav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  /* border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05); */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.fnav-icon-btn.fnav-icon-hw {
+  width: 90px;
+  height: 50px;
+}
+
+.fnav-icon-btn:hover {
+  transform: translateY(-2px);
+  border: 2px solid rgba(233, 233, 237, 0.9);
+  border-radius: 10px;
+}
+
+/* .fnav-icon-img {
+  width: 35px;
+  height: 34px;
+  object-fit: contain;
+} */
+
+/* Active States for Icons */
+.fnav-icon-uno.active {
+  background: var(--uno-red);
+  border-color: white;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.4);
+}
+
+.fnav-icon-hw.active {
+  background: var(--hw-blue);
+  border-color: white;
+  box-shadow: 0 4px 12px rgba(0, 87, 184, 0.4);
+}
+
+.fnav-dropdown-container {
+  position: relative;
+}
+
+.fnav-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--mattel-dark);
+  cursor: pointer;
+  padding: 25px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.fnav-dropdown-trigger:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.fnav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12), 0 2px 10px rgba(0,0,0,0.05);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.fnav-dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(4px);
+}
+
+.fnav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #444;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.fnav-dropdown-item:hover {
+  background: #f5f5f5;
+  color: var(--mattel-red);
+}
+
+.fnav-divider {
+  color: #ddd;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin: 0 5px;
+}
+
+/* Theme Adjustments for Dark Backgrounds (UNO/HW Pages) */
+.fnav-uno .fnav-dropdown-trigger,
+.fnav-hw .fnav-dropdown-trigger {
+  color: rgba(255,255,255,0.9);
+}
+
+.fnav-uno .fnav-dropdown-trigger:hover,
+.fnav-hw .fnav-dropdown-trigger:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.fnav-uno .fnav-divider,
+.fnav-hw .fnav-divider {
+  color: rgba(255,255,255,0.3);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .fnav-badge {
-    display: none;
+  .fnav-logo-img {
+    height: 32px;
   }
   
-  .fnav-link {
-    padding: 8px 14px;
-    font-size: 0.85rem;
+  .fnav-right-group {
+    gap: 10px;
   }
   
-  .fnav-link-icon {
+  .fnav-dropdown-trigger span {
+    display: none; /* Hide 'About' text on mobile, just show arrow */
+  }
+  
+  .fnav-divider {
     display: none;
   }
 }

@@ -1,0 +1,511 @@
+/* ============================================
+   HERO SECTION - Mattel x AI Brand Lab
+   All classes prefixed with 'fwh-' (final-website-hero)
+   to avoid conflicts with other stylesheets
+   ============================================ */
+
+.fwh-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 40px 60px;
+  background: #FEFEFE;
+  overflow: hidden;
+}
+
+.fwh-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+/* ========== CENTER CONTENT ========== */
+.fwh-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  max-width: 800px;
+}
+
+/* Title */
+.fwh-title {
+  font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+  text-align: center;
+  max-width: 900px;
+}
+
+.fwh-title-highlight {
+  color: #C8102E;
+  font-style: normal;
+}
+
+.fwh-title-highlight-hw {
+  color: #0057B8;
+  font-style: normal;
+}
+
+/* Subtitle */
+.fwh-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #666;
+  max-width: 600px;
+}
+
+/* CTA Buttons */
+.fwh-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.fwh-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.fwh-cta-primary {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+}
+
+.fwh-cta-primary:hover {
+  background: #FFD53D;
+  border-color: #FFD53D;
+  color: #1a1a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 213, 61, 0.35);
+}
+
+/* Secondary Button - Angled/Parallelogram Style */
+.fwh-cta-secondary {
+  background: #C8102E !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  overflow: visible;
+  transform: skewX(-10deg);
+  box-shadow: 0 6px 25px rgba(200, 16, 46, 0.5);
+}
+
+.fwh-cta-secondary .fwh-btn-text {
+  display: block;
+  padding: 18px 40px;
+  transform: skewX(10deg);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.fwh-cta-secondary:hover {
+  background: #9a0c22 !important;
+  transform: skewX(-10deg) translateY(-3px);
+  box-shadow: 0 10px 35px rgba(200, 16, 46, 0.6);
+}
+
+.fwh-btn-icon {
+  font-size: 1.2rem;
+}
+
+/* Stats Callouts */
+.fwh-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 40px;
+  background: linear-gradient(180deg, #f8f8f8 0%, #fff 100%);
+  padding: 30px 50px;
+  border-radius: 12px;
+}
+
+.fwh-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.fwh-stat-number {
+  font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #C8102E;
+  line-height: 1;
+}
+
+.fwh-stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.fwh-stat-divider {
+  width: 1px;
+  height: 60px;
+  background: #e0e0e0;
+}
+
+/* ========== IMAGE PILLS (BELOW CONTENT) ========== */
+.fwh-pills {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  margin-top: 20px;
+}
+
+.fwh-pill {
+  position: relative;
+  width: 170px;
+  height: 270px;
+  border-radius: 100px;
+  overflow: visible;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fwh-pill:hover {
+  transform: translateY(-12px) scale(1.03);
+}
+
+/* Stagger the pills vertically */
+.fwh-pill:nth-child(1) {
+  transform: translateY(0);
+}
+
+.fwh-pill:nth-child(2) {
+  transform: translateY(-30px);
+}
+
+.fwh-pill:nth-child(3) {
+  transform: translateY(10px);
+}
+
+.fwh-pill:nth-child(1):hover {
+  transform: translateY(-12px) scale(1.03);
+}
+
+.fwh-pill:nth-child(2):hover {
+  transform: translateY(-42px) scale(1.03);
+}
+
+.fwh-pill:nth-child(3):hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Pill Colors - Background with border effect */
+.fwh-pill-yellow {
+  background: #FFD53D;
+  box-shadow: 0 20px 50px rgba(255, 213, 61, 0.4);
+}
+
+.fwh-pill-red {
+  background: #FF5E5E;
+  box-shadow: 0 20px 50px rgba(255, 94, 94, 0.4);
+}
+
+.fwh-pill-blue {
+  background: #4A8CFF;
+  box-shadow: 0 20px 50px rgba(74, 140, 255, 0.4);
+}
+
+/* Pill Images - Inset to show colored border */
+.fwh-pill-image {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 86px;
+}
+
+/* Pill Doodles */
+.fwh-pill-doodle {
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 20;
+  animation: fwh-wiggle 3s ease-in-out infinite;
+}
+
+.fwh-pill-doodle-star {
+  top: -12px;
+  right: -8px;
+  color: #FFD53D;
+}
+
+.fwh-pill-doodle-burst {
+  bottom: -10px;
+  left: -6px;
+  color: #FF5E5E;
+}
+
+.fwh-pill-doodle-sparkle {
+  top: -8px;
+  left: -10px;
+  color: #4A8CFF;
+}
+
+/* ========== FLOATING DOODLES ========== */
+.fwh-doodle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fwh-doodle-star-1 {
+  top: 18%;
+  left: 6%;
+  font-size: 1.8rem;
+  color: #FFD53D;
+  animation: fwh-float 4s ease-in-out infinite;
+}
+
+.fwh-doodle-star-2 {
+  top: 22%;
+  right: 8%;
+  font-size: 1.4rem;
+  color: #FF5E5E;
+  animation: fwh-float 3.5s ease-in-out infinite reverse;
+}
+
+.fwh-doodle-star-3 {
+  bottom: 25%;
+  left: 10%;
+  font-size: 1.6rem;
+  color: #4A8CFF;
+  animation: fwh-float 4.5s ease-in-out infinite;
+}
+
+.fwh-doodle-burst-1 {
+  top: 45%;
+  left: 4%;
+  font-size: 2rem;
+  color: #FF5E5E;
+  animation: fwh-spin-slow 8s linear infinite;
+}
+
+.fwh-doodle-sparkle-1 {
+  bottom: 35%;
+  right: 6%;
+  font-size: 1.4rem;
+  color: #FFD53D;
+  animation: fwh-pulse 2s ease-in-out infinite;
+}
+
+.fwh-doodle-loop {
+  top: 15%;
+  right: 12%;
+  width: 70px;
+  animation: fwh-float 5s ease-in-out infinite;
+}
+
+.fwh-doodle-squiggle {
+  bottom: 20%;
+  left: 8%;
+  width: 35px;
+  animation: fwh-wiggle 4s ease-in-out infinite;
+}
+
+.fwh-doodle-star-bottom {
+  bottom: 12%;
+  right: 18%;
+  font-size: 1.6rem;
+  color: #4A8CFF;
+  animation: fwh-float 3s ease-in-out infinite;
+}
+
+.fwh-doodle-wave {
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  animation: fwh-float 4s ease-in-out infinite;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fwh-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fwh-wiggle {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes fwh-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fwh-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .fwh-section {
+    padding: 80px 24px 50px;
+    min-height: auto;
+  }
+
+  .fwh-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  .fwh-pills {
+    gap: 10px;
+  }
+
+  .fwh-pill {
+    width: 110px;
+    height: 180px;
+    padding: 6px;
+  }
+
+  .fwh-pill-image {
+    border-radius: 70px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    top: 6px;
+    left: 6px;
+  }
+
+  .fwh-pill:nth-child(2) {
+    transform: translateY(-20px);
+  }
+
+  .fwh-pill:nth-child(3) {
+    transform: translateY(8px);
+  }
+
+  .fwh-ctas {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .fwh-cta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+
+  .fwh-cta-secondary {
+    width: 100%;
+  }
+
+  .fwh-cta-secondary .fwh-btn-text {
+    padding: 14px 24px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .fwh-stats {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 30px;
+  }
+
+  .fwh-stat-item {
+    padding: 10px 0;
+  }
+
+  .fwh-stat-divider {
+    width: 80px;
+    height: 1px;
+  }
+
+  .fwh-stat-number {
+    font-size: 2.5rem;
+  }
+
+  .fwh-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Hide some doodles on mobile */
+  .fwh-doodle-loop,
+  .fwh-doodle-squiggle,
+  .fwh-doodle-burst-1,
+  .fwh-doodle-wave {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .fwh-title {
+    font-size: 2.2rem;
+  }
+
+  .fwh-pill {
+    width: 90px;
+    height: 150px;
+    border-radius: 60px;
+  }
+
+  .fwh-pill-image {
+    border-radius: 55px;
+  }
+
+  .fwh-doodle-star-1,
+  .fwh-doodle-star-2,
+  .fwh-doodle-star-3,
+  .fwh-doodle-sparkle-1 {
+    font-size: 1rem;
+  }
+}
