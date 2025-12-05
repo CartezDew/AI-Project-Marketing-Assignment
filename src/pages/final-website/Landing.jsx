@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../../components/final-website/Hero';
+import Overview from '../../components/final-website/Overview';
 import './Landing.css';
 
 const FinalWebsiteLanding = () => {
@@ -8,6 +9,9 @@ const FinalWebsiteLanding = () => {
     <div className="landing-page">
       {/* New Conference-Style Hero Section */}
       <Hero />
+
+      {/* Mattel Overview Section */}
+      <Overview />
 
       {/* Brand Selection */}
       <section className="landing-brand-selection">

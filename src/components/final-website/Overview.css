@@ -1,0 +1,474 @@
+/* ============================================
+   OVERVIEW SECTION - Mattel Brand Highlights
+   All classes prefixed with 'ov-' to avoid conflicts
+   ============================================ */
+
+.ov-section {
+  position: relative;
+  padding: 100px 40px 120px;
+  background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 50%, #F5F5F5 100%);
+  overflow: hidden;
+}
+
+/* ========== HEADER ========== */
+.ov-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  position: relative;
+}
+
+.ov-header-accent {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #C8102E, #FFD53D, #4A8CFF);
+  border-radius: 2px;
+}
+
+.ov-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #C8102E;
+  margin-bottom: 16px;
+  padding: 8px 20px;
+  background: rgba(200, 16, 46, 0.08);
+  border-radius: 50px;
+}
+
+.ov-title {
+  font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.ov-title-highlight {
+  color: #C8102E;
+  position: relative;
+}
+
+.ov-title-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: #FFD53D;
+  z-index: -1;
+  transform: skewX(-5deg);
+}
+
+.ov-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ========== BRAND MARQUEE ========== */
+.ov-marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 0;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,1) 0%, 
+    rgba(255,255,255,0) 10%, 
+    rgba(255,255,255,0) 90%, 
+    rgba(255,255,255,1) 100%
+  );
+}
+
+.ov-marquee {
+  display: flex;
+  width: fit-content;
+  animation: ov-scroll 30s linear infinite;
+}
+
+.ov-marquee-content {
+  display: flex;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.ov-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: white;
+  border: 2px solid #eee;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.ov-brand-tag:hover {
+  border-color: #C8102E;
+  color: #C8102E;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(200, 16, 46, 0.15);
+}
+
+@keyframes ov-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========== HIGHLIGHTS GRID ========== */
+.ov-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+/* ========== CARDS ========== */
+.ov-card {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.ov-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--card-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.ov-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.ov-card:hover::before {
+  transform: scaleX(1);
+}
+
+.ov-card-glow {
+  position: absolute;
+  bottom: -50%;
+  right: -30%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(60px);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.ov-card:hover .ov-card-glow {
+  opacity: 0.15;
+}
+
+.ov-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.ov-card-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.1));
+}
+
+.ov-card-stats {
+  text-align: right;
+}
+
+.ov-stats-number {
+  display: block;
+  font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--card-accent);
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.ov-stats-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.ov-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.ov-card-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ov-card-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.ov-card-points li:last-child {
+  margin-bottom: 0;
+}
+
+.ov-point-bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+/* ========== BOTTOM CTA SECTION ========== */
+.ov-cta-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ov-cta-content {
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 24px;
+  padding: 50px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ov-cta-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #C8102E, #FFD53D, #00A651, #4A8CFF);
+}
+
+.ov-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 213, 61, 0.15);
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.ov-badge-icon {
+  font-size: 1.2rem;
+}
+
+.ov-cta-badge span:last-child {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FFD53D;
+}
+
+.ov-cta-text {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.ov-cta-text strong {
+  color: #FFD53D;
+}
+
+.ov-cta-divider {
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 auto 24px;
+}
+
+.ov-culture-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.ov-culture-text em {
+  color: #4A8CFF;
+  font-style: normal;
+}
+
+/* ========== DECORATIVE ELEMENTS ========== */
+.ov-deco {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.ov-deco-star-1 {
+  top: 15%;
+  left: 5%;
+  font-size: 2rem;
+  color: #FFD53D;
+  animation: ov-float 4s ease-in-out infinite;
+}
+
+.ov-deco-star-2 {
+  top: 40%;
+  right: 4%;
+  font-size: 1.5rem;
+  color: #C8102E;
+  animation: ov-float 3.5s ease-in-out infinite reverse;
+}
+
+.ov-deco-burst {
+  bottom: 20%;
+  left: 8%;
+  font-size: 1.8rem;
+  color: #4A8CFF;
+  animation: ov-spin 10s linear infinite;
+}
+
+@keyframes ov-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ov-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .ov-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ov-section {
+    padding: 70px 24px 80px;
+  }
+
+  .ov-header {
+    margin-bottom: 40px;
+  }
+
+  .ov-title {
+    font-size: 2.5rem;
+  }
+
+  .ov-subtitle {
+    font-size: 1rem;
+  }
+
+  .ov-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ov-card {
+    padding: 24px;
+  }
+
+  .ov-card-icon {
+    font-size: 2rem;
+  }
+
+  .ov-stats-number {
+    font-size: 1.6rem;
+  }
+
+  .ov-cta-content {
+    padding: 40px 30px;
+  }
+
+  .ov-cta-text {
+    font-size: 1rem;
+  }
+
+  .ov-deco {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ov-title {
+    font-size: 2rem;
+  }
+
+  .ov-card-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ov-card-stats {
+    text-align: left;
+  }
+
+  .ov-cta-content {
+    padding: 30px 20px;
+  }
+}
+
