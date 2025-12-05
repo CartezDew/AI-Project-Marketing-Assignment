@@ -140,8 +140,12 @@
 .ov-marquee-wrapper {
   position: relative;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
   padding: 30px 0;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
+  max-width: 1400px;
   background: linear-gradient(180deg, #E8F4FD 0%, #F5FAFF 100%);
 }
 
@@ -229,7 +233,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto 0;
   padding: 0 40px 80px;
   background: linear-gradient(180deg, #F5FAFF 0%, #EDF5FC 100%);
@@ -410,7 +414,7 @@
 }
 
 .ov-spotlight-container {
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -941,13 +945,14 @@
 
 /* ========== BOTTOM CTA SECTION ========== */
 .ov-cta-section {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
   padding: 80px 40px;
   background: linear-gradient(180deg, #EDF5FC 0%, #F5FAFF 100%);
 }
 
 .ov-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   border-radius: 24px;

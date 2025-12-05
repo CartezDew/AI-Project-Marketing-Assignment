@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Gamepad2, 
   Globe2, 
   Sparkles, 
-  BookMarked, 
   Brush, 
   Zap, 
   Rocket,
@@ -14,12 +12,7 @@ import {
   UsersRound,
   Dices,
   Newspaper,
-  Languages,
-  Palette,
-  Smartphone,
-  Shield,
-  MessageCircle,
-  TrendingUp
+  Languages
 } from 'lucide-react';
 import './WhatWereCreating.css';
 
@@ -108,50 +101,9 @@ const WhatWereCreating = () => {
     },
     {
       id: 10,
-      icon: <Palette size={32} strokeWidth={2.5} />,
+      icon: <Languages size={32} strokeWidth={2.5} />,
       title: t('whatWereCreating.feature10Title'),
       description: t('whatWereCreating.feature10Desc'),
-      color: "#fff",
-      gradient: "linear-gradient(145deg, #E91E63 0%, #F06292 100%)"
-    },
-    {
-      id: 11,
-      icon: <Smartphone size={32} strokeWidth={2.5} />,
-      title: t('whatWereCreating.feature11Title'),
-      description: t('whatWereCreating.feature11Desc'),
-      color: "#fff",
-      gradient: "linear-gradient(145deg, #607D8B 0%, #78909C 100%)"
-    },
-    {
-      id: 12,
-      icon: <Shield size={32} strokeWidth={2.5} />,
-      title: t('whatWereCreating.feature12Title'),
-      description: t('whatWereCreating.feature12Desc'),
-      color: "#fff",
-      gradient: "linear-gradient(145deg, #3F51B5 0%, #5C6BC0 100%)"
-    },
-    {
-      id: 13,
-      icon: <MessageCircle size={32} strokeWidth={2.5} />,
-      title: t('whatWereCreating.feature13Title'),
-      description: t('whatWereCreating.feature13Desc'),
-      color: "#fff",
-      gradient: "linear-gradient(145deg, #009688 0%, #26A69A 100%)"
-    },
-    {
-      id: 14,
-      icon: <TrendingUp size={32} strokeWidth={2.5} />,
-      title: t('whatWereCreating.feature14Title'),
-      description: t('whatWereCreating.feature14Desc'),
-      color: "#1a1a1a",
-      gradient: "linear-gradient(145deg, #FFEB3B 0%, #FFF176 100%)"
-    },
-    {
-      id: 15,
-      icon: <Languages size={32} strokeWidth={2.5} />,
-      title: t('whatWereCreating.feature15Title'),
-      description: t('whatWereCreating.feature15Desc'),
-      prompt: t('whatWereCreating.feature15Prompt'),
       color: "#fff",
       gradient: "linear-gradient(145deg, #9B59B6 0%, #8E44AD 100%)"
     }
@@ -256,12 +208,6 @@ const WhatWereCreating = () => {
                 </div>
                 <h3 className="wwc-card-title">{feature.title}</h3>
                 <p className="wwc-card-desc">{feature.description}</p>
-                {feature.prompt && (
-                  <div className="wwc-card-prompt">
-                    <span className="wwc-prompt-label">📝 Prompt Used:</span>
-                    <p className="wwc-prompt-text">{feature.prompt}</p>
-                  </div>
-                )}
               </div>
               <div className="wwc-card-shine"></div>
             </div>
