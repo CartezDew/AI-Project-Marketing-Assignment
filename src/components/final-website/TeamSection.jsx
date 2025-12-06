@@ -14,7 +14,7 @@ import cartezImg from '../../assets/team/Cartez_Dewberry.webp';
 import aiIcon from '../../assets/icons/ai-icon.webp';
 
 // Import group photo
-import groupPhoto from '../../assets/team/group-photo.png';
+import groupPhoto from '../../assets/team/group-photo.webp';
 
 const TeamSection = () => {
   const [email, setEmail] = useState('');
@@ -329,9 +329,10 @@ const TeamSection = () => {
       {/* Team Group Photo Section */}
       <motion.div 
         className="team-group-section"
-        initial={{ opacity: 0, y: 40 }}
-        animate={isGridInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <div className="team-group-container">
           {/* Decorative frame elements */}
@@ -341,6 +342,11 @@ const TeamSection = () => {
             <div className="frame-corner frame-bl"></div>
             <div className="frame-corner frame-br"></div>
           </div>
+
+          {/* Floating Doodles - Upper Left & Right */}
+          <div className="team-group-doodle team-group-doodle-star-tl">✨</div>
+          <div className="team-group-doodle team-group-doodle-plus-tl">+</div>
+          <div className="team-group-doodle team-group-doodle-star-tr">⭐</div>
           
           {/* Group Photo */}
           <div className="team-group-image-wrapper">

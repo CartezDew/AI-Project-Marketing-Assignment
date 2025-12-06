@@ -561,9 +561,10 @@
    ============================================ */
 .ov-uno-spotlight {
   position: relative;
-  padding: 100px 40px;
+  padding: 0;
+  margin: 0;
   background: #1a1a1a;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .ov-uno-bg {
@@ -594,6 +595,12 @@
 .ov-uno-badge {
   background: rgba(200, 16, 46, 0.2);
   border-color: rgba(200, 16, 46, 0.3);
+}
+
+.ov-uno-badge-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .ov-uno-badge span:last-child {
@@ -943,6 +950,506 @@
   color: #666;
 }
 
+/* ========== UNO BENTO GRID LAYOUT ========== */
+.ov-uno-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto auto;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 40px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Bento Card Base */
+.ov-bento-card {
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ov-bento-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Hero Card - Spans 2 columns, 2 rows */
+.ov-bento-hero {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 400px;
+}
+
+.ov-bento-hero-inner {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.ov-bento-hero .ov-uno-card-stack {
+  margin: 24px 0;
+}
+
+.ov-bento-hero .ov-uno-title {
+  margin-bottom: 8px;
+}
+
+.ov-bento-hero .ov-uno-tagline {
+  margin-bottom: 0;
+}
+
+/* Counter Card - Spans 2 columns */
+.ov-bento-counter {
+  grid-column: 3 / 5;
+  grid-row: 1 / 2;
+  background: linear-gradient(145deg, #C8102E 0%, #a00d24 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ov-bento-counter-inner {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ov-counter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ov-bento-counter .ov-uno-big-num {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.ov-bento-counter .ov-uno-big-unit {
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.ov-bento-counter .ov-uno-timer {
+  margin-bottom: 16px;
+}
+
+.ov-bento-counter .ov-uno-timer-bar {
+  width: 160px;
+}
+
+.ov-counter-total {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.ov-counter-total-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ov-counter-total-num {
+  font-family: 'SF Mono', 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFD53D;
+  text-shadow: 0 0 10px rgba(255, 213, 61, 0.4);
+}
+
+/* Stats Cards */
+.ov-bento-stat {
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ov-bento-stat-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.ov-bento-stat-num {
+  font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+  font-size: 2rem;
+  color: white;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.ov-bento-stat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ov-bento-stat-red {
+  grid-column: 3 / 4;
+  background: linear-gradient(145deg, #C8102E 0%, #a00d24 100%);
+}
+
+.ov-bento-stat-yellow {
+  grid-column: 4 / 5;
+  background: linear-gradient(145deg, #FFD53D 0%, #e6bc35 100%);
+}
+
+.ov-bento-stat-yellow .ov-bento-stat-num,
+.ov-bento-stat-yellow .ov-bento-stat-label {
+  color: #1a1a1a;
+}
+
+.ov-bento-stat-yellow .ov-bento-stat-label {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.ov-bento-stat-green {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  background: linear-gradient(145deg, #00A651 0%, #008a44 100%);
+}
+
+.ov-bento-stat-blue {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  background: linear-gradient(145deg, #0057B8 0%, #004a9e 100%);
+}
+
+/* Callout Card */
+.ov-bento-callout {
+  grid-column: 3 / 5;
+  grid-row: 3 / 4;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ov-bento-callout-inner {
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ov-callout-quote {
+  font-family: 'Georgia', serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: #C8102E;
+  opacity: 0.3;
+}
+
+.ov-callout-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ov-callout-content strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.ov-callout-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.ov-callout-cta {
+  margin-top: auto;
+}
+
+.ov-callout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(145deg, #C8102E 0%, #a00d24 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+}
+
+.ov-callout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
+}
+
+.ov-callout-arrow {
+  transition: transform 0.3s ease;
+}
+
+.ov-callout-btn:hover .ov-callout-arrow {
+  transform: translateX(4px);
+}
+
+/* Features Card */
+.ov-bento-features {
+  grid-column: 1 / 5;
+  grid-row: 4 / 5;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ov-bento-features-inner {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ov-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+}
+
+.ov-feature-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.ov-uno-col-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ov-uno-col-left .ov-uno-badge,
+.ov-uno-col-left .ov-uno-card-stack,
+.ov-uno-col-left .ov-uno-title,
+.ov-uno-col-left .ov-uno-tagline {
+  align-self: flex-start;
+}
+
+.ov-uno-col-left .ov-uno-card-stack {
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.ov-uno-col-left .ov-uno-tagline {
+  margin-bottom: 30px;
+}
+
+.ov-uno-col-left .ov-uno-callout {
+  margin: 0;
+  max-width: 100%;
+}
+
+.ov-uno-col-right {
+  align-items: center;
+  text-align: center;
+}
+
+.ov-uno-col-right .ov-uno-hero-stat {
+  margin-bottom: 30px;
+}
+
+.ov-uno-col-right .ov-uno-stats-grid {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* ========== UNO CREATIVE BORDERS ========== */
+.ov-uno-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+}
+
+.ov-uno-wave-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+}
+
+.ov-uno-border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+}
+
+.ov-uno-border-zigzag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ov-uno-border-zigzag svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 800px) {
+  .ov-uno-bento {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 100px 24px 80px;
+  }
+  
+  .ov-bento-hero {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    min-height: 300px;
+  }
+  
+  .ov-bento-counter {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+  
+  .ov-bento-stat-red {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  
+  .ov-bento-stat-yellow {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+  
+  .ov-bento-stat-green {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
+  
+  .ov-bento-stat-blue {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+  }
+  
+  .ov-bento-callout {
+    grid-column: 1 / 3;
+    grid-row: 5 / 6;
+  }
+  
+  .ov-bento-features {
+    grid-column: 1 / 3;
+    grid-row: 6 / 7;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 600px) {
+  .ov-uno-bento {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 90px 16px 70px;
+  }
+  
+  .ov-bento-hero,
+  .ov-bento-counter,
+  .ov-bento-stat-red,
+  .ov-bento-stat-yellow,
+  .ov-bento-stat-green,
+  .ov-bento-stat-blue,
+  .ov-bento-callout,
+  .ov-bento-features {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+  
+  .ov-bento-hero {
+    min-height: 280px;
+  }
+  
+  .ov-bento-hero-inner {
+    padding: 30px 20px;
+  }
+  
+  .ov-bento-counter-inner {
+    padding: 24px 20px;
+  }
+  
+  .ov-bento-counter .ov-uno-big-num {
+    font-size: 3rem;
+  }
+  
+  .ov-bento-stat {
+    padding: 20px 16px;
+  }
+  
+  .ov-bento-callout-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+  
+  .ov-callout-quote {
+    display: none;
+  }
+  
+  .ov-bento-features-inner {
+    padding: 16px;
+    gap: 8px;
+  }
+  
+  .ov-feature-pill {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+}
+
 /* ========== BOTTOM CTA SECTION ========== */
 .ov-cta-section {
   width: 100%;
@@ -1089,7 +1596,11 @@
 
   .ov-hw-spotlight,
   .ov-uno-spotlight {
-    padding: 70px 24px;
+    padding: 0;
+  }
+  
+  .ov-uno-grid-wrapper {
+    padding: 60px 24px;
   }
 
   .ov-grid {

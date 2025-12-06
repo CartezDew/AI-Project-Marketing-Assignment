@@ -912,6 +912,52 @@
   position: relative;
 }
 
+/* Floating Doodles - Upper Corners */
+.team-group-doodle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.5;
+  animation: group-doodle-float 4s ease-in-out infinite;
+}
+
+.team-group-doodle-star-tl {
+  top: -15px;
+  left: 8%;
+  font-size: 1.6rem;
+  color: #FFD53D;
+  animation-delay: 0s;
+}
+
+.team-group-doodle-plus-tl {
+  top: -20px;
+  left: 18%;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00A651;
+  animation-delay: 0.5s;
+}
+
+.team-group-doodle-star-tr {
+  top: -15px;
+  right: 10%;
+  font-size: 1.5rem;
+  color: #C8102E;
+  animation-delay: 1s;
+}
+
+@keyframes group-doodle-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(3deg); }
+}
+
+/* Hide doodles on smaller screens */
+@media (max-width: 768px) {
+  .team-group-doodle {
+    display: none;
+  }
+}
+
 /* Decorative Frame */
 .team-group-frame {
   position: absolute;

@@ -90,14 +90,6 @@ const WhatWereCreating = () => {
       gradient: "linear-gradient(145deg, #4A8CFF 0%, #6BA3FF 100%)"
     },
     {
-      id: 7,
-      icon: <Brush size={32} strokeWidth={2.5} />,
-      title: t('whatWereCreating.feature7Title'),
-      description: t('whatWereCreating.feature7Desc'),
-      color: "#fff",
-      gradient: "linear-gradient(145deg, #C8102E 0%, #FF6B00 100%)"
-    },
-    {
       id: 8,
       icon: <Zap size={32} strokeWidth={2.5} />,
       title: t('whatWereCreating.feature8Title'),

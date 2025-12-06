@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 import unoImg from '../../assets/final-website/hero-images/uno.webp';
 import hotwheelsImg from '../../assets/final-website/hero-images/hotwheels.webp';
@@ -147,15 +148,15 @@ const Hero = () => {
           </p>
 
           <div className={`fwh-ctas scroll-animate fade-up delay-300 ${contentVisible ? 'visible' : ''}`}>
-            <a href="#uno" className="fwh-cta-btn fwh-cta-primary">
+            <Link to="/final-website/uno" className="fwh-cta-btn fwh-cta-primary">
               <img src={unoCardIcon} alt="" className="fwh-btn-icon-img" />
               {t('hero.letsPlayUno')}
               <span className="fwh-btn-sparkle">✨</span>
-            </a>
-            <a href="#hotwheels" className="fwh-cta-btn fwh-cta-secondary">
+            </Link>
+            <Link to="/final-website/hotwheels" className="fwh-cta-btn fwh-cta-secondary">
               <span className="fwh-btn-text">{t('hero.exploreHotWheels')}</span>
               <span className="fwh-btn-arrow">→</span>
-            </a>
+            </Link>
           </div>
 
           {/* Countdown Timer - Playful addition */}
