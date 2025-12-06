@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import './TeamSection.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
@@ -12,6 +13,9 @@ import cartezImg from '../../assets/team/Cartez_Dewberry.webp';
 // Import AI icon
 import aiIcon from '../../assets/icons/ai-icon.webp';
 
+// Import group photo
+import groupPhoto from '../../assets/team/group-photo.png';
+
 const TeamSection = () => {
   const [email, setEmail] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -19,8 +23,42 @@ const TeamSection = () => {
   
   // Scroll animations
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [gridRef, gridVisible] = useScrollAnimation({ threshold: 0.1 });
   const [bottomRef, bottomVisible] = useScrollAnimation({ threshold: 0.3 });
+  
+  // Framer Motion refs
+  const gridRef = useRef(null);
+  const isGridInView = useInView(gridRef, { once: true, margin: "-100px" });
+  
+  // Card animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+  
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      scale: 0.9
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        mass: 1
+      }
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -197,12 +235,23 @@ const TeamSection = () => {
       </div>
 
       {/* Team Cards Grid */}
-      <div className="team-grid" ref={gridRef}>
-        {teamMembers.map((member, index) => (
-          <div 
+      <motion.div 
+        className="team-grid" 
+        ref={gridRef}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isGridInView ? "visible" : "hidden"}
+      >
+        {teamMembers.map((member) => (
+          <motion.div 
             key={member.id} 
-            className={`team-card team-card-fall ${gridVisible ? 'team-card-dealt' : ''} ${expandedCard === member.id ? 'showing-contrib' : ''}`}
-            style={{ '--card-index': index }}
+            className={`team-card ${expandedCard === member.id ? 'showing-contrib' : ''}`}
+            variants={cardVariants}
+            whileHover={{ 
+              y: -10, 
+              scale: 1.02,
+              transition: { type: "spring", stiffness: 300, damping: 20 }
+            }}
           >
             <div 
               className="team-card-accent" 
@@ -273,18 +322,65 @@ const TeamSection = () => {
                 </svg>
               </button>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Bottom Accent */}
-      <div className={`team-bottom-text scroll-animate fade-up ${gridVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
-        <span>Creativity</span>
-        <span className="team-dot">•</span>
-        <span>Strategy</span>
-        <span className="team-dot">•</span>
-        <span>Innovation</span>
-      </div>
+      {/* Team Group Photo Section */}
+      <motion.div 
+        className="team-group-section"
+        initial={{ opacity: 0, y: 40 }}
+        animate={isGridInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+      >
+        <div className="team-group-container">
+          {/* Decorative frame elements */}
+          <div className="team-group-frame">
+            <div className="frame-corner frame-tl"></div>
+            <div className="frame-corner frame-tr"></div>
+            <div className="frame-corner frame-bl"></div>
+            <div className="frame-corner frame-br"></div>
+          </div>
+          
+          {/* Group Photo */}
+          <div className="team-group-image-wrapper">
+            <img 
+              src={groupPhoto} 
+              alt="Our Amazing Team Together" 
+              className="team-group-image"
+            />
+            
+            {/* Gradient Overlay */}
+            <div className="team-group-overlay"></div>
+            
+            {/* Cutout Text Pill */}
+            <div className="team-group-pill">
+              <div className="pill-inner">
+                <span className="pill-text pill-text-creativity">Creativity</span>
+                <span className="pill-divider">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <span className="pill-text pill-text-strategy">Strategy</span>
+                <span className="pill-divider">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <span className="pill-text pill-text-innovation">Innovation</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Caption */}
+          <p className="team-group-caption">
+            <span className="caption-emoji">🎉</span>
+            The Innovators Powering This AI Experience
+            <span className="caption-emoji">✨</span>
+          </p>
+        </div>
+      </motion.div>
 
       {/* Newsletter CTA */}
       <div className="team-newsletter" ref={bottomRef}>

@@ -44,23 +44,12 @@ const LanguageDropdown = () => {
 
   const currentLangInfo = getCurrentLanguageInfo();
 
-  // Filter languages based on search query
+  // Filter languages based on search query (maintains popularity order)
   const filteredLanguages = languages.filter(lang => 
     lang.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     lang.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
     lang.code.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  // Group languages by first letter for organized display
-  const groupedLanguages = filteredLanguages.reduce((groups, lang) => {
-    // Use the first character of the name for grouping
-    const firstChar = lang.name[0].toUpperCase();
-    if (!groups[firstChar]) {
-      groups[firstChar] = [];
-    }
-    groups[firstChar].push(lang);
-    return groups;
-  }, {});
 
   const handleSelectLanguage = (langCode) => {
     setCurrentLanguage(langCode);
@@ -126,7 +115,7 @@ const LanguageDropdown = () => {
           )}
         </div>
 
-        {/* Languages List */}
+        {/* Languages List - Ordered by most commonly spoken */}
         <div className="lang-list-container">
           {filteredLanguages.length === 0 ? (
             <div className="lang-no-results">
@@ -135,27 +124,23 @@ const LanguageDropdown = () => {
             </div>
           ) : (
             <div className="lang-list">
-              {Object.entries(groupedLanguages).sort().map(([letter, langs]) => (
-                <div key={letter} className="lang-group">
-                  {langs.map((lang) => (
-                    <button
-                      key={lang.code}
-                      className={`lang-option ${currentLanguage === lang.code ? 'selected' : ''}`}
-                      onClick={() => handleSelectLanguage(lang.code)}
-                      role="option"
-                      aria-selected={currentLanguage === lang.code}
-                    >
-                      <span className="lang-option-flag">{lang.flag}</span>
-                      <div className="lang-option-info">
-                        <span className="lang-option-name">{lang.name}</span>
-                        <span className="lang-option-region">{lang.region}</span>
-                      </div>
-                      {currentLanguage === lang.code && (
-                        <Check size={16} className="lang-option-check" />
-                      )}
-                    </button>
-                  ))}
-                </div>
+              {filteredLanguages.map((lang) => (
+                <button
+                  key={lang.code}
+                  className={`lang-option ${currentLanguage === lang.code ? 'selected' : ''}`}
+                  onClick={() => handleSelectLanguage(lang.code)}
+                  role="option"
+                  aria-selected={currentLanguage === lang.code}
+                >
+                  <span className="lang-option-flag">{lang.flag}</span>
+                  <div className="lang-option-info">
+                    <span className="lang-option-name">{lang.name}</span>
+                    <span className="lang-option-region">{lang.region}</span>
+                  </div>
+                  {currentLanguage === lang.code && (
+                    <Check size={16} className="lang-option-check" />
+                  )}
+                </button>
               ))}
             </div>
           )}
