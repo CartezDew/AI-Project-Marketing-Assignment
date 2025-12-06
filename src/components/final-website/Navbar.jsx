@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Users, BookOpen, ChevronDown, FileText } from 'lucide-react';
 import './Navbar.css';
@@ -14,6 +14,7 @@ const FinalWebsiteNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { t } = useLanguage();
+  const dropdownRef = useRef(null);
   
   const isLanding = location.pathname === '/final-website';
   const isUno = location.pathname === '/final-website/uno';
@@ -24,6 +25,28 @@ const FinalWebsiteNavbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
+  // Close dropdown when route changes
+  useEffect(() => {
+    setDropdownOpen(false);
+  }, [location.pathname]);
 
   let navTheme = 'fnav-default';
   if (isUno) navTheme = 'fnav-uno';
@@ -46,29 +69,31 @@ const FinalWebsiteNavbar = () => {
           <span className="fnav-divider">|</span>
 
           {/* About Dropdown */}
-          <div className="fnav-dropdown-container">
+          <div 
+            className="fnav-dropdown-container"
+            ref={dropdownRef}
+          >
             <button 
-              className="fnav-dropdown-trigger"
+              className={`fnav-dropdown-trigger ${dropdownOpen ? 'active' : ''}`}
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
             >
-              {t('nav.about')} <ChevronDown size={16} />
+              {t('nav.about')} <ChevronDown size={16} className={dropdownOpen ? 'rotated' : ''} />
             </button>
             
             <div className={`fnav-dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
               {/* Home button - only show on UNO and Hot Wheels pages */}
               {(isUno || isHotWheels) && (
-                <Link to="/final-website" className="fnav-dropdown-item">
+                <Link to="/final-website" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                   <Home size={16} /> Home
                 </Link>
               )}
-              <Link to="/" className="fnav-dropdown-item">
+              <Link to="/" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                 <FileText size={16} /> {t('nav.backToPrompts')}
               </Link>
-              <a href="#team" className="fnav-dropdown-item">
+              <a href="#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                 <Users size={16} /> {t('nav.team')}
               </a>
-              <a href="#overview" className="fnav-dropdown-item">
+              <a href="#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                 <BookOpen size={16} /> {t('nav.overview')}
               </a>
             </div>

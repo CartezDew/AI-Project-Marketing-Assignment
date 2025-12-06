@@ -41,30 +41,57 @@ import './components/final-website/Hero.css';
 import './components/final-website/UnoHouseRulesWidget.css';
 import './components/final-website/HotWheelsCollectorsHub.css';
 
-// ScrollToTop ensures each route starts at the top
+// ScrollToTop ensures each route starts at the top instantly (no scroll animation)
 const ScrollToTop = () => {
   const { pathname } = useLocation();
-  React.useEffect(() => {
+  
+  // Use useLayoutEffect to scroll before paint
+  React.useLayoutEffect(() => {
+    // Force scroll to top using multiple methods for maximum compatibility
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname]);
+  
   return null;
 };
 
 // Layout wrapper for Prompt3 pages
-const Prompt3Layout = ({ children }) => (
-  <div className="app-wrapper">
-    <Prompt3Navbar />
-    {children}
-  </div>
-);
+const Prompt3Layout = ({ children }) => {
+  const { pathname } = useLocation();
+  
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname]);
+  
+  return (
+    <div className="app-wrapper">
+      <Prompt3Navbar />
+      {children}
+    </div>
+  );
+};
 
 // Layout wrapper for Final Website pages
-const FinalWebsiteLayout = ({ children }) => (
-  <div className="app-wrapper">
-    <FinalWebsiteNavbar />
-    {children}
-  </div>
-);
+const FinalWebsiteLayout = ({ children }) => {
+  const { pathname } = useLocation();
+  
+  React.useLayoutEffect(() => {
+    // Scroll the wrapper and window to top
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname]);
+  
+  return (
+    <div className="app-wrapper">
+      <FinalWebsiteNavbar />
+      {children}
+    </div>
+  );
+};
 
 function App() {
   return (

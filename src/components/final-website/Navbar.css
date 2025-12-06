@@ -212,6 +212,18 @@
   background: rgba(0, 0, 0, 0.05);
 }
 
+.fnav-dropdown-trigger.active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.fnav-dropdown-trigger svg {
+  transition: transform 0.2s ease;
+}
+
+.fnav-dropdown-trigger svg.rotated {
+  transform: rotate(180deg);
+}
+
 .fnav-dropdown-menu {
   position: absolute;
   top: 100%;
@@ -268,6 +280,11 @@
 .fnav-uno .fnav-dropdown-trigger:hover,
 .fnav-hw .fnav-dropdown-trigger:hover {
   background: rgba(255,255,255,0.1);
+}
+
+.fnav-uno .fnav-dropdown-trigger.active,
+.fnav-hw .fnav-dropdown-trigger.active {
+  background: rgba(255,255,255,0.15);
 }
 
 .fnav-uno .fnav-divider,

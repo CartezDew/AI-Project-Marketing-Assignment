@@ -24,9 +24,14 @@ const FinalWebsiteUnoExperience = () => {
   const [communityForm, setCommunityForm] = useState({ name: '', email: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Auto-scroll to latest message
+  // Auto-scroll to latest message - only when user has sent messages (more than initial bot greeting)
+  const hasUserInteracted = useRef(false);
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Only scroll if user has interacted (sent at least one message)
+    // Initial chatHistory has 1 message (bot greeting), so only scroll when > 1
+    if (chatHistory.length > 1 && hasUserInteracted.current) {
+      chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [chatHistory]);
 
   // Smart response based on user message
@@ -100,6 +105,9 @@ const FinalWebsiteUnoExperience = () => {
 
   const handleSendMessage = () => {
     if (!chatMessage.trim()) return;
+    
+    // Mark that user has interacted - enables auto-scroll in chat
+    hasUserInteracted.current = true;
     
     const userMsg = chatMessage;
     setChatHistory(prev => [...prev, { type: 'user', message: userMsg }]);
@@ -349,6 +357,36 @@ const FinalWebsiteUnoExperience = () => {
                   allowFullScreen
                 ></iframe>
               </div>
+              
+              <div className="uno-short-card">
+                <iframe
+                  src="https://www.youtube.com/embed/BcD2NmfmGz8"
+                  title="UNO Short 12"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="uno-short-card">
+                <iframe
+                  src="https://www.youtube.com/embed/Y4j9dqwxXS8"
+                  title="UNO Short 13"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="uno-short-card">
+                <iframe
+                  src="https://www.youtube.com/embed/P777c4eX7s8"
+                  title="UNO Short 14"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </div>
           
@@ -382,7 +420,7 @@ const FinalWebsiteUnoExperience = () => {
                 <div className="uno-chatbot-pulse"></div>
               </div>
               <div className="uno-chatbot-title">
-                <h3>REVERSE! Tell US how YOU play UNO.</h3>
+                <h3>Forget the rules… how do you play?</h3>
                 <p>We'd love to hear from you!</p>
               </div>
               <div className="uno-chatbot-status">
