@@ -973,7 +973,21 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 16px;
-  height: 500px;
+  min-height: 500px;
+  height: auto;
+}
+
+/* For larger screens, allow bento grid to grow */
+@media (min-width: 1200px) {
+  .uno-bento-grid {
+    min-height: 600px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .uno-bento-grid {
+    min-height: 700px;
+  }
 }
 
 .uno-bento-grid-reverse {
@@ -1005,10 +1019,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-height: 100%;
 }
 
 .uno-bento-small {
   flex: 1;
+  min-height: 200px;
   border-radius: 16px;
   overflow: hidden;
   background: #1a1a1a;
@@ -1062,8 +1078,8 @@
 }
 
 .uno-pill-white {
-  background: rgba(255, 255, 255, 0.95);
-  color: #1a1a1a;
+  background: rgba(30, 30, 30, 0.9);
+  color: white;
 }
 
 .uno-pill-dark {
@@ -1143,13 +1159,47 @@
 .uno-player-card {
   padding: 8px;
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .uno-player-card img {
   border-radius: 14px;
   width: 100%;
   height: 100%;
+  flex: 1;
   object-fit: cover;
+}
+
+/* Ensure players bento grid scales well on large screens */
+.uno-section-global-players .uno-bento-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.uno-section-global-players .uno-bento-main {
+  min-height: 400px;
+}
+
+@media (min-width: 1200px) {
+  .uno-section-global-players .uno-bento-main {
+    min-height: 500px;
+  }
+  
+  .uno-section-global-players .uno-bento-small {
+    min-height: 240px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .uno-section-global-players .uno-bento-main {
+    min-height: 600px;
+  }
+  
+  .uno-section-global-players .uno-bento-small {
+    min-height: 290px;
+  }
 }
 
 /* Card background colors - different from pill colors */
