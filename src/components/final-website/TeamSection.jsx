@@ -81,6 +81,7 @@ const TeamSection = () => {
       color: "#00A651",
       contributions: [
         "Led all AI editing and content refinement",
+        "Image generation",
         "Edited and assembled the full team presentation",
         "Ensured brand consistency and storytelling clarity across sections"
       ]

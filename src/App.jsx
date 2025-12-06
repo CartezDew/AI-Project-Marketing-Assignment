@@ -76,14 +76,25 @@ const Prompt3Layout = ({ children }) => {
 
 // Layout wrapper for Final Website pages
 const FinalWebsiteLayout = ({ children }) => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   
   React.useLayoutEffect(() => {
-    // Scroll the wrapper and window to top
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, [pathname]);
+    // If there's a hash, scroll to that element after a brief delay
+    if (hash) {
+      // Small timeout to ensure the DOM has rendered
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // No hash - scroll to top
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [pathname, hash]);
   
   return (
     <div className="app-wrapper">

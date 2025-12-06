@@ -90,12 +90,26 @@ const FinalWebsiteNavbar = () => {
               <Link to="/" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                 <FileText size={16} /> {t('nav.backToPrompts')}
               </Link>
-              <a href="#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                <Users size={16} /> {t('nav.team')}
-              </a>
-              <a href="#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                <BookOpen size={16} /> {t('nav.overview')}
-              </a>
+              {/* Team link - navigate to landing page with hash when on UNO/HotWheels */}
+              {(isUno || isHotWheels) ? (
+                <Link to="/final-website#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Users size={16} /> {t('nav.team')}
+                </Link>
+              ) : (
+                <a href="#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Users size={16} /> {t('nav.team')}
+                </a>
+              )}
+              {/* Overview link - navigate to landing page with hash when on UNO/HotWheels */}
+              {(isUno || isHotWheels) ? (
+                <Link to="/final-website#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <BookOpen size={16} /> {t('nav.overview')}
+                </Link>
+              ) : (
+                <a href="#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <BookOpen size={16} /> {t('nav.overview')}
+                </a>
+              )}
             </div>
           </div>
 
