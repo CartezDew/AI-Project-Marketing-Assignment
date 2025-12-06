@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Overview.css';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const Overview = () => {
+  // Scroll animations
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [gridRef, gridVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [hwRef, hwVisible] = useScrollAnimation({ threshold: 0.15 });
+  const [unoRef, unoVisible] = useScrollAnimation({ threshold: 0.15 });
+  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.2 });
   // Live deck counter - starts at ~400 million (approximate total UNO decks sold)
   // Increments by 1 every 17 seconds to simulate real-time sales
   const [decksSold, setDecksSold] = useState(400000000);
@@ -112,7 +119,7 @@ const Overview = () => {
   return (
     <section className="ov-section" id="overview">
       {/* Section Header */}
-      <div className="ov-header">
+      <div className="ov-header" ref={headerRef}>
         <div className="ov-header-shape">
           <svg viewBox="0 0 1200 400" preserveAspectRatio="none" className="ov-shape-svg">
             <defs>
@@ -136,11 +143,11 @@ const Overview = () => {
           <div className="ov-shape-ring ov-ring-2"></div>
         </div>
         <div className="ov-header-content">
-          <span className="ov-eyebrow">About The Company</span>
-          <h2 className="ov-title">
+          <span className={`ov-eyebrow scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>About The Company</span>
+          <h2 className={`ov-title scroll-animate fade-up delay-100 ${headerVisible ? 'visible' : ''}`}>
             The World of <span className="ov-title-highlight">Mattel</span>
           </h2>
-          <p className="ov-subtitle">
+          <p className={`ov-subtitle scroll-animate fade-up delay-200 ${headerVisible ? 'visible' : ''}`}>
             A leading global toy and family entertainment company, creating innovative products 
             that inspire fans, entertain audiences, and develop children through play.
           </p>
@@ -159,11 +166,11 @@ const Overview = () => {
       </div>
 
       {/* Highlights Grid */}
-      <div className="ov-grid">
-        {highlights.map((item) => (
+      <div className="ov-grid" ref={gridRef}>
+        {highlights.map((item, index) => (
           <div 
             key={item.id} 
-            className="ov-card"
+            className={`ov-card scroll-animate fade-up stagger-${index + 1} ${gridVisible ? 'visible' : ''}`}
             style={{ '--card-accent': item.color }}
           >
             <div className="ov-card-header">
@@ -191,22 +198,22 @@ const Overview = () => {
       </div>
 
       {/* ========== HOT WHEELS SPOTLIGHT ========== */}
-      <div className="ov-hw-spotlight">
+      <div className="ov-hw-spotlight" ref={hwRef}>
         <div className="ov-hw-bg">
           <div className="ov-hw-track-line ov-hw-track-1"></div>
           <div className="ov-hw-track-line ov-hw-track-2"></div>
         </div>
         
         <div className="ov-spotlight-container">
-          <div className="ov-spotlight-badge">
+          <div className={`ov-spotlight-badge scroll-animate fade-up ${hwVisible ? 'visible' : ''}`}>
             <span>🏎️</span>
             <span>BRAND SPOTLIGHT</span>
           </div>
           
-          <h3 className="ov-hw-title">HOT WHEELS</h3>
-          <p className="ov-hw-tagline">One of the best-selling toys ever created</p>
+          <h3 className={`ov-hw-title scroll-animate fade-up delay-100 ${hwVisible ? 'visible' : ''}`}>HOT WHEELS</h3>
+          <p className={`ov-hw-tagline scroll-animate fade-up delay-200 ${hwVisible ? 'visible' : ''}`}>One of the best-selling toys ever created</p>
 
-          <div className="ov-hw-stats-row">
+          <div className={`ov-hw-stats-row scroll-animate fade-up delay-300 ${hwVisible ? 'visible' : ''}`}>
             <div className="ov-hw-stat">
               <span className="ov-hw-stat-num">1968</span>
               <span className="ov-hw-stat-label">Year Launched</span>
@@ -225,21 +232,21 @@ const Overview = () => {
             </div>
           </div>
 
-          <div className="ov-hw-rlc">
+          <div className={`ov-hw-rlc scroll-animate fade-up delay-400 ${hwVisible ? 'visible' : ''}`}>
             <div className="ov-rlc-inner">
               <div className="ov-rlc-badge">🏆 RED LINE CLUB</div>
               <p>Premium membership for serious collectors. Limited-edition drops, behind-the-scenes content, and voting on new releases.</p>
             </div>
           </div>
 
-          <p className="ov-hw-community">
+          <p className={`ov-hw-community scroll-animate fade-up delay-500 ${hwVisible ? 'visible' : ''}`}>
             From kids to hobbyists to hardcore adult collectors — a <strong>global community</strong> united by car culture.
           </p>
         </div>
       </div>
 
       {/* ========== UNO SPOTLIGHT ========== */}
-      <div className="ov-uno-spotlight">
+      <div className="ov-uno-spotlight" ref={unoRef}>
         <div className="ov-uno-bg">
           <div className="ov-uno-float-card ov-ufc-1"></div>
           <div className="ov-uno-float-card ov-ufc-2"></div>
@@ -248,12 +255,12 @@ const Overview = () => {
         </div>
 
         <div className="ov-spotlight-container">
-          <div className="ov-spotlight-badge ov-uno-badge">
+          <div className={`ov-spotlight-badge ov-uno-badge scroll-animate fade-up ${unoVisible ? 'visible' : ''}`}>
             <span>🎴</span>
             <span>BRAND SPOTLIGHT</span>
           </div>
 
-          <div className="ov-uno-card-stack">
+          <div className={`ov-uno-card-stack scroll-animate scale-up delay-100 ${unoVisible ? 'visible' : ''}`}>
             {/* Red Draw 2 Card */}
             <div className="ov-uno-mini ov-um-red">
               <span className="ov-um-corner ov-um-corner-tl">+2</span>
@@ -288,10 +295,10 @@ const Overview = () => {
             </div>
           </div>
 
-          <h3 className="ov-uno-title">UNO</h3>
-          <p className="ov-uno-tagline">The World's #1 Card Game</p>
+          <h3 className={`ov-uno-title scroll-animate fade-up delay-200 ${unoVisible ? 'visible' : ''}`}>UNO</h3>
+          <p className={`ov-uno-tagline scroll-animate fade-up delay-300 ${unoVisible ? 'visible' : ''}`}>The World's #1 Card Game</p>
 
-          <div className="ov-uno-hero-stat">
+          <div className={`ov-uno-hero-stat scroll-animate fade-up delay-400 ${unoVisible ? 'visible' : ''}`}>
             <span className="ov-uno-big-num">17</span>
             <span className="ov-uno-big-unit">decks sold every minute</span>
             
@@ -314,7 +321,7 @@ const Overview = () => {
             </div>
           </div>
 
-          <div className="ov-uno-stats-grid">
+          <div className={`ov-uno-stats-grid scroll-animate fade-up delay-500 ${unoVisible ? 'visible' : ''}`}>
             <div className="ov-uno-tile ov-ut-red">
               <span className="ov-ut-num">80+</span>
               <span className="ov-ut-label">Countries</span>
@@ -333,7 +340,7 @@ const Overview = () => {
             </div>
           </div>
 
-          <div className="ov-uno-callout">
+          <div className={`ov-uno-callout scroll-animate fade-up delay-600 ${unoVisible ? 'visible' : ''}`}>
             <strong>Say "UNO!" or draw two.</strong>
             <span>Fast. Social. Unpredictable. The game that brings everyone together.</span>
           </div>
@@ -341,8 +348,8 @@ const Overview = () => {
       </div>
 
       {/* Bottom CTA */}
-      <div className="ov-cta-section">
-        <div className="ov-cta-content">
+      <div className="ov-cta-section" ref={ctaRef}>
+        <div className={`ov-cta-content scroll-animate blur-in ${ctaVisible ? 'visible' : ''}`}>
           <div className="ov-cta-badge">
             <span className="ov-badge-icon">🏅</span>
             <span>Award-Winning Innovation</span>

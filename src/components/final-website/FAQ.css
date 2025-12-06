@@ -5,7 +5,7 @@
 
 .faq-section {
   position: relative;
-  padding: 120px 24px;
+  padding: 180px 24px 180px;
   background: linear-gradient(180deg, #fefefe 0%, #f8f9ff 50%, #f0f4ff 100%);
   overflow: hidden;
 }
@@ -129,6 +129,309 @@
   50% { transform: translateY(-20px) rotate(5deg); }
 }
 
+/* ========== SHADOW IMAGES ========== */
+.faq-shadow-image {
+  position: absolute;
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+  width: 200px;
+  height: 200px;
+  transition: transform 0.5s ease;
+}
+
+.faq-shadow-1 {
+  top: 15%;
+  left: 2%;
+  animation: faq-shadow-float 8s ease-in-out infinite;
+}
+
+.faq-shadow-2 {
+  top: 25%;
+  right: 2%;
+  animation: faq-shadow-float 9s ease-in-out infinite reverse;
+}
+
+.faq-shadow-3 {
+  bottom: 20%;
+  left: 5%;
+  width: 250px;
+  animation: faq-shadow-float 10s ease-in-out infinite 1s;
+}
+
+.faq-shadow-4 {
+  bottom: 15%;
+  right: 5%;
+  width: 220px;
+  animation: faq-shadow-float 11s ease-in-out infinite 2s;
+}
+
+.faq-shadow-image svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+}
+
+@keyframes faq-shadow-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Hide shadows on smaller screens */
+@media (max-width: 1400px) {
+  .faq-shadow-image {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  
+  .faq-shadow-1 { left: -5%; }
+  .faq-shadow-2 { right: -5%; }
+  .faq-shadow-3 { left: -5%; }
+  .faq-shadow-4 { right: -5%; }
+}
+
+@media (max-width: 800px) {
+  .faq-shadow-image {
+    display: none;
+  }
+}
+
+/* ========== CREATIVE TOP BORDER ========== */
+.faq-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.faq-border-top-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, transparent 100%);
+}
+
+.faq-wave-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.faq-wave-yellow {
+  z-index: 3;
+  opacity: 0.9;
+}
+
+.faq-wave-yellow path {
+  fill: #FFD53D;
+}
+
+.faq-wave-red {
+  z-index: 2;
+  top: 10px;
+  opacity: 0.85;
+}
+
+.faq-wave-red path {
+  fill: #ED1C24;
+}
+
+.faq-wave-blue {
+  z-index: 1;
+  top: 20px;
+  opacity: 0.8;
+}
+
+.faq-wave-blue path {
+  fill: #4A8CFF;
+}
+
+/* Decorative dots for top border */
+.faq-border-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.faq-dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: faq-dot-bounce 3s ease-in-out infinite;
+}
+
+.faq-dot-1 {
+  width: 16px;
+  height: 16px;
+  background: #55AA55;
+  top: 50px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.faq-dot-2 {
+  width: 12px;
+  height: 12px;
+  background: #FF6B00;
+  top: 35px;
+  left: 25%;
+  animation-delay: 0.3s;
+}
+
+.faq-dot-3 {
+  width: 20px;
+  height: 20px;
+  background: #9932CC;
+  top: 60px;
+  left: 50%;
+  animation-delay: 0.6s;
+}
+
+.faq-dot-4 {
+  width: 14px;
+  height: 14px;
+  background: #00CED1;
+  top: 40px;
+  left: 75%;
+  animation-delay: 0.9s;
+}
+
+.faq-dot-5 {
+  width: 10px;
+  height: 10px;
+  background: #FF69B4;
+  top: 55px;
+  left: 90%;
+  animation-delay: 1.2s;
+}
+
+@keyframes faq-dot-bounce {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+}
+
+/* ========== CREATIVE BOTTOM BORDER ========== */
+.faq-border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.faq-border-bottom-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #ffffff 0%, transparent 100%);
+}
+
+.faq-wave-blue-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.faq-wave-blue-bottom path {
+  fill: #4A8CFF;
+}
+
+.faq-wave-red-bottom {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.faq-wave-red-bottom path {
+  fill: #ED1C24;
+}
+
+.faq-wave-yellow-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+.faq-wave-yellow-bottom path {
+  fill: #FFD53D;
+}
+
+/* Decorative circles for bottom border */
+.faq-border-circles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.faq-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid;
+  animation: faq-circle-pulse 4s ease-in-out infinite;
+}
+
+.faq-circle-1 {
+  width: 40px;
+  height: 40px;
+  border-color: rgba(85, 170, 85, 0.6);
+  bottom: 30px;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.faq-circle-2 {
+  width: 30px;
+  height: 30px;
+  border-color: rgba(153, 50, 204, 0.6);
+  bottom: 50px;
+  left: 55%;
+  animation-delay: 1s;
+}
+
+.faq-circle-3 {
+  width: 50px;
+  height: 50px;
+  border-color: rgba(0, 206, 209, 0.6);
+  bottom: 25px;
+  left: 85%;
+  animation-delay: 2s;
+}
+
+@keyframes faq-circle-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0.9; }
+}
+
 /* ========== CONTAINER ========== */
 .faq-container {
   max-width: 900px;
@@ -194,6 +497,9 @@
 .faq-accordion {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
   gap: 16px;
 }
 
@@ -321,12 +627,14 @@
 
 /* ========== BOTTOM CTA ========== */
 .faq-bottom-cta {
-  margin-top: 60px;
   text-align: center;
   padding: 40px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 255, 0.9) 100%);
   border-radius: 24px;
   border: 2px dashed rgba(0, 87, 184, 0.2);
+  max-width: 750px;
+  margin: 60px auto 0 auto;
+  width: 100%;
 }
 
 .faq-bottom-cta p {
@@ -379,9 +687,57 @@
 }
 
 /* ========== RESPONSIVE ========== */
+
+@media (max-width: 1000px) {
+    .faq-shadow-1 {
+        top: 25%;
+        left: 2px;
+    
+      }
+      
+      .faq-shadow-2 {
+        top: 25%;
+        right: 2px;
+        animation: faq-shadow-float 9s ease-in-out infinite reverse;
+      }
+      
+      .faq-shadow-3 {
+        bottom: 20%;
+        left: 5%;
+        width: 250px;
+        animation: faq-shadow-float 10s ease-in-out infinite 1s;
+      }
+      
+      .faq-shadow-4 {
+        bottom: 15%;
+        right: 5%;
+        width: 220px;
+        animation: faq-shadow-float 11s ease-in-out infinite 2s;
+      }
+}
 @media (max-width: 768px) {
   .faq-section {
-    padding: 80px 16px;
+    padding: 120px 16px 120px;
+  }
+
+  .faq-border-top,
+  .faq-border-bottom {
+    height: 100px;
+  }
+
+  .faq-wave-layer,
+  .faq-wave-blue-bottom,
+  .faq-wave-red-bottom,
+  .faq-wave-yellow-bottom {
+    height: 70px;
+  }
+
+  .faq-dot {
+    transform: scale(0.7);
+  }
+
+  .faq-circle {
+    transform: scale(0.6);
   }
 
   .faq-header {
@@ -474,30 +830,18 @@
   transform: translateY(-2px) rotate(0.3deg);
 }
 
-/* Staggered animation on load */
-.faq-item {
-  animation: faq-item-appear 0.5s ease-out forwards;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.faq-item:nth-child(1) { animation-delay: 0.1s; }
-.faq-item:nth-child(2) { animation-delay: 0.15s; }
-.faq-item:nth-child(3) { animation-delay: 0.2s; }
-.faq-item:nth-child(4) { animation-delay: 0.25s; }
-.faq-item:nth-child(5) { animation-delay: 0.3s; }
-.faq-item:nth-child(6) { animation-delay: 0.35s; }
-.faq-item:nth-child(7) { animation-delay: 0.4s; }
-.faq-item:nth-child(8) { animation-delay: 0.45s; }
-.faq-item:nth-child(9) { animation-delay: 0.5s; }
-.faq-item:nth-child(10) { animation-delay: 0.55s; }
-
-@keyframes faq-item-appear {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* Staggered animation handled by scroll-animate classes */
+/* Animation delay overrides for FAQ items when using scroll animations */
+.faq-item.scroll-animate.stagger-1 { transition-delay: 0.05s; }
+.faq-item.scroll-animate.stagger-2 { transition-delay: 0.1s; }
+.faq-item.scroll-animate.stagger-3 { transition-delay: 0.15s; }
+.faq-item.scroll-animate.stagger-4 { transition-delay: 0.2s; }
+.faq-item.scroll-animate.stagger-5 { transition-delay: 0.25s; }
+.faq-item.scroll-animate.stagger-6 { transition-delay: 0.3s; }
+.faq-item.scroll-animate.stagger-7 { transition-delay: 0.35s; }
+.faq-item.scroll-animate.stagger-8 { transition-delay: 0.4s; }
+.faq-item.scroll-animate.stagger-9 { transition-delay: 0.45s; }
+.faq-item.scroll-animate.stagger-10 { transition-delay: 0.5s; }
 
 /* Color accents for each item type */
 .faq-item:nth-child(1) { --item-color: #ED1C24; }
@@ -510,4 +854,73 @@
 .faq-item:nth-child(8) { --item-color: #4A8CFF; }
 .faq-item:nth-child(9) { --item-color: #FF69B4; }
 .faq-item:nth-child(10) { --item-color: #00CED1; }
+
+/* ========== SHADOW IMAGES ========== */
+.faq-shadow-image {
+  position: absolute;
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+  width: 200px;
+  height: 200px;
+  transition: transform 0.5s ease;
+}
+
+.faq-shadow-1 {
+  top: 15%;
+  left: 2%;
+  animation: faq-shadow-float 8s ease-in-out infinite;
+}
+
+.faq-shadow-2 {
+  top: 25%;
+  right: 2%;
+  animation: faq-shadow-float 9s ease-in-out infinite reverse;
+}
+
+.faq-shadow-3 {
+  bottom: 20%;
+  left: 5%;
+  width: 250px;
+  animation: faq-shadow-float 10s ease-in-out infinite 1s;
+}
+
+.faq-shadow-4 {
+  bottom: 15%;
+  right: 5%;
+  width: 220px;
+  animation: faq-shadow-float 11s ease-in-out infinite 2s;
+}
+
+.faq-shadow-image svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+}
+
+@keyframes faq-shadow-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Hide shadows on smaller screens */
+@media (max-width: 1400px) {
+  .faq-shadow-image {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  
+  /* .faq-shadow-1 { left: -5%; }
+  .faq-shadow-2 { right: -5%; }
+  .faq-shadow-3 { left: -5%; }
+  .faq-shadow-4 { right: -5%; } */
+}
+
+@media (max-width: 800
+px) {
+  .faq-shadow-image {
+    display: none;
+  }
+}
+
 

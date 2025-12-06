@@ -6,6 +6,7 @@ import WhatWereCreating from '../../components/final-website/WhatWereCreating';
 import FAQ from '../../components/final-website/FAQ';
 import TeamSection from '../../components/final-website/TeamSection';
 import { useLanguage } from '../../context/LanguageContext';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import './Landing.css';
 
 // Import logos and icons
@@ -18,6 +19,10 @@ import aiIcon from '../../assets/icons/ai-icon.webp';
 const FinalWebsiteLanding = () => {
   const { t } = useLanguage();
   
+  // Scroll animations for brand selection
+  const [brandRef, brandVisible] = useScrollAnimation({ threshold: 0.15 });
+  const [footerRef, footerVisible] = useScrollAnimation({ threshold: 0.3 });
+  
   return (
     <div className="landing-page">
       {/* New Conference-Style Hero Section */}
@@ -27,7 +32,7 @@ const FinalWebsiteLanding = () => {
       <Overview />
 
       {/* Brand Selection */}
-      <section className="landing-brand-selection">
+      <section className="landing-brand-selection" ref={brandRef}>
         {/* Background Elements */}
         <div className="landing-sel-bg">
           <div className="landing-sel-blob landing-sel-blob-1"></div>
@@ -42,14 +47,14 @@ const FinalWebsiteLanding = () => {
         </div>
 
         <div className="landing-selection-header">
-          <span className="landing-sel-badge">{t('brandSelection.pickAdventure')}</span>
-          <h2>{t('brandSelection.chooseExperience')} <span className="landing-sel-highlight">{t('brandSelection.experience')}</span></h2>
-          <p>{t('brandSelection.eachBrand')}</p>
+          <span className={`landing-sel-badge scroll-animate fade-up ${brandVisible ? 'visible' : ''}`}>{t('brandSelection.pickAdventure')}</span>
+          <h2 className={`scroll-animate fade-up delay-100 ${brandVisible ? 'visible' : ''}`}>{t('brandSelection.chooseExperience')} <span className="landing-sel-highlight">{t('brandSelection.experience')}</span></h2>
+          <p className={`scroll-animate fade-up delay-200 ${brandVisible ? 'visible' : ''}`}>{t('brandSelection.eachBrand')}</p>
         </div>
 
         <div className="landing-brand-cards">
           {/* UNO Card */}
-          <Link to="/final-website/uno" className="landing-brand-card landing-card-uno">
+          <Link to="/final-website/uno" className={`landing-brand-card landing-card-uno scroll-animate slide-left delay-300 ${brandVisible ? 'visible' : ''}`}>
             <div className="landing-card-glow"></div>
             <div className="landing-card-inner">
               <img src={unoLogo} alt="UNO Logo" className="landing-card-logo" />
@@ -63,7 +68,7 @@ const FinalWebsiteLanding = () => {
           </Link>
 
           {/* Hot Wheels Card */}
-          <Link to="/final-website/hotwheels" className="landing-brand-card landing-card-hw">
+          <Link to="/final-website/hotwheels" className={`landing-brand-card landing-card-hw scroll-animate slide-right delay-300 ${brandVisible ? 'visible' : ''}`}>
             <div className="landing-card-glow"></div>
             <div className="landing-card-inner">
               <img src={hotwheelsLogo} alt="Hot Wheels Logo" className="landing-card-logo landing-hw-logo" />
@@ -77,7 +82,7 @@ const FinalWebsiteLanding = () => {
         </div>
 
         {/* Bottom Accent */}
-        <div className="landing-sel-bottom-accent">
+        <div className={`landing-sel-bottom-accent scroll-animate fade-up delay-500 ${brandVisible ? 'visible' : ''}`}>
           <span>{t('brandSelection.play')}</span>
           <span>•</span>
           <span>{t('brandSelection.collect')}</span>
@@ -98,14 +103,17 @@ const FinalWebsiteLanding = () => {
       <TeamSection />
 
       {/* Footer */}
-      <footer className="landing-footer">
-        <div className="landing-footer-content">
+      <footer className="landing-footer" ref={footerRef}>
+        <div className={`landing-footer-content scroll-animate fade-up ${footerVisible ? 'visible' : ''}`}>
           <div className="landing-footer-brand">
             <span className="landing-footer-logo">{t('footer.mattelAiLab')}</span>
             <p>{t('footer.empowering')}</p>
           </div>
           <div className="landing-footer-note">
             <p>{t('footer.educationalPrototype')}</p>
+          </div>
+          <div className="landing-footer-copyright">
+            <p>©2025 Mattel</p>
           </div>
         </div>
       </footer>

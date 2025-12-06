@@ -7,9 +7,15 @@ import aiIcon from '../../assets/icons/ai-icon.webp';
 import unoCardIcon from '../../assets/icons/Uno-card.webp';
 import hotwheelsIcon from '../../assets/icons/Hotwheels-icon.webp';
 import { useLanguage } from '../../context/LanguageContext';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const Hero = () => {
   const { t } = useLanguage();
+  
+  // Scroll animations
+  const [heroRef, heroVisible] = useScrollAnimation({ threshold: 0.1, rootMargin: '0px' });
+  const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [pillsRef, pillsVisible] = useScrollAnimation({ threshold: 0.3 });
   
   // Countdown timer state (for visual flair like the reference)
   const [timeLeft, setTimeLeft] = useState({
@@ -35,9 +41,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="fwh-section">
+    <section className="fwh-section" ref={heroRef}>
       {/* Colorful Top Accent Bar */}
-      <div className="fwh-accent-bar">
+      <div className={`fwh-accent-bar scroll-animate fade-down ${heroVisible ? 'visible' : ''}`}>
         <div className="fwh-accent-segment fwh-accent-red"></div>
         <div className="fwh-accent-segment fwh-accent-orange"></div>
         <div className="fwh-accent-segment fwh-accent-yellow"></div>
@@ -108,18 +114,18 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="fwh-container">
+      <div className="fwh-container" ref={contentRef}>
         {/* Content First */}
         <div className="fwh-content">
           {/* Eyebrow Badge */}
-          <div className="fwh-eyebrow">
+          <div className={`fwh-eyebrow scroll-animate fade-up ${contentVisible ? 'visible' : ''}`}>
         
             <span>{t('hero.playStudio')}</span>
             <span className="fwh-eyebrow-dot">•</span>
             <span className="fwh-eyebrow-highlight">{t('hero.gamesCollectibles')}</span>
           </div>
 
-          <h1 className="fwh-title">
+          <h1 className={`fwh-title scroll-animate fade-up delay-100 ${contentVisible ? 'visible' : ''}`}>
             {t('hero.titlePart1')}{' '}
             <span className="fwh-title-highlight">
               {t('hero.titlePlay')}
@@ -136,11 +142,11 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="fwh-subtitle">
+          <p className={`fwh-subtitle scroll-animate fade-up delay-200 ${contentVisible ? 'visible' : ''}`}>
             {t('hero.subtitle')}
           </p>
 
-          <div className="fwh-ctas">
+          <div className={`fwh-ctas scroll-animate fade-up delay-300 ${contentVisible ? 'visible' : ''}`}>
             <a href="#uno" className="fwh-cta-btn fwh-cta-primary">
               <img src={unoCardIcon} alt="" className="fwh-btn-icon-img" />
               {t('hero.letsPlayUno')}
@@ -153,7 +159,7 @@ const Hero = () => {
           </div>
 
           {/* Countdown Timer - Playful addition */}
-          <div className="fwh-countdown">
+          <div className={`fwh-countdown scroll-animate fade-up delay-400 ${contentVisible ? 'visible' : ''}`}>
             <div className="fwh-countdown-label">{t('hero.nextMeetup')}</div>
             <div className="fwh-countdown-timer">
               <div className="fwh-countdown-block">
@@ -179,7 +185,7 @@ const Hero = () => {
           </div>
 
           {/* Stats Callouts */}
-          <div className="fwh-stats">
+          <div className={`fwh-stats scroll-animate fade-up delay-500 ${contentVisible ? 'visible' : ''}`}>
             <div className="fwh-stat-item">
               <span className="fwh-stat-number">50+</span>
               <span className="fwh-stat-label">{t('hero.yearsOfPlay')}</span>
@@ -198,9 +204,9 @@ const Hero = () => {
         </div>
 
         {/* Image Pills Below Content */}
-        <div className="fwh-pills">
+        <div className="fwh-pills" ref={pillsRef}>
           {/* Yellow Pill - UNO */}
-          <div className="fwh-pill fwh-pill-yellow">
+          <div className={`fwh-pill fwh-pill-yellow fwh-pill-bounce ${pillsVisible ? 'fwh-bounce-in' : ''}`} style={{ '--bounce-delay': '0s' }}>
             <div className="fwh-pill-border"></div>
             <div className="fwh-pill-doodle fwh-pill-doodle-star">✦</div>
             <div className="fwh-pill-doodle fwh-pill-doodle-plus">+</div>
@@ -211,7 +217,7 @@ const Hero = () => {
           </div>
 
           {/* Red Pill - Hot Wheels */}
-          <div className="fwh-pill fwh-pill-red">
+          <div className={`fwh-pill fwh-pill-red fwh-pill-bounce ${pillsVisible ? 'fwh-bounce-in' : ''}`} style={{ '--bounce-delay': '0.15s' }}>
             <div className="fwh-pill-border"></div>
             <div className="fwh-pill-doodle fwh-pill-doodle-burst">✺</div>
             <div className="fwh-pill-doodle fwh-pill-doodle-lines">
@@ -226,7 +232,7 @@ const Hero = () => {
           </div>
 
           {/* Blue Pill - Family */}
-          <div className="fwh-pill fwh-pill-blue">
+          <div className={`fwh-pill fwh-pill-blue fwh-pill-bounce ${pillsVisible ? 'fwh-bounce-in' : ''}`} style={{ '--bounce-delay': '0.3s' }}>
             <div className="fwh-pill-border"></div>
             <div className="fwh-pill-doodle fwh-pill-doodle-sparkle">✧</div>
             <div className="fwh-pill-doodle fwh-pill-doodle-heart">♥</div>

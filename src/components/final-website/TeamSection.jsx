@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TeamSection.css';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 // Import team images
 import akendaiImg from '../../assets/team/Akendai_Kouassi.webp';
@@ -15,6 +16,11 @@ const TeamSection = () => {
   const [email, setEmail] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [expandedCard, setExpandedCard] = useState(null);
+  
+  // Scroll animations
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [gridRef, gridVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [bottomRef, bottomVisible] = useScrollAnimation({ threshold: 0.3 });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -182,20 +188,21 @@ const TeamSection = () => {
       </div>
 
       {/* Header */}
-      <div className="team-header">
-        <span className="team-badge">👥 Our Team</span>
-        <h2 className="team-title">Meet the <span className="team-title-highlight">Team</span></h2>
-        <p className="team-subtitle">
+      <div className="team-header" ref={headerRef}>
+        <span className={`team-badge scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>👥 Our Team</span>
+        <h2 className={`team-title scroll-animate fade-up delay-100 ${headerVisible ? 'visible' : ''}`}>Meet the <span className="team-title-highlight">Team</span></h2>
+        <p className={`team-subtitle scroll-animate fade-up delay-200 ${headerVisible ? 'visible' : ''}`}>
           The creative minds behind the Mattel × AI Brand Lab
         </p>
       </div>
 
       {/* Team Cards Grid */}
-      <div className="team-grid">
-        {teamMembers.map((member) => (
+      <div className="team-grid" ref={gridRef}>
+        {teamMembers.map((member, index) => (
           <div 
             key={member.id} 
-            className={`team-card ${expandedCard === member.id ? 'showing-contrib' : ''}`}
+            className={`team-card team-card-fall ${gridVisible ? 'team-card-dealt' : ''} ${expandedCard === member.id ? 'showing-contrib' : ''}`}
+            style={{ '--card-index': index }}
           >
             <div 
               className="team-card-accent" 
@@ -271,7 +278,7 @@ const TeamSection = () => {
       </div>
 
       {/* Bottom Accent */}
-      <div className="team-bottom-text">
+      <div className={`team-bottom-text scroll-animate fade-up ${gridVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
         <span>Creativity</span>
         <span className="team-dot">•</span>
         <span>Strategy</span>
@@ -280,9 +287,9 @@ const TeamSection = () => {
       </div>
 
       {/* Newsletter CTA */}
-      <div className="team-newsletter">
-        <p className="team-newsletter-text">Stay updated with the latest from Mattel × AI Lab</p>
-        <form className="team-newsletter-form" onSubmit={handleSubmit}>
+      <div className="team-newsletter" ref={bottomRef}>
+        <p className={`team-newsletter-text scroll-animate fade-up ${bottomVisible ? 'visible' : ''}`}>Stay updated with the latest from Mattel × AI Lab</p>
+        <form className={`team-newsletter-form scroll-animate fade-up delay-200 ${bottomVisible ? 'visible' : ''}`} onSubmit={handleSubmit}>
           <input
             type="email"
             className="team-newsletter-input"

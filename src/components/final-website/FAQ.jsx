@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { ChevronDown, Sparkles, HelpCircle, Gamepad2, Car, Users, Globe, Zap, Heart, Star } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import './FAQ.css';
 
 const FAQ = () => {
   const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState(null);
+  
+  // Scroll animations
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [accordionRef, accordionVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.3 });
 
   // SEO & AEO Optimized FAQ Questions
   // Long-tail keywords: UNO card game rules, Hot Wheels collector community, 
@@ -89,6 +95,32 @@ const FAQ = () => {
 
   return (
     <section className="faq-section" id="faq">
+      {/* Top Creative Border - Layered Waves */}
+      <div className="faq-border-top">
+        {/* Background gradient layer */}
+        <div className="faq-border-top-bg"></div>
+        {/* Yellow wave layer */}
+        <svg className="faq-wave-layer faq-wave-yellow" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,64L48,58.7C96,53,192,43,288,48C384,53,480,75,576,80C672,85,768,75,864,69.3C960,64,1056,64,1152,69.3C1248,75,1344,85,1392,90.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+        {/* Red wave layer */}
+        <svg className="faq-wave-layer faq-wave-red" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,32L60,37.3C120,43,240,53,360,58.7C480,64,600,64,720,58.7C840,53,960,43,1080,42.7C1200,43,1320,53,1380,58.7L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+        </svg>
+        {/* Blue wave layer */}
+        <svg className="faq-wave-layer faq-wave-blue" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,96L80,85.3C160,75,320,53,480,53.3C640,53,800,75,960,80C1120,85,1280,75,1360,69.3L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+        </svg>
+        {/* Decorative dots */}
+        <div className="faq-border-dots">
+          <span className="faq-dot faq-dot-1"></span>
+          <span className="faq-dot faq-dot-2"></span>
+          <span className="faq-dot faq-dot-3"></span>
+          <span className="faq-dot faq-dot-4"></span>
+          <span className="faq-dot faq-dot-5"></span>
+        </div>
+      </div>
+
       {/* Playful Background Elements */}
       <div className="faq-bg-elements">
         <div className="faq-blob faq-blob-1"></div>
@@ -102,27 +134,71 @@ const FAQ = () => {
         <div className="faq-question-mark faq-qm-2">?</div>
       </div>
 
+      {/* Shadow Images - Cutouts of People Playing */}
+      
+      {/* 1. Kids Running (Top Left) */}
+      <div className="faq-shadow-image faq-shadow-1">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100,40 C115,40 125,25 115,15 C105,5 90,5 80,15 C70,25 85,40 100,40 Z" fill="#e0e7ff" />
+          <path d="M95,45 C80,55 60,60 40,50 L20,40 C15,35 10,45 15,55 L35,75 C50,90 60,100 65,120 L55,170 C50,185 70,190 75,175 L90,130 L105,175 C110,190 130,185 125,170 L115,120 C120,100 130,90 145,75 L165,55 C170,45 165,35 160,40 L140,50 C120,60 110,55 95,45 Z" fill="#e0e7ff" />
+        </svg>
+      </div>
+
+      {/* 2. Teen Jumping (Top Right) */}
+      <div className="faq-shadow-image faq-shadow-2">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="30" r="15" fill="#fce7f3" />
+          <path d="M100,50 C120,60 140,40 160,20 C170,10 180,20 170,30 L150,60 C140,80 130,90 130,110 L140,160 C145,175 125,180 120,165 L100,120 L80,165 C75,180 55,175 60,160 L70,110 C70,90 60,80 50,60 L30,30 C20,20 30,10 40,20 C60,40 80,60 100,50 Z" fill="#fce7f3" />
+        </svg>
+      </div>
+
+      {/* 3. Family Holding Hands (Bottom Left) */}
+      <div className="faq-shadow-image faq-shadow-3">
+        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+          {/* Parent */}
+          <circle cx="80" cy="40" r="15" fill="#dbeafe" />
+          <path d="M80,60 C60,70 60,100 60,130 L55,190 C50,200 70,200 75,190 L80,140 L85,190 C90,200 110,200 105,190 L100,130 C100,100 100,70 80,60" fill="#dbeafe" />
+          {/* Child */}
+          <circle cx="150" cy="70" r="12" fill="#dbeafe" />
+          <path d="M150,85 C135,95 135,115 135,140 L130,190 C125,200 140,200 145,190 L150,150 L155,190 C160,200 175,200 170,190 L165,140 C165,115 165,95 150,85" fill="#dbeafe" />
+          {/* Connected Arms */}
+          <path d="M80,70 Q115,100 150,95" stroke="#dbeafe" strokeWidth="10" strokeLinecap="round" fill="none" />
+        </svg>
+      </div>
+
+      {/* 4. Friends Running (Bottom Right) */}
+      <div className="faq-shadow-image faq-shadow-4">
+        <svg viewBox="0 0 250 200" xmlns="http://www.w3.org/2000/svg">
+          {/* Person 1 */}
+          <circle cx="60" cy="40" r="14" fill="#ffe4e6" />
+          <path d="M60,60 C50,70 40,90 40,120 L30,180 C25,190 45,195 50,185 L60,140 L70,185 C75,195 95,190 90,180 L80,120 C80,90 70,70 60,60" fill="#ffe4e6" />
+          {/* Person 2 */}
+          <circle cx="120" cy="50" r="14" fill="#ffe4e6" />
+          <path d="M120,70 C110,80 100,100 100,130 L90,190 C85,200 105,205 110,195 L120,150 L130,195 C135,205 155,200 150,190 L140,130 C140,100 130,80 120,70" fill="#ffe4e6" />
+        </svg>
+      </div>
+
       <div className="faq-container">
         {/* Header */}
-        <div className="faq-header">
-          <span className="faq-badge">
+        <div className="faq-header" ref={headerRef}>
+          <span className={`faq-badge scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>
             <HelpCircle size={16} />
             Got Questions?
           </span>
-          <h2 className="faq-title">
+          <h2 className={`faq-title scroll-animate fade-up delay-100 ${headerVisible ? 'visible' : ''}`}>
             Frequently Asked <span className="faq-title-highlight">Questions</span>
           </h2>
-          <p className="faq-subtitle">
+          <p className={`faq-subtitle scroll-animate fade-up delay-200 ${headerVisible ? 'visible' : ''}`}>
             Everything you need to know about UNO, Hot Wheels, and our AI-powered platform
           </p>
         </div>
 
         {/* Accordion */}
-        <div className="faq-accordion">
+        <div className="faq-accordion" ref={accordionRef}>
           {faqItems.map((item, index) => (
             <div 
               key={index}
-              className={`faq-item ${openIndex === index ? 'faq-item-open' : ''}`}
+              className={`faq-item scroll-animate fade-up stagger-${Math.min(index + 1, 10)} ${accordionVisible ? 'visible' : ''} ${openIndex === index ? 'faq-item-open' : ''}`}
               style={{ '--item-color': item.color }}
             >
               <button 
@@ -151,18 +227,42 @@ const FAQ = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="faq-bottom-cta">
-          <p>Still have questions? We'd love to help!</p>
-          <div className="faq-cta-buttons">
+        <div className="faq-bottom-cta" ref={ctaRef}>
+          <p className={`scroll-animate fade-up ${ctaVisible ? 'visible' : ''}`}>Still have questions? We'd love to help!</p>
+          <div className={`faq-cta-buttons scroll-animate fade-up delay-200 ${ctaVisible ? 'visible' : ''}`}>
             <a href="#team" className="faq-cta-btn faq-cta-primary">
               <Users size={18} />
               Meet the Team
             </a>
-            <a href="#overview" className="faq-cta-btn faq-cta-secondary">
+            <a href="https://about.mattel.com/" target="_blank" rel="noopener noreferrer" className="faq-cta-btn faq-cta-secondary">
               <Globe size={18} />
               Learn More
             </a>
           </div>
+        </div>
+      </div>
+
+      {/* Bottom Creative Border - Layered Waves (Inverted) */}
+      <div className="faq-border-bottom">
+        {/* Background gradient layer */}
+        <div className="faq-border-bottom-bg"></div>
+        {/* Blue wave layer */}
+        <svg className="faq-wave-layer faq-wave-blue-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+        </svg>
+        {/* Red wave layer */}
+        <svg className="faq-wave-layer faq-wave-red-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+        </svg>
+        {/* Yellow wave layer */}
+        <svg className="faq-wave-layer faq-wave-yellow-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path d="M0,96L80,90.7C160,85,320,75,480,74.7C640,75,800,85,960,90.7C1120,96,1280,96,1360,96L1440,96L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+        </svg>
+        {/* Decorative circles */}
+        <div className="faq-border-circles">
+          <span className="faq-circle faq-circle-1"></span>
+          <span className="faq-circle faq-circle-2"></span>
+          <span className="faq-circle faq-circle-3"></span>
         </div>
       </div>
     </section>

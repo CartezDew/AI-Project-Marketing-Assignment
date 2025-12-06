@@ -1,0 +1,278 @@
+/* ============================================
+   PROFESSIONAL SCROLL ANIMATIONS
+   Reusable animation classes for all sections
+   ============================================ */
+
+/* Base transition for all animated elements */
+.scroll-animate {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+}
+
+/* ========== FADE ANIMATIONS ========== */
+
+/* Fade Up */
+.fade-up {
+  transform: translateY(60px);
+}
+
+.fade-up.visible {
+  transform: translateY(0);
+}
+
+/* Fade Down */
+.fade-down {
+  transform: translateY(-60px);
+}
+
+.fade-down.visible {
+  transform: translateY(0);
+}
+
+/* Fade Left */
+.fade-left {
+  transform: translateX(60px);
+}
+
+.fade-left.visible {
+  transform: translateX(0);
+}
+
+/* Fade Right */
+.fade-right {
+  transform: translateX(-60px);
+}
+
+.fade-right.visible {
+  transform: translateX(0);
+}
+
+/* Fade In Only */
+.fade-in {
+  transform: scale(0.98);
+}
+
+.fade-in.visible {
+  transform: scale(1);
+}
+
+/* ========== SCALE ANIMATIONS ========== */
+
+/* Scale Up */
+.scale-up {
+  transform: scale(0.8);
+}
+
+.scale-up.visible {
+  transform: scale(1);
+}
+
+/* Scale Down */
+.scale-down {
+  transform: scale(1.1);
+}
+
+.scale-down.visible {
+  transform: scale(1);
+}
+
+/* Pop In */
+.pop-in {
+  transform: scale(0.5);
+}
+
+.pop-in.visible {
+  transform: scale(1);
+  transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ========== ROTATION ANIMATIONS ========== */
+
+/* Rotate In */
+.rotate-in {
+  transform: rotate(-10deg) scale(0.9);
+}
+
+.rotate-in.visible {
+  transform: rotate(0) scale(1);
+}
+
+/* Flip In */
+.flip-in {
+  transform: perspective(1000px) rotateX(-20deg);
+  transform-origin: top center;
+}
+
+.flip-in.visible {
+  transform: perspective(1000px) rotateX(0);
+}
+
+/* ========== SLIDE ANIMATIONS ========== */
+
+/* Slide In Left */
+.slide-left {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+.slide-left.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Slide In Right */
+.slide-right {
+  transform: translateX(100px);
+  opacity: 0;
+}
+
+.slide-right.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Slide In Up */
+.slide-up {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.slide-up.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ========== BLUR ANIMATIONS ========== */
+
+/* Blur In */
+.blur-in {
+  filter: blur(10px);
+  transform: scale(0.95);
+}
+
+.blur-in.visible {
+  filter: blur(0);
+  transform: scale(1);
+  transition: opacity 0.8s ease,
+              transform 0.8s ease,
+              filter 0.8s ease;
+}
+
+/* ========== SPECIAL ANIMATIONS ========== */
+
+/* Bounce In */
+.bounce-in {
+  transform: translateY(40px);
+}
+
+.bounce-in.visible {
+  transform: translateY(0);
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes bounceIn {
+  0% { transform: translateY(40px); opacity: 0; }
+  50% { transform: translateY(-10px); }
+  70% { transform: translateY(5px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Swing In */
+.swing-in {
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+
+.swing-in.visible {
+  transform: rotateX(0);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Zoom Fade */
+.zoom-fade {
+  transform: scale(0.6);
+  filter: blur(5px);
+}
+
+.zoom-fade.visible {
+  transform: scale(1);
+  filter: blur(0);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== STAGGER DELAYS ========== */
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.1s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.2s; }
+.stagger-5 { transition-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.3s; }
+.stagger-7 { transition-delay: 0.35s; }
+.stagger-8 { transition-delay: 0.4s; }
+.stagger-9 { transition-delay: 0.45s; }
+.stagger-10 { transition-delay: 0.5s; }
+
+/* Custom stagger delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; }
+.delay-800 { transition-delay: 0.8s; }
+.delay-900 { transition-delay: 0.9s; }
+.delay-1000 { transition-delay: 1s; }
+
+/* ========== DURATION MODIFIERS ========== */
+.duration-fast {
+  transition-duration: 0.4s;
+}
+
+.duration-normal {
+  transition-duration: 0.6s;
+}
+
+.duration-slow {
+  transition-duration: 1s;
+}
+
+.duration-slower {
+  transition-duration: 1.4s;
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate,
+  .scroll-animate.visible,
+  .fade-up,
+  .fade-down,
+  .fade-left,
+  .fade-right,
+  .fade-in,
+  .scale-up,
+  .scale-down,
+  .pop-in,
+  .rotate-in,
+  .flip-in,
+  .slide-left,
+  .slide-right,
+  .slide-up,
+  .blur-in,
+  .bounce-in,
+  .swing-in,
+  .zoom-fade {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+    animation: none;
+  }
+}
+

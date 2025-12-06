@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Users, BookOpen, ChevronDown, FileText } from 'lucide-react';
+import { Home, Users, BookOpen, ChevronDown, FileText, HelpCircle, Sparkles } from 'lucide-react';
 import './Navbar.css';
-import mattelLogo from '../../assets/logos/Mattel_logo.svg.png';
+import mattelLogo from '../../assets/logos/Mattel_logo.webp';
 import unoLogo from '../../assets/logos/Uno_logo.webp';
 import hotwheelsLogo from '../../assets/logos/hotwheels_logo.png';
 import LanguageDropdown from './LanguageDropdown';
@@ -87,20 +87,8 @@ const FinalWebsiteNavbar = () => {
                   <Home size={16} /> Home
                 </Link>
               )}
-              <Link to="/" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                <FileText size={16} /> {t('nav.backToPrompts')}
-              </Link>
-              {/* Team link - navigate to landing page with hash when on UNO/HotWheels */}
-              {(isUno || isHotWheels) ? (
-                <Link to="/final-website#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <Users size={16} /> {t('nav.team')}
-                </Link>
-              ) : (
-                <a href="#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <Users size={16} /> {t('nav.team')}
-                </a>
-              )}
-              {/* Overview link - navigate to landing page with hash when on UNO/HotWheels */}
+              
+              {/* Overview link */}
               {(isUno || isHotWheels) ? (
                 <Link to="/final-website#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                   <BookOpen size={16} /> {t('nav.overview')}
@@ -110,6 +98,44 @@ const FinalWebsiteNavbar = () => {
                   <BookOpen size={16} /> {t('nav.overview')}
                 </a>
               )}
+
+              {/* Features link - Links to "What We're Creating" section */}
+              {(isUno || isHotWheels) ? (
+                <Link to="/final-website#features" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Sparkles size={16} /> Features
+                </Link>
+              ) : (
+                <a href="#features" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Sparkles size={16} /> Features
+                </a>
+              )}
+
+              {/* FAQ link - Added with ID scroll support */}
+              {(isUno || isHotWheels) ? (
+                <Link to="/final-website#faq" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <HelpCircle size={16} /> FAQ
+                </Link>
+              ) : (
+                <a href="#faq" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <HelpCircle size={16} /> FAQ
+                </a>
+              )}
+
+              {/* Team link */}
+              {(isUno || isHotWheels) ? (
+                <Link to="/final-website#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Users size={16} /> {t('nav.team')}
+                </Link>
+              ) : (
+                <a href="#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                  <Users size={16} /> {t('nav.team')}
+                </a>
+              )}
+
+              {/* Back to Prompts */}
+              <Link to="/" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                <FileText size={16} /> {t('nav.backToPrompts')}
+              </Link>
             </div>
           </div>
 

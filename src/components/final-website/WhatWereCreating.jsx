@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView, useAnimation } from 'framer-motion';
 import { 
   Globe2, 
   Sparkles, 
@@ -25,6 +26,19 @@ const WhatWereCreating = () => {
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef(null);
   const { t } = useLanguage();
+  
+  // Animation refs and controls
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const headerInView = useInView(headerRef, { once: true, margin: "-50px" });
+  const controls = useAnimation();
+  
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
 
   const features = [
     {
@@ -146,39 +160,181 @@ const WhatWereCreating = () => {
     };
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.9,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const highlightVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const subtitleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        delay: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const taglineVariants = {
+    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        delay: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const badgeVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: -20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.34, 1.56, 0.64, 1] // Bouncy easing
+      }
+    }
+  };
+
+  const labelVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+        delay: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const glowVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className="wwc-section">
+    <section className="wwc-section" id="what-were-creating" ref={sectionRef}>
       {/* Background Elements */}
       <div className="wwc-bg">
         <div className="wwc-bg-gradient"></div>
         <div className="wwc-bg-pattern"></div>
-        <div className="wwc-bg-glow wwc-glow-1"></div>
-        <div className="wwc-bg-glow wwc-glow-2"></div>
+        <motion.div 
+          className="wwc-bg-glow wwc-glow-1"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={glowVariants}
+        ></motion.div>
+        <motion.div 
+          className="wwc-bg-glow wwc-glow-2"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={glowVariants}
+          transition={{ delay: 0.3 }}
+        ></motion.div>
       </div>
 
       {/* Header */}
-      <div className="wwc-header">
-        <div className="wwc-badge">
+      <motion.div 
+        className="wwc-header"
+        ref={headerRef}
+        initial="hidden"
+        animate={headerInView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <motion.div className="wwc-badge" variants={badgeVariants}>
           <Star size={14} />
           <span>{t('whatWereCreating.badge')}</span>
-        </div>
-        <h2 className="wwc-title">
+        </motion.div>
+        <motion.h2 className="wwc-title" variants={titleVariants}>
           {t('whatWereCreating.title')}<br />
-          <span className="wwc-title-highlight">{t('whatWereCreating.titleHighlight')}</span>
-        </h2>
-        <p className="wwc-subtitle">
+          <motion.span 
+            className="wwc-title-highlight"
+            variants={highlightVariants}
+          >
+            {t('whatWereCreating.titleHighlight')}
+          </motion.span>
+        </motion.h2>
+        <motion.p className="wwc-subtitle" variants={subtitleVariants}>
           {t('whatWereCreating.subtitle')}
-        </p>
-        <p className="wwc-tagline">
+        </motion.p>
+        <motion.p className="wwc-tagline" variants={taglineVariants}>
           {t('whatWereCreating.tagline')}
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Section Label */}
-      <div className="wwc-section-label">
+      <motion.div 
+        className="wwc-section-label"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={labelVariants}
+      >
         <Trophy size={18} />
         <span>{t('whatWereCreating.sectionLabel')}</span>
-      </div>
+      </motion.div>
 
       {/* Netflix-Style Carousel */}
       <div 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './index.css';
+import './styles/ScrollAnimations.css';
 
 // Language Provider
 import { LanguageProvider } from './context/LanguageContext';

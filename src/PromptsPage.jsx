@@ -281,6 +281,59 @@ The AI was provided with the complete UNO rulebook and instructional materials t
         "Integrated below YouTube Shorts section"
       ],
       challenge: "Converting complex game rules into a single, digestible visual required careful information hierarchy and engaging illustrations. The infographic needed to be scannable for quick reference while still being comprehensive enough for new players."
+    },
+    {
+      id: 18,
+      title: "FAQ Section with SEO & AEO Optimization",
+      model: "Google Gemini 3 Pro",
+      type: "📋 Content & SEO",
+      description: "Created a comprehensive FAQ section with accordion functionality, optimized for search engines (SEO) and answer engine optimization (AEO). Features 10 strategically crafted questions targeting long-tail keywords and user intent, designed with playful, colorful UI by a senior web designer.",
+      prompt: `"now add a faq section with an accordian to the final-website page above the team section. make the FAQ section, playful, colorful, designed as if you are a senior webdesigner ux/ui professional. do a deep search of the web app to create 10 questions answered by the FAQ that is optimized for SEO and AEO and answering search engines optimazation, key terms, longtail form"`,
+      outputs: [
+        "10 SEO/AEO optimized FAQ questions with long-tail keywords",
+        "Playful accordion interface with color-coded icons",
+        "Animated wave borders (top and bottom) for seamless section transitions",
+        "4 staggered shadow cutouts of people/families playing (kids, teens, families)",
+        "Responsive design with mobile optimization",
+        "Staggered animation effects on page load",
+        "Creative visual elements: floating sparkles, question marks, gradient blobs",
+        "Bottom CTA section with 'Meet the Team' and 'Learn More' links",
+        "FAQ link added to navbar dropdown menu",
+        "Questions targeting: UNO rules, Hot Wheels collecting, AI features, community events, house rules, multilingual support, Red Line Club, track building, educational benefits, special editions"
+      ],
+      keywords: [
+        "UNO rules",
+        "how to play UNO",
+        "UNO card game instructions",
+        "Hot Wheels collecting guide",
+        "rare Hot Wheels value",
+        "treasure hunt Hot Wheels",
+        "AI games",
+        "Mattel AI technology",
+        "AI house rules generator",
+        "UNO tournaments near me",
+        "Hot Wheels conventions",
+        "Mattel community events",
+        "UNO house rules list",
+        "best UNO variations",
+        "UNO stacking rules",
+        "family game night rules",
+        "Mattel multilingual support",
+        "UNO in different languages",
+        "Hot Wheels Red Line Club benefits",
+        "RLC membership worth it",
+        "Hot Wheels track building tips",
+        "best Hot Wheels track sets",
+        "UNO educational benefits",
+        "family bonding games",
+        "best card games for kids",
+        "UNO child development",
+        "UNO special editions list",
+        "UNO Flip rules",
+        "collectible UNO decks",
+        "themed UNO games"
+      ],
+      challenge: "Creating FAQ questions that balance SEO optimization with natural, user-friendly language required extensive keyword research and understanding of search intent. The accordion design needed to be visually engaging while maintaining accessibility and performance. Integrating the FAQ seamlessly with existing page sections required careful CSS positioning and responsive breakpoints."
     }
   ];
 
@@ -1373,7 +1426,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
               onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
             >
               <span className="accordion-title">
-                AI Enhancements & Feature Build-Out <span className="accordion-meta">(17 Items)</span>
+                AI Enhancements & Feature Build-Out <span className="accordion-meta">(18 Items)</span>
               </span>
               <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
             </div>
