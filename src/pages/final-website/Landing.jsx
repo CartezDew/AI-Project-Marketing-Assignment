@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../../components/final-website/Hero';
 import Overview from '../../components/final-website/Overview';
 import WhatWereCreating from '../../components/final-website/WhatWereCreating';
+import FAQ from '../../components/final-website/FAQ';
 import TeamSection from '../../components/final-website/TeamSection';
 import { useLanguage } from '../../context/LanguageContext';
 import './Landing.css';
@@ -89,6 +90,9 @@ const FinalWebsiteLanding = () => {
 
       {/* What We're Creating Section */}
       <WhatWereCreating />
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* Team Section */}
       <TeamSection />
