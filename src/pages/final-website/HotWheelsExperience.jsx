@@ -185,6 +185,19 @@ const FinalWebsiteHotWheelsExperience = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="landing-footer">
+        <div className="landing-footer-content">
+          <div className="landing-footer-brand">
+            <span className="landing-footer-logo">{t('footer.mattelAiLab')}</span>
+            <p>{t('footer.empowering')}</p>
+          </div>
+          <div className="landing-footer-note">
+            <p>{t('footer.educationalPrototype')}</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

@@ -205,7 +205,7 @@ export const translations = {
       communityEvent: 'Community Event',
       top10Rules: 'Top 10 House Rules',
       familyTips: 'Family Game Night Tips',
-      videoNote: 'Videos curated from YouTube creators and official UNO channels',
+      videoNote: 'Videos curated from YouTube creators',
       readyToPlay: 'Ready to Play?',
       joinUnoComm: 'Join the UNO community and never have a boring game night again.',
       getStarted: 'Get Started',

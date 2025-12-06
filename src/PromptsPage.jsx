@@ -227,6 +227,60 @@ Be creative and intentional, thoughtful in the UX/UI design of the language drop
         "Animated globe icon in dropdown header"
       ],
       challenge: "Creating accurate translations for 35 languages required careful attention to cultural nuances and proper character encoding for non-Latin scripts (Arabic, Hindi, Chinese, Japanese, Korean, etc.). The dropdown needed to be both visually appealing and functional across all device sizes."
+    },
+    {
+      id: 16,
+      title: "Interactive UNO Chatbot Experience",
+      model: "Claude Opus 4.5",
+      type: "🤖 AI Chatbot",
+      description: "Built an intelligent, playful chatbot for the UNO page that encourages users to share their UNO playing experiences while also answering game rules questions. Features voice input, smart response detection, and community engagement focus.",
+      prompt: `"The chatbot should ask users how they play, answer how to play. But the emphasis should be on them sharing their UNO playing experiences. When they share, thank them for sharing and improving other users' experiences, but it should also answer questions about the game.
+
+Use the PDF file and infographic image to answer their questions. There is also a PDF in the uno-content folder.
+
+When a user selects the 'Learn the Rules' CTA button, download the PDF file from the official-rules.pdf automatically when the button is pressed.
+
+When the 'Join the Community' button is pressed on the UNO page, give them a popup modal asking for their email and name."`,
+      outputs: [
+        "Smart message detection (questions vs stories)",
+        "Contextual responses based on user intent",
+        "Story appreciation & thank you responses",
+        "Rule-based answers from PDF/infographic content",
+        "Voice input with Speech Recognition API",
+        "Auto-scroll to latest messages",
+        "Quick prompt buttons for common topics",
+        "Community signup modal with form validation",
+        "PDF auto-download on Learn Rules click",
+        "Playful UNO-themed UI with animations"
+      ],
+      challenge: "Creating a chatbot that intelligently distinguishes between users sharing personal stories versus asking rule questions required sophisticated keyword detection and response categorization. The emphasis on community building meant crafting appreciative, engaging responses that encourage continued participation."
+    },
+    {
+      id: 17,
+      title: "UNO Infographic Design",
+      model: "Google NotebookLM",
+      type: "📊 Visual Design",
+      description: "Created a visually engaging infographic explaining UNO gameplay rules and card types using NotebookLM's AI-powered design capabilities. The infographic serves as a quick reference guide integrated into the UNO page.",
+      prompt: `"Create a creative infographic image of players playing the game. I uploaded the game rules and the instructions to create the graphic."
+
+[Uploaded: UNO Official Rules PDF, Game Instructions Document]
+
+The AI was provided with the complete UNO rulebook and instructional materials to generate an accurate, visually appealing infographic that explains:
+- How to start a game
+- Card types and their effects
+- Key action cards (Draw Two, Reverse, Skip, Wild Draw 4)
+- When to say "UNO!"
+- Winning conditions`,
+      outputs: [
+        "Visual card type explanations",
+        "Key Action Cards reference guide",
+        "Draw Two, Reverse, Skip, Wild Draw 4 illustrations",
+        "Player setup instructions",
+        "Turn flow visualization",
+        "WebP format for optimal web performance",
+        "Integrated below YouTube Shorts section"
+      ],
+      challenge: "Converting complex game rules into a single, digestible visual required careful information hierarchy and engaging illustrations. The infographic needed to be scannable for quick reference while still being comprehensive enough for new players."
     }
   ];
 
@@ -1319,7 +1373,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
               onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
             >
               <span className="accordion-title">
-                AI Enhancements & Feature Build-Out <span className="accordion-meta">(15 Items)</span>
+                AI Enhancements & Feature Build-Out <span className="accordion-meta">(17 Items)</span>
               </span>
               <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
             </div>

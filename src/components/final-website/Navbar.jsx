@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Users, BookOpen, ChevronDown } from 'lucide-react';
+import { Home, Users, BookOpen, ChevronDown, FileText } from 'lucide-react';
 import './Navbar.css';
 import mattelLogo from '../../assets/logos/Mattel_logo.svg.png';
 import unoLogo from '../../assets/logos/Uno_logo.webp';
@@ -56,8 +56,14 @@ const FinalWebsiteNavbar = () => {
             </button>
             
             <div className={`fnav-dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
+              {/* Home button - only show on UNO and Hot Wheels pages */}
+              {(isUno || isHotWheels) && (
+                <Link to="/final-website" className="fnav-dropdown-item">
+                  <Home size={16} /> Home
+                </Link>
+              )}
               <Link to="/" className="fnav-dropdown-item">
-                <Home size={16} /> {t('nav.backToPrompts')}
+                <FileText size={16} /> {t('nav.backToPrompts')}
               </Link>
               <a href="#team" className="fnav-dropdown-item">
                 <Users size={16} /> {t('nav.team')}
@@ -70,22 +76,26 @@ const FinalWebsiteNavbar = () => {
 
           <span className="fnav-divider">|</span>
 
-          {/* Brand Icons */}
+          {/* Brand Icons - Hide current page's icon */}
           <div className="fnav-brand-icons">
-            <Link 
-              to="/final-website/uno" 
-              className={`fnav-icon-btn fnav-icon-uno ${isUno ? 'active' : ''}`}
-              title="UNO Experience"
-            >
-              <img src={unoLogo} alt="UNO" className="fnav-icon-img" />
-            </Link>
-            <Link 
-              to="/final-website/hotwheels" 
-              className={`fnav-icon-btn fnav-icon-hw ${isHotWheels ? 'active' : ''}`}
-              title="Hot Wheels Experience"
-            >
-              <img src={hotwheelsLogo} alt="Hot Wheels" className="fnav-icon-img" />
-            </Link>
+            {!isUno && (
+              <Link 
+                to="/final-website/uno" 
+                className="fnav-icon-btn fnav-icon-uno"
+                title="UNO Experience"
+              >
+                <img src={unoLogo} alt="UNO" className="fnav-icon-img" />
+              </Link>
+            )}
+            {!isHotWheels && (
+              <Link 
+                to="/final-website/hotwheels" 
+                className="fnav-icon-btn fnav-icon-hw"
+                title="Hot Wheels Experience"
+              >
+                <img src={hotwheelsLogo} alt="Hot Wheels" className="fnav-icon-img" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

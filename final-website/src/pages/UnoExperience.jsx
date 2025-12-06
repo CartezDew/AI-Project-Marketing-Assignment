@@ -133,7 +133,7 @@ const UnoExperience = () => {
           </div>
           
           <p className="uno-video-note">
-            📺 Videos curated from YouTube creators and official UNO channels
+            📺 Videos curated from YouTube creators
           </p>
         </div>
       </section>
