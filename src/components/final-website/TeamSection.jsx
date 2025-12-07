@@ -161,9 +161,9 @@ const TeamSection = () => {
         <div className="team-doodle team-doodle-plus">+</div>
         
         {/* Floating AI Icons */}
-        <img src={aiIcon} alt="" className="team-ai-icon team-ai-1" />
-        <img src={aiIcon} alt="" className="team-ai-icon team-ai-2" />
-        <img src={aiIcon} alt="" className="team-ai-icon team-ai-3" />
+        <img src={aiIcon} alt="AI technology icon" className="team-ai-icon team-ai-1" />
+        <img src={aiIcon} alt="AI technology icon" className="team-ai-icon team-ai-2" />
+        <img src={aiIcon} alt="AI technology icon" className="team-ai-icon team-ai-3" />
         
         {/* SVG Doodles - Squiggle */}
         <div className="team-doodle team-doodle-squiggle">

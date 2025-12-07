@@ -2148,12 +2148,12 @@ Please create both infographics based on the YouTube video content provided.`;
           {/* Floating AI Doodle Icons */}
           <img 
             src={aiIcon} 
-            alt="" 
+            alt="AI technology decoration icon" 
             className="floating-ai-icon floating-ai-1"
           />
           <img 
             src={aiIcon} 
-            alt="" 
+            alt="AI technology decoration icon" 
             className="floating-ai-icon floating-ai-2"
           />
           

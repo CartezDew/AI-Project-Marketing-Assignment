@@ -459,7 +459,7 @@ const WhatWereCreating = () => {
   };
 
   return (
-    <section className="wwc-section" id="what-were-creating" ref={sectionRef}>
+    <section className="wwc-section" id="features" ref={sectionRef}>
       {/* Background Elements */}
       <div className="wwc-bg">
         <div className="wwc-bg-gradient"></div>
@@ -552,7 +552,7 @@ const WhatWereCreating = () => {
                 <div className="wwc-card-content">
                   <div className="wwc-card-icon" style={{ color: feature.color }}>
                     {feature.icon === "ai-image" ? (
-                      <img src={aiIconImg} alt="AI" className="wwc-card-icon-img" />
+                      <img src={aiIconImg} alt="AI-powered feature icon" className="wwc-card-icon-img" />
                     ) : (
                       feature.icon
                     )}

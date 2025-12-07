@@ -278,7 +278,7 @@ const Overview = () => {
           <div className={`ov-bento-card ov-bento-hero scroll-animate fade-up ${unoVisible ? 'visible' : ''}`}>
             <div className="ov-bento-hero-inner">
               <div className={`ov-spotlight-badge ov-uno-badge`}>
-                <img src={unoCardIcon} alt="UNO" className="ov-uno-badge-icon" />
+                <img src={unoCardIcon} alt="UNO card game icon" className="ov-uno-badge-icon" />
             <span>BRAND SPOTLIGHT</span>
           </div>
 

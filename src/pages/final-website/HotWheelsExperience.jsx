@@ -4,6 +4,7 @@ import HotWheelsCollectorsHub from '../../components/final-website/HotWheelsColl
 import HotWheelsSpotlight from '../../components/final-website/HotWheelsSpotlight';
 import HotWheelsCommunity from '../../components/final-website/HotWheelsCommunity';
 import Avatar3D from '../../components/final-website/Avatar3D';
+import Footer from '../../components/final-website/Footer';
 import { useLanguage } from '../../context/LanguageContext';
 import heroImage from '../../assets/hotwheels/hero-image.webp';
 
@@ -1173,37 +1174,6 @@ const FinalWebsiteHotWheelsExperience = () => {
         </div>
       </motion.section>
 
-      {/* Footer */}
-      <motion.footer 
-        className="landing-footer"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="landing-footer-content">
-          <motion.div 
-            className="landing-footer-brand"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <span className="landing-footer-logo">{t('footer.mattelAiLab')}</span>
-            <p>{t('footer.empowering')}</p>
-          </motion.div>
-          <motion.div 
-            className="landing-footer-note"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <p>{t('footer.educationalPrototype')}</p>
-          </motion.div>
-        </div>
-      </motion.footer>
-
       {/* Expanded Infographic Modal */}
       <AnimatePresence>
         {expandedInfographic && (
@@ -1541,6 +1511,9 @@ const FinalWebsiteHotWheelsExperience = () => {
           </motion.button>
         )}
       </AnimatePresence>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

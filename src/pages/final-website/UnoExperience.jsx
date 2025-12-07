@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import UnoHouseRulesWidget from '../../components/final-website/UnoHouseRulesWidget';
+import Footer from '../../components/final-website/Footer';
 import { useLanguage } from '../../context/LanguageContext';
 import './UnoExperience.css';
 import infoGraphic from '../../assets/uno-content/info-graphic.webp';
@@ -270,7 +271,7 @@ const FinalWebsiteUnoExperience = () => {
           variants={staggerContainer}
         >
           <motion.div className="uno-hero-eyebrow" variants={fadeInDown}>
-            <img src={unoCardIcon} alt="UNO" className="uno-eyebrow-icon-img" />
+            <img src={unoCardIcon} alt="UNO card game icon" className="uno-eyebrow-icon-img" />
             <span>{t('uno.worldsNo1')}</span>
           </motion.div>
           
@@ -459,7 +460,7 @@ const FinalWebsiteUnoExperience = () => {
           >
             <div className="uno-chatbot-header">
               <div className="uno-chatbot-avatar">
-                <img src={unoCardIcon} alt="UNO" className="uno-chatbot-avatar-img" />
+                <img src={unoCardIcon} alt="UNO AI chatbot avatar" className="uno-chatbot-avatar-img" />
                 <div className="uno-chatbot-pulse"></div>
               </div>
               <div className="uno-chatbot-title">
@@ -913,37 +914,6 @@ const FinalWebsiteUnoExperience = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <motion.footer 
-        className="landing-footer"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="landing-footer-content">
-          <motion.div 
-            className="landing-footer-brand"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <span className="landing-footer-logo">{t('footer.mattelAiLab')}</span>
-            <p>{t('footer.empowering')}</p>
-          </motion.div>
-          <motion.div 
-            className="landing-footer-note"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <p>{t('footer.educationalPrototype')}</p>
-          </motion.div>
-        </div>
-      </motion.footer>
-
       {/* Community Modal */}
       <AnimatePresence>
         {showCommunityModal && (
@@ -1037,6 +1007,9 @@ const FinalWebsiteUnoExperience = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

@@ -59,7 +59,7 @@ const Hero = () => {
       <div className="fwh-doodle fwh-doodle-star-1">✦</div>
       
       {/* Hot Wheels Icon Doodle - below star-1 */}
-      <img src={hotwheelsIcon} alt="" className="fwh-doodle fwh-doodle-car" />
+      <img src={hotwheelsIcon} alt="Hot Wheels toy car icon" className="fwh-doodle fwh-doodle-car" />
 
       {/* Draw 2 UNO Card Doodle */}
       <div className="fwh-doodle fwh-doodle-uno-card">
@@ -73,8 +73,8 @@ const Hero = () => {
       </div>
 
       {/* AI Icon Doodles */}
-      <img src={aiIcon} alt="" className="fwh-doodle fwh-doodle-ai-1" />
-      <img src={aiIcon} alt="" className="fwh-doodle fwh-doodle-ai-2" />
+      <img src={aiIcon} alt="AI technology sparkle icon" className="fwh-doodle fwh-doodle-ai-1" />
+      <img src={aiIcon} alt="AI technology sparkle icon" className="fwh-doodle fwh-doodle-ai-2" />
 
       <div className="fwh-doodle fwh-doodle-star-2">✧</div>
       <div className="fwh-doodle fwh-doodle-star-3">★</div>
@@ -149,7 +149,7 @@ const Hero = () => {
 
           <div className={`fwh-ctas scroll-animate fade-up delay-300 ${contentVisible ? 'visible' : ''}`}>
             <Link to="/final-website/uno" className="fwh-cta-btn fwh-cta-primary">
-              <img src={unoCardIcon} alt="" className="fwh-btn-icon-img" />
+              <img src={unoCardIcon} alt="UNO card" className="fwh-btn-icon-img" />
               {t('hero.letsPlayUno')}
               <span className="fwh-btn-sparkle">✨</span>
             </Link>

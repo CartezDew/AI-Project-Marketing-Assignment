@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Users, BookOpen, ChevronDown, FileText, HelpCircle, Sparkles } from 'lucide-react';
+import { Home, Users, BookOpen, ChevronDown, FileText, HelpCircle, Sparkles, Compass, Gamepad2, ExternalLink } from 'lucide-react';
 import './Navbar.css';
 import mattelLogo from '../../assets/logos/Mattel_logo.webp';
 import unoLogo from '../../assets/logos/Uno_logo.webp';
@@ -83,59 +83,105 @@ const FinalWebsiteNavbar = () => {
             <div className={`fnav-dropdown-menu ${dropdownOpen ? 'open' : ''}`}>
               {/* Home button - only show on UNO and Hot Wheels pages */}
               {(isUno || isHotWheels) && (
-                <Link to="/final-website" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                <Link to="/final-website" className="fnav-dropdown-item fnav-dropdown-home" onClick={() => setDropdownOpen(false)}>
                   <Home size={16} /> Home
                 </Link>
               )}
-              
-              {/* Overview link */}
-              {(isUno || isHotWheels) ? (
-                <Link to="/final-website#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <BookOpen size={16} /> {t('nav.overview')}
-                </Link>
-              ) : (
-                <a href="#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <BookOpen size={16} /> {t('nav.overview')}
-                </a>
-              )}
 
-              {/* Features link - Links to "What We're Creating" section */}
-              {(isUno || isHotWheels) ? (
-                <Link to="/final-website#features" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <Sparkles size={16} /> Features
-                </Link>
-              ) : (
-                <a href="#features" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <Sparkles size={16} /> Features
-                </a>
-              )}
+              {/* EXPLORE SECTION */}
+              <div className="fnav-dropdown-section">
+                <div className="fnav-dropdown-header">
+                  <Compass size={14} />
+                  <span>Explore</span>
+                </div>
+                <div className="fnav-dropdown-links">
+                  {(isUno || isHotWheels) ? (
+                    <a href="/final-website#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <BookOpen size={15} /> {t('nav.overview')}
+                    </a>
+                  ) : (
+                    <a href="#overview" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <BookOpen size={15} /> {t('nav.overview')}
+                    </a>
+                  )}
+                  {(isUno || isHotWheels) ? (
+                    <a href="/final-website#features" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <Sparkles size={15} /> Features
+                    </a>
+                  ) : (
+                    <a href="#features" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <Sparkles size={15} /> Features
+                    </a>
+                  )}
+                  {(isUno || isHotWheels) ? (
+                    <a href="/final-website#faq" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <HelpCircle size={15} /> FAQ
+                    </a>
+                  ) : (
+                    <a href="#faq" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <HelpCircle size={15} /> FAQ
+                    </a>
+                  )}
+                  {(isUno || isHotWheels) ? (
+                    <a href="/final-website#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <Users size={15} /> {t('nav.team')}
+                    </a>
+                  ) : (
+                    <a href="#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      <Users size={15} /> {t('nav.team')}
+                    </a>
+                  )}
+                </div>
+              </div>
 
-              {/* FAQ link - Added with ID scroll support */}
-              {(isUno || isHotWheels) ? (
-                <Link to="/final-website#faq" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <HelpCircle size={16} /> FAQ
-                </Link>
-              ) : (
-                <a href="#faq" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <HelpCircle size={16} /> FAQ
-                </a>
-              )}
+              {/* EXPERIENCES SECTION */}
+              <div className="fnav-dropdown-section">
+                <div className="fnav-dropdown-header">
+                  <Gamepad2 size={14} />
+                  <span>Experiences</span>
+                </div>
+                <div className="fnav-dropdown-links fnav-dropdown-brands">
+                  {/* Hide UNO link when on UNO page */}
+                  {!isUno && (
+                    <Link to="/final-website/uno" className="fnav-dropdown-item fnav-dropdown-brand-uno" onClick={() => setDropdownOpen(false)}>
+                      <img src={unoLogo} alt="UNO card game logo" className="fnav-dropdown-brand-img" />
+                      <span>UNO<sup>®</sup></span>
+                    </Link>
+                  )}
+                  {/* Hide Hot Wheels link when on Hot Wheels page */}
+                  {!isHotWheels && (
+                    <Link to="/final-website/hotwheels" className="fnav-dropdown-item fnav-dropdown-brand-hw" onClick={() => setDropdownOpen(false)}>
+                      <img src={hotwheelsLogo} alt="Hot Wheels logo" className="fnav-dropdown-brand-img fnav-dropdown-hw-img" />
+                      <span>Hot Wheels<sup>®</sup></span>
+                    </Link>
+                  )}
+                </div>
+              </div>
 
-              {/* Team link */}
-              {(isUno || isHotWheels) ? (
-                <Link to="/final-website#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <Users size={16} /> {t('nav.team')}
-                </Link>
-              ) : (
-                <a href="#team" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                  <Users size={16} /> {t('nav.team')}
-                </a>
-              )}
+              {/* MORE SECTION */}
+              <div className="fnav-dropdown-section fnav-dropdown-section-more">
+                <div className="fnav-dropdown-header">
+                  <ExternalLink size={14} />
+                  <span>More</span>
+                </div>
+                <div className="fnav-dropdown-links">
+                  <Link to="/" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
+                    <FileText size={15} /> {t('nav.backToPrompts')}
+                  </Link>
+                  <a href="https://about.mattel.com/" target="_blank" rel="noopener noreferrer" className="fnav-dropdown-item">
+                    <ExternalLink size={15} /> About Mattel
+                  </a>
+                </div>
+              </div>
 
-              {/* Back to Prompts */}
-              <Link to="/" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
-                <FileText size={16} /> {t('nav.backToPrompts')}
-              </Link>
+              {/* Footer accent */}
+              <div className="fnav-dropdown-footer">
+                <span className="fnav-dropdown-accent fnav-accent-red"></span>
+                <span className="fnav-dropdown-accent fnav-accent-orange"></span>
+                <span className="fnav-dropdown-accent fnav-accent-yellow"></span>
+                <span className="fnav-dropdown-accent fnav-accent-green"></span>
+                <span className="fnav-dropdown-accent fnav-accent-blue"></span>
+              </div>
             </div>
           </div>
 

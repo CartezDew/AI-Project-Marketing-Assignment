@@ -1,10 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Hero from '../../components/final-website/Hero';
 import Overview from '../../components/final-website/Overview';
 import WhatWereCreating from '../../components/final-website/WhatWereCreating';
 import FAQ from '../../components/final-website/FAQ';
 import TeamSection from '../../components/final-website/TeamSection';
+import Footer from '../../components/final-website/Footer';
 import { useLanguage } from '../../context/LanguageContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import './Landing.css';
@@ -12,16 +13,29 @@ import './Landing.css';
 // Import logos and icons
 import unoLogo from '../../assets/logos/Uno_logo.webp';
 import hotwheelsLogo from '../../assets/logos/hotwheels_logo.png';
-import hotwheelsIcon from '../../assets/icons/Hotwheels-icon.webp';
 import unoCardIcon from '../../assets/icons/Uno-card.webp';
 import aiIcon from '../../assets/icons/ai-icon.webp';
 
 const FinalWebsiteLanding = () => {
   const { t } = useLanguage();
+  const location = useLocation();
   
   // Scroll animations for brand selection
   const [brandRef, brandVisible] = useScrollAnimation({ threshold: 0.15 });
-  const [footerRef, footerVisible] = useScrollAnimation({ threshold: 0.3 });
+
+  // Handle hash navigation - scroll to section when navigating from other pages
+  useEffect(() => {
+    if (location.hash) {
+      // Small delay to ensure the page has rendered
+      setTimeout(() => {
+        const elementId = location.hash.replace('#', '');
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
   
   return (
     <div className="landing-page">
@@ -41,9 +55,9 @@ const FinalWebsiteLanding = () => {
           <div className="landing-sel-doodle landing-sel-doodle-burst">✺</div>
           <div className="landing-sel-doodle landing-sel-doodle-spark">✧</div>
           {/* Floating AI Icons */}
-          <img src={aiIcon} alt="" className="landing-sel-ai landing-sel-ai-1" />
-          <img src={aiIcon} alt="" className="landing-sel-ai landing-sel-ai-2" />
-          <img src={aiIcon} alt="" className="landing-sel-ai landing-sel-ai-3" />
+          <img src={aiIcon} alt="AI technology icon" className="landing-sel-ai landing-sel-ai-1" />
+          <img src={aiIcon} alt="AI technology icon" className="landing-sel-ai landing-sel-ai-2" />
+          <img src={aiIcon} alt="AI technology icon" className="landing-sel-ai landing-sel-ai-3" />
         </div>
 
         <div className="landing-selection-header">
@@ -60,7 +74,7 @@ const FinalWebsiteLanding = () => {
               <img src={unoLogo} alt="UNO Logo" className="landing-card-logo" />
               <p className="landing-card-tagline">{t('brandSelection.worldsNo1Card')}</p>
               <span className="landing-card-cta landing-cta-uno">
-                <img src={unoCardIcon} alt="" className="landing-cta-icon-img" />
+                <img src={unoCardIcon} alt="UNO card" className="landing-cta-icon-img" />
                 {t('brandSelection.letsPlay')}
                 <span className="landing-cta-sparkle">✨</span>
               </span>
@@ -103,20 +117,7 @@ const FinalWebsiteLanding = () => {
       <TeamSection />
 
       {/* Footer */}
-      <footer className="landing-footer" ref={footerRef}>
-        <div className={`landing-footer-content scroll-animate fade-up ${footerVisible ? 'visible' : ''}`}>
-          <div className="landing-footer-brand">
-            <span className="landing-footer-logo">{t('footer.mattelAiLab')}</span>
-            <p>{t('footer.empowering')}</p>
-          </div>
-          <div className="landing-footer-note">
-            <p>{t('footer.educationalPrototype')}</p>
-          </div>
-          <div className="landing-footer-copyright">
-            <p>©2025 Mattel</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

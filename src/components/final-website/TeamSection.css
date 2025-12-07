@@ -1018,6 +1018,8 @@
 .team-group-image {
   width: 100%;
   height: auto;
+  /* max-height: 600px;
+  max-width: 900px; */
   display: block;
   object-fit: cover;
 }

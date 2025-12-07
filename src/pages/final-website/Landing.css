@@ -725,65 +725,168 @@
 
 /* ========== FOOTER ========== */
 .landing-footer {
-  background: var(--mattel-dark);
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
   color: white;
-  padding: 60px 24px 40px;
+  padding: 80px 24px 0;
 }
 
 .landing-footer-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .landing-footer-brand {
-  flex: 1;
-  min-width: 200px;
+  padding-right: 24px;
 }
 
 .landing-footer-logo {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 2px;
+  background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .landing-footer-brand p {
-  color: #888;
-  margin-top: 8px;
+  color: #777;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.landing-footer-note {
-  flex: 1;
-  min-width: 200px;
-  text-align: right;
+/* Footer Navigation Columns */
+.landing-footer-nav,
+.landing-footer-brands,
+.landing-footer-quick {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-footer-heading {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 20px 0;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.landing-footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, #C8102E, #FF6B00);
+  border-radius: 1px;
+}
+
+.landing-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.landing-footer-links a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.landing-footer-links a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.landing-footer-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.landing-footer-brand-link sup {
+  font-size: 0.6em;
+  color: #C8102E;
+  font-weight: 600;
+}
+
+.landing-footer-links a:hover sup {
+  color: #FF6B00;
+}
+
+/* Footer Bottom Section */
+.landing-footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .landing-footer-note p {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.landing-footer-copyright {
-  width: 100%;
-  flex-basis: 100%;
-  text-align: center;
-  margin-top: 30px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.landing-footer-copyright p {
-  color: #888;
+  color: #555;
   font-size: 0.85rem;
-  letter-spacing: 0.5px;
   margin: 0;
 }
 
+.landing-footer-copyright p {
+  color: #666;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.landing-footer-copyright sup {
+  font-size: 0.6em;
+  color: #888;
+}
+
 /* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .landing-footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .landing-footer-brand {
+    grid-column: 1 / -1;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .landing-footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .landing-footer-nav,
+  .landing-footer-brands,
+  .landing-footer-quick {
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-footer-links a:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 800px) {
   .landing-brand-cards {
     grid-template-columns: 1fr;
@@ -792,17 +895,33 @@
   .landing-ai-features {
     grid-template-columns: 1fr;
   }
-  
+}
+
+@media (max-width: 600px) {
+  .landing-footer {
+    padding: 60px 20px 0;
+  }
+
   .landing-footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .landing-footer-nav,
+  .landing-footer-brands,
+  .landing-footer-quick {
+    align-items: center;
+  }
+
+  .landing-footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .landing-footer-bottom {
     flex-direction: column;
     text-align: center;
-    gap: 24px;
-  }
-  
-  .landing-footer-brand,
-  .landing-footer-note {
-    text-align: center;
-    flex: none;
-    width: 100%;
+    gap: 12px;
   }
 }

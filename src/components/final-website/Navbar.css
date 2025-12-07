@@ -228,41 +228,185 @@
   position: absolute;
   top: 100%;
   right: 0;
-  width: 200px;
-  background: white;
-  border-radius: 12px;
-  padding: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.12), 0 2px 10px rgba(0,0,0,0.05);
+  width: 280px;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.15), 
+    0 8px 25px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.8);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(0,0,0,0.05);
+  transform: translateY(10px) scale(0.98);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 
 .fnav-dropdown-menu.open {
   opacity: 1;
   visibility: visible;
-  transform: translateY(4px);
+  transform: translateY(4px) scale(1);
 }
 
+/* Home Button - Special styling when on sub-pages */
+.fnav-dropdown-home {
+  margin: 12px 12px 8px;
+  background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.fnav-dropdown-home:hover {
+  background: linear-gradient(135deg, #C8102E 0%, #a00d24 100%) !important;
+  color: white !important;
+}
+
+/* Section Container */
+.fnav-dropdown-section {
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.fnav-dropdown-section:first-of-type {
+  padding-top: 16px;
+}
+
+.fnav-dropdown-section-more {
+  border-bottom: none;
+  padding-bottom: 12px;
+}
+
+/* Section Header */
+.fnav-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.fnav-dropdown-header svg {
+  color: #C8102E;
+  opacity: 0.7;
+}
+
+/* Links Container */
+.fnav-dropdown-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Individual Link Item */
 .fnav-dropdown-item {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  border-radius: 8px;
-  color: #444;
+  border-radius: 10px;
+  color: #333;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
   transition: all 0.2s ease;
+  position: relative;
+}
+
+.fnav-dropdown-item svg {
+  color: #666;
+  transition: all 0.2s ease;
 }
 
 .fnav-dropdown-item:hover {
-  background: #f5f5f5;
-  color: var(--mattel-red);
+  background: linear-gradient(135deg, rgba(200,16,46,0.08) 0%, rgba(255,107,0,0.05) 100%);
+  color: #C8102E;
+  transform: translateX(4px);
 }
+
+.fnav-dropdown-item:hover svg {
+  color: #C8102E;
+}
+
+/* Brand Items - Special styling */
+.fnav-dropdown-brands {
+  gap: 4px;
+}
+
+.fnav-dropdown-brand-img {
+  width: 28px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.fnav-dropdown-hw-img {
+  width: 50px;
+}
+
+.fnav-dropdown-item sup {
+  font-size: 0.55em;
+  color: #C8102E;
+  font-weight: 700;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.fnav-dropdown-brand-home {
+  gap: 10px;
+}
+
+.fnav-dropdown-brand-home svg {
+  color: #C8102E;
+}
+
+.fnav-dropdown-brand-home:hover {
+  background: linear-gradient(135deg, rgba(200,16,46,0.12) 0%, rgba(200,16,46,0.05) 100%);
+}
+
+.fnav-dropdown-brand-home:hover svg {
+  color: #FF6B00;
+}
+
+.fnav-dropdown-brand-uno:hover {
+  background: linear-gradient(135deg, rgba(200,16,46,0.12) 0%, rgba(200,16,46,0.05) 100%);
+}
+
+.fnav-dropdown-brand-hw:hover {
+  background: linear-gradient(135deg, rgba(0,87,184,0.12) 0%, rgba(255,107,0,0.05) 100%);
+  color: #0057B8;
+}
+
+.fnav-dropdown-brand-hw:hover sup {
+  color: #FF6B00;
+}
+
+/* Footer Accent Bar */
+.fnav-dropdown-footer {
+  display: flex;
+  height: 4px;
+  margin-top: 4px;
+}
+
+.fnav-dropdown-accent {
+  flex: 1;
+  transition: transform 0.2s ease;
+}
+
+.fnav-dropdown-accent:hover {
+  transform: scaleY(2);
+}
+
+.fnav-accent-red { background: #C8102E; }
+.fnav-accent-orange { background: #FF6B00; }
+.fnav-accent-yellow { background: #FFD53D; }
+.fnav-accent-green { background: #00A651; }
+.fnav-accent-blue { background: #4A8CFF; }
 
 .fnav-divider {
   color: #ddd;
