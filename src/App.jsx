@@ -41,6 +41,9 @@ import './components/final-website/Navbar.css';
 import './components/final-website/Hero.css';
 import './components/final-website/UnoHouseRulesWidget.css';
 import './components/final-website/HotWheelsCollectorsHub.css';
+import './components/final-website/HotWheelsSpotlight.css';
+import './components/final-website/HotWheelsCommunity.css';
+import './components/final-website/Avatar3D.css';
 
 // ScrollToTop ensures each route starts at the top instantly (no scroll animation)
 const ScrollToTop = () => {

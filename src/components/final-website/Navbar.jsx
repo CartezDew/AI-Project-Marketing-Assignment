@@ -144,35 +144,37 @@ const FinalWebsiteNavbar = () => {
           {/* Brand Icons - Hide current page's icon */}
           <div className="fnav-brand-icons">
             {!isUno && (
-              <Link 
-                to="/final-website/uno" 
+            <Link 
+              to="/final-website/uno" 
                 className="fnav-icon-btn fnav-icon-uno"
-                title="UNO Experience"
-              >
-                <img src={unoLogo} alt="UNO" className="fnav-icon-img" />
-              </Link>
+              title="UNO Experience"
+            >
+              <img src={unoLogo} alt="UNO" className="fnav-icon-img" />
+            </Link>
             )}
             {!isHotWheels && (
-              <Link 
-                to="/final-website/hotwheels" 
+            <Link 
+              to="/final-website/hotwheels" 
                 className="fnav-icon-btn fnav-icon-hw"
-                title="Hot Wheels Experience"
-              >
-                <img src={hotwheelsLogo} alt="Hot Wheels" className="fnav-icon-img" />
-              </Link>
+              title="Hot Wheels Experience"
+            >
+              <img src={hotwheelsLogo} alt="Hot Wheels" className="fnav-icon-img" />
+            </Link>
             )}
           </div>
         </div>
       </div>
       
-      {/* Colorful Bottom Border - Hidden on Scroll */}
-      <div className={`fnav-bottom-border ${scrolled ? 'hidden' : ''}`}>
-        <div className="fnav-border-segment fnav-border-red"></div>
-        <div className="fnav-border-segment fnav-border-orange"></div>
-        <div className="fnav-border-segment fnav-border-yellow"></div>
-        <div className="fnav-border-segment fnav-border-green"></div>
-        <div className="fnav-border-segment fnav-border-blue"></div>
-      </div>
+      {/* Colorful Bottom Border - Only on Landing Page, Hidden on Scroll */}
+      {isLanding && (
+        <div className={`fnav-bottom-border ${scrolled ? 'hidden' : ''}`}>
+          <div className="fnav-border-segment fnav-border-red"></div>
+          <div className="fnav-border-segment fnav-border-orange"></div>
+          <div className="fnav-border-segment fnav-border-yellow"></div>
+          <div className="fnav-border-segment fnav-border-green"></div>
+          <div className="fnav-border-segment fnav-border-blue"></div>
+        </div>
+      )}
     </nav>
   );
 };

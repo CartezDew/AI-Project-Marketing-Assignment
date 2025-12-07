@@ -375,14 +375,93 @@
 .ov-hw-spotlight {
   position: relative;
   padding: 100px 40px;
-  background: linear-gradient(135deg, #001428 0%, #002952 50%, #001a3d 100%);
   overflow: hidden;
+  /* Base gradient + angled checkered pattern */
+  background-color: #0f1520;
+  background-image: 
+    /* Checkered pattern using conic gradient */
+    repeating-conic-gradient(
+      from 45deg,
+      rgba(255, 255, 255, 0.15) 0deg 90deg,
+      rgba(0, 0, 0, 0.025) 30deg 180deg
+    ),
+    /* Base gradient overlay */
+    linear-gradient(180deg, #0f1520 0%, #0a0f1a 100%);
+  background-size: 40px 40px, 100% 100%;
+  background-blend-mode: overlay, normal;
+}
+
+/* Fire Particles Animation */
+.ov-hw-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 3px at 10% 20%, rgba(255, 107, 0, 0.8) 0%, transparent 100%),
+    radial-gradient(3px 4px at 25% 40%, rgba(255, 193, 7, 0.7) 0%, transparent 100%),
+    radial-gradient(2px 3px at 40% 15%, rgba(255, 87, 34, 0.6) 0%, transparent 100%),
+    radial-gradient(3px 5px at 55% 35%, rgba(255, 152, 0, 0.8) 0%, transparent 100%),
+    radial-gradient(2px 3px at 70% 25%, rgba(255, 235, 59, 0.5) 0%, transparent 100%),
+    radial-gradient(4px 5px at 85% 45%, rgba(255, 107, 0, 0.7) 0%, transparent 100%),
+    radial-gradient(2px 4px at 15% 70%, rgba(255, 152, 0, 0.6) 0%, transparent 100%),
+    radial-gradient(3px 4px at 30% 85%, rgba(255, 87, 34, 0.7) 0%, transparent 100%),
+    radial-gradient(2px 3px at 50% 75%, rgba(255, 193, 7, 0.5) 0%, transparent 100%),
+    radial-gradient(3px 5px at 65% 90%, rgba(255, 107, 0, 0.8) 0%, transparent 100%),
+    radial-gradient(2px 3px at 80% 80%, rgba(255, 235, 59, 0.6) 0%, transparent 100%),
+    radial-gradient(3px 4px at 95% 65%, rgba(255, 152, 0, 0.7) 0%, transparent 100%);
+  animation: ov-fire-float 8s ease-in-out infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.ov-hw-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(3px 4px at 5% 50%, rgba(255, 107, 0, 0.7) 0%, transparent 100%),
+    radial-gradient(2px 3px at 20% 60%, rgba(255, 87, 34, 0.6) 0%, transparent 100%),
+    radial-gradient(4px 5px at 35% 30%, rgba(255, 193, 7, 0.5) 0%, transparent 100%),
+    radial-gradient(2px 4px at 45% 55%, rgba(255, 152, 0, 0.8) 0%, transparent 100%),
+    radial-gradient(3px 4px at 60% 45%, rgba(255, 235, 59, 0.6) 0%, transparent 100%),
+    radial-gradient(2px 3px at 75% 70%, rgba(255, 107, 0, 0.7) 0%, transparent 100%),
+    radial-gradient(3px 5px at 90% 35%, rgba(255, 87, 34, 0.5) 0%, transparent 100%),
+    radial-gradient(2px 3px at 8% 85%, rgba(255, 193, 7, 0.7) 0%, transparent 100%),
+    radial-gradient(4px 4px at 22% 95%, rgba(255, 152, 0, 0.6) 0%, transparent 100%),
+    radial-gradient(2px 3px at 42% 10%, rgba(255, 107, 0, 0.8) 0%, transparent 100%),
+    radial-gradient(3px 4px at 58% 5%, rgba(255, 235, 59, 0.5) 0%, transparent 100%),
+    radial-gradient(2px 5px at 78% 15%, rgba(255, 87, 34, 0.7) 0%, transparent 100%);
+  animation: ov-fire-float 8s ease-in-out infinite 4s;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+@keyframes ov-fire-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: blur(0.5px);
+  }
+  25% {
+    transform: translateY(-15px) scale(1.1);
+    filter: blur(1px);
+  }
+  50% {
+    transform: translateY(-8px) scale(0.95);
+    filter: blur(0.5px);
+  }
+  75% {
+    transform: translateY(-20px) scale(1.05);
+    filter: blur(1.5px);
+  }
 }
 
 .ov-hw-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 1;
 }
 
 .ov-hw-track-line {

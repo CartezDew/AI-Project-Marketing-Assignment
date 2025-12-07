@@ -1,0 +1,448 @@
+/* ============================================
+   HOT WHEELS AVATAR BUILD SELECTOR
+   Avatar centered, build cards in circle around it
+   ============================================ */
+
+.hwp-section {
+  position: relative;
+  padding: 80px 24px 100px;
+  background: linear-gradient(180deg, #0f1520 0%, #0a0f1a 100%);
+  overflow: hidden;
+}
+
+/* Ambient Background */
+.hwp-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hwp-ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+}
+
+.hwp-ambient-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%);
+  top: -150px;
+  left: -100px;
+}
+
+.hwp-ambient-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #0a1520 0%, #152030 100%);
+  bottom: -100px;
+  right: -80px;
+}
+
+.hwp-ambient-orb-3 {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+  transition: background 0.5s ease;
+}
+
+.hwp-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.02;
+}
+
+/* Wrapper */
+.hwp-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.hwp-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hwp-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+}
+
+.hwp-headline {
+  font-family: 'Dela Gothic One', 'Bangers', Impact, sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #fff;
+  margin: 0 0 12px 0;
+  letter-spacing: 1px;
+}
+
+.hwp-headline-accent {
+  background: linear-gradient(135deg, #ff6b00, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hwp-subhead {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ============================================
+   MAIN STAGE - Container for avatar + cards
+   ============================================ */
+
+.hwp-stage {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  height: 700px;
+  margin: 0 auto 40px;
+}
+
+/* ============================================
+   BUILD CARDS - Circular positioning
+   ============================================ */
+
+.hwp-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + var(--card-x)), calc(-50% + var(--card-y)));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  min-width: 110px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hwp-card-glass {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 74, 106, 0.85);
+  border: 2px solid rgba(61, 106, 138, 0.8);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.hwp-card:hover .hwp-card-glass {
+  background: rgba(58, 90, 122, 0.95);
+  border-color: rgba(90, 138, 170, 0.9);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hwp-card.selected .hwp-card-glass {
+  background: var(--card-color);
+  border-color: var(--card-color);
+  box-shadow: 0 0 30px var(--card-color);
+}
+
+.hwp-card-glow {
+  position: absolute;
+  inset: -4px;
+  background: var(--card-gradient);
+  border-radius: 18px;
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.hwp-card:hover .hwp-card-glow {
+  opacity: 0.4;
+}
+
+.hwp-card.selected .hwp-card-glow {
+  opacity: 0.6;
+}
+
+.hwp-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 18px;
+}
+
+.hwp-card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.hwp-card-name {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.hwp-card-vibe {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.hwp-card-check {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  background: var(--card-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hwp-card-check svg {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+}
+
+/* ============================================
+   CENTER AVATAR PLATFORM
+   ============================================ */
+
+.hwp-avatar-platform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+/* Platform Rings */
+.hwp-platform-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+}
+
+.hwp-platform-ring-1 {
+  width: 320px;
+  height: 380px;
+  transform: translate(-50%, -55%);
+}
+
+.hwp-platform-ring-2 {
+  width: 380px;
+  height: 440px;
+  transform: translate(-50%, -53%);
+  border-style: dashed;
+  opacity: 0.4;
+}
+
+/* Avatar Frame with HALO GLOW */
+.hwp-avatar-frame {
+  position: relative;
+  width: 280px;
+  height: 350px;
+  z-index: 2;
+  border-radius: 50%;
+  /* HALO GLOW */
+  box-shadow: 
+    0 0 80px 40px rgba(99, 102, 241, 0.7),
+    0 0 120px 60px rgba(138, 43, 226, 0.5),
+    0 0 160px 80px rgba(99, 102, 241, 0.3),
+    0 0 200px 100px rgba(138, 43, 226, 0.15);
+}
+
+.hwp-avatar-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.hwp-avatar-inner > * {
+  transform: scale(0.85);
+}
+
+/* Profile Info */
+.hwp-profile {
+  text-align: center;
+  margin-top: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.hwp-profile-name {
+  font-family: 'Dela Gothic One', 'Bangers', Impact, sans-serif;
+  font-size: 1.4rem;
+  color: #fff;
+  margin: 0 0 4px;
+  letter-spacing: 1px;
+}
+
+.hwp-profile-bio {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ============================================
+   SELECTION CARD
+   ============================================ */
+
+.hwp-selection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.hwp-selection-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 28px;
+  background: rgba(20, 30, 45, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid;
+  border-left-color: var(--card-color, #6366f1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.hwp-selection-icon {
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.hwp-selection-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hwp-selection-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hwp-selection-name {
+  font-family: 'Dela Gothic One', 'Bangers', Impact, sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.hwp-selection-vibe {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* ============================================
+   TRAITS
+   ============================================ */
+
+.hwp-traits {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hwp-trait-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 800px) {
+  .hwp-stage {
+    height: 600px;
+  }
+
+  .hwp-card {
+    min-width: 95px;
+    transform: translate(calc(-50% + calc(var(--card-x) * 0.75)), calc(-50% + calc(var(--card-y) * 0.75)));
+  }
+
+  .hwp-card-content {
+    padding: 12px 14px;
+  }
+
+  .hwp-card-icon { font-size: 1.3rem; }
+  .hwp-card-name { font-size: 0.7rem; }
+
+  .hwp-avatar-frame { width: 240px; height: 300px; }
+  .hwp-platform-ring-1 { width: 280px; height: 340px; }
+  .hwp-platform-ring-2 { width: 340px; height: 400px; }
+}
+
+@media (max-width: 550px) {
+  .hwp-stage { height: 520px; }
+
+  .hwp-card {
+    min-width: 80px;
+    transform: translate(calc(-50% + calc(var(--card-x) * 0.55)), calc(-50% + calc(var(--card-y) * 0.55)));
+  }
+
+  .hwp-card-content {
+    padding: 10px 12px;
+    gap: 4px;
+  }
+
+  .hwp-card-icon { font-size: 1.1rem; }
+  .hwp-card-name { font-size: 0.6rem; }
+  .hwp-card-vibe { display: none; }
+  .hwp-card-glass { border-radius: 10px; }
+
+  .hwp-avatar-frame { width: 180px; height: 230px; }
+  .hwp-platform-ring-1 { width: 220px; height: 280px; }
+  .hwp-platform-ring-2 { width: 270px; height: 330px; }
+
+  .hwp-profile-name { font-size: 1.1rem; }
+}

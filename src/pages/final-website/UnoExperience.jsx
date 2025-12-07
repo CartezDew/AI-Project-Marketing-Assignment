@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import UnoHouseRulesWidget from '../../components/final-website/UnoHouseRulesWidget';
 import { useLanguage } from '../../context/LanguageContext';
 import './UnoExperience.css';
@@ -8,6 +9,72 @@ import unoCardIcon from '../../assets/icons/Uno-card.webp';
 import imgKorea from '../../assets/uno-content/Asia.webp';
 import imgBrazil from '../../assets/uno-content/Brazil.webp';
 import imgRome from '../../assets/uno-content/Rome.webp';
+
+// Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const fadeInDown = {
+  hidden: { opacity: 0, y: -40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+  }
+};
 
 const FinalWebsiteUnoExperience = () => {
   const { t } = useLanguage();
@@ -189,62 +256,106 @@ const FinalWebsiteUnoExperience = () => {
           <div className="uno-floating-card uno-fc-4"></div>
         </div>
         
-        <div className="uno-hero-content">
-          <div className="uno-hero-eyebrow">
+        <motion.div 
+          className="uno-hero-content"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <motion.div className="uno-hero-eyebrow" variants={fadeInDown}>
             <img src={unoCardIcon} alt="UNO" className="uno-eyebrow-icon-img" />
             <span>{t('uno.worldsNo1')}</span>
-          </div>
+          </motion.div>
           
-          <h1 className="uno-hero-title">
+          <motion.h1 className="uno-hero-title" variants={fadeInUp}>
             {t('uno.everyGameNight')}
             <br />
             <span className="uno-title-accent">{t('uno.deservesToBe')}</span>
             <br />
             <span className="uno-title-wild">{t('uno.wild')}</span>
-          </h1>
+          </motion.h1>
           
-          <p className="uno-hero-desc">
+          <motion.p className="uno-hero-desc" variants={fadeInUp}>
             {t('uno.heroDesc')}
-          </p>
+          </motion.p>
           
-          <div className="uno-hero-ctas">
-            <button className="uno-cta-primary" onClick={handleJoinCommunity}>{t('uno.joinCommunity')}</button>
-            <button className="uno-cta-secondary" onClick={handleLearnRules}>{t('uno.learnRules')}</button>
-          </div>
+          <motion.div className="uno-hero-ctas" variants={fadeInUp}>
+            <motion.button 
+              className="uno-cta-primary" 
+              onClick={handleJoinCommunity}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(237, 28, 36, 0.5)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {t('uno.joinCommunity')}
+            </motion.button>
+            <motion.button 
+              className="uno-cta-secondary" 
+              onClick={handleLearnRules}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {t('uno.learnRules')}
+            </motion.button>
+          </motion.div>
 
           {/* Stats Callouts */}
-          <div className="uno-hero-stats">
-            <div className="uno-stat-card uno-stat-red">
+          <motion.div 
+            className="uno-hero-stats"
+            variants={staggerContainer}
+          >
+            <motion.div 
+              className="uno-stat-card uno-stat-red"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.05 }}
+            >
               <span className="uno-stat-number">80+</span>
               <span className="uno-stat-label">COUNTRIES</span>
-            </div>
-            <div className="uno-stat-card uno-stat-yellow">
+            </motion.div>
+            <motion.div 
+              className="uno-stat-card uno-stat-yellow"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.05 }}
+            >
               <span className="uno-stat-number">600+</span>
               <span className="uno-stat-label">EDITIONS</span>
-            </div>
-            <div className="uno-stat-card uno-stat-green">
+            </motion.div>
+            <motion.div 
+              className="uno-stat-card uno-stat-green"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.05 }}
+            >
               <span className="uno-stat-number">2-10</span>
               <span className="uno-stat-label">PLAYERS</span>
-            </div>
-            <div className="uno-stat-card uno-stat-blue">
+            </motion.div>
+            <motion.div 
+              className="uno-stat-card uno-stat-blue"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.05 }}
+            >
               <span className="uno-stat-number">7+</span>
               <span className="uno-stat-label">AGES</span>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* YouTube Shorts Section */}
       <section className="uno-section uno-section-shorts">
         <div className="uno-section-container">
-          <div className="uno-section-header">
-            <div className="uno-shorts-badge">
+          <motion.div 
+            className="uno-section-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.div className="uno-shorts-badge" variants={fadeInDown}>
               <span className="uno-shorts-icon">▶</span>
               <span>Shorts</span>
-            </div>
-            <h2>UNO Moments</h2>
-            <p>Quick clips of epic plays, funny moments, and UNO chaos from the community.</p>
-          </div>
+            </motion.div>
+            <motion.h2 variants={fadeInUp}>UNO Moments</motion.h2>
+            <motion.p variants={fadeInUp}>Quick clips of epic plays, funny moments, and UNO chaos from the community.</motion.p>
+          </motion.div>
           
           <div className="uno-shorts-scroll-container">
             <div className="uno-shorts-track">
@@ -400,20 +511,34 @@ const FinalWebsiteUnoExperience = () => {
       <section className="uno-section uno-section-learn">
         <div className="uno-section-container">
           {/* Infographic */}
-          <div className="uno-infographic-wrapper">
+          <motion.div 
+            className="uno-infographic-wrapper"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInLeft}
+          >
             <div className="uno-infographic-badge">
               <span>📖</span>
               <span>Quick Guide</span>
             </div>
-            <img 
+            <motion.img 
               src={infoGraphic} 
               alt="How to Play UNO - Infographic" 
               className="uno-infographic-img"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300 }}
             />
-          </div>
+          </motion.div>
 
           {/* Chatbot */}
-          <div className="uno-chatbot-container">
+          <motion.div 
+            className="uno-chatbot-container"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
             <div className="uno-chatbot-header">
               <div className="uno-chatbot-avatar">
                 <img src={unoCardIcon} alt="UNO" className="uno-chatbot-avatar-img" />
@@ -514,7 +639,7 @@ const FinalWebsiteUnoExperience = () => {
                 💡 Tip: Try voice input for hands-free questions!
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -528,45 +653,80 @@ const FinalWebsiteUnoExperience = () => {
           <span>🇪🇬</span><span>🇺🇦</span><span>🇬🇭</span><span>🇹🇿</span><span>🇦🇷</span>
         </div>
         <div className="uno-section-container">
-          <div className="uno-section-header">
-            <h2>Players Around the World</h2>
-            <p>From Tokyo to Rio, UNO speaks every language.</p>
-          </div>
+          <motion.div 
+            className="uno-section-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp}>Players Around the World</motion.h2>
+            <motion.p variants={fadeInUp}>From Tokyo to Rio, UNO speaks every language.</motion.p>
+          </motion.div>
 
-          <div className="uno-bento-grid uno-bento-grid-reverse">
-            <div className="uno-bento-stack">
-              <div className="uno-bento-small uno-player-card uno-card-bg-blue">
+          <motion.div 
+            className="uno-bento-grid uno-bento-grid-reverse"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
+            <motion.div className="uno-bento-stack" variants={fadeInLeft}>
+              <motion.div 
+                className="uno-bento-small uno-player-card uno-card-bg-blue"
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
                 <img src={imgBrazil} alt="Players in Brazil" className="uno-player-img" />
                 <div className="uno-location-pill uno-pill-yellow">
                   <span className="uno-pin">📍</span> Rio de Janeiro, Brazil
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="uno-bento-small uno-player-card uno-card-bg-yellow">
+              <motion.div 
+                className="uno-bento-small uno-player-card uno-card-bg-yellow"
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
                 <img src={imgRome} alt="Players in Rome" className="uno-player-img" />
                 <div className="uno-location-pill uno-pill-green">
                   <span className="uno-pin">📍</span> Rome, Italy
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="uno-bento-main uno-player-card uno-card-bg-green">
+            <motion.div 
+              className="uno-bento-main uno-player-card uno-card-bg-green"
+              variants={fadeInUp}
+              whileHover={{ y: -8, scale: 1.02 }}
+            >
               <img src={imgKorea} alt="Players in Seoul" className="uno-player-img" />
               <div className="uno-location-pill uno-pill-red">
                 <span className="uno-pin">📍</span> Seoul, South Korea
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Persona Section */}
       <section className="uno-section uno-section-persona">
         <div className="uno-section-container">
-          <div className="uno-persona-card">
-            <div className="uno-persona-avatar">
+          <motion.div 
+            className="uno-persona-card"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={fadeInUp}
+            whileHover={{ y: -5 }}
+          >
+            <motion.div 
+              className="uno-persona-avatar"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
+            >
               <span>T</span>
-            </div>
+            </motion.div>
             <div className="uno-persona-content">
               <span className="uno-persona-label">Meet Our Player</span>
               <h3 className="uno-persona-name">Teddy, 10</h3>
@@ -581,98 +741,183 @@ const FinalWebsiteUnoExperience = () => {
                 <span className="uno-interest">🎯 Challenges</span>
               </div>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="uno-persona-quote">
+          <motion.div 
+            className="uno-persona-quote"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
             <blockquote>
               "UNO isn't just a game—it's where memories happen."
             </blockquote>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* House Rules Widget Section */}
       <section className="uno-section uno-section-widget">
         <div className="uno-section-container">
-          <div className="uno-widget-intro">
-            <h2>{t('uno.createPerfect')}</h2>
-            <p>
+          <motion.div 
+            className="uno-widget-intro"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp}>{t('uno.createPerfect')}</motion.h2>
+            <motion.p variants={fadeInUp}>
               {t('uno.standardRules')}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
           
-          <UnoHouseRulesWidget />
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <UnoHouseRulesWidget />
+          </motion.div>
         </div>
       </section>
 
       {/* Meetup Countdown Section */}
       <section className="uno-section uno-section-meetup">
         <div className="uno-section-container">
-          <div className="uno-meetup-header">
+          <motion.div 
+            className="uno-meetup-header"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <span className="uno-meetup-eyebrow">NEXT UNO COMMUNITY MEETUP</span>
-          </div>
+          </motion.div>
           
-          <div className="uno-countdown">
-            <div className="uno-countdown-item">
+          <motion.div 
+            className="uno-countdown"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <motion.div 
+              className="uno-countdown-item"
+              whileHover={{ scale: 1.1 }}
+            >
               <span className="uno-countdown-number">12</span>
               <span className="uno-countdown-label">DAYS</span>
-            </div>
+            </motion.div>
             <span className="uno-countdown-separator">:</span>
-            <div className="uno-countdown-item">
+            <motion.div 
+              className="uno-countdown-item"
+              whileHover={{ scale: 1.1 }}
+            >
               <span className="uno-countdown-number">08</span>
               <span className="uno-countdown-label">HOURS</span>
-            </div>
+            </motion.div>
             <span className="uno-countdown-separator">:</span>
-            <div className="uno-countdown-item">
+            <motion.div 
+              className="uno-countdown-item"
+              whileHover={{ scale: 1.1 }}
+            >
               <span className="uno-countdown-number">45</span>
               <span className="uno-countdown-label">MINUTES</span>
-            </div>
+            </motion.div>
             <span className="uno-countdown-separator">:</span>
-            <div className="uno-countdown-item">
+            <motion.div 
+              className="uno-countdown-item"
+              whileHover={{ scale: 1.1 }}
+            >
               <span className="uno-countdown-number">21</span>
               <span className="uno-countdown-label">SECONDS</span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           
-          <div className="uno-meetup-cities">
-            <a href="https://www.meetup.com/uno-game-night-los-angeles/" target="_blank" rel="noopener noreferrer" className="uno-city-card">
+          <motion.div 
+            className="uno-meetup-cities"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
+            <motion.a 
+              href="https://www.meetup.com/uno-game-night-los-angeles/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="uno-city-card"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
               <span className="uno-city-icon">📍</span>
               <div className="uno-city-info">
                 <h4>Los Angeles, CA</h4>
                 <span>Dec 18 @ 7:00 PM</span>
               </div>
               <span className="uno-city-badge">Meetup</span>
-            </a>
-            <a href="https://www.eventbrite.com/e/uno-championship-night-nyc-tickets" target="_blank" rel="noopener noreferrer" className="uno-city-card">
+            </motion.a>
+            <motion.a 
+              href="https://www.eventbrite.com/e/uno-championship-night-nyc-tickets" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="uno-city-card"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
               <span className="uno-city-icon">📍</span>
               <div className="uno-city-info">
                 <h4>New York City, NY</h4>
                 <span>Dec 20 @ 6:30 PM</span>
               </div>
               <span className="uno-city-badge uno-city-badge-eb">Eventbrite</span>
-            </a>
-            <a href="https://www.meetup.com/chicago-uno-players/" target="_blank" rel="noopener noreferrer" className="uno-city-card">
+            </motion.a>
+            <motion.a 
+              href="https://www.meetup.com/chicago-uno-players/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="uno-city-card"
+              variants={staggerItem}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
               <span className="uno-city-icon">📍</span>
               <div className="uno-city-info">
                 <h4>Chicago, IL</h4>
                 <span>Dec 22 @ 8:00 PM</span>
               </div>
               <span className="uno-city-badge">Meetup</span>
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       </section>
 
       {/* Video Content Section */}
       <section className="uno-section uno-section-videos">
         <div className="uno-section-container">
-          <div className="uno-section-header">
-            <h2>Community Highlights</h2>
-            <p>Watch how players around the world are making UNO their own.</p>
-          </div>
+          <motion.div 
+            className="uno-section-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp}>Community Highlights</motion.h2>
+            <motion.p variants={fadeInUp}>Watch how players around the world are making UNO their own.</motion.p>
+          </motion.div>
           
-          <div className="uno-bento-grid">
-            <div className="uno-bento-main uno-video-card uno-card-bg-red">
+          <motion.div 
+            className="uno-bento-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            <motion.div 
+              className="uno-bento-main uno-video-card uno-card-bg-red"
+              variants={fadeInUp}
+              whileHover={{ y: -8, scale: 1.02 }}
+            >
               <iframe
                 src="https://www.youtube.com/embed/gOhDPwxzKFg"
                 title="Sidemen UNO Showdown"
@@ -683,10 +928,13 @@ const FinalWebsiteUnoExperience = () => {
               <div className="uno-video-pill uno-pill-white">
                 <span>🏆</span> Tournament
               </div>
-            </div>
+            </motion.div>
             
-            <div className="uno-bento-stack">
-              <div className="uno-bento-small uno-video-card uno-card-bg-blue">
+            <motion.div className="uno-bento-stack" variants={fadeInUp}>
+              <motion.div 
+                className="uno-bento-small uno-video-card uno-card-bg-blue"
+                whileHover={{ y: -5, scale: 1.02 }}
+              >
                 <iframe
                   src="https://www.youtube.com/embed/q0bNRPVgNvE"
                   title="UNO Highlights"
@@ -696,10 +944,13 @@ const FinalWebsiteUnoExperience = () => {
                 ></iframe>
                 <div className="uno-video-pill uno-pill-white">
                   <span>🎰</span> Vegas
-                </div>
               </div>
-              
-              <div className="uno-bento-small uno-video-card uno-card-bg-yellow">
+            </motion.div>
+            
+              <motion.div 
+                className="uno-bento-small uno-video-card uno-card-bg-yellow"
+                whileHover={{ y: -5, scale: 1.02 }}
+              >
                 <iframe
                   src="https://www.youtube.com/embed/NFnXep4pGOk"
                   title="Family Game Night"
@@ -710,87 +961,146 @@ const FinalWebsiteUnoExperience = () => {
                 <div className="uno-video-pill uno-pill-dark">
                   <span>🎲</span> Game Night
                 </div>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
           
-          <p className="uno-video-note">
+          <motion.p 
+            className="uno-video-note"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+          >
             📺 Videos curated from YouTube creators 
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="landing-footer">
+      <motion.footer 
+        className="landing-footer"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="landing-footer-content">
-          <div className="landing-footer-brand">
+          <motion.div 
+            className="landing-footer-brand"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
             <span className="landing-footer-logo">{t('footer.mattelAiLab')}</span>
             <p>{t('footer.empowering')}</p>
-          </div>
-          <div className="landing-footer-note">
+          </motion.div>
+          <motion.div 
+            className="landing-footer-note"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
             <p>{t('footer.educationalPrototype')}</p>
-          </div>
+          </motion.div>
         </div>
-      </footer>
+      </motion.footer>
 
       {/* Community Modal */}
-      {showCommunityModal && (
-        <div className="uno-modal-overlay" onClick={() => setShowCommunityModal(false)}>
-          <div className="uno-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="uno-modal-close" onClick={() => setShowCommunityModal(false)}>×</button>
-            
-            {!formSubmitted ? (
-              <>
-                <div className="uno-modal-header">
-                  <img src={unoCardIcon} alt="UNO" className="uno-modal-icon" />
-                  <h2>Join the UNO Community!</h2>
-                  <p>Get exclusive updates, tips, and be first to know about new editions!</p>
-                </div>
-                
-                <form onSubmit={handleCommunitySubmit} className="uno-modal-form">
-                  <div className="uno-form-group">
-                    <label htmlFor="name">Your Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      placeholder="What should we call you?"
-                      value={communityForm.name}
-                      onChange={(e) => setCommunityForm(prev => ({ ...prev, name: e.target.value }))}
-                      required
+      <AnimatePresence>
+        {showCommunityModal && (
+          <motion.div 
+            className="uno-modal-overlay" 
+            onClick={() => setShowCommunityModal(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div 
+              className="uno-modal" 
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            >
+              <button className="uno-modal-close" onClick={() => setShowCommunityModal(false)}>×</button>
+              
+              {!formSubmitted ? (
+                <>
+                  <div className="uno-modal-header">
+                    <motion.img 
+                      src={unoCardIcon} 
+                      alt="UNO" 
+                      className="uno-modal-icon"
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                     />
+                    <h2>Join the UNO Community!</h2>
+                    <p>Get exclusive updates, tips, and be first to know about new editions!</p>
                   </div>
                   
-                  <div className="uno-form-group">
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="your@email.com"
-                      value={communityForm.email}
-                      onChange={(e) => setCommunityForm(prev => ({ ...prev, email: e.target.value }))}
-                      required
-                    />
-                  </div>
+                  <form onSubmit={handleCommunitySubmit} className="uno-modal-form">
+                    <div className="uno-form-group">
+                      <label htmlFor="name">Your Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        placeholder="What should we call you?"
+                        value={communityForm.name}
+                        onChange={(e) => setCommunityForm(prev => ({ ...prev, name: e.target.value }))}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="uno-form-group">
+                      <label htmlFor="email">Email Address</label>
+                      <input
+                        type="email"
+                        id="email"
+                        placeholder="your@email.com"
+                        value={communityForm.email}
+                        onChange={(e) => setCommunityForm(prev => ({ ...prev, email: e.target.value }))}
+                        required
+                      />
+                    </div>
+                    
+                    <motion.button 
+                      type="submit" 
+                      className="uno-modal-submit"
+                      whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(237, 28, 36, 0.5)' }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      🎴 Join Now
+                    </motion.button>
+                  </form>
                   
-                  <button type="submit" className="uno-modal-submit">
-                    🎴 Join Now
-                  </button>
-                </form>
-                
-                <p className="uno-modal-privacy">
-                  We respect your privacy. No spam, ever!
-                </p>
-              </>
-            ) : (
-              <div className="uno-modal-success">
-                <span className="uno-success-icon">🎉</span>
-                <h2>Welcome to the Family!</h2>
-                <p>Thanks for joining, {communityForm.name}! Check your inbox for a welcome surprise.</p>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+                  <p className="uno-modal-privacy">
+                    We respect your privacy. No spam, ever!
+                  </p>
+                </>
+              ) : (
+                <motion.div 
+                  className="uno-modal-success"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                >
+                  <motion.span 
+                    className="uno-success-icon"
+                    animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.2, 1] }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    🎉
+                  </motion.span>
+                  <h2>Welcome to the Family!</h2>
+                  <p>Thanks for joining, {communityForm.name}! Check your inbox for a welcome surprise.</p>
+                </motion.div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

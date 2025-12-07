@@ -334,6 +334,71 @@ The AI was provided with the complete UNO rulebook and instructional materials t
         "themed UNO games"
       ],
       challenge: "Creating FAQ questions that balance SEO optimization with natural, user-friendly language required extensive keyword research and understanding of search intent. The accordion design needed to be visually engaging while maintaining accessibility and performance. Integrating the FAQ seamlessly with existing page sections required careful CSS positioning and responsive breakpoints."
+    },
+    {
+      id: 19,
+      title: "Hot Wheels Community Blog & Checkered Background",
+      model: "Nano Banana + Google Gemini 3 Pro",
+      type: "🏁 UI Design & Patterns",
+      description: "Created a full-featured Hot Wheels Collectors Community section with CRUD blog functionality, checkered racing flag background pattern, scroll animations, and racing-themed visual design. The checkered pattern uses CSS conic gradients at a 45° angle for authentic racing aesthetics.",
+      prompt: `"add lighly placed black and white checked boards on the background of the share your collection section. the checkered boards should be subtle and not overbearing and at an angle"`,
+      outputs: [
+        "Angled checkered flag background pattern using CSS conic-gradient",
+        "Full CRUD blog system (Create, Read, Update, Delete posts)",
+        "Comment system with nested replies",
+        "Category filtering (Speed, Retro, Off-Road, Fantasy, Garage, Collector, General)",
+        "Top Posts filter for posts with 5+ comments",
+        "Build style integration - auto-filter posts based on avatar selection",
+        "Framer Motion scroll animations throughout the page",
+        "Racing-themed borders and visual accents",
+        "40+ diverse blog posts with realistic comments",
+        "Responsive design with mobile optimization"
+      ],
+      challenge: "Creating a checkered pattern that covers the entire background while remaining subtle and angled required experimenting with multiple CSS approaches. The final solution uses repeating-conic-gradient with background-blend-mode for seamless coverage. Integrating the blog CRUD system with the avatar selection required careful state management and smooth scroll behavior."
+    },
+    {
+      id: 20,
+      title: "Interactive Hot Wheels Avatar (Lesley Alejandra)",
+      model: "Google AI Studio (Gemini 3 Pro)",
+      type: "🎨 3D Avatar & Interaction",
+      description: "Designed an interactive Hot Wheels avatar based on the persona Lesley Alejandra – a Gen Z, Hispanic, social and creative small-business owner, student, traveler, and car enthusiast who collects and displays Hot Wheels. The avatar visually matches this persona and supports the app's experience design: playful, nostalgic, expressive, and optimized for quick, bite-sized interactions.",
+      prompt: `"Create an avatar for my website that looks like a young 20-year-old Hispanic girl with black hair and glasses. Use the reference image only for inspiration, not replication. The avatar should be designed from the upper body up, with a natural, realistic pose. I want her to feel friendly, expressive, and modern, matching a Gen Z creator and Hot Wheels collector persona. The avatar must be compatible with interactive website behavior, meaning the eyes and head should be able to move toward the user's mouse for a lively, responsive effect.
+
+The upper body design you generated earlier is perfect — do not change it. The main adjustment needed is the hair. In the early versions, her hair fell incorrectly in front of her shoulders, so please reposition the hair so it rests naturally behind her shoulders. Only leave a couple of strands in the front. In the next revision, make those front strands smaller and curly so they frame her face without covering the body. Then refine it further: add two small curly strands on each shoulder, keeping them delicate and light. Finally, add subtle highlights throughout her black hair to give it depth and a more natural, realistic texture. Everything else about the avatar should remain the same — the facial expression, glasses, posture, and styling should reflect a youthful Hispanic girl with personality, confidence, and creativity.
+
+The avatar also needed to support six Hot Wheels archetypes that users can choose from when building their cars and tracks:
+
+• Speed Racer – sleek supercars, neon city loops, high-speed energy
+• Retro Cruiser – vintage, lowriders, sunset highway tracks
+• Off-Road Adventurer – monster trucks, dirt trails, jungle jumps
+• Fantasy Drifter – dragon/shark/space cars on floating or lava tracks
+• Garage Builder – DIY, modded builds in workshop/test-track spaces
+• Collector Pro – premium die-casts displayed on neon pedestals
+
+It took eight prompt iterations to fine-tune these details—especially the hair, glasses, and upper-body proportions—before arriving at the final avatar design that felt true to Lesley and the Hot Wheels collector community."`,
+      outputs: [
+        "SVG-based 3D avatar with Hispanic features matching persona",
+        "Interactive mouse tracking - head tilts and eyes follow cursor",
+        "Physics-based hair animation with natural movement",
+        "Six Hot Wheels archetype build options arranged in circular layout",
+        "Hover effects with dynamic color changes per archetype",
+        "Orange halo glow behind avatar matching Hot Wheels branding",
+        "Floating animation effect for premium feel",
+        "Collector profile card with stats (Collection, Rare Finds, Member years)",
+        "Build style selection triggers blog post filtering",
+        "Framer Motion animations for smooth interactions",
+        "Orbit rings with subtle animations",
+        "Responsive design adapting to all screen sizes"
+      ],
+      archetypes: [
+        "Speed Racer – 🏎️ Fast & Futuristic",
+        "Retro Cruiser – 🚗 Nostalgic Vibes",
+        "Off-Road – 🛻 Wild Adventure",
+        "Fantasy Drifter – 🐉 Creative & Bold",
+        "Garage Builder – 🔧 DIY Spirit",
+        "Collector Pro – 🏆 Premium Taste"
+      ],
+      challenge: "Creating an interactive avatar that responds naturally to mouse movement while maintaining visual appeal required implementing physics-based animations for hair and precise eye/head tracking calculations. Balancing the SVG complexity with performance, ensuring the avatar looked authentically Hispanic, and integrating six distinct build archetypes into an intuitive circular interface took eight prompt iterations to perfect."
     }
   ];
 
@@ -1426,7 +1491,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
               onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
             >
               <span className="accordion-title">
-                AI Enhancements & Feature Build-Out <span className="accordion-meta">(18 Items)</span>
+                AI Enhancements & Feature Build-Out <span className="accordion-meta">(20 Items)</span>
               </span>
               <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
             </div>

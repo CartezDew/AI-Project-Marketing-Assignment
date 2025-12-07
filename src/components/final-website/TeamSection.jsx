@@ -341,7 +341,7 @@ const TeamSection = () => {
             <div className="frame-corner frame-tr"></div>
             <div className="frame-corner frame-bl"></div>
             <div className="frame-corner frame-br"></div>
-          </div>
+      </div>
 
           {/* Floating Doodles - Upper Left & Right */}
           <div className="team-group-doodle team-group-doodle-star-tl">✨</div>
@@ -377,7 +377,7 @@ const TeamSection = () => {
                 <span className="pill-text pill-text-innovation">Innovation</span>
               </div>
             </div>
-          </div>
+      </div>
           
           {/* Caption */}
           <p className="team-group-caption">

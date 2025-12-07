@@ -1,0 +1,33 @@
+/* ============================================
+   3D INTERACTIVE SVG AVATAR
+   Physics-based hair movement
+   ============================================ */
+
+.avatar-3d-container {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4/5;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
+.avatar-3d-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease-out;
+}
+
+/* Eye animations */
+.avatar-eye-left,
+.avatar-eye-right {
+  transition: transform 0.15s ease-out;
+}
+
+/* Responsive sizing */
+@media (max-width: 600px) {
+  .avatar-3d-container {
+    max-width: 220px;
+  }
+}
+

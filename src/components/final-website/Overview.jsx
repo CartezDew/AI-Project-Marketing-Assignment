@@ -279,37 +279,37 @@ const Overview = () => {
             <div className="ov-bento-hero-inner">
               <div className={`ov-spotlight-badge ov-uno-badge`}>
                 <img src={unoCardIcon} alt="UNO" className="ov-uno-badge-icon" />
-                <span>BRAND SPOTLIGHT</span>
-              </div>
-              
-              <div className="ov-uno-card-stack">
-                <div className="ov-uno-mini ov-um-red">
-                  <span className="ov-um-corner ov-um-corner-tl">+2</span>
-                  <div className="ov-um-oval"><span className="ov-um-symbol">+2</span></div>
-                  <span className="ov-um-corner ov-um-corner-br">+2</span>
-                </div>
-                <div className="ov-uno-mini ov-um-yellow">
-                  <span className="ov-um-corner ov-um-corner-tl">9</span>
-                  <div className="ov-um-oval"><span className="ov-um-number">9</span></div>
-                  <span className="ov-um-corner ov-um-corner-br">9</span>
-                </div>
-                <div className="ov-uno-mini ov-um-green">
-                  <span className="ov-um-corner ov-um-corner-tl">⊘</span>
-                  <div className="ov-um-oval"><span className="ov-um-symbol ov-um-skip">⊘</span></div>
-                  <span className="ov-um-corner ov-um-corner-br">⊘</span>
-                </div>
-                <div className="ov-uno-mini ov-um-blue">
-                  <span className="ov-um-corner ov-um-corner-tl">4</span>
-                  <div className="ov-um-oval"><span className="ov-um-number">4</span></div>
-                  <span className="ov-um-corner ov-um-corner-br">4</span>
-                </div>
-              </div>
+            <span>BRAND SPOTLIGHT</span>
+          </div>
 
-              <h3 className="ov-uno-title">UNO</h3>
-              <p className="ov-uno-tagline">The World's #1 Card Game</p>
+          <div className="ov-uno-card-stack">
+            <div className="ov-uno-mini ov-um-red">
+              <span className="ov-um-corner ov-um-corner-tl">+2</span>
+                  <div className="ov-um-oval"><span className="ov-um-symbol">+2</span></div>
+              <span className="ov-um-corner ov-um-corner-br">+2</span>
+            </div>
+            <div className="ov-uno-mini ov-um-yellow">
+              <span className="ov-um-corner ov-um-corner-tl">9</span>
+                  <div className="ov-um-oval"><span className="ov-um-number">9</span></div>
+              <span className="ov-um-corner ov-um-corner-br">9</span>
+            </div>
+            <div className="ov-uno-mini ov-um-green">
+              <span className="ov-um-corner ov-um-corner-tl">⊘</span>
+                  <div className="ov-um-oval"><span className="ov-um-symbol ov-um-skip">⊘</span></div>
+              <span className="ov-um-corner ov-um-corner-br">⊘</span>
+            </div>
+            <div className="ov-uno-mini ov-um-blue">
+              <span className="ov-um-corner ov-um-corner-tl">4</span>
+                  <div className="ov-um-oval"><span className="ov-um-number">4</span></div>
+              <span className="ov-um-corner ov-um-corner-br">4</span>
             </div>
           </div>
 
+          <h3 className="ov-uno-title">UNO</h3>
+          <p className="ov-uno-tagline">The World's #1 Card Game</p>
+            </div>
+            </div>
+            
           {/* Live Counter Card - Top Right */}
           <div className={`ov-bento-card ov-bento-counter scroll-animate fade-up delay-100 ${unoVisible ? 'visible' : ''}`}>
             <div className="ov-bento-counter-inner">
@@ -317,8 +317,8 @@ const Overview = () => {
               </div>
               <div className="ov-uno-big-num">17</div>
               <div className="ov-uno-big-unit">decks sold every minute</div>
-              <div className="ov-uno-timer">
-                <div className="ov-uno-timer-bar">
+            <div className="ov-uno-timer">
+              <div className="ov-uno-timer-bar">
                   <div className="ov-uno-timer-fill" style={{ width: `${(secondsElapsed / 17) * 100}%` }}></div>
                 </div>
                 <span className="ov-uno-timer-text">{secondsElapsed}s / 17s</span>
@@ -364,9 +364,9 @@ const Overview = () => {
                     <span className="ov-callout-arrow">→</span>
                   </a>
                 </div>
-              </div>
             </div>
-          </div>
+            </div>
+            </div>
 
           {/* Feature Pills */}
           <div className={`ov-bento-card ov-bento-features scroll-animate fade-up delay-450 ${unoVisible ? 'visible' : ''}`}>
@@ -376,8 +376,8 @@ const Overview = () => {
               <span className="ov-feature-pill">🎉 Party Essential</span>
               <span className="ov-feature-pill">🌟 Since 1971</span>
             </div>
+            </div>
           </div>
-        </div>
 
         {/* Bottom Creative Border */}
         <div className="ov-uno-border-bottom">
