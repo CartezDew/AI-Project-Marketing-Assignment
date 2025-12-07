@@ -729,20 +729,34 @@ const HotWheelsCommunity = ({ selectedBuildStyle }) => {
   };
 
   // Filter posts
-  const filteredPosts = posts.filter(post => {
-    // Handle Top Posts filter (5+ comments)
+  const filteredPosts = (() => {
+    // Handle Top Posts filter - sort by engagement (likes + comments weighted)
     if (activeFilter === 'top posts') {
-      const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           post.content.toLowerCase().includes(searchQuery.toLowerCase());
-      return post.comments.length >= 5 && matchesSearch;
+      const searchFiltered = posts.filter(post => {
+        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                             post.content.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesSearch;
+      });
+      
+      // Sort by engagement score (likes + comments * 10 to weight comments higher)
+      const sorted = [...searchFiltered].sort((a, b) => {
+        const scoreA = a.likes + (a.comments.length * 10);
+        const scoreB = b.likes + (b.comments.length * 10);
+        return scoreB - scoreA;
+      });
+      
+      // Return top posts (at least 6, or more if they have good engagement)
+      return sorted.slice(0, Math.max(10, sorted.filter(p => p.likes >= 400 || p.comments.length >= 1).length));
     }
     
-    const matchesCategory = activeFilter === 'all' || post.category.toLowerCase() === activeFilter.toLowerCase();
-    const matchesBuildStyle = !activeBuildFilter || post.buildStyle === activeBuildFilter;
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         post.content.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesBuildStyle && matchesSearch;
-  });
+    return posts.filter(post => {
+      const matchesCategory = activeFilter === 'all' || post.category.toLowerCase() === activeFilter.toLowerCase();
+      const matchesBuildStyle = !activeBuildFilter || post.buildStyle === activeBuildFilter;
+      const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           post.content.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesBuildStyle && matchesSearch;
+    });
+  })();
 
   // Clear build filter
   const clearBuildFilter = () => {

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './HotWheelsSpotlight.css';
 
 // Car images
-import datsun510 from '../../assets/hotwheels/71 Datsun 510 Wagon hot wheels.webp';
+import datsun510 from '../../assets/hotwheels/71 Datsun 510.webp';
 import mustang67 from '../../assets/hotwheels/Custom-67-Mustang.webp';
 import fastFuriousPack from '../../assets/hotwheels/Fast-Furious-5-Pack.webp';
 import chevyBelAir from '../../assets/hotwheels/55-Chevy-Bel-Air-Gasser.webp';
@@ -17,6 +17,11 @@ const HotWheelsSpotlight = () => {
   const [showAlertModal, setShowAlertModal] = useState(false);
   const [alertForm, setAlertForm] = useState({ name: '', email: '' });
   const [alertSuccess, setAlertSuccess] = useState(false);
+  const [loadedVideos, setLoadedVideos] = useState({});
+
+  const handleVideoLoad = (videoId) => {
+    setLoadedVideos(prev => ({ ...prev, [videoId]: true }));
+  };
 
   const handleAlertSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +52,7 @@ const HotWheelsSpotlight = () => {
   const newsDrops = [
     {
       id: 1,
-      title: "'71 Datsun 510 Wagon",
+      title: "'71 Datsun 510",
       series: 'Red Line Club Exclusive',
       date: 'Dec 15, 2024',
       time: '9:00 AM PT',
@@ -241,6 +246,11 @@ const HotWheelsSpotlight = () => {
                   transition={{ delay: 0.4 + (0.15 * index) }}
                 >
                   <div className="hws-video-wrapper">
+                    {!loadedVideos[item.videoId] && (
+                      <div className="video-loading-overlay">
+                        <div className="video-spinner"></div>
+                      </div>
+                    )}
                     <span className="hws-video-category-pill">
                       <span className="hws-pill-icon">{item.icon}</span>
                       {item.category}
@@ -252,6 +262,7 @@ const HotWheelsSpotlight = () => {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="hws-video-iframe"
+                      onLoad={() => handleVideoLoad(item.videoId)}
                     ></iframe>
                   </div>
                   <div className="hws-video-info">

@@ -3,6 +3,34 @@
    Bento Grid Layout with Creative Typography
    ============================================ */
 
+/* ========== VIDEO LOADING OVERLAY ========== */
+.video-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: inherit;
+}
+
+.video-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #FF6B00;
+  border-right-color: #FFCC00;
+  border-radius: 50%;
+  animation: videoSpin 1s linear infinite;
+}
+
+@keyframes videoSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .hws-section {
   padding: 100px 24px;
   background: linear-gradient(180deg, #0a0f1a 0%, #0f1520 50%, #0a0f1a 100%);
@@ -121,7 +149,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 16px 16px 0 0;
+  /* border-radius: 16px 16px 0 0; */
 }
 
 .hws-spotlight-glow {

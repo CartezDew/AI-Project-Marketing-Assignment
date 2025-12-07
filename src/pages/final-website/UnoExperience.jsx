@@ -91,6 +91,13 @@ const FinalWebsiteUnoExperience = () => {
   const [communityForm, setCommunityForm] = useState({ name: '', email: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
+  // Video loading state
+  const [loadedVideos, setLoadedVideos] = useState({});
+  
+  const handleVideoLoad = (videoId) => {
+    setLoadedVideos(prev => ({ ...prev, [videoId]: true }));
+  };
+
   // Auto-scroll to latest message - only when user has sent messages (more than initial bot greeting)
   const hasUserInteracted = useRef(false);
   useEffect(() => {
@@ -359,145 +366,56 @@ const FinalWebsiteUnoExperience = () => {
           
           <div className="uno-shorts-scroll-container">
             <div className="uno-shorts-track">
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/uteejNCW02w"
-                  title="UNO Short 1"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/VdNd86nxkN8"
-                  title="UNO Short 2"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/3Ss3tLAlH6I"
-                  title="UNO Short 3"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/s6acqgKT1JY"
-                  title="UNO Short 4"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/HksIDO9Qjj0"
-                  title="UNO Short 5"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/aWerO3ClGBs"
-                  title="UNO Short 6"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/7v5s-iD12U8"
-                  title="UNO Short 7"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/mgJNbcY8H1w"
-                  title="UNO Short 8"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/XpHbrpviNrA"
-                  title="UNO Short 9"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/F6m0BpJaMrw"
-                  title="UNO Short 10"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/Jw88cCvIEEE"
-                  title="UNO Short 11"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/BcD2NmfmGz8"
-                  title="UNO Short 12"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/Y4j9dqwxXS8"
-                  title="UNO Short 13"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              
-              <div className="uno-short-card">
-                <iframe
-                  src="https://www.youtube.com/embed/P777c4eX7s8"
-                  title="UNO Short 14"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              {[
+                { id: 'uteejNCW02w', title: 'UNO Short 1' },
+                { id: 'VdNd86nxkN8', title: 'UNO Short 2' },
+                { id: '3Ss3tLAlH6I', title: 'UNO Short 3' },
+                { id: 's6acqgKT1JY', title: 'UNO Short 4' },
+                { id: 'HksIDO9Qjj0', title: 'UNO Short 5' },
+                { id: 'aWerO3ClGBs', title: 'UNO Short 6' },
+                { id: '7v5s-iD12U8', title: 'UNO Short 7' },
+                { id: 'mgJNbcY8H1w', title: 'UNO Short 8' },
+                { id: 'XpHbrpviNrA', title: 'UNO Short 9' },
+              ].map((video) => (
+                <div className="uno-short-card" key={video.id}>
+                  {!loadedVideos[video.id] && (
+                    <div className="video-loading-overlay">
+                      <div className="video-spinner"></div>
+                    </div>
+                  )}
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    onLoad={() => handleVideoLoad(video.id)}
+                  ></iframe>
+                </div>
+              ))}
+              {[
+                { id: 'F6m0BpJaMrw', title: 'UNO Short 10' },
+                { id: 'Jw88cCvIEEE', title: 'UNO Short 11' },
+                { id: 'BcD2NmfmGz8', title: 'UNO Short 12' },
+                { id: 'Y4j9dqwxXS8', title: 'UNO Short 13' },
+                { id: 'P777c4eX7s8', title: 'UNO Short 14' },
+              ].map((video) => (
+                <div className="uno-short-card" key={video.id}>
+                  {!loadedVideos[video.id] && (
+                    <div className="video-loading-overlay">
+                      <div className="video-spinner"></div>
+                    </div>
+                  )}
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    onLoad={() => handleVideoLoad(video.id)}
+                  ></iframe>
+                </div>
+              ))}
             </div>
           </div>
           
@@ -918,12 +836,18 @@ const FinalWebsiteUnoExperience = () => {
               variants={fadeInUp}
               whileHover={{ y: -8, scale: 1.02 }}
             >
+              {!loadedVideos['gOhDPwxzKFg'] && (
+                <div className="video-loading-overlay">
+                  <div className="video-spinner"></div>
+                </div>
+              )}
               <iframe
                 src="https://www.youtube.com/embed/gOhDPwxzKFg"
                 title="Sidemen UNO Showdown"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                onLoad={() => handleVideoLoad('gOhDPwxzKFg')}
               ></iframe>
               <div className="uno-video-pill uno-pill-white">
                 <span>🏆</span> Tournament
@@ -935,12 +859,18 @@ const FinalWebsiteUnoExperience = () => {
                 className="uno-bento-small uno-video-card uno-card-bg-blue"
                 whileHover={{ y: -5, scale: 1.02 }}
               >
+                {!loadedVideos['q0bNRPVgNvE'] && (
+                  <div className="video-loading-overlay">
+                    <div className="video-spinner"></div>
+                  </div>
+                )}
                 <iframe
                   src="https://www.youtube.com/embed/q0bNRPVgNvE"
                   title="UNO Highlights"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  onLoad={() => handleVideoLoad('q0bNRPVgNvE')}
                 ></iframe>
                 <div className="uno-video-pill uno-pill-white">
                   <span>🎰</span> Vegas
@@ -951,12 +881,18 @@ const FinalWebsiteUnoExperience = () => {
                 className="uno-bento-small uno-video-card uno-card-bg-yellow"
                 whileHover={{ y: -5, scale: 1.02 }}
               >
+                {!loadedVideos['NFnXep4pGOk'] && (
+                  <div className="video-loading-overlay">
+                    <div className="video-spinner"></div>
+                  </div>
+                )}
                 <iframe
                   src="https://www.youtube.com/embed/NFnXep4pGOk"
                   title="Family Game Night"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  onLoad={() => handleVideoLoad('NFnXep4pGOk')}
                 ></iframe>
                 <div className="uno-video-pill uno-pill-dark">
                   <span>🎲</span> Game Night

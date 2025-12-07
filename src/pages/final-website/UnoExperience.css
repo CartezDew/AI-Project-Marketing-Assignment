@@ -3,6 +3,41 @@
    All classes prefixed with 'uno-' to avoid conflicts
    ============================================ */
 
+/* ========== VIDEO LOADING OVERLAY ========== */
+.video-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: inherit;
+}
+
+.video-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #FF0000;
+  border-right-color: #FFCC00;
+  border-radius: 50%;
+  animation: videoSpin 1s linear infinite;
+}
+
+@keyframes videoSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ensure video cards have position relative */
+.uno-short-card,
+.uno-video-card,
+.hws-video-wrapper {
+  position: relative;
+}
+
 .uno-experience {
   background: var(--uno-black);
   color: white;

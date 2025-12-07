@@ -74,7 +74,7 @@ const staggerItem = {
 };
 // Car images
 import chevyBelAir from '../../assets/hotwheels/55-Chevy-Bel-Air-Gasser.webp';
-import datsun510 from '../../assets/hotwheels/71 Datsun 510 Wagon hot wheels.webp';
+import datsun510 from '../../assets/hotwheels/71 Datsun 510.webp';
 import mustang67 from '../../assets/hotwheels/Custom-67-Mustang.webp';
 import fastFuriousPack from '../../assets/hotwheels/Fast-Furious-5-Pack.webp';
 
@@ -161,7 +161,37 @@ const FinalWebsiteHotWheelsExperience = () => {
   });
   const [showFullCalendar, setShowFullCalendar] = useState(false);
   const [expandedInfographic, setExpandedInfographic] = useState(null);
+  const [showFloatingBtn, setShowFloatingBtn] = useState(true);
   const stageRef = useRef(null);
+
+  // Hide floating button when near community section
+  useEffect(() => {
+    const handleScroll = () => {
+      const communitySection = document.getElementById('community-blog-section');
+      if (communitySection) {
+        const rect = communitySection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // Hide when community section is visible (within 200px of viewport)
+        if (rect.top < windowHeight + 200) {
+          setShowFloatingBtn(false);
+        } else {
+          setShowFloatingBtn(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll to community section
+  const scrollToCreatePost = () => {
+    const communitySection = document.getElementById('community-blog-section');
+    if (communitySection) {
+      communitySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // Extended calendar events data
   const calendarEvents = [
@@ -309,13 +339,14 @@ const FinalWebsiteHotWheelsExperience = () => {
             </motion.p>
             
             <motion.div className="hw-hero-actions" variants={fadeInUp}>
-              <motion.button 
+              <motion.a 
+                href="#dream-build"
                 className="hw-btn-primary"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 107, 0, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
               >
-                {t('hotWheels.startCollecting')}
-              </motion.button>
+                {t('hotWheels.letsBuild')}
+              </motion.a>
               <motion.a 
                 href="#collectors-workshop" 
                 className="hw-btn-ghost"
@@ -1037,7 +1068,7 @@ const FinalWebsiteHotWheelsExperience = () => {
         </div>
       </section>
 
-      <section className="hw-section-builder">
+      <section className="hw-section-builder" id="dream-build">
         <div className="hw-section-container">
           <motion.div 
             className="hw-builder-layout"
@@ -1489,6 +1520,25 @@ const FinalWebsiteHotWheelsExperience = () => {
               )}
             </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating Create Post Button */}
+      <AnimatePresence>
+        {showFloatingBtn && (
+          <motion.button
+            className="hw-floating-create-btn"
+            onClick={scrollToCreatePost}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="hw-floating-plus">+</span>
+            <span className="hw-floating-tooltip">Create Post</span>
+          </motion.button>
         )}
       </AnimatePresence>
     </div>

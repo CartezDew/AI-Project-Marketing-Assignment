@@ -4,6 +4,55 @@
    Soft colors matching hero section
    ============================================ */
 
+/* 
+   CAROUSEL CARD SPACING & SIZING
+   Adjust these values to control overlap between cards.
+   Lower spacing = more overlap, Higher spacing = less overlap
+   Cards should overlap with hierarchy: active > adjacent > outer
+   
+   CARD WIDTH controls active card size
+   SPACING controls distance between card centers
+*/
+:root {
+  --wwc-card-spacing: 200px;  /* Default spacing */
+  --wwc-card-width: 320px;    /* Base card width */
+  --wwc-active-width: 380px;  /* Active card width */
+}
+
+@media (min-width: 600px) {
+  :root {
+    --wwc-card-spacing: 260px;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --wwc-card-spacing: 265px;
+    --wwc-active-width: 330px;
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --wwc-card-spacing: 270px;
+    --wwc-active-width: 340px;  /* Slightly smaller active card */
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --wwc-card-spacing: 280px;
+    --wwc-active-width: 340px;  /* Even smaller to show more adjacent cards */
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --wwc-card-spacing: 280px;
+    --wwc-active-width: 340px;
+  }
+}
+
 .wwc-section {
   position: relative;
   padding: 100px 24px 80px;
@@ -157,7 +206,7 @@
 /* Card Styles - Playful & Colorful */
 .wwc-card {
   position: absolute;
-  width: 320px;
+  width: var(--wwc-card-width, 320px);
   height: 420px;
   border-radius: 28px;
   cursor: pointer;
@@ -167,6 +216,95 @@
     0 20px 50px rgba(0, 0, 0, 0.2),
     0 8px 20px rgba(0, 0, 0, 0.1),
     0 0 0 4px #1a1a1a;
+}
+
+/* ========== SHADOW FIGURES - Playful Human Silhouettes ========== */
+.wwc-shadow-figure {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.wwc-shadow-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Active card - Large figure above title area */
+.wwc-shadow-active {
+  width: 180px;
+  height: 140px;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  animation: wwc-shadow-float-active 4s ease-in-out infinite;
+}
+
+/* Non-active card - Smaller figure below title */
+.wwc-shadow-inactive {
+  width: 100px;
+  height: 80px;
+  bottom: 15px;
+  right: 15px;
+  opacity: 0.7;
+  animation: wwc-shadow-float-inactive 5s ease-in-out infinite;
+}
+
+/* Playful floating animation for active cards */
+@keyframes wwc-shadow-float-active {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0) rotate(-1deg); 
+  }
+  25% {
+    transform: translateX(-50%) translateY(-8px) rotate(1deg);
+  }
+  50% { 
+    transform: translateX(-50%) translateY(-12px) rotate(-1deg); 
+  }
+  75% {
+    transform: translateX(-50%) translateY(-6px) rotate(2deg);
+  }
+}
+
+/* Subtle bounce animation for inactive cards */
+@keyframes wwc-shadow-float-inactive {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  30% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  60% { 
+    transform: translateY(-6px) rotate(1deg); 
+  }
+}
+
+/* Card-specific animation variations for more life */
+.wwc-card:nth-child(1) .wwc-shadow-figure { animation-delay: 0s; }
+.wwc-card:nth-child(2) .wwc-shadow-figure { animation-delay: 0.3s; }
+.wwc-card:nth-child(3) .wwc-shadow-figure { animation-delay: 0.6s; }
+.wwc-card:nth-child(4) .wwc-shadow-figure { animation-delay: 0.9s; }
+.wwc-card:nth-child(5) .wwc-shadow-figure { animation-delay: 1.2s; }
+.wwc-card:nth-child(6) .wwc-shadow-figure { animation-delay: 1.5s; }
+.wwc-card:nth-child(7) .wwc-shadow-figure { animation-delay: 1.8s; }
+.wwc-card:nth-child(8) .wwc-shadow-figure { animation-delay: 2.1s; }
+.wwc-card:nth-child(9) .wwc-shadow-figure { animation-delay: 2.4s; }
+
+/* Hover enhancement for shadow figures */
+.wwc-card:hover .wwc-shadow-figure {
+  animation-play-state: paused;
+}
+
+.wwc-card:hover .wwc-shadow-active {
+  transform: translateX(-50%) translateY(-15px) scale(1.05);
+}
+
+.wwc-card:hover .wwc-shadow-inactive {
+  transform: translateY(-8px) scale(1.08);
+  opacity: 0.85;
 }
 
 .wwc-card:hover {
@@ -179,7 +317,7 @@
 }
 
 .wwc-card-active {
-  width: 380px;
+  width: var(--wwc-active-width, 380px);
   height: 420px;
   transform: rotate(0deg) !important;
 }
@@ -333,6 +471,7 @@
   justify-content: center;
   gap: 8px;
   margin-top: 30px;
+  padding-top: 20px;
 }
 
 .wwc-indicator {
@@ -384,7 +523,8 @@
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
+  padding-top: 50px;
 }
 
 .wwc-bottom-icon {
@@ -408,21 +548,31 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #666;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
+  :root {
+    --wwc-card-width: 280px;
+    --wwc-active-width: 320px;
+  }
+
   .wwc-carousel-container {
     height: 380px;
   }
 
   .wwc-card {
-    width: 280px;
     height: 380px;
   }
 
   .wwc-card-active {
-    width: 320px;
     height: 420px;
   }
 
@@ -437,9 +587,29 @@
   .wwc-card-active .wwc-card-title {
     font-size: 1.4rem;
   }
+
+  /* Shadow figures responsive */
+  .wwc-shadow-active {
+    width: 150px;
+    height: 115px;
+    top: 75px;
+  }
+
+  .wwc-shadow-inactive {
+    width: 80px;
+    height: 65px;
+    bottom: 12px;
+    right: 12px;
+  }
 }
 
 @media (max-width: 600px) {
+  :root {
+    --wwc-card-width: 260px;
+    --wwc-active-width: 290px;
+    --wwc-card-spacing: 180px;
+  }
+
   .wwc-section {
     padding: 60px 16px 50px;
   }
@@ -449,12 +619,10 @@
   }
 
   .wwc-card {
-    width: 260px;
     height: 360px;
   }
 
   .wwc-card-active {
-    width: 290px;
     height: 400px;
   }
 
@@ -484,6 +652,21 @@
   .wwc-indicator {
     width: 24px;
     height: 3px;
+  }
+
+  /* Shadow figures mobile */
+  .wwc-shadow-active {
+    width: 120px;
+    height: 95px;
+    top: 65px;
+  }
+
+  .wwc-shadow-inactive {
+    width: 65px;
+    height: 55px;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.5;
   }
 }
 

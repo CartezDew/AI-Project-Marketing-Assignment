@@ -350,6 +350,7 @@
 
 .hw-spotlight-image {
   width: 100%;
+  max-width: 400px;
   height: 180px;
   background: linear-gradient(135deg, #1a2030 0%, #0f1520 100%);
   border-radius: 12px;
