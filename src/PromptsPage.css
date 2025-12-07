@@ -1496,6 +1496,7 @@ body {
 .card-subtitle {
   opacity: 0.9;
   font-size: 1rem;
+  display: none;
 }
 
 .card-body {
