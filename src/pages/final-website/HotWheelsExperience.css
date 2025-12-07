@@ -1125,7 +1125,7 @@
 
 @media (max-width: 850px) {
   .hw-diy-supervision-notice {
-    padding: 12px 18px;
+  padding: 12px 18px;
     gap: 10px;
   }
   
@@ -1139,7 +1139,7 @@
   .hw-diy-supervision-notice {
     padding: 12px 14px;
     gap: 8px;
-    border-radius: 10px;
+  border-radius: 10px;
   }
   
   .hw-supervision-icon {
@@ -1371,7 +1371,7 @@
   
   .hw-tutorial-btn-text {
     font-size: 0.7rem;
-    letter-spacing: 1px;
+  letter-spacing: 1px;
   }
   
   .hw-tutorial-play-icon {

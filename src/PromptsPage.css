@@ -847,6 +847,141 @@ body {
 }
 
 /* ============================================
+   AI ENHANCEMENTS REPORT DOWNLOAD SECTION
+   ============================================ */
+.ai-report-download-section {
+  max-width: 500px;
+  margin: 16px auto 0;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ai-report-download-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-report-icon {
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.ai-report-text h4 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.ai-report-text p {
+  display: none;
+}
+
+.ai-report-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.ai-report-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ai-report-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ai-report-btn .btn-file-label {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.ai-report-btn .btn-icon-download {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ai-report-btn.pdf-btn .btn-file-label {
+  background: #dc2626;
+  color: white;
+}
+
+.ai-report-btn.pdf-btn:hover {
+  border-color: rgba(220, 38, 38, 0.5);
+  background: rgba(220, 38, 38, 0.12);
+}
+
+.ai-report-btn.pdf-btn:hover .btn-icon-download {
+  color: #ef4444;
+}
+
+.ai-report-btn.word-btn .btn-file-label {
+  background: #2563eb;
+  color: white;
+}
+
+.ai-report-btn.word-btn:hover {
+  border-color: rgba(37, 99, 235, 0.5);
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.ai-report-btn.word-btn:hover .btn-icon-download {
+  color: #3b82f6;
+}
+
+@media (max-width: 600px) {
+  .ai-report-download-section {
+    flex-direction: row;
+    padding: 10px 14px;
+  }
+  
+  .ai-report-text h4 {
+    font-size: 0.7rem;
+  }
+  
+  .ai-report-btn {
+    padding: 6px 8px;
+  }
+  
+  .ai-report-btn .btn-file-label {
+    font-size: 0.6rem;
+    padding: 2px 4px;
+  }
+  
+  .ai-report-btn .btn-icon-download {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ============================================
    TECH & AI GLOSSARY
    ============================================ */
 .tech-glossary {

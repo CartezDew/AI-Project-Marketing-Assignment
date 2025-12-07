@@ -1478,6 +1478,429 @@ Please create both infographics based on the YouTube video content provided.`;
     printWindow.print();
   };
 
+  // Generate AI Enhancements Report Content
+  const getAIEnhancementsReportContent = () => {
+    const enhancementSections = aiEnhancements.map((item) => {
+      let promptContent = '';
+      
+      if (item.prompt) {
+        promptContent = `
+          <div class="prompt-section">
+            <h4>Prompt Used:</h4>
+            <pre class="prompt-text">${item.prompt}</pre>
+          </div>
+        `;
+      }
+      
+      if (item.prompts) {
+        promptContent = `
+          <div class="prompt-section">
+            <h4>Prompts Used:</h4>
+            ${item.prompts.map((p, idx) => `
+              <div class="multi-prompt">
+                <strong>Prompt ${idx + 1}:</strong>
+                <pre class="prompt-text">${p.prompt}</pre>
+                ${p.output ? `<p class="prompt-output"><strong>Output:</strong> ${p.output}</p>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+      
+      const outputsSection = item.outputs ? `
+        <div class="outputs-section">
+          <h4>Outputs & Features:</h4>
+          <ul class="outputs-list">
+            ${item.outputs.map(output => `<li>${output}</li>`).join('')}
+          </ul>
+        </div>
+      ` : '';
+      
+      const archetypesSection = item.archetypes ? `
+        <div class="archetypes-section">
+          <h4>Archetypes:</h4>
+          <ul class="archetypes-list">
+            ${item.archetypes.map(arch => `<li>${arch}</li>`).join('')}
+          </ul>
+        </div>
+      ` : '';
+      
+      const keywordsSection = item.keywords ? `
+        <div class="keywords-section">
+          <h4>SEO Keywords:</h4>
+          <div class="keywords-tags">
+            ${item.keywords.map(kw => `<span class="keyword-tag">${kw}</span>`).join('')}
+          </div>
+        </div>
+      ` : '';
+      
+      const challengeSection = item.challenge ? `
+        <div class="challenge-section">
+          <h4>Challenges & Solutions:</h4>
+          <p>${item.challenge}</p>
+        </div>
+      ` : '';
+      
+      const noteSection = item.note ? `
+        <div class="note-section">
+          <p class="note-text"><em>Note: ${item.note}</em></p>
+        </div>
+      ` : '';
+      
+      return `
+        <div class="enhancement-card">
+          <div class="enhancement-header-section">
+            <span class="enhancement-num">${item.id}</span>
+            <div class="enhancement-meta">
+              <h3>${item.title}</h3>
+              <div class="meta-badges">
+                <span class="badge badge-model">🤖 ${item.model}</span>
+                <span class="badge badge-type">${item.type}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="enhancement-body">
+            <p class="description">${item.description}</p>
+            ${promptContent}
+            ${outputsSection}
+            ${archetypesSection}
+            ${keywordsSection}
+            ${challengeSection}
+            ${noteSection}
+          </div>
+        </div>
+      `;
+    }).join('');
+    
+    return `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>AI Enhancements & Prompts Report - Mattel Marketing Project</title>
+        <style>
+          * { box-sizing: border-box; }
+          body { 
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 50px 40px; 
+            line-height: 1.7; 
+            color: #333;
+            background: #f8f9fa;
+          }
+          
+          .report-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+          }
+          
+          .report-header h1 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin: 0 0 15px 0;
+          }
+          
+          .report-header .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin: 0 0 20px 0;
+          }
+          
+          .report-header .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #888;
+          }
+          
+          .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+          }
+          
+          .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+          }
+          
+          .stat-card .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #667eea;
+          }
+          
+          .stat-card .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+          }
+          
+          .section-title {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin: 40px 0 25px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+          }
+          
+          .enhancement-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            page-break-inside: avoid;
+          }
+          
+          .enhancement-header-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+          }
+          
+          .enhancement-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+          }
+          
+          .enhancement-meta h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+          }
+          
+          .meta-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+          
+          .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+          }
+          
+          .badge-model {
+            background: rgba(255,255,255,0.2);
+          }
+          
+          .badge-type {
+            background: rgba(255,255,255,0.15);
+          }
+          
+          .enhancement-body {
+            padding: 25px;
+          }
+          
+          .description {
+            color: #555;
+            margin: 0 0 20px 0;
+            font-size: 15px;
+          }
+          
+          .prompt-section, .outputs-section, .archetypes-section, .keywords-section, .challenge-section {
+            margin-bottom: 20px;
+          }
+          
+          .prompt-section h4, .outputs-section h4, .archetypes-section h4, .keywords-section h4, .challenge-section h4 {
+            color: #444;
+            font-size: 14px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+          
+          .prompt-text {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 18px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            margin: 0;
+          }
+          
+          .multi-prompt {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #667eea;
+          }
+          
+          .multi-prompt strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+          }
+          
+          .prompt-output {
+            background: #f0f7ff;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+          
+          .outputs-list, .archetypes-list {
+            margin: 0;
+            padding-left: 20px;
+          }
+          
+          .outputs-list li, .archetypes-list li {
+            margin-bottom: 6px;
+            color: #555;
+            font-size: 14px;
+          }
+          
+          .keywords-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+          
+          .keyword-tag {
+            display: inline-block;
+            background: #e8f4ff;
+            color: #0066cc;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+          }
+          
+          .challenge-section p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+            font-style: italic;
+          }
+          
+          .note-section {
+            background: #fff8e6;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #f0b429;
+          }
+          
+          .note-text {
+            margin: 0;
+            color: #7a6000;
+            font-size: 14px;
+          }
+          
+          .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            color: #888;
+            font-size: 13px;
+          }
+          
+          @media print {
+            body { 
+              padding: 30px; 
+              background: white;
+            }
+            .enhancement-card {
+              box-shadow: none;
+              border: 1px solid #ddd;
+            }
+            .stat-card {
+              box-shadow: none;
+              border: 1px solid #ddd;
+            }
+            .prompt-text {
+              font-size: 10px;
+              padding: 12px;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="report-header">
+          <h1>🤖 AI Enhancements & Prompts Report</h1>
+          <p class="subtitle">Mattel x AI Brand Lab - Complete Documentation</p>
+          <div class="meta-info">
+            <span>📅 Generated: ${new Date().toLocaleDateString()}</span>
+            <span>📊 Total Prompts: 22</span>
+            <span>🎯 Project: Mattel Marketing Assignment</span>
+          </div>
+        </div>
+        
+        <div class="summary-stats">
+          <div class="stat-card">
+            <div class="stat-value">22</div>
+            <div class="stat-label">AI Prompts Used</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">4</div>
+            <div class="stat-label">AI Models</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">47+</div>
+            <div class="stat-label">Features Built</div>
+          </div>
+        </div>
+        
+        <h2 class="section-title">📋 All AI Enhancements (1-22)</h2>
+        
+        ${enhancementSections}
+        
+        <div class="footer">
+          <p>Generated for Mattel Marketing Project - Educational Use Only</p>
+          <p>UNO® & Hot Wheels® Digital Experience Website</p>
+        </div>
+      </body>
+      </html>
+    `;
+  };
+
+  const generateAIEnhancementsReportPDF = () => {
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(getAIEnhancementsReportContent());
+    printWindow.document.close();
+    printWindow.print();
+  };
+
+  const generateAIEnhancementsReportWord = () => {
+    const content = getAIEnhancementsReportContent();
+    const blob = new Blob([content], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'AI_Enhancements_Full_Report.doc';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const generateFullReportWord = () => {
     const content = getFullReportContent();
     const blob = new Blob([content], { type: 'application/msword' });
@@ -1918,6 +2341,32 @@ Please create both infographics based on the YouTube video content provided.`;
                 </div>
               </div>
             )}
+          </div>
+          
+          {/* Download AI Enhancements Report Buttons */}
+          <div className="ai-report-download-section">
+            <div className="ai-report-download-header">
+              <svg className="ai-report-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              <div className="ai-report-text">
+                <h4>Full report (22 prompts)</h4>
+              </div>
+            </div>
+            <div className="ai-report-buttons">
+              <button className="ai-report-btn pdf-btn" onClick={generateAIEnhancementsReportPDF} title="Download PDF">
+                <span className="btn-file-label">PDF</span>
+                <svg className="btn-icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+              </button>
+              <button className="ai-report-btn word-btn" onClick={generateAIEnhancementsReportWord} title="Download Word">
+                <span className="btn-file-label">DOC</span>
+                <svg className="btn-icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+              </button>
+            </div>
           </div>
           
           {/* AI & Tech Glossary */}
