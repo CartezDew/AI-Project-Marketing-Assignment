@@ -424,6 +424,119 @@ Then below the AI enhancements add a glossary. Explain what LLMs are, explain wh
         "Responsive design with mobile grid layout"
       ],
       challenge: "Counting all features across the final-website app required careful analysis of 13 components and 3 pages to tally 47+ distinct features. The glossary needed to explain technical concepts in accessible language while maintaining visual appeal. The stats dashboard design balanced information density with readability using gradient text effects and semantic grouping."
+    },
+    {
+      id: 22,
+      title: "Hot Wheels DIY Infographics (Custom Car & Garage Build)",
+      model: "Notebook LLM",
+      type: "📊 Visual Design",
+      description: "Created two comprehensive step-by-step infographics for Hot Wheels DIY projects: custom car customization and garage build guides. Generated using Notebook LLM by analyzing YouTube tutorial videos to extract tools, materials, and step-by-step instructions.",
+      prompt: `You are a **visual design and technical documentation specialist** working with a **Notebook LLM** to create detailed, step-by-step infographics for Hot Wheels DIY projects.
+
+## Objective
+
+Create two comprehensive infographics based on YouTube tutorial videos:
+
+1. **Custom Hot Wheels Car Build** - Step-by-step guide for customizing Hot Wheels cars
+2. **Hot Wheels Car Garage Build** - Complete guide for building a custom display garage
+
+## Source Materials
+
+I've provided two YouTube video links that contain the full tutorials:
+
+**Video 1 - Custom Car Build:**
+https://www.youtube.com/watch?v=OtNwdscXUoI
+
+**Video 2 - Garage Build:**
+https://www.youtube.com/watch?v=6bNi7IzoXb4
+
+## Task Requirements
+
+### 1. Watch and Analyze Videos
+- Extract all key steps, tools, and materials mentioned in each video
+- Identify the sequence of operations
+- Note any safety warnings or special considerations
+- Capture visual details that would be important for the infographic
+
+### 2. Create Infographic Structure
+
+For each infographic, include:
+
+**Header Section:**
+- Project title (e.g., "Create Custom Hot Wheels Car" or "Build Your Own Toy Car Garage")
+- Estimated difficulty level (Easy/Medium/Hard)
+- Estimated time to complete
+- Adult supervision required notice
+
+**Tools & Materials Section:**
+- Complete list of all tools needed (with icons/visuals if possible)
+- All materials required (paints, adhesives, hardware, etc.)
+- Optional/recommended items
+
+**Step-by-Step Instructions:**
+- Numbered steps with clear visual progression
+- Key actions highlighted
+- Visual indicators for critical steps
+- Safety warnings where applicable
+- Tips and tricks from the video
+
+**Visual Design Requirements:**
+- Clean, modern layout suitable for web display
+- Hot Wheels brand colors (orange #FF6B00, red, yellow accents)
+- High contrast for readability
+- Icons and illustrations for tools/materials
+- Professional, instructional design aesthetic
+- WebP format, optimized for web
+
+### 3. Technical Specifications
+
+**Format:** WebP image format
+**Dimensions:** Optimized for web display (suggest 1200-1600px width)
+**Style:** Modern, clean infographic design
+**Brand Alignment:** Hot Wheels visual identity
+**Accessibility:** High contrast, clear typography, readable at various sizes
+
+### 4. Content Accuracy
+
+- Ensure all steps match the video tutorials exactly
+- Include all tools and materials mentioned
+- Preserve the correct sequence of operations
+- Include any safety warnings or adult supervision requirements
+- Note any special techniques or tips from the videos
+
+### 5. Output
+
+Generate two complete infographic images:
+1. \`create-custom-car-infographic.webp\` - Custom car build guide
+2. \`build-toy-car-garage-infographic.webp\` - Garage build guide
+
+Each infographic should be:
+- Self-contained and complete
+- Visually appealing and professional
+- Easy to follow for DIY enthusiasts
+- Brand-appropriate for Hot Wheels
+
+## Additional Notes
+
+- These infographics will be used on the Hot Wheels Experience page
+- They should inspire confidence and make the projects approachable
+- Include "Adult supervision required" messaging prominently
+- Design for both desktop and mobile viewing
+- Consider that users may print these guides
+
+Please create both infographics based on the YouTube video content provided.`,
+      outputs: [
+        "Custom Car Build Infographic with complete tool list (drill, screwdriver, Dremel, brushes, etc.)",
+        "Garage Build Infographic with materials and step-by-step construction guide",
+        "Difficulty level indicators (Hard for car, Medium for garage)",
+        "Adult supervision required notices prominently displayed",
+        "Hot Wheels brand-aligned color scheme (orange #FF6B00 accents)",
+        "WebP format optimized for web performance",
+        "Integrated into Hot Wheels Experience page DIY section",
+        "Click-to-expand functionality for detailed viewing",
+        "Responsive design for mobile and desktop viewing"
+      ],
+      challenge: "Analyzing YouTube videos to extract accurate step-by-step instructions required careful attention to detail and multiple viewings. Converting video content into clear, visual infographics while maintaining brand alignment and ensuring all tools and materials were correctly listed was time-intensive. The infographics needed to be comprehensive yet scannable, balancing detailed instructions with visual clarity."
     }
   ];
 
@@ -1195,6 +1308,101 @@ Your response should include:
 
 Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, while remaining faithful to Mattel's brand identities and the idea of using AI to power modern branded websites.`;
 
+  const prompt22FullText = `You are a **visual design and technical documentation specialist** working with a **Notebook LLM** to create detailed, step-by-step infographics for Hot Wheels DIY projects.
+
+## Objective
+
+Create two comprehensive infographics based on YouTube tutorial videos:
+
+1. **Custom Hot Wheels Car Build** - Step-by-step guide for customizing Hot Wheels cars
+2. **Hot Wheels Car Garage Build** - Complete guide for building a custom display garage
+
+## Source Materials
+
+I've provided two YouTube video links that contain the full tutorials:
+
+**Video 1 - Custom Car Build:**
+https://www.youtube.com/watch?v=OtNwdscXUoI
+
+**Video 2 - Garage Build:**
+https://www.youtube.com/watch?v=6bNi7IzoXb4
+
+## Task Requirements
+
+### 1. Watch and Analyze Videos
+- Extract all key steps, tools, and materials mentioned in each video
+- Identify the sequence of operations
+- Note any safety warnings or special considerations
+- Capture visual details that would be important for the infographic
+
+### 2. Create Infographic Structure
+
+For each infographic, include:
+
+**Header Section:**
+- Project title (e.g., "Create Custom Hot Wheels Car" or "Build Your Own Toy Car Garage")
+- Estimated difficulty level (Easy/Medium/Hard)
+- Estimated time to complete
+- Adult supervision required notice
+
+**Tools & Materials Section:**
+- Complete list of all tools needed (with icons/visuals if possible)
+- All materials required (paints, adhesives, hardware, etc.)
+- Optional/recommended items
+
+**Step-by-Step Instructions:**
+- Numbered steps with clear visual progression
+- Key actions highlighted
+- Visual indicators for critical steps
+- Safety warnings where applicable
+- Tips and tricks from the video
+
+**Visual Design Requirements:**
+- Clean, modern layout suitable for web display
+- Hot Wheels brand colors (orange #FF6B00, red, yellow accents)
+- High contrast for readability
+- Icons and illustrations for tools/materials
+- Professional, instructional design aesthetic
+- WebP format, optimized for web
+
+### 3. Technical Specifications
+
+**Format:** WebP image format
+**Dimensions:** Optimized for web display (suggest 1200-1600px width)
+**Style:** Modern, clean infographic design
+**Brand Alignment:** Hot Wheels visual identity
+**Accessibility:** High contrast, clear typography, readable at various sizes
+
+### 4. Content Accuracy
+
+- Ensure all steps match the video tutorials exactly
+- Include all tools and materials mentioned
+- Preserve the correct sequence of operations
+- Include any safety warnings or adult supervision requirements
+- Note any special techniques or tips from the videos
+
+### 5. Output
+
+Generate two complete infographic images:
+1. \`create-custom-car-infographic.webp\` - Custom car build guide
+2. \`build-toy-car-garage-infographic.webp\` - Garage build guide
+
+Each infographic should be:
+- Self-contained and complete
+- Visually appealing and professional
+- Easy to follow for DIY enthusiasts
+- Brand-appropriate for Hot Wheels
+
+## Additional Notes
+
+- These infographics will be used on the Hot Wheels Experience page
+- They should inspire confidence and make the projects approachable
+- Include "Adult supervision required" messaging prominently
+- Design for both desktop and mobile viewing
+- Consider that users may print these guides
+
+Please create both infographics based on the YouTube video content provided.`;
+
   const prompts = [
     {
       id: 1,
@@ -1244,6 +1452,22 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
       isWinner: true,
       link: "/prompt3",
       fullPrompt: prompt3FullText
+    },
+    {
+      id: 22,
+      title: "Prompt 22",
+      subtitle: "Hot Wheels Infographics",
+      llm: "Notebook LLM",
+      platform: "Notebook",
+      thinkTime: "~30 minutes",
+      filesGenerated: 2,
+      linesOfCode: "N/A (Image Generation)",
+      features: ["Infographic Design", "WebP Format", "Step-by-Step Guides", "Video Analysis"],
+      strengths: ["Visual clarity", "Complete tool/material lists", "Brand-aligned design", "Safety messaging"],
+      weaknesses: ["Requires video analysis", "Manual design process"],
+      color: "#FF6B00",
+      link: "#",
+      fullPrompt: prompt22FullText
     }
   ];
 
@@ -1421,13 +1645,14 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
             <th>Prompt 1 (Gemini)</th>
             <th>Prompt 2 (Gemini)</th>
             <th>Prompt 3 (Opus 4.5) 🏆</th>
+            <th>Prompt 22 (Notebook LLM)</th>
           </tr>
-          <tr><td>LLM Used</td><td>Gemini 3 Pro</td><td>Gemini 3 Pro</td><td>Claude Opus 4.5</td></tr>
-          <tr><td>Platform</td><td>Google AI Studio</td><td>Cursor IDE</td><td>Cursor IDE</td></tr>
-          <tr><td>Think Time</td><td>20 seconds</td><td>~45 seconds</td><td>~60 seconds</td></tr>
-          <tr><td>Files Generated</td><td>14 files</td><td>12 files</td><td>14 files</td></tr>
-          <tr><td>Lines of Code</td><td>~1,200</td><td>~1,800</td><td>~2,400</td></tr>
-          <tr><td>Overall Score</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>LLM Used</td><td>Gemini 3 Pro</td><td>Gemini 3 Pro</td><td>Claude Opus 4.5</td><td>Notebook LLM</td></tr>
+          <tr><td>Platform</td><td>Google AI Studio</td><td>Cursor IDE</td><td>Cursor IDE</td><td>Notebook</td></tr>
+          <tr><td>Think Time</td><td>20 seconds</td><td>~45 seconds</td><td>~60 seconds</td><td>~30 minutes</td></tr>
+          <tr><td>Files Generated</td><td>14 files</td><td>12 files</td><td>14 files</td><td>2 infographics</td></tr>
+          <tr><td>Lines of Code</td><td>~1,200</td><td>~1,800</td><td>~2,400</td><td>N/A (Images)</td></tr>
+          <tr><td>Overall Score</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
         </table>
 
         <h2>Full Prompts Used</h2>
@@ -1463,6 +1688,17 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
             <strong>Files:</strong> 14
           </div>
           <pre>${prompt3FullText}</pre>
+        </div>
+
+        <div class="prompt-section">
+          <h3>Prompt 22: Hot Wheels Infographics</h3>
+          <div class="meta-info">
+            <strong>LLM:</strong> Notebook LLM &nbsp;|&nbsp; 
+            <strong>Platform:</strong> Notebook &nbsp;|&nbsp;
+            <strong>Time:</strong> ~30 minutes &nbsp;|&nbsp; 
+            <strong>Files:</strong> 2 (Infographics)
+          </div>
+          <pre>${prompt22FullText}</pre>
         </div>
 
         <h2>Why Prompt 3 Won</h2>
@@ -1566,7 +1802,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
               onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
             >
               <span className="accordion-title">
-                AI Enhancements & Feature Build-Out <span className="accordion-meta">(21 Items)</span>
+                AI Enhancements & Feature Build-Out <span className="accordion-meta">(22 Items)</span>
               </span>
               <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
             </div>

@@ -78,6 +78,10 @@ import datsun510 from '../../assets/hotwheels/71 Datsun 510 Wagon hot wheels.web
 import mustang67 from '../../assets/hotwheels/Custom-67-Mustang.webp';
 import fastFuriousPack from '../../assets/hotwheels/Fast-Furious-5-Pack.webp';
 
+// DIY Infographics
+import customCarInfographic from '../../assets/hotwheels/create custom car infographic.webp';
+import garageInfographic from '../../assets/hotwheels/build toy car garage infographic.webp';
+
 // Build styles data
 const buildStyles = [
   { id: 'speed', name: 'Speed Racer', icon: '🏎️', color: '#FF6B6B', vibe: 'Fast & Futuristic' },
@@ -155,7 +159,21 @@ const FinalWebsiteHotWheelsExperience = () => {
     email: '', 
     placeOfOrigin: '' 
   });
+  const [showFullCalendar, setShowFullCalendar] = useState(false);
+  const [expandedInfographic, setExpandedInfographic] = useState(null);
   const stageRef = useRef(null);
+
+  // Extended calendar events data
+  const calendarEvents = [
+    { id: 1, date: 'Dec 15', day: 'Sun', title: "'71 Datsun 510", type: 'drop', rarity: 'Ultra Rare' },
+    { id: 2, date: 'Dec 22', day: 'Mon', title: 'Fast & Furious 5-Pack', type: 'drop', rarity: 'Premium' },
+    { id: 3, date: 'Dec 28', day: 'Sat', title: 'Holiday Special Set', type: 'event', rarity: 'Exclusive' },
+    { id: 4, date: 'Jan 5', day: 'Sun', title: 'New Year Track Builder', type: 'drop', rarity: 'Limited' },
+    { id: 5, date: 'Jan 12', day: 'Sun', title: 'Collector Showcase Live', type: 'event', rarity: 'Free Entry' },
+    { id: 6, date: 'Jan 18', day: 'Sat', title: 'Vintage Series Release', type: 'drop', rarity: 'Rare' },
+    { id: 7, date: 'Jan 25', day: 'Sat', title: "Custom Build-Off Finals", type: 'event', rarity: 'Competition' },
+    { id: 8, date: 'Feb 1', day: 'Sat', title: 'Super Treasure Hunt Drop', type: 'drop', rarity: 'Super Rare' },
+  ];
 
   // Handle signup form submission
   const handleSignupSubmit = (e) => {
@@ -660,6 +678,209 @@ const FinalWebsiteHotWheelsExperience = () => {
         </div>
       </section>
 
+      {/* DIY Projects Bento Section */}
+      <section className="hw-diy-section">
+        <div className="hw-diy-bg">
+          <div className="hw-diy-grid-lines"></div>
+          <div className="hw-diy-glow hw-diy-glow-1"></div>
+          <div className="hw-diy-glow hw-diy-glow-2"></div>
+        </div>
+        
+        <div className="hw-section-container">
+          <motion.div 
+            className="hw-diy-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={staggerContainer}
+          >
+            <motion.div className="hw-diy-header-badge" variants={fadeInDown}>
+              <span className="hw-diy-badge-icon">🛠️</span>
+              <span className="hw-diy-badge-text">DIY ZONE</span>
+            </motion.div>
+            <motion.h2 className="hw-diy-title" variants={fadeInUp}>
+              <span className="hw-diy-title-top">BUILD YOUR</span>
+              <span className="hw-diy-title-main">
+                <span className="hw-diy-title-gradient">DREAM</span> COLLECTION
+              </span>
+            </motion.h2>
+            <motion.p className="hw-diy-subtitle" variants={fadeInUp}>
+              Step-by-step guides to customize cars and build your ultimate garage
+            </motion.p>
+          </motion.div>
+
+          {/* Bento Grid - Stacked Layout */}
+          <motion.div 
+            className="hw-diy-bento-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            {/* Custom Car Project */}
+            <motion.div className="hw-diy-bento-item" variants={fadeInUp}>
+              <div 
+                className="hw-diy-image-wrapper hw-diy-clickable"
+                onClick={() => setExpandedInfographic({ src: customCarInfographic, alt: 'Custom Hot Wheels Car Infographic' })}
+              >
+                <img 
+                  src={customCarInfographic} 
+                  alt="Custom Hot Wheels Car Infographic" 
+                  className="hw-diy-infographic"
+                />
+                <div className="hw-diy-expand-hint">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                  </svg>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+              <div className="hw-diy-tools-compact">
+                <div className="hw-diy-tools-header-compact">
+                  <span className="hw-diy-tools-icon-sm">🔧</span>
+                  <h3>Tools Needed</h3>
+                  <div className="hw-diy-difficulty-badge hw-difficulty-hard">
+                    <span className="hw-difficulty-label-text">DIFFICULTY</span>
+                    <div className="hw-difficulty-meter">
+                      <span className="hw-meter-dot filled"></span>
+                      <span className="hw-meter-dot filled"></span>
+                      <span className="hw-meter-dot filled"></span>
+                    </div>
+                    <span className="hw-difficulty-level-text">Hard</span>
+                  </div>
+                </div>
+                <div className="hw-diy-tools-grid">
+                  <span>Drill</span>
+                  <span>Flathead screwdriver</span>
+                  <span>Scrub brush</span>
+                  <span>Dremel / rotary tool</span>
+                  <span>Small file or sanding sticks</span>
+                  <span>Detail + small flat brushes</span>
+                  <span>Hobby knife / precision cutter</span>
+                  <span>Masking tape</span>
+                  <span>Tweezers</span>
+                  <span>Toothpicks</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Garage Project */}
+            <motion.div className="hw-diy-bento-item" variants={fadeInUp}>
+              <div 
+                className="hw-diy-image-wrapper hw-diy-clickable"
+                onClick={() => setExpandedInfographic({ src: garageInfographic, alt: 'Build Your Own Toy Car Garage Infographic' })}
+              >
+                <img 
+                  src={garageInfographic} 
+                  alt="Build Your Own Toy Car Garage Infographic" 
+                  className="hw-diy-infographic"
+                />
+                <div className="hw-diy-expand-hint">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                  </svg>
+                  <span>Click to expand</span>
+                </div>
+              </div>
+              <div className="hw-diy-tools-compact">
+                <div className="hw-diy-tools-header-compact">
+                  <span className="hw-diy-tools-icon-sm">🏠</span>
+                  <h3>Tools Needed</h3>
+                  <div className="hw-diy-difficulty-badge hw-difficulty-medium">
+                    <span className="hw-difficulty-label-text">DIFFICULTY</span>
+                    <div className="hw-difficulty-meter">
+                      <span className="hw-meter-dot filled"></span>
+                      <span className="hw-meter-dot filled"></span>
+                      <span className="hw-meter-dot"></span>
+                    </div>
+                    <span className="hw-difficulty-level-text">Medium</span>
+                  </div>
+                </div>
+                <div className="hw-diy-tools-grid">
+                  <span>Measuring tape, ruler</span>
+                  <span>Box cutter / craft knife</span>
+                  <span>Pencil</span>
+                  <span>Hot glue gun or craft glue</span>
+                  <span>Spray paint</span>
+                  <span>Paintbrushes</span>
+                  <span>Drill</span>
+                  <span>Screwdriver</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Adult Supervision Notice */}
+          <motion.div 
+            className="hw-diy-supervision-notice"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <span className="hw-supervision-icon">⚠️</span>
+            <span className="hw-supervision-text">Adult supervision required for all DIY projects involving sharp tools, power tools, or paint.</span>
+          </motion.div>
+
+          {/* Tutorial Videos Bento Grid */}
+          <motion.div 
+            className="hw-diy-tutorials-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
+            {/* Custom Car Tutorial */}
+            <motion.div className="hw-diy-tutorial-card" variants={fadeInUp}>
+              <div className="hw-tutorial-content">
+                <div className="hw-tutorial-icon">🔧</div>
+                <div className="hw-tutorial-info">
+                  <h4>Custom Car Build</h4>
+                  <p>Learn pro customization techniques</p>
+                </div>
+              </div>
+              <a 
+                href="https://www.youtube.com/watch?v=OtNwdscXUoI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hw-tutorial-btn"
+              >
+                <span className="hw-tutorial-btn-bg"></span>
+                <span className="hw-tutorial-btn-shine"></span>
+                <svg className="hw-tutorial-play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span className="hw-tutorial-btn-text">Watch Tutorial Video</span>
+              </a>
+            </motion.div>
+
+            {/* Garage Build Tutorial */}
+            <motion.div className="hw-diy-tutorial-card" variants={fadeInUp}>
+              <div className="hw-tutorial-content">
+                <div className="hw-tutorial-icon">🏠</div>
+                <div className="hw-tutorial-info">
+                  <h4>Garage Build Guide</h4>
+                  <p>Create your ultimate display setup</p>
+                </div>
+              </div>
+              <a 
+                href="https://www.youtube.com/watch?v=6bNi7IzoXb4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hw-tutorial-btn"
+              >
+                <span className="hw-tutorial-btn-bg"></span>
+                <span className="hw-tutorial-btn-shine"></span>
+                <svg className="hw-tutorial-play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span className="hw-tutorial-btn-text">Watch Tutorial Video</span>
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="hw-section-hub">
         <div className="hw-section-container">
           <motion.div 
@@ -682,14 +903,16 @@ const FinalWebsiteHotWheelsExperience = () => {
             variants={staggerContainer}
           >
             <motion.div 
-              className="hw-hub-card hw-drops-card"
+              className={`hw-hub-card hw-drops-card ${showFullCalendar ? 'showing-calendar' : ''}`}
               variants={fadeInLeft}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: showFullCalendar ? 0 : -5 }}
             >
               <div className="hw-card-header">
                 <h4>📅 Upcoming Drops</h4>
               </div>
-              <div className="hw-drops-list">
+              
+              {/* Default Drops List */}
+              <div className={`hw-drops-list ${showFullCalendar ? 'hidden' : ''}`}>
                 {upcomingDrops.map((drop, index) => (
                   <motion.div 
                     key={drop.id} 
@@ -714,12 +937,64 @@ const FinalWebsiteHotWheelsExperience = () => {
                   </motion.div>
                 ))}
               </div>
+
+              {/* Full Calendar Overlay */}
+              <AnimatePresence>
+                {showFullCalendar && (
+                  <motion.div 
+                    className="hw-calendar-overlay"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <button 
+                      className="hw-calendar-close"
+                      onClick={() => setShowFullCalendar(false)}
+                      aria-label="Close calendar"
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </button>
+                    <div className="hw-calendar-header">
+                      <span className="hw-calendar-icon">🗓️</span>
+                      <span className="hw-calendar-title">Full Event Calendar</span>
+                    </div>
+                    <div className="hw-calendar-events">
+                      {calendarEvents.map((event, index) => (
+                        <motion.div 
+                          key={event.id}
+                          className={`hw-calendar-event hw-event-${event.type}`}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                        >
+                          <div className="hw-event-date">
+                            <span className="hw-event-day">{event.day}</span>
+                            <span className="hw-event-date-num">{event.date}</span>
+                          </div>
+                          <div className="hw-event-info">
+                            <span className="hw-event-title">{event.title}</span>
+                            <span className={`hw-event-badge hw-badge-${event.type}`}>
+                              {event.rarity}
+                            </span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <motion.button 
                 className="hw-card-btn"
+                onClick={() => setShowFullCalendar(!showFullCalendar)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                View Full Calendar
+                {showFullCalendar ? 'Show Featured' : 'View Full Calendar'}
               </motion.button>
             </motion.div>
 
@@ -897,6 +1172,44 @@ const FinalWebsiteHotWheelsExperience = () => {
           </motion.div>
         </div>
       </motion.footer>
+
+      {/* Expanded Infographic Modal */}
+      <AnimatePresence>
+        {expandedInfographic && (
+          <motion.div
+            className="hw-infographic-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setExpandedInfographic(null)}
+          >
+            <motion.div
+              className="hw-infographic-modal"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="hw-infographic-close"
+                onClick={() => setExpandedInfographic(null)}
+                aria-label="Close expanded image"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              <img 
+                src={expandedInfographic.src} 
+                alt={expandedInfographic.alt}
+                className="hw-infographic-expanded"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Virtual Workshops Modal */}
       <AnimatePresence>

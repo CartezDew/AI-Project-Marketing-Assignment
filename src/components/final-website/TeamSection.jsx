@@ -100,7 +100,8 @@ const TeamSection = () => {
       contributions: [
         "Conducted audience research and created detailed persona profiles",
         "Grounded the website content in real user needs",
-        "Informed content tone, messaging, and brand alignment"
+        "Informed content tone, messaging, and brand alignment",
+        "Created infographics using Notebook LM"
       ]
     },
     {

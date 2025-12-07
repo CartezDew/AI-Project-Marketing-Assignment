@@ -872,6 +872,791 @@
   }
 }
 
+/* ========== DIY PROJECTS BENTO SECTION ========== */
+.hw-diy-section {
+  position: relative;
+  padding: 120px 24px;
+  background: #050810;
+  overflow: hidden;
+}
+
+.hw-diy-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hw-diy-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hw-diy-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.4;
+}
+
+.hw-diy-glow-1 {
+  top: -200px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.3) 0%, transparent 70%);
+}
+
+.hw-diy-glow-2 {
+  bottom: -200px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.25) 0%, transparent 70%);
+}
+
+/* Header Styling */
+.hw-diy-header {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.hw-diy-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.15) 0%, rgba(200, 16, 46, 0.15) 100%);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.hw-diy-badge-icon {
+  font-size: 1.3rem;
+}
+
+.hw-diy-badge-text {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #FF6B00;
+  text-transform: uppercase;
+}
+
+.hw-diy-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.hw-diy-title-top {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 300;
+  letter-spacing: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.hw-diy-title-main {
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: #fff;
+  line-height: 1;
+}
+
+.hw-diy-title-gradient {
+  background: linear-gradient(135deg, #FF6B00 0%, #FFB800 50%, #FF6B00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hw-diy-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Bento Grid Layout - Stacked */
+.hw-diy-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Bento Item - Stacked Layout */
+.hw-diy-bento-item {
+  background: rgba(15, 20, 35, 0.9);
+  border: 1px solid rgba(255, 107, 0, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.hw-diy-bento-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hw-diy-bento-item:hover {
+  border-color: rgba(255, 107, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 107, 0, 0.1);
+}
+
+.hw-diy-bento-item:hover::before {
+  opacity: 1;
+}
+
+/* Image Wrapper */
+.hw-diy-image-wrapper {
+  padding: 10px;
+  background: linear-gradient(135deg, rgba(10, 15, 30, 0.95) 0%, rgba(15, 20, 35, 0.95) 100%);
+  position: relative;
+}
+
+.hw-diy-clickable {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hw-diy-clickable:hover {
+  transform: scale(1.02);
+}
+
+.hw-diy-clickable:hover .hw-diy-infographic {
+  filter: brightness(1.1);
+}
+
+/* Expand Hint */
+.hw-diy-expand-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.hw-diy-clickable:hover .hw-diy-expand-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hw-diy-expand-hint svg {
+  width: 16px;
+  height: 16px;
+  color: #FF6B00;
+}
+
+.hw-diy-expand-hint span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* YouTube Video Link */
+/* ========== ADULT SUPERVISION NOTICE ========== */
+.hw-diy-supervision-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 14px 24px;
+  background: rgba(255, 180, 0, 0.08);
+  border: 1px solid rgba(255, 180, 0, 0.25);
+  border-radius: 12px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hw-supervision-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.hw-supervision-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 200, 100, 0.9);
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 850px) {
+  .hw-diy-supervision-notice {
+    padding: 12px 18px;
+    gap: 10px;
+  }
+  
+  .hw-supervision-text {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hw-diy-supervision-notice {
+    padding: 12px 14px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+  
+  .hw-supervision-icon {
+    font-size: 1rem;
+  }
+  
+  .hw-supervision-text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+}
+
+/* ========== TUTORIAL VIDEOS BENTO GRID ========== */
+.hw-diy-tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hw-diy-tutorial-card {
+  background: linear-gradient(135deg, rgba(15, 20, 35, 0.95) 0%, rgba(10, 14, 28, 0.95) 100%);
+  border: 1px solid rgba(255, 107, 0, 0.15);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hw-diy-tutorial-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.03) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hw-diy-tutorial-card:hover {
+  border-color: rgba(255, 0, 0, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 0, 0, 0.08);
+}
+
+.hw-diy-tutorial-card:hover::before {
+  opacity: 1;
+}
+
+.hw-tutorial-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.hw-tutorial-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(255, 107, 0, 0.1);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.hw-tutorial-info h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
+.hw-tutorial-info p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Unique Tutorial Button Design */
+.hw-tutorial-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.hw-tutorial-btn-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #FF0000 0%, #CC0000 50%, #AA0000 100%);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -2;
+}
+
+.hw-tutorial-btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  z-index: -1;
+  transition: left 0.6s ease;
+}
+
+.hw-tutorial-btn:hover .hw-tutorial-btn-shine {
+  left: 100%;
+}
+
+.hw-tutorial-btn:hover .hw-tutorial-btn-bg {
+  transform: scale(1.02);
+  box-shadow: 
+    0 8px 30px rgba(255, 0, 0, 0.4),
+    0 0 20px rgba(255, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.hw-tutorial-btn:active .hw-tutorial-btn-bg {
+  transform: scale(0.98);
+}
+
+.hw-tutorial-play-icon {
+  width: 22px;
+  height: 22px;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.hw-tutorial-btn:hover .hw-tutorial-play-icon {
+  transform: scale(1.15);
+}
+
+.hw-tutorial-btn-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+/* Tutorial Grid Responsive */
+@media (max-width: 850px) {
+  .hw-diy-tutorials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  
+  .hw-diy-tutorial-card {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .hw-tutorial-content {
+    justify-content: flex-start;
+  }
+  
+  .hw-tutorial-btn {
+    justify-content: center;
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hw-diy-tutorials-grid {
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .hw-diy-tutorial-card {
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+  
+  .hw-tutorial-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+  }
+  
+  .hw-tutorial-info h4 {
+    font-size: 0.9rem;
+  }
+  
+  .hw-tutorial-info p {
+    font-size: 0.75rem;
+  }
+  
+  .hw-tutorial-btn {
+    padding: 12px 20px;
+    border-radius: 10px;
+  }
+  
+  .hw-tutorial-btn-text {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+  
+  .hw-tutorial-play-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Expanded Infographic Modal */
+.hw-infographic-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 40px;
+}
+
+.hw-infographic-modal {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #0a0f1a;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  overflow: hidden;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.8),
+    0 0 60px rgba(255, 107, 0, 0.15);
+}
+
+.hw-infographic-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.hw-infographic-close svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.hw-infographic-close:hover {
+  background: rgba(255, 68, 68, 0.8);
+  border-color: #FF4444;
+  transform: scale(1.1);
+}
+
+.hw-infographic-expanded {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.hw-diy-infographic {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Compact Tools Section */
+.hw-diy-tools-compact {
+  padding: 16px 18px;
+  /* background: linear-gradient(180deg, rgba(8, 12, 25, 0.98) 0%, rgba(5, 8, 16, 0.98) 100%); */
+  border-top: 1px solid rgba(255, 107, 0, 0.1);
+}
+
+.hw-diy-tools-header-compact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.hw-diy-tools-icon-sm {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.hw-diy-tools-header-compact h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Difficulty Badge */
+.hw-diy-difficulty-badge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hw-difficulty-label-text {
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.hw-difficulty-meter {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.hw-meter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.hw-meter-dot.filled {
+  background: #FF6B00;
+  border-color: #FF6B00;
+  box-shadow: 0 0 6px rgba(255, 107, 0, 0.5);
+}
+
+.hw-difficulty-medium .hw-meter-dot.filled {
+  background: #FFB800;
+  border-color: #FFB800;
+  box-shadow: 0 0 6px rgba(255, 184, 0, 0.5);
+}
+
+.hw-difficulty-hard .hw-meter-dot.filled {
+  background: #FF4444;
+  border-color: #FF4444;
+  box-shadow: 0 0 6px rgba(255, 68, 68, 0.5);
+}
+
+.hw-difficulty-level-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hw-difficulty-medium .hw-difficulty-level-text {
+  color: #FFB800;
+}
+
+.hw-difficulty-hard .hw-difficulty-level-text {
+  color: #FF4444;
+}
+
+/* Tools Grid - Compact */
+.hw-diy-tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hw-diy-tools-grid span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.hw-diy-tools-grid span:hover {
+  background: rgba(255, 107, 0, 0.1);
+  border-color: rgba(255, 107, 0, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* DIY Section Responsive */
+@media (max-width: 850px) {
+  .hw-diy-section {
+    padding: 80px 16px;
+  }
+  
+  .hw-diy-header {
+    margin-bottom: 50px;
+  }
+  
+  .hw-diy-title-top {
+    letter-spacing: 6px;
+  }
+  
+  .hw-diy-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .hw-diy-bento-item {
+    border-radius: 16px;
+  }
+  
+  .hw-diy-image-wrapper {
+    padding: 8px;
+  }
+  
+  .hw-diy-tools-compact {
+    padding: 14px 16px;
+  }
+  
+  .hw-diy-tools-grid span {
+    font-size: 0.68rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hw-diy-section {
+    padding: 60px 12px;
+  }
+  
+  .hw-diy-header-badge {
+    padding: 8px 16px;
+  }
+  
+  .hw-diy-badge-text {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+  
+  .hw-diy-title-main {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .hw-diy-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .hw-diy-bento-item {
+    border-radius: 14px;
+  }
+  
+  .hw-diy-infographic {
+    border-radius: 8px;
+  }
+  
+  .hw-diy-tools-header-compact h3 {
+    font-size: 0.75rem;
+  }
+  
+  .hw-diy-tools-grid {
+    gap: 5px;
+  }
+  
+  .hw-diy-tools-grid span {
+    font-size: 0.65rem;
+    padding: 4px 7px;
+  }
+}
 /* ========== COLLECTORS HUB SECTION ========== */
 .hw-section-hub {
   padding: 80px 24px;
@@ -994,10 +1779,194 @@
   font-weight: 600;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   transition: background 0.2s;
+  cursor: pointer;
+  border: none;
 }
 
 .hw-card-btn:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* Drops Card Calendar Feature */
+.hw-drops-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hw-drops-list.hidden {
+  display: none;
+}
+
+/* Calendar Overlay */
+.hw-calendar-overlay {
+  position: relative;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, rgba(10, 15, 26, 0.98) 0%, rgba(5, 8, 16, 0.98) 100%);
+  min-height: 300px;
+}
+
+.hw-calendar-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.hw-calendar-close svg {
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hw-calendar-close:hover {
+  background: rgba(255, 68, 68, 0.2);
+  border-color: rgba(255, 68, 68, 0.4);
+}
+
+.hw-calendar-close:hover svg {
+  color: #FF4444;
+}
+
+.hw-calendar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.hw-calendar-icon {
+  font-size: 1.2rem;
+}
+
+.hw-calendar-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FF6B00;
+}
+
+/* Calendar Events List */
+.hw-calendar-events {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.hw-calendar-events::-webkit-scrollbar {
+  width: 4px;
+}
+
+.hw-calendar-events::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.hw-calendar-events::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 0, 0.4);
+  border-radius: 4px;
+}
+
+.hw-calendar-event {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.hw-calendar-event:hover {
+  background: rgba(255, 107, 0, 0.08);
+  border-color: rgba(255, 107, 0, 0.2);
+}
+
+.hw-event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 45px;
+  padding: 6px 8px;
+  background: rgba(255, 107, 0, 0.15);
+  border-radius: 8px;
+}
+
+.hw-event-day {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hw-event-date-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FF6B00;
+}
+
+.hw-event-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hw-event-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hw-event-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.hw-event-drop .hw-event-date {
+  background: rgba(255, 107, 0, 0.15);
+}
+
+.hw-event-event .hw-event-date {
+  background: rgba(100, 200, 255, 0.15);
+}
+
+.hw-event-event .hw-event-date-num {
+  color: #64C8FF;
+}
+
+.hw-badge-drop {
+  background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+  color: white;
+}
+
+.hw-badge-event {
+  background: linear-gradient(135deg, #4488FF 0%, #64C8FF 100%);
+  color: white;
 }
 
 /* Spotlight Card */
