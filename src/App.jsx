@@ -51,8 +51,8 @@ const ScrollToTop = () => {
   
   // Use useLayoutEffect to scroll before paint
   React.useLayoutEffect(() => {
-    // Force scroll to top using multiple methods for maximum compatibility
-    window.scrollTo(0, 0);
+    // Force instant scroll to top - behavior: 'instant' overrides CSS smooth scroll
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }, [pathname]);
@@ -65,7 +65,8 @@ const Prompt3Layout = ({ children }) => {
   const { pathname } = useLocation();
   
   React.useLayoutEffect(() => {
-    window.scrollTo(0, 0);
+    // Instant scroll - no animation
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }, [pathname]);
@@ -93,8 +94,8 @@ const FinalWebsiteLayout = ({ children }) => {
         }
       }, 100);
     } else {
-      // No hash - scroll to top
-      window.scrollTo(0, 0);
+      // No hash - instant scroll to top (no animation)
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
     }

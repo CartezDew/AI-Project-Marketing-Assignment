@@ -399,6 +399,31 @@ It took eight prompt iterations to fine-tune these details—especially the hair
         "Collector Pro – 🏆 Premium Taste"
       ],
       challenge: "Creating an interactive avatar that responds naturally to mouse movement while maintaining visual appeal required implementing physics-based animations for hair and precise eye/head tracking calculations. Balancing the SVG complexity with performance, ensuring the avatar looked authentically Hispanic, and integrating six distinct build archetypes into an intuitive circular interface took eight prompt iterations to perfect."
+    },
+    {
+      id: 21,
+      title: "Build Stats Dashboard & Tech Glossary",
+      model: "Claude Opus 4.5",
+      type: "📊 UI & Education",
+      description: "Added a comprehensive build statistics dashboard showing project metrics (build time, pages, components, features, languages, AI models) and a tech glossary section explaining AI/development terminology for non-technical users.",
+      prompt: `"Now let's add build time: 5 hr & 37 minutes | 3 pages | and do a count of the number of components. Add these details above the AI Enhancements & Feature Build-Out on the prompts page.
+
+Then below the AI enhancements add a glossary. Explain what LLMs are, explain what IDEs are, for example users may not know what Cursor IDE is. Then do a count of all the features in the final-website app and add it to the top stats with '|' separated. Be creative in your design choice, you have free rein to be creative."`,
+      outputs: [
+        "Build Stats Dashboard with pill-shaped gradient design",
+        "6 key metrics: Build Time (5h 37m), Pages (3), Components (13), Features (47+), Languages (35), AI Models (4)",
+        "Pipe-separated stats with hover effects and responsive grid",
+        "Tech & AI Glossary section with 6 educational cards",
+        "LLM explanation (Claude, ChatGPT, Gemini)",
+        "IDE explanation (Cursor IDE, VS Code, Google AI Studio)",
+        "Vite + React framework explanation",
+        "AI Image Generation tools overview",
+        "CRUD Operations definition for blog functionality",
+        "SEO & AEO optimization concepts",
+        "Decorative gradient orbs and colored example tags",
+        "Responsive design with mobile grid layout"
+      ],
+      challenge: "Counting all features across the final-website app required careful analysis of 13 components and 3 pages to tally 47+ distinct features. The glossary needed to explain technical concepts in accessible language while maintaining visual appeal. The stats dashboard design balanced information density with readability using gradient text effects and semantic grouping."
     }
   ];
 
@@ -1478,11 +1503,61 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
           </div>
           <h1 className="final-title">Mattel x AI Brand Lab</h1>
           <p className="final-subtitle">The completed website combining all prompt iterations with enhanced features</p>
-          <p className="final-scroll-hint">*scroll down to view prompts</p>
+          <div className="final-scroll-hint">
+            <span className="scroll-hint-text">*scroll down to view prompts</span>
+            <div className="scroll-mouse">
+              <div className="mouse-body">
+                <div className="mouse-wheel"></div>
+              </div>
+              <div className="mouse-arrows">
+                <span className="arrow-down"></span>
+                <span className="arrow-down"></span>
+              </div>
+            </div>
+          </div>
           
           <Link to="/final-website" className="final-website-btn">
             🚀 View Final Website
           </Link>
+          
+          {/* Build Stats Dashboard */}
+          <div className="build-stats-dashboard">
+            <div className="build-stat-item">
+              <span className="build-stat-icon">⏱️</span>
+              <span className="build-stat-value">5h 37m</span>
+              <span className="build-stat-label">Build Time</span>
+            </div>
+            <div className="build-stat-divider">|</div>
+            <div className="build-stat-item">
+              <span className="build-stat-icon">📄</span>
+              <span className="build-stat-value">3</span>
+              <span className="build-stat-label">Pages</span>
+            </div>
+            <div className="build-stat-divider">|</div>
+            <div className="build-stat-item">
+              <span className="build-stat-icon">🧩</span>
+              <span className="build-stat-value">13</span>
+              <span className="build-stat-label">Components</span>
+            </div>
+            <div className="build-stat-divider">|</div>
+            <div className="build-stat-item">
+              <span className="build-stat-icon">✨</span>
+              <span className="build-stat-value">47+</span>
+              <span className="build-stat-label">Features</span>
+            </div>
+            <div className="build-stat-divider">|</div>
+            <div className="build-stat-item">
+              <span className="build-stat-icon">🌍</span>
+              <span className="build-stat-value">35</span>
+              <span className="build-stat-label">Languages</span>
+            </div>
+            <div className="build-stat-divider">|</div>
+            <div className="build-stat-item">
+              <span className="build-stat-icon">🤖</span>
+              <span className="build-stat-value">4</span>
+              <span className="build-stat-label">AI Models</span>
+            </div>
+          </div>
           
           {/* Final Website Accordion */}
           <div className="final-accordion">
@@ -1491,7 +1566,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
               onClick={() => setFinalWebsiteAccordionOpen(!finalWebsiteAccordionOpen)}
             >
               <span className="accordion-title">
-                AI Enhancements & Feature Build-Out <span className="accordion-meta">(20 Items)</span>
+                AI Enhancements & Feature Build-Out <span className="accordion-meta">(21 Items)</span>
               </span>
               <span className="accordion-icon">{finalWebsiteAccordionOpen ? '−' : '+'}</span>
             </div>
@@ -1607,6 +1682,96 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
                 </div>
               </div>
             )}
+          </div>
+          
+          {/* AI & Tech Glossary */}
+          <div className="tech-glossary">
+            <div className="glossary-header">
+              <span className="glossary-icon">📚</span>
+              <h3 className="glossary-title">Tech & AI Glossary</h3>
+              <p className="glossary-subtitle">New to AI development? Here's what the buzzwords mean.</p>
+            </div>
+            
+            <div className="glossary-grid">
+              <div className="glossary-card">
+                <div className="glossary-card-header">
+                  <span className="glossary-emoji">🤖</span>
+                  <h4>LLM (Large Language Model)</h4>
+                </div>
+                <p>AI systems trained on massive text datasets to understand and generate human-like text. Examples include <strong>Claude</strong>, <strong>ChatGPT</strong>, and <strong>Gemini</strong>. They power chatbots, code generation, and content creation.</p>
+                <div className="glossary-examples">
+                  <span className="example-tag">Claude Opus 4.5</span>
+                  <span className="example-tag">ChatGPT 5.1</span>
+                  <span className="example-tag">Gemini 3 Pro</span>
+                </div>
+              </div>
+              
+              <div className="glossary-card">
+                <div className="glossary-card-header">
+                  <span className="glossary-emoji">💻</span>
+                  <h4>IDE (Integrated Development Environment)</h4>
+                </div>
+                <p>Software applications where developers write, test, and debug code. <strong>Cursor IDE</strong> is an AI-powered code editor that integrates LLMs directly into the coding experience, allowing developers to generate and edit code using natural language prompts.</p>
+                <div className="glossary-examples">
+                  <span className="example-tag">Cursor IDE</span>
+                  <span className="example-tag">VS Code</span>
+                  <span className="example-tag">Google Antigravity</span>
+                  
+                </div>
+              </div>
+              
+              <div className="glossary-card">
+                <div className="glossary-card-header">
+                  <span className="glossary-emoji">⚡</span>
+                  <h4>Vite + React</h4>
+                </div>
+                <p><strong>React</strong> is a JavaScript library for building user interfaces with reusable components. <strong>Vite</strong> is an ultra-fast build tool that makes development lightning quick with instant hot module replacement.</p>
+                <div className="glossary-examples">
+                  <span className="example-tag">JSX Components</span>
+                  <span className="example-tag">Hot Reload</span>
+                  <span className="example-tag">npm</span>
+                </div>
+              </div>
+              
+              <div className="glossary-card">
+                <div className="glossary-card-header">
+                  <span className="glossary-emoji">🎨</span>
+                  <h4>AI Image Generation</h4>
+                </div>
+                <p>Models like <strong>Gemini Imagen 3</strong> create images from text descriptions. These tools transformed hero section visuals and custom backgrounds in this project, though they sometimes struggle with brand-specific elements.</p>
+                <div className="glossary-examples">
+                  <span className="example-tag">Imagen 3</span>
+                  <span className="example-tag">DALL·E</span>
+                  <span className="example-tag">Midjourney</span>
+                </div>
+              </div>
+              
+              <div className="glossary-card">
+                <div className="glossary-card-header">
+                  <span className="glossary-emoji">🔄</span>
+                  <h4>CRUD Operations</h4>
+                </div>
+                <p>The four basic functions of data management: <strong>Create</strong>, <strong>Read</strong>, <strong>Update</strong>, <strong>Delete</strong>. The Hot Wheels community blog uses CRUD to let users create posts, view them, edit, and remove content.</p>
+                <div className="glossary-examples">
+                  <span className="example-tag">Blog Posts</span>
+                  <span className="example-tag">Comments</span>
+                  <span className="example-tag">User Content</span>
+                </div>
+              </div>
+              
+              <div className="glossary-card">
+                <div className="glossary-card-header">
+                  <span className="glossary-emoji">🌐</span>
+                  <h4>SEO & AEO</h4>
+                </div>
+                <p><strong>SEO</strong> (Search Engine Optimization) helps websites rank on Google. <strong>AEO</strong> (Answer Engine Optimization) optimizes content for AI assistants and featured snippets. The FAQ section targets both for maximum discoverability.</p>
+                <div className="glossary-examples">
+                  <span className="example-tag">Long-tail Keywords</span>
+                  <span className="example-tag">Featured Snippets</span>
+                  <span className="example-tag">Schema</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="bottom-accent"></div>
