@@ -3,9 +3,8 @@ import { translations } from '../translations';
 
 const LanguageContext = createContext();
 
-// Languages ordered by most commonly spoken (native + second language speakers)
+// Top 15 Most Spoken Languages (by total speakers worldwide)
 export const languages = [
-  // Top 10 Most Spoken Languages
   { code: 'en', name: 'English', flag: '🇺🇸', region: 'United States' },           // 1.5B+ speakers
   { code: 'zh', name: '中文 (普通话)', flag: '🇨🇳', region: 'China' },              // 1.1B+ speakers
   { code: 'hi', name: 'हिन्दी', flag: '🇮🇳', region: 'India' },                    // 600M+ speakers
@@ -15,41 +14,12 @@ export const languages = [
   { code: 'bn', name: 'বাংলা', flag: '🇧🇩', region: 'Bangladesh' },                // 270M+ speakers
   { code: 'pt', name: 'Português', flag: '🇧🇷', region: 'Brazil' },                // 260M+ speakers
   { code: 'ru', name: 'Русский', flag: '🇷🇺', region: 'Russia' },                  // 250M+ speakers
-  { code: 'ur', name: 'اردو', flag: '🇵🇰', region: 'Pakistan' },                   // 230M+ speakers
-  
-  // 100M+ Speakers
-  { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩', region: 'Indonesia' },      // 200M+ speakers
   { code: 'ja', name: '日本語', flag: '🇯🇵', region: 'Japan' },                    // 125M+ speakers
   { code: 'de', name: 'Deutsch', flag: '🇩🇪', region: 'Germany' },                 // 100M+ speakers
-  { code: 'pa', name: 'ਪੰਜਾਬੀ', flag: '🇮🇳', region: 'Punjab' },                  // 150M+ speakers
-  { code: 'fa', name: 'فارسی', flag: '🇮🇷', region: 'Iran' },                      // 110M+ speakers
-  { code: 'sw', name: 'Kiswahili', flag: '🇰🇪', region: 'Kenya' },                 // 100M+ speakers
-  
-  // 50M-100M Speakers
-  { code: 'te', name: 'తెలుగు', flag: '🇮🇳', region: 'Andhra Pradesh' },           // 95M+ speakers
-  { code: 'mr', name: 'मराठी', flag: '🇮🇳', region: 'Maharashtra' },               // 90M+ speakers
-  { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', region: 'Vietnam' },              // 85M+ speakers
-  { code: 'ta', name: 'தமிழ்', flag: '🇮🇳', region: 'Tamil Nadu' },                // 80M+ speakers
   { code: 'ko', name: '한국어', flag: '🇰🇷', region: 'South Korea' },               // 80M+ speakers
   { code: 'tr', name: 'Türkçe', flag: '🇹🇷', region: 'Turkey' },                   // 80M+ speakers
-  { code: 'ha', name: 'Hausa', flag: '🇳🇬', region: 'Nigeria' },                   // 70M+ speakers
-  { code: 'tl', name: 'Tagalog', flag: '🇵🇭', region: 'Philippines' },             // 70M+ speakers
+  { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', region: 'Vietnam' },              // 85M+ speakers
   { code: 'it', name: 'Italiano', flag: '🇮🇹', region: 'Italy' },                  // 65M+ speakers
-  { code: 'gu', name: 'ગુજરાતી', flag: '🇮🇳', region: 'Gujarat' },                 // 60M+ speakers
-  { code: 'th', name: 'ไทย', flag: '🇹🇭', region: 'Thailand' },                    // 60M+ speakers
-  
-  // 20M-50M Speakers
-  { code: 'pl', name: 'Polski', flag: '🇵🇱', region: 'Poland' },                   // 45M+ speakers
-  { code: 'uk', name: 'Українська', flag: '🇺🇦', region: 'Ukraine' },              // 40M+ speakers
-  { code: 'yo', name: 'Yorùbá', flag: '🇳🇬', region: 'Nigeria' },                  // 40M+ speakers
-  { code: 'ig', name: 'Igbo', flag: '🇳🇬', region: 'Nigeria' },                    // 30M+ speakers
-  { code: 'am', name: 'አማርኛ', flag: '🇪🇹', region: 'Ethiopia' },                  // 30M+ speakers
-  { code: 'om', name: 'Oromoo', flag: '🇪🇹', region: 'Ethiopia' },                 // 30M+ speakers
-  { code: 'so', name: 'Soomaali', flag: '🇸🇴', region: 'Somalia' },                // 20M+ speakers
-  
-  // Under 20M Speakers
-  { code: 'rw', name: 'Kinyarwanda', flag: '🇷🇼', region: 'Rwanda' },              // 12M+ speakers
-  { code: 'zu', name: 'isiZulu', flag: '🇿🇦', region: 'South Africa' },            // 12M+ speakers
 ];
 
 export const LanguageProvider = ({ children }) => {

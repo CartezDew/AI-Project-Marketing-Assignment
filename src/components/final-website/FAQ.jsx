@@ -56,7 +56,7 @@ const FAQ = () => {
       icon: <Globe size={24} />,
       color: '#9932CC', // Purple
       question: "Is this platform available in multiple languages worldwide?",
-      answer: "Yes! We believe play should have no language barriers. Our platform supports 35+ languages including English, Spanish, French, Portuguese, German, Japanese, Korean, Chinese, Hindi, Arabic, Swahili, and many more. From Kinyarwanda to Tagalog, from Yoruba to Ukrainian—fans worldwide can explore UNO strategies and Hot Wheels collections in their native language. Simply use the language selector in the navigation bar to switch instantly. We're committed to making the magic of Mattel brands accessible to everyone, everywhere.",
+      answer: "Yes! We believe play should have no language barriers. Our platform supports the top 15 most spoken languages worldwide including English, Chinese, Hindi, Spanish, French, Arabic, Bengali, Portuguese, Russian, Japanese, German, Korean, Turkish, Vietnamese, and Italian. Fans worldwide can explore UNO strategies and Hot Wheels collections in their native language. Simply use the language selector in the navigation bar to switch instantly. We're committed to making the magic of Mattel brands accessible to everyone, everywhere.",
       keywords: "Mattel multilingual support, UNO in different languages, international toy communities"
     },
     {

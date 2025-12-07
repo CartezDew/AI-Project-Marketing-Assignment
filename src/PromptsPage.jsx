@@ -13,7 +13,7 @@ function PromptsPage() {
     {
       id: 1,
       title: "Hero Section Imagery (Lifestyle AI Images)",
-      model: "Google Gemini Imagen 3",
+      model: "Google Gemini 3 Pro",
       type: "🎨 AI Images",
       description: "Custom hero illustrations showcasing Mattel brands and community play.",
       prompt: `"Generate 3 lifestyle images for a Mattel brand website:
@@ -23,12 +23,12 @@ function PromptsPage() {
 (3) A family enjoying board games in a modern living room—authentic and joyful.
 
 Style: photorealistic, warm, inclusive, brand-aligned."`,
-      challenge: "Gemini Imagen 3 struggled with consistent brand colors and sometimes generated images with incorrect product representations. Multiple iterations were needed to get usable results. The model also had difficulty with text on UNO cards and Hot Wheels logos appearing correctly."
+      challenge: "Gemini 3 Pro struggled with consistent brand colors and sometimes generated images with incorrect product representations. Multiple iterations were needed to get usable results. The model also had difficulty with text on UNO cards and Hot Wheels logos appearing correctly."
     },
     {
       id: 2,
       title: "Team Headshot Backgrounds (Brand Gradient Visuals)",
-      model: "Google Gemini Imagen 3",
+      model: "Google Gemini 3 Pro",
       type: "🎨 AI Images",
       description: "Professional headshot backgrounds using Mattel's signature color energy.",
       prompt: `"Create professional headshot backgrounds using subtle Mattel-inspired gradients in red, yellow, blue, and orange. Clean, modern, corporate-friendly with soft glow lighting."`,
@@ -205,10 +205,10 @@ This is a family games and collectors website, so keep it fun and youthful. Idea
     },
     {
       id: 15,
-      title: "Global Language Support (35 Languages)",
+      title: "Global Language Support (15 Languages)",
       model: "Claude Opus 4.5",
       type: "🌍 Internationalization",
-      description: "Added a comprehensive language selection dropdown to the navbar, enabling users worldwide to experience the website in their native language. Supports 35+ languages including major world languages and African languages for true global accessibility.",
+      description: "Added a comprehensive language selection dropdown to the navbar, enabling users worldwide to experience the website in their native language. Supports the top 15 most spoken languages worldwide for true global accessibility.",
       prompt: `"Add a new feature: a dropdown list of the most common spoken languages in the world. Be sure to include all languages in the list and feel free to add other common languages. Use country flags associated with the languages to the left of the language name and add the dropdown to the navbar so users across the globe can change the language of the text so it's readable in their most fluent language.
 
 English should be the first language and set as default. The language selected should change the text on the final website page, the UNO page, and the Hot Wheels page of the final website build.
@@ -219,14 +219,14 @@ Be creative and intentional, thoughtful in the UX/UI design of the language drop
       outputs: [
         "Language Context API for global state management",
         "LanguageDropdown component with search functionality",
-        "35+ language translations for all UI text",
+        "15 language translations for all UI text",
         "Country flags for visual language identification",
         "localStorage persistence for user preference",
         "RTL (Right-to-Left) support for Arabic, Urdu, Persian",
         "Responsive dropdown design for mobile devices",
         "Animated globe icon in dropdown header"
       ],
-      challenge: "Creating accurate translations for 35 languages required careful attention to cultural nuances and proper character encoding for non-Latin scripts (Arabic, Hindi, Chinese, Japanese, Korean, etc.). The dropdown needed to be both visually appealing and functional across all device sizes."
+      challenge: "Creating accurate translations for 15 languages required careful attention to cultural nuances and proper character encoding for non-Latin scripts (Arabic, Hindi, Chinese, Japanese, Korean, etc.). The dropdown needed to be both visually appealing and functional across all device sizes."
     },
     {
       id: 16,
@@ -411,7 +411,7 @@ It took eight prompt iterations to fine-tune these details—especially the hair
 Then below the AI enhancements add a glossary. Explain what LLMs are, explain what IDEs are, for example users may not know what Cursor IDE is. Then do a count of all the features in the final-website app and add it to the top stats with '|' separated. Be creative in your design choice, you have free rein to be creative."`,
       outputs: [
         "Build Stats Dashboard with pill-shaped gradient design",
-        "6 key metrics: Build Time (5h 37m), Pages (3), Components (13), Features (47+), Languages (35), AI Models (4)",
+        "6 key metrics: Build Time (5h 37m), Pages (3), Components (13), Features (47+), Languages (15), AI Models (4)",
         "Pipe-separated stats with hover effects and responsive grid",
         "Tech & AI Glossary section with 6 educational cards",
         "LLM explanation (Claude, ChatGPT, Gemini)",
@@ -1499,7 +1499,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
           />
           
           <div className="final-badge">
-            <span>✨ Final Project</span>
+            <span>✨ Final AI Project</span>
           </div>
           <h1 className="final-title">Mattel x AI Brand Lab</h1>
           <p className="final-subtitle">The completed website combining all prompt iterations with enhanced features</p>
@@ -1548,7 +1548,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
             <div className="build-stat-divider">|</div>
             <div className="build-stat-item">
               <span className="build-stat-icon">🌍</span>
-              <span className="build-stat-value">35</span>
+              <span className="build-stat-value">15</span>
               <span className="build-stat-label">Languages</span>
             </div>
             <div className="build-stat-divider">|</div>
@@ -1664,7 +1664,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
                     </div>
                     <div className="tool-row">
                       <span className="tool-purpose">Image generation (Hero, Headshots)</span>
-                      <span className="tool-name">Google Gemini Imagen 3</span>
+                      <span className="tool-name">Google Gemini 3 Pro</span>
                     </div>
                     <div className="tool-row">
                       <span className="tool-purpose">Feature enhancements, components</span>
@@ -1738,7 +1738,7 @@ Focus on **creativity, community, and distinct UNO vs Hot Wheels experiences**, 
                   <span className="glossary-emoji">🎨</span>
                   <h4>AI Image Generation</h4>
                 </div>
-                <p>Models like <strong>Gemini Imagen 3</strong> create images from text descriptions. These tools transformed hero section visuals and custom backgrounds in this project, though they sometimes struggle with brand-specific elements.</p>
+                <p>Models like <strong>Gemini 3 Pro</strong> create images from text descriptions. These tools transformed hero section visuals and custom backgrounds in this project, though they sometimes struggle with brand-specific elements.</p>
                 <div className="glossary-examples">
                   <span className="example-tag">Imagen 3</span>
                   <span className="example-tag">DALL·E</span>
