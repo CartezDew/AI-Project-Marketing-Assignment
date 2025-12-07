@@ -1452,22 +1452,6 @@ Please create both infographics based on the YouTube video content provided.`;
       isWinner: true,
       link: "/prompt3",
       fullPrompt: prompt3FullText
-    },
-    {
-      id: 22,
-      title: "Prompt 22",
-      subtitle: "Hot Wheels Infographics",
-      llm: "Notebook LLM",
-      platform: "Notebook",
-      thinkTime: "~30 minutes",
-      filesGenerated: 2,
-      linesOfCode: "N/A (Image Generation)",
-      features: ["Infographic Design", "WebP Format", "Step-by-Step Guides", "Video Analysis"],
-      strengths: ["Visual clarity", "Complete tool/material lists", "Brand-aligned design", "Safety messaging"],
-      weaknesses: ["Requires video analysis", "Manual design process"],
-      color: "#FF6B00",
-      link: "#",
-      fullPrompt: prompt22FullText
     }
   ];
 
