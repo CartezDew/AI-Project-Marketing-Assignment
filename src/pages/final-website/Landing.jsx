@@ -23,6 +23,12 @@ const FinalWebsiteLanding = () => {
   // Scroll animations for brand selection
   const [brandRef, brandVisible] = useScrollAnimation({ threshold: 0.15 });
 
+  // Set page title
+  useEffect(() => {
+    document.title = 'Mattel × AI Lab | Home';
+    return () => { document.title = 'Mattel × AI Lab'; };
+  }, []);
+
   // Handle hash navigation - scroll to section when navigating from other pages
   useEffect(() => {
     if (location.hash) {

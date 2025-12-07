@@ -79,6 +79,13 @@ const staggerItem = {
 
 const FinalWebsiteUnoExperience = () => {
   const { t } = useLanguage();
+  
+  // Set page title
+  useEffect(() => {
+    document.title = 'UNO® | Mattel × AI Lab';
+    return () => { document.title = 'Mattel × AI Lab'; };
+  }, []);
+
   const [chatMessage, setChatMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([
     { type: 'bot', message: "Hey there, UNO champion! 🎴 I'd love to hear YOUR UNO stories! How do YOU play? Got any epic wins, hilarious moments, or house rules? Share away! (I can also answer any questions about the game)" }

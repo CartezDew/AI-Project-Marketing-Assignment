@@ -147,6 +147,13 @@ const virtualWorkshops = [
 
 const FinalWebsiteHotWheelsExperience = () => {
   const { t } = useLanguage();
+  
+  // Set page title
+  useEffect(() => {
+    document.title = 'Hot Wheels® | Mattel × AI Lab';
+    return () => { document.title = 'Mattel × AI Lab'; };
+  }, []);
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hoveredBuild, setHoveredBuild] = useState(null);
   const [selectedBuild, setSelectedBuild] = useState(null);
@@ -181,7 +188,7 @@ const FinalWebsiteHotWheelsExperience = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Check initial position
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -373,7 +380,7 @@ const FinalWebsiteHotWheelsExperience = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <span className="hw-pill-icon">🏎️</span>
-              <span className="hw-pill-text">Building since age 6</span>
+              <span className="hw-pill-text">Collecting since age 6</span>
             </motion.div>
             <img 
               src={heroImage} 

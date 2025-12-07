@@ -831,17 +831,17 @@
 }
 
 /* Staggered animation handled by scroll-animate classes */
-/* Animation delay overrides for FAQ items when using scroll animations */
-.faq-item.scroll-animate.stagger-1 { transition-delay: 0.05s; }
-.faq-item.scroll-animate.stagger-2 { transition-delay: 0.1s; }
-.faq-item.scroll-animate.stagger-3 { transition-delay: 0.15s; }
-.faq-item.scroll-animate.stagger-4 { transition-delay: 0.2s; }
-.faq-item.scroll-animate.stagger-5 { transition-delay: 0.25s; }
-.faq-item.scroll-animate.stagger-6 { transition-delay: 0.3s; }
-.faq-item.scroll-animate.stagger-7 { transition-delay: 0.35s; }
-.faq-item.scroll-animate.stagger-8 { transition-delay: 0.4s; }
-.faq-item.scroll-animate.stagger-9 { transition-delay: 0.45s; }
-.faq-item.scroll-animate.stagger-10 { transition-delay: 0.5s; }
+/* Animation delay overrides for FAQ items when using scroll animations - use CSS custom properties */
+.faq-item.scroll-animate.stagger-1 { --scroll-animate-delay: 0.05s; }
+.faq-item.scroll-animate.stagger-2 { --scroll-animate-delay: 0.1s; }
+.faq-item.scroll-animate.stagger-3 { --scroll-animate-delay: 0.15s; }
+.faq-item.scroll-animate.stagger-4 { --scroll-animate-delay: 0.2s; }
+.faq-item.scroll-animate.stagger-5 { --scroll-animate-delay: 0.25s; }
+.faq-item.scroll-animate.stagger-6 { --scroll-animate-delay: 0.3s; }
+.faq-item.scroll-animate.stagger-7 { --scroll-animate-delay: 0.35s; }
+.faq-item.scroll-animate.stagger-8 { --scroll-animate-delay: 0.4s; }
+.faq-item.scroll-animate.stagger-9 { --scroll-animate-delay: 0.45s; }
+.faq-item.scroll-animate.stagger-10 { --scroll-animate-delay: 0.5s; }
 
 /* Color accents for each item type */
 .faq-item:nth-child(1) { --item-color: #ED1C24; }

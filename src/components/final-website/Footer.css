@@ -3,16 +3,21 @@
   background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
   color: white;
   padding: 80px 24px 0;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .site-footer-content {
-  max-width: 1200px;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
 }
 
 .site-footer-brand {
@@ -120,7 +125,8 @@
 
 /* Footer Bottom Section */
 .site-footer-bottom {
-  max-width: 1200px;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   padding: 32px 0;
   display: flex;
@@ -128,6 +134,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
+  box-sizing: border-box;
 }
 
 .site-footer-note p {
@@ -149,7 +156,7 @@
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 1024px) {
+@media (max-width: 824px) {
   .site-footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 40px;

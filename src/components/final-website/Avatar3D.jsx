@@ -100,7 +100,9 @@ const Avatar3D = ({ mousePos = { x: 0, y: 0 } }) => {
     return {
       transform: `rotate(${rotation}deg) translateY(${verticalBounce}px)`,
       transformOrigin: `${originX}px ${originY}px`,
-      transition: `transform ${currentDuration} ${ease}`,
+      transitionProperty: 'transform',
+      transitionDuration: currentDuration,
+      transitionTimingFunction: ease,
       transitionDelay: hairPhysics.isSettling ? delay : '0ms'
     };
   };

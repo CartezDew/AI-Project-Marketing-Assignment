@@ -29,23 +29,24 @@
 .hw-hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(200, 16, 46, 0.15) 0%, transparent 50%);
+  background: radial-gradient(circle at 30% 50%, rgba(200, 16, 46, 0.15) 10%, transparent 50%);
 }
 
 .hw-hero-speed-lines {
   position: absolute;
   top: 0;
   right: -200px;
-  width: 600px;
+  width: 800px;
   height: 100%;
   background: repeating-linear-gradient(
     -70deg,
     transparent,
     transparent 30px,
-    rgba(255, 107, 0, 0.03) 30px,
-    rgba(255, 107, 0, 0.03) 60px
+    rgba(255, 107, 0, 0.05) 30px,
+    rgba(255, 107, 0, 0.07) 60px
   );
-  transform: skewX(-15deg);
+  transform: skewX(-20deg);
+
 }
 
 .hw-hero-content {
