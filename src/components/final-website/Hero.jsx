@@ -183,6 +183,9 @@ const Hero = () => {
                 <span className="fwh-countdown-unit">{t('hero.seconds')}</span>
               </div>
             </div>
+            <Link to="/final-website/uno#upcoming-events" className="fwh-countdown-link">
+              See Details →
+            </Link>
           </div>
 
           {/* Stats Callouts */}

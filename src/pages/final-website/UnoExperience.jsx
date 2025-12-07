@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import UnoHouseRulesWidget from '../../components/final-website/UnoHouseRulesWidget';
 import Footer from '../../components/final-website/Footer';
@@ -79,12 +80,26 @@ const staggerItem = {
 
 const FinalWebsiteUnoExperience = () => {
   const { t } = useLanguage();
+  const location = useLocation();
   
   // Set page title
   useEffect(() => {
     document.title = 'UNO® | Mattel × AI Lab';
     return () => { document.title = 'Mattel × AI Lab'; };
   }, []);
+
+  // Handle hash navigation - scroll to section when navigating from other pages
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const elementId = location.hash.replace('#', '');
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
 
   const [chatMessage, setChatMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([
@@ -711,7 +726,7 @@ const FinalWebsiteUnoExperience = () => {
       </section>
 
       {/* Meetup Countdown Section */}
-      <section className="uno-section uno-section-meetup">
+      <section className="uno-section uno-section-meetup" id="upcoming-events">
         <div className="uno-section-container">
           <motion.div 
             className="uno-meetup-header"
