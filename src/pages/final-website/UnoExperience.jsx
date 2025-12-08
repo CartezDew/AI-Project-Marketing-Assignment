@@ -122,6 +122,124 @@ const FinalWebsiteUnoExperience = () => {
     setLoadedVideos(prev => ({ ...prev, [videoId]: true }));
   };
 
+  // Custom scrollbar for shorts container
+  const shortsScrollRef = useRef(null);
+  const scrollbarRef = useRef(null);
+  const thumbRef = useRef(null);
+  const [thumbWidth, setThumbWidth] = useState(0);
+  const [thumbLeft, setThumbLeft] = useState(0);
+  const [isScrollbarDragging, setIsScrollbarDragging] = useState(false);
+  const scrollbarDragStart = useRef({ x: 0, scrollLeft: 0 });
+
+  // Update custom scrollbar thumb position and size
+  const updateScrollbar = () => {
+    if (!shortsScrollRef.current || !scrollbarRef.current) return;
+    
+    const container = shortsScrollRef.current;
+    const scrollbar = scrollbarRef.current;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+    const scrollLeft = container.scrollLeft;
+    
+    // Calculate thumb width (proportional to visible area)
+    const thumbWidthPercent = (clientWidth / scrollWidth) * 100;
+    const newThumbWidth = Math.max((thumbWidthPercent / 100) * scrollbar.clientWidth, 60);
+    setThumbWidth(newThumbWidth);
+    
+    // Calculate thumb position
+    const maxScrollLeft = scrollWidth - clientWidth;
+    const scrollPercent = maxScrollLeft > 0 ? scrollLeft / maxScrollLeft : 0;
+    const maxThumbLeft = scrollbar.clientWidth - newThumbWidth;
+    setThumbLeft(scrollPercent * maxThumbLeft);
+  };
+
+  // Listen to scroll events
+  useEffect(() => {
+    const container = shortsScrollRef.current;
+    if (!container) return;
+    
+    updateScrollbar();
+    container.addEventListener('scroll', updateScrollbar);
+    window.addEventListener('resize', updateScrollbar);
+    
+    return () => {
+      container.removeEventListener('scroll', updateScrollbar);
+      window.removeEventListener('resize', updateScrollbar);
+    };
+  }, []);
+
+  // Handle scrollbar thumb drag
+  const handleScrollbarMouseDown = (e) => {
+    e.preventDefault();
+    setIsScrollbarDragging(true);
+    scrollbarDragStart.current = {
+      x: e.clientX,
+      scrollLeft: shortsScrollRef.current?.scrollLeft || 0
+    };
+    
+    if (thumbRef.current) {
+      thumbRef.current.classList.add('is-dragging');
+    }
+    if (scrollbarRef.current) {
+      scrollbarRef.current.classList.add('is-dragging');
+    }
+  };
+
+  // Handle track click to jump to position
+  const handleTrackClick = (e) => {
+    if (!shortsScrollRef.current || !scrollbarRef.current || isScrollbarDragging) return;
+    
+    const rect = scrollbarRef.current.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const scrollbar = scrollbarRef.current;
+    const container = shortsScrollRef.current;
+    
+    // Calculate scroll position from click
+    const clickPercent = clickX / scrollbar.clientWidth;
+    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+    container.scrollLeft = clickPercent * maxScrollLeft;
+  };
+
+  // Global mouse move and up handlers for scrollbar dragging
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      if (!isScrollbarDragging || !shortsScrollRef.current || !scrollbarRef.current) return;
+      
+      const deltaX = e.clientX - scrollbarDragStart.current.x;
+      const scrollbar = scrollbarRef.current;
+      const container = shortsScrollRef.current;
+      
+      // Convert thumb movement to scroll movement
+      const scrollbarWidth = scrollbar.clientWidth - thumbWidth;
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      const scrollDelta = (deltaX / scrollbarWidth) * maxScrollLeft;
+      
+      container.scrollLeft = scrollbarDragStart.current.scrollLeft + scrollDelta;
+    };
+
+    const handleGlobalMouseUp = () => {
+      if (isScrollbarDragging) {
+        setIsScrollbarDragging(false);
+        if (thumbRef.current) {
+          thumbRef.current.classList.remove('is-dragging');
+        }
+        if (scrollbarRef.current) {
+          scrollbarRef.current.classList.remove('is-dragging');
+        }
+      }
+    };
+
+    if (isScrollbarDragging) {
+      document.addEventListener('mousemove', handleGlobalMouseMove);
+      document.addEventListener('mouseup', handleGlobalMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleGlobalMouseMove);
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
+    };
+  }, [isScrollbarDragging, thumbWidth]);
+
   // Auto-scroll to latest message - only when user has sent messages (more than initial bot greeting)
   const hasUserInteracted = useRef(false);
   useEffect(() => {
@@ -388,58 +506,80 @@ const FinalWebsiteUnoExperience = () => {
             <motion.p variants={fadeInUp}>Quick clips of epic plays, funny moments, and UNO chaos from the community.</motion.p>
           </motion.div>
           
-          <div className="uno-shorts-scroll-container">
-            <div className="uno-shorts-track">
-              {[
-                { id: 'uteejNCW02w', title: 'UNO Short 1' },
-                { id: 'VdNd86nxkN8', title: 'UNO Short 2' },
-                { id: '3Ss3tLAlH6I', title: 'UNO Short 3' },
-                { id: 's6acqgKT1JY', title: 'UNO Short 4' },
-                { id: 'HksIDO9Qjj0', title: 'UNO Short 5' },
-                { id: 'aWerO3ClGBs', title: 'UNO Short 6' },
-                { id: '7v5s-iD12U8', title: 'UNO Short 7' },
-                { id: 'mgJNbcY8H1w', title: 'UNO Short 8' },
-                { id: 'XpHbrpviNrA', title: 'UNO Short 9' },
-              ].map((video) => (
-                <div className="uno-short-card" key={video.id}>
-                  {!loadedVideos[video.id] && (
-                    <div className="video-loading-overlay">
-                      <div className="video-spinner"></div>
-                    </div>
-                  )}
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.id}`}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    onLoad={() => handleVideoLoad(video.id)}
-                  ></iframe>
-                </div>
-              ))}
-              {[
-                { id: 'F6m0BpJaMrw', title: 'UNO Short 10' },
-                { id: 'Jw88cCvIEEE', title: 'UNO Short 11' },
-                { id: 'BcD2NmfmGz8', title: 'UNO Short 12' },
-                { id: 'Y4j9dqwxXS8', title: 'UNO Short 13' },
-                { id: 'P777c4eX7s8', title: 'UNO Short 14' },
-              ].map((video) => (
-                <div className="uno-short-card" key={video.id}>
-                  {!loadedVideos[video.id] && (
-                    <div className="video-loading-overlay">
-                      <div className="video-spinner"></div>
-                    </div>
-                  )}
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.id}`}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    onLoad={() => handleVideoLoad(video.id)}
-                  ></iframe>
-                </div>
-              ))}
+          <div className="uno-shorts-scroll-wrapper">
+            <div 
+              className="uno-shorts-scroll-container"
+              ref={shortsScrollRef}
+            >
+              <div className="uno-shorts-track">
+                {[
+                  { id: 'uteejNCW02w', title: 'UNO Short 1' },
+                  { id: 'VdNd86nxkN8', title: 'UNO Short 2' },
+                  { id: '3Ss3tLAlH6I', title: 'UNO Short 3' },
+                  { id: 's6acqgKT1JY', title: 'UNO Short 4' },
+                  { id: 'HksIDO9Qjj0', title: 'UNO Short 5' },
+                  { id: 'aWerO3ClGBs', title: 'UNO Short 6' },
+                  { id: '7v5s-iD12U8', title: 'UNO Short 7' },
+                  { id: 'mgJNbcY8H1w', title: 'UNO Short 8' },
+                  { id: 'XpHbrpviNrA', title: 'UNO Short 9' },
+                ].map((video) => (
+                  <div className="uno-short-card" key={video.id}>
+                    {!loadedVideos[video.id] && (
+                      <div className="video-loading-overlay">
+                        <div className="video-spinner"></div>
+                      </div>
+                    )}
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      onLoad={() => handleVideoLoad(video.id)}
+                    ></iframe>
+                  </div>
+                ))}
+                {[
+                  { id: 'F6m0BpJaMrw', title: 'UNO Short 10' },
+                  { id: 'Jw88cCvIEEE', title: 'UNO Short 11' },
+                  { id: 'BcD2NmfmGz8', title: 'UNO Short 12' },
+                  { id: 'Y4j9dqwxXS8', title: 'UNO Short 13' },
+                  { id: 'P777c4eX7s8', title: 'UNO Short 14' },
+                ].map((video) => (
+                  <div className="uno-short-card" key={video.id}>
+                    {!loadedVideos[video.id] && (
+                      <div className="video-loading-overlay">
+                        <div className="video-spinner"></div>
+                      </div>
+                    )}
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      onLoad={() => handleVideoLoad(video.id)}
+                    ></iframe>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Custom Scrollbar */}
+            <div 
+              className="uno-custom-scrollbar"
+              ref={scrollbarRef}
+              onClick={handleTrackClick}
+            >
+              <div 
+                className="uno-scrollbar-thumb"
+                ref={thumbRef}
+                style={{ 
+                  width: `${thumbWidth}px`, 
+                  left: `${thumbLeft}px` 
+                }}
+                onMouseDown={handleScrollbarMouseDown}
+              />
             </div>
           </div>
           
