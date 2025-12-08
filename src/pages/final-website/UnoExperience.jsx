@@ -11,6 +11,7 @@ import unoCardIcon from '../../assets/icons/Uno-card.webp';
 import imgKorea from '../../assets/uno-content/Asia.webp';
 import imgBrazil from '../../assets/uno-content/Brazil.webp';
 import imgRome from '../../assets/uno-content/Rome.webp';
+import teddyImage from '../../assets/uno-content/teddy.webp';
 
 // Animation Variants
 const fadeInUp = {
@@ -648,52 +649,200 @@ const FinalWebsiteUnoExperience = () => {
         </div>
       </section>
 
-      {/* Persona Section */}
-      <section className="uno-section uno-section-persona">
+      {/* Persona Section - Meet Teddy */}
+      <section className="uno-section uno-section-persona-new">
+        {/* Floating UNO Cards Background */}
+        <div className="uno-persona-bg">
+          <div className="uno-floating-card-bg uno-card-red"></div>
+          <div className="uno-floating-card-bg uno-card-yellow"></div>
+          <div className="uno-floating-card-bg uno-card-green"></div>
+          <div className="uno-floating-card-bg uno-card-blue"></div>
+        </div>
+        
         <div className="uno-section-container">
           <motion.div 
-            className="uno-persona-card"
+            className="uno-persona-header"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
-            variants={fadeInUp}
-            whileHover={{ y: -5 }}
+            variants={staggerContainer}
           >
-            <motion.div 
-              className="uno-persona-avatar"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-            >
-              <span>T</span>
+            <motion.div className="uno-persona-badge-new" variants={fadeInDown}>
+              <img src={unoCardIcon} alt="UNO Card" className="uno-badge-card-icon" />
+              <span>PLAYER SPOTLIGHT</span>
             </motion.div>
-            <div className="uno-persona-content">
-              <span className="uno-persona-label">Meet Our Player</span>
-              <h3 className="uno-persona-name">Teddy, 10</h3>
-              <p className="uno-persona-bio">
-                "I love playing UNO with my family every Friday night! My favorite 
-                move is saving my Wild Draw 4 until someone's about to win. 
-                The look on their face is SO funny!"
-              </p>
-              <div className="uno-persona-interests">
-                <span className="uno-interest">🎮 Roblox</span>
-                <span className="uno-interest">🎬 MrBeast</span>
-                <span className="uno-interest">🎯 Challenges</span>
-              </div>
-            </div>
+            <motion.h2 className="uno-persona-title-new" variants={fadeInUp}>
+              Meet <span className="uno-title-gradient">Teddy</span>
+            </motion.h2>
           </motion.div>
-          
+
+          <div className="uno-persona-layout">
+            {/* Main Player Card */}
+            <motion.div 
+              className="uno-player-card-main"
+              initial={{ opacity: 0, x: -60, rotateY: -15 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {/* Card Color Strip */}
+              <div className="uno-card-stripe">
+                <span className="uno-stripe-red"></span>
+                <span className="uno-stripe-yellow"></span>
+                <span className="uno-stripe-green"></span>
+                <span className="uno-stripe-blue"></span>
+              </div>
+              
+              <div className="uno-player-card-inner">
+                <div className="uno-player-image-container">
+                  <motion.img 
+                    src={teddyImage} 
+                    alt="Teddy - UNO Player"
+                    className="uno-player-image"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  />
+                  <div className="uno-player-age-badge">
+                    <span className="uno-age-number">10</span>
+                    <span className="uno-age-label">yrs old</span>
+                  </div>
+                </div>
+                
+                <div className="uno-player-info">
+                  <h3 className="uno-player-name-large">Teddy</h3>
+                  <p className="uno-player-location">
+                    <span className="uno-location-icon">📍</span> Charlotte, NC
+                  </p>
+                  <p className="uno-player-tagline">
+                    "I'm energetic, friendly, and always ready to play and have a good time!"
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stats & Details Cards */}
+            <div className="uno-persona-details-grid">
+              {/* Motivators Card */}
+              <motion.div 
+                className="uno-detail-card uno-card-motivators"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <div className="uno-detail-header uno-header-red">
+                  <span className="uno-detail-icon">🔥</span>
+                  <h4>What Drives Me</h4>
+                </div>
+                <div className="uno-motivator-list">
+                  <motion.div 
+                    className="uno-motivator-item"
+                    whileHover={{ x: 5 }}
+                  >
+                    <span className="uno-motivator-emoji">🎉</span>
+                    <span>Having Fun</span>
+                  </motion.div>
+                  <motion.div 
+                    className="uno-motivator-item"
+                    whileHover={{ x: 5 }}
+                  >
+                    <span className="uno-motivator-emoji">🏆</span>
+                    <span>Competition</span>
+                  </motion.div>
+                  <motion.div 
+                    className="uno-motivator-item"
+                    whileHover={{ x: 5 }}
+                  >
+                    <span className="uno-motivator-emoji">👫</span>
+                    <span>Playing with Friends</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Favorite Brands Card */}
+              <motion.div 
+                className="uno-detail-card uno-card-brands"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <div className="uno-detail-header uno-header-blue">
+                  <span className="uno-detail-icon">⭐</span>
+                  <h4>Favorite Brands</h4>
+                </div>
+                <div className="uno-brands-grid">
+                  <div className="uno-brand-tag uno-brand-uno">🎴 UNO</div>
+                  <div className="uno-brand-tag uno-brand-mrbeast">🐯 MrBeast</div>
+                  <div className="uno-brand-tag uno-brand-roblox">🎮 Roblox</div>
+                  <div className="uno-brand-tag uno-brand-nintendo">🕹️ Nintendo</div>
+                </div>
+              </motion.div>
+
+              {/* Fun Facts Card */}
+              <motion.div 
+                className="uno-detail-card uno-card-facts"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <div className="uno-detail-header uno-header-green">
+                  <span className="uno-detail-icon">💫</span>
+                  <h4>About Teddy</h4>
+                </div>
+                <div className="uno-facts-content">
+                  <div className="uno-fact-item">
+                    <span className="uno-fact-label">Family</span>
+                    <span className="uno-fact-value">2 sisters, Mom & Dad</span>
+                  </div>
+                  <div className="uno-fact-item">
+                    <span className="uno-fact-label">Personality</span>
+                    <span className="uno-fact-value">Curious, Strategic, Easily Excited!</span>
+                  </div>
+                  <div className="uno-fact-item">
+                    <span className="uno-fact-label">Loves</span>
+                    <span className="uno-fact-value">Games, Fun Videos, Learning New Things</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Quote Card */}
+              <motion.div 
+                className="uno-detail-card uno-card-quote"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <div className="uno-detail-header uno-header-yellow">
+                  <span className="uno-detail-icon">💬</span>
+                  <h4>Teddy Says</h4>
+                </div>
+                <blockquote className="uno-player-quote">
+                  "I love playing UNO with my friends and family. My favorite move? Saving my Wild Draw 4 until someone's about to win! 😈"
+                </blockquote>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Game Night Banner */}
           <motion.div 
-            className="uno-persona-quote"
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="uno-game-night-banner"
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.6 }}
           >
-            <blockquote>
-              "UNO isn't just a game—it's where memories happen."
-            </blockquote>
+            <div className="uno-banner-content">
+              <p className="uno-banner-text">
+                Every Friday night is <strong>UNO night</strong> in Teddy's house!
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

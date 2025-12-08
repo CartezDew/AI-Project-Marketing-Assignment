@@ -145,6 +145,91 @@ const virtualWorkshops = [
   },
 ];
 
+// Quote Typewriter Component with Feather Pen Animation
+const QuoteTypewriter = () => {
+  const quoteRef = useRef(null);
+  const isInView = useInView(quoteRef, { once: true, amount: 0.5 });
+  const [displayedText, setDisplayedText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+  const fullQuote = "We don't stop playing because we grow old; we grow old because we stop playing.";
+  
+  useEffect(() => {
+    if (isInView && displayedText.length < fullQuote.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(fullQuote.slice(0, displayedText.length + 1));
+      }, 40); // Speed of typing
+      return () => clearTimeout(timeout);
+    } else if (displayedText.length === fullQuote.length) {
+      // Mark as complete after a small delay
+      const completeTimeout = setTimeout(() => {
+        setIsComplete(true);
+      }, 500);
+      return () => clearTimeout(completeTimeout);
+    }
+  }, [isInView, displayedText]);
+
+  return (
+    <motion.div 
+      ref={quoteRef}
+      className="hw-inspirational-quote"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="hw-quote-container">
+        {/* Opening Quote Mark */}
+        <span className="hw-quote-mark hw-quote-open">"</span>
+        
+        {/* Quote Text with Typewriter Effect */}
+        <div className="hw-quote-text-wrapper">
+          <p className="hw-quote-text">
+            {displayedText}
+            {/* Feather Pen Cursor */}
+            <span className={`hw-feather-pen ${isComplete ? 'hw-pen-hidden' : ''}`}>
+              <svg viewBox="0 0 24 24" fill="none" className="hw-feather-svg">
+                <path 
+                  d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z" 
+                  stroke="currentColor" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                  fill="rgba(255, 107, 0, 0.2)"
+                />
+                <path 
+                  d="M16 8L2 22" 
+                  stroke="currentColor" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+                <path 
+                  d="M17.5 15H9" 
+                  stroke="currentColor" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </p>
+        </div>
+        
+      </div>
+      
+      {/* Author Attribution */}
+      <motion.p 
+        className="hw-quote-author"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isComplete ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        — George Bernard Shaw
+      </motion.p>
+    </motion.div>
+  );
+};
+
 const FinalWebsiteHotWheelsExperience = () => {
   const { t } = useLanguage();
   
@@ -508,6 +593,9 @@ const FinalWebsiteHotWheelsExperience = () => {
             </div>
           </div>
         </motion.div>
+
+        {/* Inspirational Quote with Typewriter Effect */}
+        <QuoteTypewriter />
         
         {/* Selected Style Display */}
         <AnimatePresence>

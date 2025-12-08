@@ -384,6 +384,605 @@
   margin: 0;
 }
 
+/* ========== NEW PERSONA SECTION - TEDDY ========== */
+.uno-section-persona-new {
+  position: relative;
+  background: linear-gradient(180deg, #0a0a0a 0%, #121212 50%, #0f0f0f 100%);
+  padding: 120px 24px;
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+/* Floating Cards Background */
+.uno-persona-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.uno-floating-card-bg {
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  border-radius: 16px;
+  opacity: 0.08;
+  animation: uno-card-float 15s ease-in-out infinite;
+}
+
+.uno-floating-card-bg.uno-card-red {
+  background: linear-gradient(135deg, var(--uno-red), #ff3333);
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+  transform: rotate(-15deg);
+}
+
+.uno-floating-card-bg.uno-card-yellow {
+  background: linear-gradient(135deg, var(--uno-yellow), #fff176);
+  top: 60%;
+  left: 8%;
+  animation-delay: -4s;
+  transform: rotate(12deg);
+}
+
+.uno-floating-card-bg.uno-card-green {
+  background: linear-gradient(135deg, var(--uno-green), #66bb6a);
+  top: 20%;
+  right: 8%;
+  animation-delay: -8s;
+  transform: rotate(20deg);
+}
+
+.uno-floating-card-bg.uno-card-blue {
+  background: linear-gradient(135deg, var(--uno-blue), #42a5f5);
+  bottom: 15%;
+  right: 5%;
+  animation-delay: -12s;
+  transform: rotate(-10deg);
+}
+
+@keyframes uno-card-float {
+  0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+  25% { transform: translateY(-30px) rotate(calc(var(--rotation, 0deg) + 5deg)); }
+  50% { transform: translateY(-15px) rotate(calc(var(--rotation, 0deg) - 3deg)); }
+  75% { transform: translateY(-40px) rotate(calc(var(--rotation, 0deg) + 8deg)); }
+}
+
+/* Header */
+.uno-persona-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.uno-persona-badge-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(237, 28, 36, 0.15) 0%, rgba(255, 222, 0, 0.15) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  padding: 12px 28px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.uno-persona-badge-new::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, var(--uno-red), var(--uno-yellow), var(--uno-green), var(--uno-blue));
+  z-index: -1;
+  animation: uno-badge-rotate 4s linear infinite;
+}
+
+@keyframes uno-badge-rotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.uno-badge-emoji {
+  font-size: 1.3rem;
+  animation: uno-card-flip 2s ease-in-out infinite;
+}
+
+.uno-badge-card-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  animation: uno-card-spin 2s linear infinite;
+}
+
+@keyframes uno-card-spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes uno-card-flip {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+}
+
+.uno-persona-title-new {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5rem);
+  letter-spacing: 4px;
+  color: #fff;
+  margin: 0;
+}
+
+.uno-title-gradient {
+  background: linear-gradient(135deg, var(--uno-red), var(--uno-yellow) 50%, var(--uno-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: uno-title-shimmer 3s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+@keyframes uno-title-shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Layout */
+.uno-persona-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Main Player Card */
+.uno-player-card-main {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.uno-card-stripe {
+  display: flex;
+  height: 8px;
+}
+
+.uno-card-stripe span {
+  flex: 1;
+}
+
+.uno-stripe-red { background: var(--uno-red); }
+.uno-stripe-yellow { background: var(--uno-yellow); }
+.uno-stripe-green { background: var(--uno-green); }
+.uno-stripe-blue { background: var(--uno-blue); }
+
+.uno-player-card-inner {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.uno-player-image-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.uno-player-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid transparent;
+  background: linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+              linear-gradient(135deg, var(--uno-red), var(--uno-yellow), var(--uno-green), var(--uno-blue)) border-box;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 8px rgba(255, 255, 255, 0.03);
+}
+
+.uno-player-age-badge {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: linear-gradient(135deg, var(--uno-yellow), #ffd700);
+  padding: 10px 16px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(255, 222, 0, 0.3);
+}
+
+.uno-age-number {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.uno-age-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.uno-player-name-large {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  letter-spacing: 3px;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.uno-player-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  margin: 0 0 20px;
+}
+
+.uno-location-icon {
+  font-size: 1rem;
+}
+
+.uno-player-tagline {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0;
+}
+
+/* Detail Cards Grid */
+.uno-persona-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.uno-detail-card {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.uno-detail-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.uno-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+}
+
+.uno-header-red { background: linear-gradient(135deg, var(--uno-red), #cc0000); }
+.uno-header-yellow { background: linear-gradient(135deg, var(--uno-yellow), #e6c800); color: #1a1a1a; }
+.uno-header-green { background: linear-gradient(135deg, var(--uno-green), #00aa00); }
+.uno-header-blue { background: linear-gradient(135deg, var(--uno-blue), #0055aa); }
+
+.uno-header-yellow h4 { color: #1a1a1a; }
+
+.uno-detail-icon {
+  font-size: 1.3rem;
+}
+
+.uno-detail-header h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Motivators Card */
+.uno-motivator-list {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.uno-motivator-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.uno-motivator-item:hover {
+  background: rgba(237, 28, 36, 0.1);
+  border-color: rgba(237, 28, 36, 0.2);
+}
+
+.uno-motivator-emoji {
+  font-size: 1.3rem;
+}
+
+.uno-motivator-item span:last-child {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Brands Card */
+.uno-brands-grid {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.uno-brand-tag {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.uno-brand-uno {
+  background: linear-gradient(135deg, rgba(237, 28, 36, 0.2), rgba(237, 28, 36, 0.1));
+  border: 1px solid rgba(237, 28, 36, 0.3);
+  color: var(--uno-red);
+}
+
+.uno-brand-mrbeast {
+  background: linear-gradient(135deg, rgba(0, 180, 255, 0.2), rgba(0, 180, 255, 0.1));
+  border: 1px solid rgba(0, 180, 255, 0.3);
+  color: #00b4ff;
+}
+
+.uno-brand-roblox {
+  background: linear-gradient(135deg, rgba(226, 35, 26, 0.2), rgba(226, 35, 26, 0.1));
+  border: 1px solid rgba(226, 35, 26, 0.3);
+  color: #e2231a;
+}
+
+.uno-brand-nintendo {
+  background: linear-gradient(135deg, rgba(230, 0, 18, 0.2), rgba(230, 0, 18, 0.1));
+  border: 1px solid rgba(230, 0, 18, 0.3);
+  color: #e60012;
+}
+
+.uno-brand-tag:hover {
+  transform: scale(1.05);
+}
+
+/* Facts Card */
+.uno-facts-content {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.uno-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.uno-fact-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--uno-green);
+}
+
+.uno-fact-value {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Quote Card */
+.uno-player-quote {
+  padding: 20px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.7;
+  border-left: none;
+  position: relative;
+}
+
+.uno-player-quote::before {
+  content: '"';
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 3rem;
+  color: rgba(255, 222, 0, 0.2);
+  font-family: serif;
+  line-height: 1;
+}
+
+/* Game Night Banner */
+.uno-game-night-banner {
+  margin-top: 60px;
+  background: linear-gradient(135deg, rgba(237, 28, 36, 0.15), rgba(255, 222, 0, 0.15), rgba(0, 158, 73, 0.15), rgba(0, 114, 188, 0.15));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.uno-game-night-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.05), 
+    transparent
+  );
+  animation: uno-banner-shine 3s ease-in-out infinite;
+}
+
+@keyframes uno-banner-shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.uno-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.uno-banner-cards {
+  font-size: 2rem;
+  animation: uno-cards-bounce 1s ease-in-out infinite;
+}
+
+.uno-banner-cards:first-child {
+  animation-delay: 0s;
+}
+
+.uno-banner-cards:last-child {
+  animation-delay: 0.2s;
+}
+
+@keyframes uno-cards-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.uno-banner-text {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.uno-banner-text strong {
+  color: var(--uno-yellow);
+  font-weight: 700;
+}
+
+/* Persona Section Responsive */
+@media (max-width: 900px) {
+  .uno-persona-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .uno-player-card-main {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .uno-persona-details-grid {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .uno-section-persona-new {
+    padding: 80px 16px;
+  }
+  
+  .uno-persona-header {
+    margin-bottom: 40px;
+  }
+  
+  .uno-persona-badge-new {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+  
+  .uno-player-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .uno-player-name-large {
+    font-size: 2.2rem;
+  }
+  
+  .uno-persona-details-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .uno-detail-header {
+    padding: 14px 16px;
+  }
+  
+  .uno-detail-header h4 {
+    font-size: 0.8rem;
+  }
+  
+  .uno-motivator-list,
+  .uno-brands-grid,
+  .uno-facts-content {
+    padding: 14px 16px;
+  }
+  
+  .uno-brands-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .uno-brand-tag {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .uno-game-night-banner {
+    margin-top: 40px;
+    padding: 24px 20px;
+  }
+  
+  .uno-banner-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .uno-banner-cards {
+    font-size: 1.5rem;
+  }
+  
+  .uno-banner-text {
+    font-size: 1rem;
+  }
+}
+
 /* ========== WIDGET SECTION ========== */
 .uno-section-widget {
   background: var(--uno-black);
