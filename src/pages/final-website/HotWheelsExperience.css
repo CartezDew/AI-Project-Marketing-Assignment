@@ -3609,3 +3609,101 @@
     gap: 8px;
   }
 }
+
+/* ============================================
+   FLOATING CREATE POST BUTTON
+   ============================================ */
+@keyframes hw-subtle-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.hw-floating-create-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b00, #c8102e);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 32px rgba(255, 107, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow: visible;
+  animation: hw-subtle-bounce 2s ease-in-out infinite;
+}
+
+.hw-floating-create-btn:hover {
+  box-shadow: 
+    0 12px 40px rgba(255, 107, 0, 0.5),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hw-floating-plus {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1;
+}
+
+.hw-floating-tooltip {
+  position: absolute;
+  right: calc(100% + 16px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 21, 32, 0.95);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+.hw-floating-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-left-color: rgba(15, 21, 32, 0.95);
+}
+
+.hw-floating-create-btn:hover .hw-floating-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hw-floating-create-btn {
+    width: 56px;
+    height: 56px;
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .hw-floating-plus {
+    font-size: 1.75rem;
+  }
+
+  .hw-floating-tooltip {
+    display: none;
+  }
+}

@@ -168,7 +168,7 @@ const FinalWebsiteNavbar = () => {
                   <Link to="/" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                     <FileText size={15} /> {t('nav.backToPrompts')}
                   </Link>
-                  <a href="https://about.mattel.com/" target="_blank" rel="noopener noreferrer" className="fnav-dropdown-item">
+                  <a href="https://about.mattel.com/" target="_blank" rel="noopener noreferrer" className="fnav-dropdown-item" onClick={() => setDropdownOpen(false)}>
                     <ExternalLink size={15} /> About Mattel
                   </a>
                 </div>

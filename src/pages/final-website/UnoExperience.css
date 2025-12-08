@@ -1133,6 +1133,19 @@
   border-radius: 14px;
 }
 
+/* Hide pills when user interacts with video (hover or click/focus) */
+.uno-video-card:hover .uno-video-pill,
+.uno-video-card:focus-within .uno-video-pill {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+/* Add smooth transition to pills */
+.uno-video-pill {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 .uno-card-bg-red {
   background: linear-gradient(135deg, #ED1C24 0%, #CC0000 100%);
   box-shadow: 0 10px 30px rgba(237, 28, 36, 0.3);

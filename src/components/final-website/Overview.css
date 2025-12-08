@@ -235,7 +235,7 @@
   gap: 30px;
   max-width: 1400px;
   margin: 0 auto 0;
-  padding: 0 40px 80px;
+  padding: 20px 40px 80px;
   background: linear-gradient(180deg, #F5FAFF 0%, #EDF5FC 100%);
 }
 
@@ -1670,7 +1670,7 @@
   }
 
   .ov-grid {
-    padding: 0 24px 60px;
+    padding: 10px 24px 60px;
   }
 
   .ov-hw-spotlight,

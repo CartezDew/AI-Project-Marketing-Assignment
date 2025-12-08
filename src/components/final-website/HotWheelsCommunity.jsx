@@ -617,6 +617,12 @@ const HotWheelsCommunity = ({ selectedBuildStyle }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeBuildFilter, setActiveBuildFilter] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // In-app notification states
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [postToDelete, setPostToDelete] = useState(null);
+  const [showCommunityGuidelines, setShowCommunityGuidelines] = useState(false);
+  const [notification, setNotification] = useState({ show: false, message: '', type: '' });
 
   // Update build filter when selectedBuildStyle prop changes
   useEffect(() => {
@@ -649,10 +655,22 @@ const HotWheelsCommunity = ({ selectedBuildStyle }) => {
     return 'Just now';
   };
 
-  // CRUD Operations
-  const handleCreatePost = () => {
-    if (!newPost.title.trim() || !newPost.content.trim()) return;
+  // Show notification helper
+  const showNotification = (message, type = 'success') => {
+    setNotification({ show: true, message, type });
+    setTimeout(() => setNotification({ show: false, message: '', type: '' }), 4000);
+  };
 
+  // Check if form is complete
+  const isFormComplete = newPost.title.trim().length > 0 && newPost.content.trim().length > 0;
+
+  // CRUD Operations
+  const handlePublishClick = () => {
+    if (!isFormComplete) return;
+    setShowCommunityGuidelines(true);
+  };
+
+  const handleConfirmPublish = () => {
     const post = {
       id: Date.now(),
       author: 'You',
@@ -669,7 +687,9 @@ const HotWheelsCommunity = ({ selectedBuildStyle }) => {
 
     setPosts([post, ...posts]);
     setNewPost({ title: '', content: '', category: 'General' });
+    setShowCommunityGuidelines(false);
     setShowCreateModal(false);
+    showNotification('Your post has been published successfully! 🎉', 'success');
   };
 
   const handleUpdatePost = () => {
@@ -681,13 +701,27 @@ const HotWheelsCommunity = ({ selectedBuildStyle }) => {
         : p
     ));
     setEditingPost(null);
+    showNotification('Your post has been updated successfully! ✏️', 'success');
   };
 
-  const handleDeletePost = (postId) => {
-    if (window.confirm('Are you sure you want to delete this post?')) {
-      setPosts(posts.filter(p => p.id !== postId));
-      if (expandedPost === postId) setExpandedPost(null);
+  const handleDeleteClick = (postId) => {
+    setPostToDelete(postId);
+    setShowDeleteConfirm(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (postToDelete) {
+      setPosts(posts.filter(p => p.id !== postToDelete));
+      if (expandedPost === postToDelete) setExpandedPost(null);
+      showNotification('Your post has been removed successfully.', 'info');
     }
+    setShowDeleteConfirm(false);
+    setPostToDelete(null);
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteConfirm(false);
+    setPostToDelete(null);
   };
 
   const handleLikePost = (postId) => {
@@ -901,7 +935,7 @@ const HotWheelsCommunity = ({ selectedBuildStyle }) => {
                       </button>
                       <button 
                         className="hwc-action-btn hwc-delete-btn"
-                        onClick={() => handleDeletePost(post.id)}
+                        onClick={() => handleDeleteClick(post.id)}
                       >
                         🗑️
                       </button>
@@ -1008,9 +1042,115 @@ const HotWheelsCommunity = ({ selectedBuildStyle }) => {
                 </div>
                 <div className="hwc-modal-footer">
                   <button className="hwc-btn-secondary" onClick={() => setShowCreateModal(false)}>Cancel</button>
-                  <button className="hwc-btn-primary" onClick={handleCreatePost}>Publish Post</button>
+                  <button 
+                    className={`hwc-btn-primary ${!isFormComplete ? 'hwc-btn-disabled' : ''}`}
+                    onClick={handlePublishClick}
+                    disabled={!isFormComplete}
+                  >
+                    Publish Post
+                  </button>
+                </div>
+
+                {/* Community Guidelines Popup */}
+                <AnimatePresence>
+                  {showCommunityGuidelines && (
+                    <motion.div 
+                      className="hwc-guidelines-overlay"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <motion.div 
+                        className="hwc-guidelines-popup"
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                      >
+                        <div className="hwc-guidelines-icon">📋</div>
+                        <h4 className="hwc-guidelines-title">Community Standards</h4>
+                        <p className="hwc-guidelines-text">
+                          By publishing this post, you agree to uphold our community values:
+                        </p>
+                        <ul className="hwc-guidelines-list">
+                          <li>🤝 <strong>Respect:</strong> Treat all community members with kindness and courtesy</li>
+                          <li>💬 <strong>Constructive Communication:</strong> Keep discussions positive and helpful</li>
+                          <li>🚫 <strong>No Harmful Content:</strong> Profanity, harassment, and discriminatory language are prohibited</li>
+                          <li>🛡️ <strong>Safe Environment:</strong> Help us maintain a welcoming space for collectors of all ages</li>
+                        </ul>
+                        <p className="hwc-guidelines-footer">
+                          Violations may result in content removal or account restrictions.
+                        </p>
+                        <div className="hwc-guidelines-actions">
+                          <button 
+                            className="hwc-btn-secondary" 
+                            onClick={() => setShowCommunityGuidelines(false)}
+                          >
+                            Go Back
+                          </button>
+                          <button 
+                            className="hwc-btn-primary hwc-btn-agree"
+                            onClick={handleConfirmPublish}
+                          >
+                            I Agree & Publish
+                          </button>
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Delete Confirmation Modal */}
+        <AnimatePresence>
+          {showDeleteConfirm && (
+            <motion.div
+              className="hwc-modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className="hwc-confirm-modal"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+              >
+                <div className="hwc-confirm-icon">🗑️</div>
+                <h4 className="hwc-confirm-title">Delete Post?</h4>
+                <p className="hwc-confirm-text">
+                  Are you sure you want to delete this post? This action cannot be undone.
+                </p>
+                <div className="hwc-confirm-actions">
+                  <button className="hwc-btn-secondary" onClick={handleCancelDelete}>
+                    Cancel
+                  </button>
+                  <button className="hwc-btn-danger" onClick={handleConfirmDelete}>
+                    Delete Post
+                  </button>
                 </div>
               </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Notification Toast */}
+        <AnimatePresence>
+          {notification.show && (
+            <motion.div
+              className={`hwc-notification hwc-notification-${notification.type}`}
+              initial={{ opacity: 0, y: 50, x: '-50%' }}
+              animate={{ opacity: 1, y: 0, x: '-50%' }}
+              exit={{ opacity: 0, y: 50, x: '-50%' }}
+            >
+              <span className="hwc-notification-icon">
+                {notification.type === 'success' && '✓'}
+                {notification.type === 'info' && 'ℹ'}
+                {notification.type === 'error' && '✕'}
+              </span>
+              <span className="hwc-notification-message">{notification.message}</span>
             </motion.div>
           )}
         </AnimatePresence>

@@ -493,6 +493,19 @@
   border: none;
 }
 
+/* Hide pills when user interacts with video (hover or click/focus) */
+.hws-video-wrapper:hover .hws-video-category-pill,
+.hws-video-wrapper:focus-within .hws-video-category-pill {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+/* Add smooth transition to pills */
+.hws-video-category-pill {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 .hws-video-info {
   padding: 18px 20px;
   background: rgba(0, 0, 0, 0.3);
