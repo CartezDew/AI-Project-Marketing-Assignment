@@ -45,6 +45,9 @@ import './components/final-website/HotWheelsSpotlight.css';
 import './components/final-website/HotWheelsCommunity.css';
 import './components/final-website/Avatar3D.css';
 
+// Presenter Avatar (global component)
+import PresenterAvatar from './components/PresenterAvatar';
+
 // ScrollToTop ensures each route starts at the top instantly (no scroll animation)
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -114,6 +117,7 @@ function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
+        <PresenterAvatar />
         <Routes>
           {/* Main Prompts Comparison Page */}
           <Route path="/" element={<PromptsPage />} />
