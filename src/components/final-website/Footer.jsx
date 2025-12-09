@@ -34,23 +34,23 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className="site-footer-nav">
-          <h4 className="site-footer-heading">Explore</h4>
+          <h4 className="site-footer-heading">{t('footer.explore')}</h4>
           <nav className="site-footer-links">
-            {getNavLink('#overview', 'Overview')}
-            {getNavLink('#features', 'Features')}
-            {getNavLink('#faq', 'FAQ')}
-            {getNavLink('#team', 'Team')}
+            {getNavLink('#overview', t('footer.overview'))}
+            {getNavLink('#features', t('footer.features'))}
+            {getNavLink('#faq', t('footer.faq'))}
+            {getNavLink('#team', t('footer.team'))}
           </nav>
         </div>
 
         {/* Brand Experiences */}
         <div className="site-footer-brands">
-          <h4 className="site-footer-heading">Experiences</h4>
+          <h4 className="site-footer-heading">{t('footer.experiences')}</h4>
           <nav className="site-footer-links">
             {/* Show Home link on UNO and Hot Wheels pages */}
             {(isUno || isHotWheels) && (
               <Link to="/final-website" className="site-footer-brand-link">
-                Home
+                {t('footer.home')}
               </Link>
             )}
             {!isUno && (
@@ -68,10 +68,10 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div className="site-footer-quick">
-          <h4 className="site-footer-heading">More</h4>
+          <h4 className="site-footer-heading">{t('footer.more')}</h4>
           <nav className="site-footer-links">
-            <Link to="/">Back to Prompts</Link>
-            <a href="https://about.mattel.com/" target="_blank" rel="noopener noreferrer">About Mattel</a>
+            <Link to="/">{t('footer.backToPrompts')}</Link>
+            <a href="https://about.mattel.com/" target="_blank" rel="noopener noreferrer">{t('footer.aboutMattel')}</a>
           </nav>
         </div>
       </div>

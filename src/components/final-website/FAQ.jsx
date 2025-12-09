@@ -183,13 +183,13 @@ const FAQ = () => {
         <div className="faq-header" ref={headerRef}>
           <span className={`faq-badge scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>
             <HelpCircle size={16} />
-            Got Questions?
+            {t('faq.badge')}
           </span>
           <h2 className={`faq-title scroll-animate fade-up delay-100 ${headerVisible ? 'visible' : ''}`}>
-            Frequently Asked <span className="faq-title-highlight">Questions</span>
+            {t('faq.title')} <span className="faq-title-highlight">{t('faq.titleHighlight')}</span>
           </h2>
           <p className={`faq-subtitle scroll-animate fade-up delay-200 ${headerVisible ? 'visible' : ''}`}>
-            Everything you need to know about UNO, Hot Wheels, and our AI-powered platform
+            {t('faq.subtitle')}
           </p>
         </div>
 
@@ -228,15 +228,15 @@ const FAQ = () => {
 
         {/* Bottom CTA */}
         <div className="faq-bottom-cta" ref={ctaRef}>
-          <p className={`scroll-animate fade-up ${ctaVisible ? 'visible' : ''}`}>Still have questions? We'd love to help!</p>
+          <p className={`scroll-animate fade-up ${ctaVisible ? 'visible' : ''}`}>{t('faq.ctaText')}</p>
           <div className={`faq-cta-buttons scroll-animate fade-up delay-200 ${ctaVisible ? 'visible' : ''}`}>
             <a href="#team" className="faq-cta-btn faq-cta-primary">
               <Users size={18} />
-              Meet the Team
+              {t('faq.meetTeam')}
             </a>
             <a href="https://about.mattel.com/" target="_blank" rel="noopener noreferrer" className="faq-cta-btn faq-cta-secondary">
               <Globe size={18} />
-              Learn More
+              {t('faq.learnMore')}
             </a>
           </div>
         </div>

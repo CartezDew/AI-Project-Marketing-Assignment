@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import './TeamSection.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Import team images
 import akendaiImg from '../../assets/team/Akendai_Kouassi.webp';
@@ -17,6 +18,7 @@ import aiIcon from '../../assets/icons/ai-icon.webp';
 import groupPhoto from '../../assets/team/group-photo.webp';
 
 const TeamSection = () => {
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [expandedCard, setExpandedCard] = useState(null);
@@ -228,10 +230,10 @@ const TeamSection = () => {
 
       {/* Header */}
       <div className="team-header" ref={headerRef}>
-        <span className={`team-badge scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>👥 Our Team</span>
-        <h2 className={`team-title scroll-animate fade-up delay-100 ${headerVisible ? 'visible' : ''}`}>Meet the <span className="team-title-highlight">Team</span></h2>
+        <span className={`team-badge scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>👥 {t('team.badge')}</span>
+        <h2 className={`team-title scroll-animate fade-up delay-100 ${headerVisible ? 'visible' : ''}`}>{t('team.title')} <span className="team-title-highlight">{t('team.titleHighlight')}</span></h2>
         <p className={`team-subtitle scroll-animate fade-up delay-200 ${headerVisible ? 'visible' : ''}`}>
-          The creative minds behind the Mattel × AI Brand Lab
+          {t('team.subtitle')}
         </p>
       </div>
 
@@ -287,7 +289,7 @@ const TeamSection = () => {
                   </svg>
                 </button>
                 <div className="contrib-content">
-                  <span className="contrib-label">Key Contributions</span>
+                  <span className="contrib-label">{t('team.keyContributions')}</span>
                   <ul className="contrib-list">
                     {member.contributions.map((item, idx) => (
                       <li key={idx}>{item}</li>
@@ -305,10 +307,10 @@ const TeamSection = () => {
                 className="team-card-toggle"
                 onClick={() => toggleCard(member.id)}
                 style={{ '--toggle-color': member.color }}
-                aria-label={expandedCard === member.id ? "Hide contributions" : "Show contributions"}
+                aria-label={expandedCard === member.id ? t('team.hide') : t('team.contributions')}
               >
                 <span className="toggle-text">
-                  {expandedCard === member.id ? 'Hide' : 'Contributions'}
+                  {expandedCard === member.id ? t('team.hide') : t('team.contributions')}
                 </span>
                 <svg 
                   className={`toggle-arrow ${expandedCard === member.id ? 'up' : 'down'}`}
@@ -383,7 +385,7 @@ const TeamSection = () => {
           {/* Caption */}
           <p className="team-group-caption">
             <span className="caption-emoji">🎉</span>
-            The Innovators Powering This AI Experience
+            {t('team.groupCaption')}
             <span className="caption-emoji">✨</span>
           </p>
         </div>
@@ -391,18 +393,18 @@ const TeamSection = () => {
 
       {/* Newsletter CTA */}
       <div className="team-newsletter" ref={bottomRef}>
-        <p className={`team-newsletter-text scroll-animate fade-up ${bottomVisible ? 'visible' : ''}`}>Stay updated with the latest from Mattel × AI Lab</p>
+        <p className={`team-newsletter-text scroll-animate fade-up ${bottomVisible ? 'visible' : ''}`}>{t('team.newsletterText')}</p>
         <form className={`team-newsletter-form scroll-animate fade-up delay-200 ${bottomVisible ? 'visible' : ''}`} onSubmit={handleSubmit}>
           <input
             type="email"
             className="team-newsletter-input"
-            placeholder="Enter your email address"
+            placeholder={t('team.newsletterPlaceholder')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
           <button type="submit" className="team-newsletter-btn">
-            Join
+            {t('team.joinButton')}
           </button>
         </form>
       </div>
@@ -413,11 +415,11 @@ const TeamSection = () => {
           <div className="team-modal" onClick={(e) => e.stopPropagation()}>
             <button className="team-modal-close" onClick={closeModal}>×</button>
             <div className="team-modal-icon">🎉</div>
-            <h3 className="team-modal-title">Thank You!</h3>
+            <h3 className="team-modal-title">{t('team.thankYou')}</h3>
             <p className="team-modal-text">
-              You've successfully joined our newsletter. Get ready for exciting updates from Mattel × AI Lab!
+              {t('team.newsletterSuccess')}
             </p>
-            <button className="team-modal-btn" onClick={closeModal}>Got it!</button>
+            <button className="team-modal-btn" onClick={closeModal}>{t('team.gotIt')}</button>
           </div>
         </div>
       )}

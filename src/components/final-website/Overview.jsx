@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Overview.css';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { useLanguage } from '../../context/LanguageContext';
 import unoCardIcon from '../../assets/icons/Uno-card.webp';
 
 const Overview = () => {
+  const { t } = useLanguage();
   // Scroll animations
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollAnimation({ threshold: 0.1 });
@@ -34,79 +36,79 @@ const Overview = () => {
     {
       id: 'leadership',
       icon: '🌍',
-      title: 'Global Leadership',
+      title: t('overview.globalLeadership'),
       color: '#C8102E',
       stats: '#1',
-      statsLabel: 'Global Toy Company',
+      statsLabel: t('overview.globalToyCompany'),
       points: [
-        'Leading in dolls, vehicles, action figures & preschool toys',
-        'Products sold in 195+ countries worldwide',
-        'Reaching millions of families every year'
+        t('overview.leadingIn'),
+        t('overview.productsIn'),
+        t('overview.reachingMillions')
       ]
     },
     {
       id: 'brands',
       icon: '⭐',
-      title: 'Iconic Brand Portfolio',
+      title: t('overview.iconicPortfolio'),
       color: '#FFD53D',
       stats: '10+',
-      statsLabel: 'Legendary Brands',
+      statsLabel: t('overview.legendaryBrands'),
       points: [
-        'Barbie®, Hot Wheels®, Fisher-Price®, UNO®',
-        'Thomas & Friends™, American Girl®, MEGA®',
-        'Multi-generational fanbases with deep cultural impact'
+        t('overview.barbieHotWheels'),
+        t('overview.thomasFriends'),
+        t('overview.multiGenerational')
       ]
     },
     {
       id: 'innovation',
       icon: '💡',
-      title: 'Innovation & Design',
+      title: t('overview.innovationDesign'),
       color: '#4A8CFF',
       stats: '75+',
-      statsLabel: 'Years of Innovation',
+      statsLabel: t('overview.yearsInnovation'),
       points: [
-        'Leader in toy innovation and immersive play',
-        'Technology integration & digital-first experiences',
-        'Collectible culture and community building'
+        t('overview.leaderInToy'),
+        t('overview.techIntegration'),
+        t('overview.collectibleCulture')
       ]
     },
     {
       id: 'entertainment',
       icon: '🎬',
-      title: 'Entertainment Powerhouse',
+      title: t('overview.entertainmentPowerhouse'),
       color: '#FF6B00',
       stats: '$1.4B+',
-      statsLabel: 'Barbie Movie Box Office',
+      statsLabel: t('overview.barbieMovieBox'),
       points: [
-        'Movies, TV, digital games & live experiences',
-        'Barbie The Movie - highest-grossing film of 2023',
-        'Publishing, streaming & consumer products'
+        t('overview.moviesTV'),
+        t('overview.barbieHighest'),
+        t('overview.publishingStreaming')
       ]
     },
     {
       id: 'sustainability',
       icon: '🌱',
-      title: 'Sustainability & Purpose',
+      title: t('overview.sustainability'),
       color: '#00A651',
       stats: '2030',
-      statsLabel: 'Sustainability Goal',
+      statsLabel: t('overview.sustainabilityGoal'),
       points: [
-        'Mattel PlayBack toy recycling program',
-        '100% recycled/recyclable plastics commitment',
-        'Diversity & inclusion in brand storytelling'
+        t('overview.playbackProgram'),
+        t('overview.recycledPlastics'),
+        t('overview.diversityInclusion')
       ]
     },
     {
       id: 'community',
       icon: '🏆',
-      title: 'Fan Communities',
+      title: t('overview.fanCommunities'),
       color: '#9B59B6',
       stats: '8B+',
-      statsLabel: 'Hot Wheels Cars Made',
+      statsLabel: t('overview.hotWheelsMade'),
       points: [
-        'Hot Wheels Red Line Club collectors',
-        'Barbie Signature & UNO competitive play',
-        'Global creator challenges & events'
+        t('overview.redLineClub'),
+        t('overview.barbieSignature'),
+        t('overview.globalCreator')
       ]
     }
   ];
@@ -144,13 +146,12 @@ const Overview = () => {
           <div className="ov-shape-ring ov-ring-2"></div>
         </div>
         <div className="ov-header-content">
-          <span className={`ov-eyebrow scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>About The Company</span>
+          <span className={`ov-eyebrow scroll-animate fade-up ${headerVisible ? 'visible' : ''}`}>{t('overview.aboutCompany')}</span>
           <h2 className={`ov-title scroll-animate fade-up delay-100 ${headerVisible ? 'visible' : ''}`}>
-            The World of <span className="ov-title-highlight">Mattel</span>
+            {t('overview.worldOfMattel')} <span className="ov-title-highlight">{t('overview.mattel')}</span>
           </h2>
           <p className={`ov-subtitle scroll-animate fade-up delay-200 ${headerVisible ? 'visible' : ''}`}>
-            A leading global toy and family entertainment company, creating innovative products 
-            that inspire fans, entertain audiences, and develop children through play.
+            {t('overview.companyDesc')}
           </p>
         </div>
       </div>
@@ -208,40 +209,40 @@ const Overview = () => {
         <div className="ov-spotlight-container">
           <div className={`ov-spotlight-badge scroll-animate fade-up ${hwVisible ? 'visible' : ''}`}>
             <span>🏎️</span>
-            <span>BRAND SPOTLIGHT</span>
+            <span>{t('overview.brandSpotlight')}</span>
           </div>
           
-          <h3 className={`ov-hw-title scroll-animate fade-up delay-100 ${hwVisible ? 'visible' : ''}`}>HOT WHEELS</h3>
-          <p className={`ov-hw-tagline scroll-animate fade-up delay-200 ${hwVisible ? 'visible' : ''}`}>One of the best-selling toys ever created</p>
+          <h3 className={`ov-hw-title scroll-animate fade-up delay-100 ${hwVisible ? 'visible' : ''}`}>{t('overview.hotWheelsTitle')}</h3>
+          <p className={`ov-hw-tagline scroll-animate fade-up delay-200 ${hwVisible ? 'visible' : ''}`}>{t('overview.bestSelling')}</p>
 
           <div className={`ov-hw-stats-row scroll-animate fade-up delay-300 ${hwVisible ? 'visible' : ''}`}>
             <div className="ov-hw-stat">
               <span className="ov-hw-stat-num">1968</span>
-              <span className="ov-hw-stat-label">Year Launched</span>
+              <span className="ov-hw-stat-label">{t('overview.yearLaunched')}</span>
             </div>
             <div className="ov-hw-stat ov-hw-stat-hero">
               <span className="ov-hw-stat-num">6B+</span>
-              <span className="ov-hw-stat-label">Cars Produced</span>
+              <span className="ov-hw-stat-label">{t('overview.carsProduced')}</span>
             </div>
             <div className="ov-hw-stat">
               <span className="ov-hw-stat-num">20K+</span>
-              <span className="ov-hw-stat-label">Models</span>
+              <span className="ov-hw-stat-label">{t('overview.models')}</span>
             </div>
             <div className="ov-hw-stat">
               <span className="ov-hw-stat-num">50+</span>
-              <span className="ov-hw-stat-label">Years</span>
+              <span className="ov-hw-stat-label">{t('overview.years')}</span>
             </div>
           </div>
 
           <div className={`ov-hw-rlc scroll-animate fade-up delay-400 ${hwVisible ? 'visible' : ''}`}>
             <div className="ov-rlc-inner">
-              <div className="ov-rlc-badge">🏆 RED LINE CLUB</div>
-              <p>Premium membership for serious collectors. Limited-edition drops, behind-the-scenes content, and voting on new releases.</p>
+              <div className="ov-rlc-badge">🏆 {t('overview.redLineClubTitle')}</div>
+              <p>{t('overview.premiumMembership')}</p>
             </div>
           </div>
 
           <p className={`ov-hw-community scroll-animate fade-up delay-500 ${hwVisible ? 'visible' : ''}`}>
-            From kids to hobbyists to hardcore adult collectors — a <strong>global community</strong> united by car culture.
+            {t('overview.globalCommunity')} <strong>{t('overview.globalCommunityBold')}</strong> {t('overview.unitedByCar')}
           </p>
         </div>
       </div>
@@ -279,7 +280,7 @@ const Overview = () => {
             <div className="ov-bento-hero-inner">
               <div className={`ov-spotlight-badge ov-uno-badge`}>
                 <img src={unoCardIcon} alt="UNO card game icon" className="ov-uno-badge-icon" />
-            <span>BRAND SPOTLIGHT</span>
+            <span>{t('overview.brandSpotlight')}</span>
           </div>
 
           <div className="ov-uno-card-stack">
@@ -305,8 +306,8 @@ const Overview = () => {
             </div>
           </div>
 
-          <h3 className="ov-uno-title">UNO</h3>
-          <p className="ov-uno-tagline">The World's #1 Card Game</p>
+          <h3 className="ov-uno-title">{t('overview.unoTitle')}</h3>
+          <p className="ov-uno-tagline">{t('overview.worldsNo1')}</p>
             </div>
             </div>
             
@@ -316,7 +317,7 @@ const Overview = () => {
               <div className="ov-counter-label">
               </div>
               <div className="ov-uno-big-num">17</div>
-              <div className="ov-uno-big-unit">decks sold every minute</div>
+              <div className="ov-uno-big-unit">{t('overview.decksSold')}</div>
             <div className="ov-uno-timer">
               <div className="ov-uno-timer-bar">
                   <div className="ov-uno-timer-fill" style={{ width: `${(secondsElapsed / 17) * 100}%` }}></div>
@@ -324,7 +325,7 @@ const Overview = () => {
                 <span className="ov-uno-timer-text">{secondsElapsed}s / 17s</span>
               </div>
               <div className="ov-counter-total">
-                <span className="ov-counter-total-label">Total Sold Worldwide</span>
+                <span className="ov-counter-total-label">{t('overview.totalSold')}</span>
                 <span className="ov-counter-total-num">{decksSold.toLocaleString()}</span>
               </div>
             </div>
@@ -333,22 +334,22 @@ const Overview = () => {
           {/* Stats Tiles Row */}
           <div className={`ov-bento-card ov-bento-stat ov-bento-stat-red scroll-animate fade-up delay-200 ${unoVisible ? 'visible' : ''}`}>
             <span className="ov-bento-stat-num">80+</span>
-            <span className="ov-bento-stat-label">Countries</span>
+            <span className="ov-bento-stat-label">{t('overview.countries')}</span>
           </div>
 
           <div className={`ov-bento-card ov-bento-stat ov-bento-stat-yellow scroll-animate fade-up delay-250 ${unoVisible ? 'visible' : ''}`}>
             <span className="ov-bento-stat-num">600+</span>
-            <span className="ov-bento-stat-label">Editions</span>
+            <span className="ov-bento-stat-label">{t('overview.editions')}</span>
           </div>
 
           <div className={`ov-bento-card ov-bento-stat ov-bento-stat-green scroll-animate fade-up delay-300 ${unoVisible ? 'visible' : ''}`}>
             <span className="ov-bento-stat-num">2-10</span>
-            <span className="ov-bento-stat-label">Players</span>
+            <span className="ov-bento-stat-label">{t('overview.players')}</span>
           </div>
 
           <div className={`ov-bento-card ov-bento-stat ov-bento-stat-blue scroll-animate fade-up delay-350 ${unoVisible ? 'visible' : ''}`}>
             <span className="ov-bento-stat-num">7+</span>
-            <span className="ov-bento-stat-label">Ages</span>
+            <span className="ov-bento-stat-label">{t('overview.ages')}</span>
           </div>
 
           {/* Callout Card - Wide Bottom */}
@@ -356,8 +357,8 @@ const Overview = () => {
             <div className="ov-bento-callout-inner">
               <div className="ov-callout-quote">"</div>
               <div className="ov-callout-content">
-                <strong>Say "UNO!" or draw two.</strong>
-                <p>Fast. Social. Unpredictable. The game that brings everyone together.</p>
+                <strong>{t('overview.sayUno')}</strong>
+                <p>{t('overview.fastSocial')}</p>
                 <div className="ov-callout-cta">
                   <a href="/final-website/uno" className="ov-callout-btn">
                     <span>Play Now</span>
@@ -402,16 +403,14 @@ const Overview = () => {
         <div className={`ov-cta-content scroll-animate blur-in ${ctaVisible ? 'visible' : ''}`}>
           <div className="ov-cta-badge">
             <span className="ov-badge-icon">🏅</span>
-            <span>Award-Winning Innovation</span>
+            <span>{t('overview.awardWinning')}</span>
           </div>
           <p className="ov-cta-text">
-            Recipient of numerous <strong>Toy of the Year</strong> awards. 
-            Consistently recognized for product design, innovation, and safety.
+            {t('overview.toyOfYear')}
           </p>
           <div className="ov-cta-divider"></div>
           <p className="ov-culture-text">
-            Mattel brands actively shape <em>fashion, gaming, nostalgia, and pop culture</em> — 
-            inspiring both kids and adults across generations.
+            {t('overview.mattelBrands')}
           </p>
         </div>
       </div>
