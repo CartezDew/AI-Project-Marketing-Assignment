@@ -964,7 +964,7 @@ const FinalWebsiteUnoExperience = () => {
                   <h4>Teddy Says</h4>
                 </div>
                 <blockquote className="uno-player-quote">
-                  "I love playing UNO with my friends and family. My favorite move? Saving my Wild Draw 4 until someone's about to win! 😈"
+                  "I love playing UNO with my friends and family. My favorite move? Saving my Wild Draw 4 until someone's about to win!"
                 </blockquote>
               </motion.div>
             </div>

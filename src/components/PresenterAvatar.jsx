@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import cartezImage from '../assets/team/Cartez_Dewberry.webp';
+import cartezImage from '../assets/team/Lesley_Gonzalez.webp';
 import './PresenterAvatar.css';
 
 const PresenterAvatar = () => {
@@ -8,7 +8,7 @@ const PresenterAvatar = () => {
     <motion.div 
       className="presenter-avatar-container"
       role="img"
-      aria-label="Cartez Dewberry - Presenter"
+      aria-label="Lesley Gonzalez - Presenter"
       initial={{ opacity: 0, scale: 0, y: 100 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ 
@@ -40,7 +40,7 @@ const PresenterAvatar = () => {
         <div className="presenter-avatar-glow"></div>
         <img 
           src={cartezImage} 
-          alt="Cartez Dewberry - Presenter" 
+          alt="Lesley Gonzalez - Presenter" 
           className="presenter-avatar-image"
         />
         
@@ -54,7 +54,7 @@ const PresenterAvatar = () => {
       
       {/* Name tag */}
       <div className="presenter-name-tag">
-        <span className="presenter-name">Cartez Dewberry</span>
+        <span className="presenter-name">Lesley Gonzalez</span>
         <span className="presenter-role">Presenter</span>
       </div>
     </motion.div>

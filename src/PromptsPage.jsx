@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './PromptsPage.css';
 import aiIcon from './assets/icons/ai-icon.webp';
+import lesleyImg from './assets/team/Lesley_Gonzalez.webp';
 
 function PromptsPage() {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedPrompt, setExpandedPrompt] = useState(null);
   const [finalWebsiteAccordionOpen, setFinalWebsiteAccordionOpen] = useState(false);
   const [expandedEnhancement, setExpandedEnhancement] = useState(null);
+  const [showPresenterModal, setShowPresenterModal] = useState(false);
 
   const aiEnhancements = [
     {
@@ -537,6 +539,41 @@ Please create both infographics based on the YouTube video content provided.`,
         "Responsive design for mobile and desktop viewing"
       ],
       challenge: "Analyzing YouTube videos to extract accurate step-by-step instructions required careful attention to detail and multiple viewings. Converting video content into clear, visual infographics while maintaining brand alignment and ensuring all tools and materials were correctly listed was time-intensive. The infographics needed to be comprehensive yet scannable, balancing detailed instructions with visual clarity."
+    },
+    {
+      id: 22,
+      title: "Page Optimization Report (Perplexity Comet Browser)",
+      model: "Perplexity Comet Browser",
+      type: "🔬 Optimization Analysis",
+      description: "Comprehensive page optimization analysis powered by Perplexity's fine-tuned transformer-based LLMs. The report covers strategy, media, accessibility, answer engine optimization, and KPI alignment for the AI Lab concept.",
+      prompt: `"Analyze the Mattel × AI Brand Lab website pages and provide optimization recommendations for the 'AI Lab' concept. Focus on clarifying strategy, tightening Hot Wheels page for answer engines and accessibility, and proposing concrete media and feature additions tied to specific personas and KPIs."`,
+      outputs: [
+        "Key Optimization Strategies",
+        "• Preserved brand voice pillars ('Unleashing Playful Brand Experiences,' 'Challenge Accepted')",
+        "• Optimized structure with short headings, scannable bullets, and explicit CTAs",
+        "• Surfaced AI widgets as interactive hero elements for immediate engagement",
+        "",
+        "Media & Features",
+        "• Branded visual examples: mock AI outputs, sample track designs, collector displays",
+        "• Motion clips & micro-animations for 'playful lab' experience",
+        "• Improved accessibility: heading hierarchy (H1–H3), ARIA roles, keyboard-friendly forms",
+        "• AI-powered alt-text generation and color-contrast checking",
+        "",
+        "Answer Engine Optimization",
+        "• FAQ-style sections matching likely queries ('What is the Red Line Club?')",
+        "• Structured lists for features, benefits, and drop details",
+        "• Clear CTA labels ('Sign up for collector emails,' 'Generate house rules')",
+        "",
+        "Persona Alignment & KPIs",
+        "• Tuned for 'social game-night host' (UNO) and 'serious collector' (Hot Wheels)",
+        "• Primary KPIs: sign-up rate, AI tool usage, time-on-task, repeat visits",
+        "• Secondary KPIs: interaction depth, calendar views, email opt-ins",
+        "",
+        "Additional Optimizations (Class Parameters)",
+        "• Tightened information scent with persona-specific subheadings",
+        "• Clarified AI value prop with one-line problem statements per widget"
+      ],
+      challenge: "The analysis required balancing SEO/AEO optimization with maintaining the playful, energetic brand voice. Ensuring recommendations were actionable while respecting existing design patterns and persona alignment was key. The report needed to translate technical optimization strategies into clear, implementable improvements."
     }
   ];
 
@@ -2686,8 +2723,98 @@ Please create both infographics based on the YouTube video content provided.`;
 
       {/* Footer */}
       <footer className="footer">
-        <p>Prompts | Educational Use Only | Mattel Marketing Project</p>
+        <p>
+          <span 
+            className="prompts-trigger"
+            onClick={() => setShowPresenterModal(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && setShowPresenterModal(true)}
+          >
+            Prompts
+          </span>
+          {' '}| Educational Use Only | Mattel Marketing Project
+        </p>
       </footer>
+
+      {/* Lesley Gonzalez Presenter Modal */}
+      {showPresenterModal && (
+        <div className="presenter-modal-overlay" onClick={() => setShowPresenterModal(false)}>
+          <div className="presenter-modal" onClick={(e) => e.stopPropagation()}>
+            {/* Animated Background Elements */}
+            <div className="presenter-modal-bg">
+              <div className="presenter-sparkle presenter-sparkle-1">✦</div>
+              <div className="presenter-sparkle presenter-sparkle-2">✧</div>
+              <div className="presenter-sparkle presenter-sparkle-3">★</div>
+              <div className="presenter-sparkle presenter-sparkle-4">✺</div>
+              <div className="presenter-sparkle presenter-sparkle-5">+</div>
+              <div className="presenter-sparkle presenter-sparkle-6">✨</div>
+              <div className="presenter-glow-orb presenter-orb-1"></div>
+              <div className="presenter-glow-orb presenter-orb-2"></div>
+              <div className="presenter-glow-orb presenter-orb-3"></div>
+            </div>
+
+            {/* Gemini Powered Pill */}
+            <div className="gemini-powered-pill">
+              <span className="gemini-icon">✨</span>
+              <span className="gemini-text">Voice & Image Powered by Google Gemini</span>
+            </div>
+
+            {/* Top Badge */}
+            <div className="presenter-modal-badge">
+              <span className="badge-icon">🎤</span>
+              <span className="badge-text">Today's Presenter</span>
+            </div>
+
+            {/* Card Content */}
+            <div className="presenter-card-content">
+              {/* Image Container with Rings */}
+              <div className="presenter-image-section">
+                <div className="presenter-ring presenter-ring-1"></div>
+                <div className="presenter-ring presenter-ring-2"></div>
+                <div className="presenter-ring presenter-ring-3"></div>
+                <div className="presenter-image-wrapper">
+                  <div className="presenter-image-glow"></div>
+                  <img 
+                    src={lesleyImg} 
+                    alt="Lesley Gonzalez" 
+                    className="presenter-image"
+                  />
+                  <div className="presenter-role-badge">CCMO</div>
+                </div>
+              </div>
+
+              {/* Info Section */}
+              <div className="presenter-info-section">
+                <h2 className="presenter-name">Lesley Gonzalez</h2>
+                <p className="presenter-title">Chief Creative & Media Officer</p>
+                
+                {/* Contributions */}
+                <div className="presenter-contributions">
+                  <span className="contrib-header">Key Contributions</span>
+                  <ul className="contrib-items">
+                    <li><span className="contrib-bullet"></span>Led all AI editing and content refinement</li>
+                    <li><span className="contrib-bullet"></span>Image generation</li>
+                    <li><span className="contrib-bullet"></span>Edited and assembled the full team presentation</li>
+                    <li><span className="contrib-bullet"></span>Ensured brand consistency and storytelling clarity</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom CTA */}
+            <button 
+              className="presenter-start-btn"
+              onClick={() => setShowPresenterModal(false)}
+            >
+              <span>Let's Begin</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
