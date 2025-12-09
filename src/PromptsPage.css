@@ -682,6 +682,227 @@ body {
   border: 1px solid rgba(255, 213, 61, 0.2);
 }
 
+/* Prompt 3 Optimization Report Section */
+.optimization-report-section {
+  margin-top: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(145deg, rgba(66, 133, 244, 0.08) 0%, rgba(52, 168, 83, 0.06) 50%, rgba(251, 188, 5, 0.08) 100%);
+  border-radius: 16px;
+  border: 2px solid rgba(66, 133, 244, 0.25);
+  overflow: hidden;
+}
+
+.optimization-report-header {
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.12) 0%, rgba(52, 168, 83, 0.08) 100%);
+  transition: background 0.3s ease;
+}
+
+.optimization-report-header:hover {
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.18) 0%, rgba(52, 168, 83, 0.12) 100%);
+}
+
+.optimization-report-header.open {
+  border-bottom: 1px solid rgba(66, 133, 244, 0.2);
+}
+
+.optimization-report-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.report-icon {
+  font-size: 1.3rem;
+}
+
+.optimization-toggle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #4285F4;
+}
+
+.optimization-report-content {
+  padding: 20px;
+}
+
+/* Perplexity Accordion */
+.perplexity-accordion {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(66, 133, 244, 0.2);
+  overflow: hidden;
+}
+
+.perplexity-header {
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, rgba(234, 67, 53, 0.05) 100%);
+  transition: background 0.3s ease;
+}
+
+.perplexity-header:hover {
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.15) 0%, rgba(234, 67, 53, 0.08) 100%);
+}
+
+.perplexity-header.open {
+  border-bottom: 1px solid rgba(66, 133, 244, 0.15);
+}
+
+.perplexity-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+}
+
+.perplexity-badge {
+  font-size: 1.1rem;
+}
+
+.perplexity-tag {
+  background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.perplexity-toggle {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #4285F4;
+}
+
+.perplexity-content {
+  padding: 20px;
+}
+
+/* Report Sections */
+.report-section {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.report-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.report-section-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FBBC05;
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.report-section-content {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.report-section-content p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+
+.report-section-content p:last-child {
+  margin-bottom: 0;
+}
+
+.report-section-content strong {
+  color: #4285F4;
+  font-weight: 600;
+}
+
+.report-section-content .optimization-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.report-section-content .optimization-list li {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.report-section-content .optimization-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #34A853;
+  font-size: 0.8rem;
+}
+
+.report-section-content .optimization-list li strong {
+  color: #FBBC05;
+}
+
+.report-note {
+  background: rgba(66, 133, 244, 0.1);
+  border: 1px solid rgba(66, 133, 244, 0.2);
+  border-left: 3px solid #4285F4;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem !important;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75) !important;
+  margin-top: 16px !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .optimization-report-title {
+    font-size: 0.95rem;
+  }
+  
+  .perplexity-title {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .perplexity-tag {
+    font-size: 0.55rem;
+  }
+  
+  .report-section-title {
+    font-size: 0.85rem;
+  }
+  
+  .report-section-content p {
+    font-size: 0.8rem;
+  }
+}
+
 /* Tools Summary */
 .tools-summary {
   margin-top: 20px;

@@ -8,6 +8,8 @@ function PromptsPage() {
   const [expandedPrompt, setExpandedPrompt] = useState(null);
   const [finalWebsiteAccordionOpen, setFinalWebsiteAccordionOpen] = useState(false);
   const [expandedEnhancement, setExpandedEnhancement] = useState(null);
+  const [optimizationReportOpen, setOptimizationReportOpen] = useState(false);
+  const [perplexityAccordionOpen, setPerplexityAccordionOpen] = useState(false);
 
   const aiEnhancements = [
     {
@@ -1834,18 +1836,18 @@ Please create both infographics based on the YouTube video content provided.`;
           <p class="subtitle">Mattel x AI Brand Lab - Complete Documentation</p>
           <div class="meta-info">
             <span>📅 Generated: ${new Date().toLocaleDateString()}</span>
-            <span>📊 Total Prompts: 22</span>
+            <span>📊 Total Prompts: 22 + Optimization Report</span>
             <span>🎯 Project: Mattel Marketing Assignment</span>
           </div>
         </div>
         
         <div class="summary-stats">
           <div class="stat-card">
-            <div class="stat-value">22</div>
+            <div class="stat-value">22+</div>
             <div class="stat-label">AI Prompts Used</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value">4</div>
+            <div class="stat-value">5</div>
             <div class="stat-label">AI Models</div>
           </div>
           <div class="stat-card">
@@ -1857,6 +1859,60 @@ Please create both infographics based on the YouTube video content provided.`;
         <h2 class="section-title">📋 All AI Enhancements (1-22)</h2>
         
         ${enhancementSections}
+        
+        <h2 class="section-title">📊 Prompt 3 Optimization Report</h2>
+        
+        <div class="enhancement-card" style="border-left: 4px solid #4285F4;">
+          <div class="enhancement-header-section" style="background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%);">
+            <span class="enhancement-num">🔬</span>
+            <div class="enhancement-meta">
+              <h3>Perplexity AI – Comet Browser</h3>
+              <div class="meta-badges">
+                <span class="badge badge-model">🤖 Perplexity Comet</span>
+                <span class="badge badge-type">🔬 Optimization Analysis</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="enhancement-body">
+            <p class="description">Comprehensive page optimization analysis powered by Perplexity's fine-tuned transformer-based LLMs. The report covers strategy, media, accessibility, answer engine optimization, and KPI alignment for the AI Lab concept.</p>
+            
+            <div class="prompt-section">
+              <h4>🎯 Key Optimization Strategies</h4>
+              <p style="margin-bottom: 12px;">The page already uses strong brand language ("Unleashing Playful Brand Experiences," "Challenge Accepted") and clear sub-brand segmentation (UNO vs Hot Wheels), which should be preserved as core voice pillars while tightening for scannability and answer engines.</p>
+              <p style="margin-bottom: 12px;">The structure should be optimized into short, descriptive headings, scannable bullets, and explicit CTAs (e.g., "Sign up for collector alerts," "Start a track design") to guide users through each micro-experience in the AI Lab.</p>
+              <p>Finally, the "AI Lab" concept can be made more concrete by surfacing the AI widgets (house rules generator, track/display builder) as interactive hero elements instead of buried descriptions, turning the page from a description of features into an experience that invites immediate interaction.</p>
+            </div>
+            
+            <div class="prompt-section">
+              <h4>🎬 Media, Features, and Answer Engines</h4>
+              <p style="margin-bottom: 12px;"><strong>Media:</strong> The content would benefit from branded visual examples of AI outputs: mock screenshots of the UNO house rules generator, sample AI-designed Hot Wheels tracks, and simple diagrams of collector displays tied to "Design Your Dream Build."</p>
+              <p style="margin-bottom: 12px;">Short motion clips or looping micro-animations (e.g., a track loop or an animated UNO hand being played) could create a stronger sense of "playful lab" and better connect the copy to actual in-game experiences.</p>
+              <p style="margin-bottom: 12px;"><strong>Features:</strong> Accessibility can be improved with clear heading hierarchy (H1–H3), meaningful link text instead of "View full calendar," ARIA roles for interactive AI widgets, keyboard-friendly forms, and visible focus states.</p>
+              <p style="margin-bottom: 12px;">AI tools like automatic alt-text generation, AI-based color-contrast checkers, and AI-assisted copy simplification can be used to generate accessible descriptions of cars, tracks, and game scenarios without diluting brand voice.</p>
+              <p style="margin-bottom: 12px;"><strong>Answer Engine Optimization:</strong> The pages need explicit FAQ-style sections that match likely questions (e.g., "What is the Hot Wheels Red Line Club?" or "How does the UNO AI house rules generator work?") and short, direct answers in plain language under those headings.</p>
+              <p>Adding concise metadata-like intros, structured lists (for features, benefits, and drop details), and clearer labels on CTAs ("Sign up for collector emails," "Generate house rules") will help answer engines extract and surface the most important information.</p>
+            </div>
+            
+            <div class="prompt-section">
+              <h4>👥 Voice, Persona Alignment, and KPIs</h4>
+              <p style="margin-bottom: 12px;">The existing voice is energetic, playful, and slightly aspirational, which aligns well with personas like "social game-night host" (UNO) and "serious but fun-loving collector" (Hot Wheels).</p>
+              <p style="margin-bottom: 12px;">However, the copy occasionally leans more toward campaign taglines than clear, benefit-oriented statements, so a persona-tuned pass should explicitly tie lines like "Where artistry meets adrenaline" to concrete user outcomes (e.g., "find rare castings," "plan your next track build") for each persona.</p>
+              <p style="margin-bottom: 12px;"><strong>Primary KPIs:</strong> Sign-up rate, click-through to AI tools (track/display builder usage), time-on-task within each brand experience, and repeat visits to the collectors hub or UNO community area.</p>
+              <p><strong>Secondary KPIs:</strong> Interaction depth (number of AI concepts generated, drops calendar views, "car of the week" interactions) and email/notification opt-ins for upcoming drops and events.</p>
+            </div>
+            
+            <div class="prompt-section">
+              <h4>✨ Additional Optimization Opportunities</h4>
+              <p style="margin-bottom: 12px;">Applying class parameters, the content can be further optimized by:</p>
+              <ul style="margin: 12px 0; padding-left: 20px;">
+                <li style="margin-bottom: 8px;"><strong>Tightening information scent:</strong> adding subheadings like "For New Collectors," "For Hardcore Collectors," and "For Game Night Hosts" so each persona immediately finds their track.</li>
+                <li><strong>Clarifying the AI value prop:</strong> adding one concise line under each AI widget about what problem it solves (e.g., "Stop arguing over rules; generate custom UNO house rules in one tap").</li>
+              </ul>
+              <p style="background: #e8f4fc; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #4285F4; font-style: italic; color: #1a73e8;">You can package the above into your assignment by: attaching your persona profile(s), pasting revised example copy for key sections (hero, AI widgets, CTAs), and listing the proposed media, accessibility features, answer-engine tweaks, and KPIs in clearly labeled subsections that map directly to the questions in the prompt.</p>
+            </div>
+          </div>
+        </div>
         
         <div class="footer">
           <p>Generated for Mattel Marketing Project - Educational Use Only</p>
@@ -2197,7 +2253,7 @@ Please create both infographics based on the YouTube video content provided.`;
             <div className="build-stat-divider">|</div>
             <div className="build-stat-item">
               <span className="build-stat-icon">🤖</span>
-              <span className="build-stat-value">4</span>
+              <span className="build-stat-value">5</span>
               <span className="build-stat-label">AI Models</span>
             </div>
           </div>
@@ -2297,6 +2353,90 @@ Please create both infographics based on the YouTube video content provided.`;
                   ))}
                 </div>
 
+                {/* Prompt 3 Optimization Report Section */}
+                <div className="optimization-report-section">
+                  <div 
+                    className={`optimization-report-header ${optimizationReportOpen ? 'open' : ''}`}
+                    onClick={() => setOptimizationReportOpen(!optimizationReportOpen)}
+                  >
+                    <div className="optimization-report-title">
+                      <span className="report-icon">📊</span>
+                      <span>Prompt 3 Optimization Report</span>
+                    </div>
+                    <span className="optimization-toggle">{optimizationReportOpen ? '−' : '+'}</span>
+                  </div>
+                  
+                  {optimizationReportOpen && (
+                    <div className="optimization-report-content">
+                      {/* Perplexity Comet Browser Accordion */}
+                      <div className="perplexity-accordion">
+                        <div 
+                          className={`perplexity-header ${perplexityAccordionOpen ? 'open' : ''}`}
+                          onClick={() => setPerplexityAccordionOpen(!perplexityAccordionOpen)}
+                        >
+                          <div className="perplexity-title">
+                            <span className="perplexity-badge">🔬</span>
+                            <span>Perplexity AI – Comet Browser</span>
+                            <span className="perplexity-tag">Transformer LLMs</span>
+                          </div>
+                          <span className="perplexity-toggle">{perplexityAccordionOpen ? '−' : '+'}</span>
+                        </div>
+                        
+                        {perplexityAccordionOpen && (
+                          <div className="perplexity-content">
+                            {/* Key Optimization Strategies */}
+                            <div className="report-section">
+                              <h5 className="report-section-title">🎯 Key Optimization Strategies</h5>
+                              <div className="report-section-content">
+                                <p>The page already uses strong brand language ("Unleashing Playful Brand Experiences," "Challenge Accepted") and clear sub-brand segmentation (UNO vs Hot Wheels), which should be preserved as core voice pillars while tightening for scannability and answer engines.</p>
+                                <p>The structure should be optimized into short, descriptive headings, scannable bullets, and explicit CTAs (e.g., "Sign up for collector alerts," "Start a track design") to guide users through each micro-experience in the AI Lab.</p>
+                                <p>Finally, the "AI Lab" concept can be made more concrete by surfacing the AI widgets (house rules generator, track/display builder) as interactive hero elements instead of buried descriptions, turning the page from a description of features into an experience that invites immediate interaction.</p>
+                              </div>
+                            </div>
+
+                            {/* Media, Features, and Answer Engines */}
+                            <div className="report-section">
+                              <h5 className="report-section-title">🎬 Media, Features, and Answer Engines</h5>
+                              <div className="report-section-content">
+                                <p><strong>Media:</strong> The content would benefit from branded visual examples of AI outputs: mock screenshots of the UNO house rules generator, sample AI-designed Hot Wheels tracks, and simple diagrams of collector displays tied to "Design Your Dream Build."</p>
+                                <p>Short motion clips or looping micro-animations (e.g., a track loop or an animated UNO hand being played) could create a stronger sense of "playful lab" and better connect the copy to actual in-game experiences.</p>
+                                <p><strong>Features:</strong> Accessibility can be improved with clear heading hierarchy (H1–H3), meaningful link text instead of "View full calendar," ARIA roles for interactive AI widgets, keyboard-friendly forms, and visible focus states.</p>
+                                <p>AI tools like automatic alt-text generation, AI-based color-contrast checkers, and AI-assisted copy simplification can be used to generate accessible descriptions of cars, tracks, and game scenarios without diluting brand voice.</p>
+                                <p><strong>Answer Engine Optimization:</strong> The pages need explicit FAQ-style sections that match likely questions (e.g., "What is the Hot Wheels Red Line Club?" or "How does the UNO AI house rules generator work?") and short, direct answers in plain language under those headings.</p>
+                                <p>Adding concise metadata-like intros, structured lists (for features, benefits, and drop details), and clearer labels on CTAs ("Sign up for collector emails," "Generate house rules") will help answer engines extract and surface the most important information.</p>
+                              </div>
+                            </div>
+
+                            {/* Voice, Persona Alignment, and KPIs */}
+                            <div className="report-section">
+                              <h5 className="report-section-title">👥 Voice, Persona Alignment, and KPIs</h5>
+                              <div className="report-section-content">
+                                <p>The existing voice is energetic, playful, and slightly aspirational, which aligns well with personas like "social game-night host" (UNO) and "serious but fun-loving collector" (Hot Wheels).</p>
+                                <p>However, the copy occasionally leans more toward campaign taglines than clear, benefit-oriented statements, so a persona-tuned pass should explicitly tie lines like "Where artistry meets adrenaline" to concrete user outcomes (e.g., "find rare castings," "plan your next track build") for each persona.</p>
+                                <p><strong>Primary KPIs:</strong> Sign-up rate, click-through to AI tools (track/display builder usage), time-on-task within each brand experience, and repeat visits to the collectors hub or UNO community area.</p>
+                                <p><strong>Secondary KPIs:</strong> Interaction depth (number of AI concepts generated, drops calendar views, "car of the week" interactions) and email/notification opt-ins for upcoming drops and events.</p>
+                              </div>
+                            </div>
+
+                            {/* Additional Optimization Opportunities */}
+                            <div className="report-section">
+                              <h5 className="report-section-title">✨ Additional Optimization Opportunities</h5>
+                              <div className="report-section-content">
+                                <p>Applying class parameters, the content can be further optimized by:</p>
+                                <ul className="optimization-list">
+                                  <li><strong>Tightening information scent:</strong> adding subheadings like "For New Collectors," "For Hardcore Collectors," and "For Game Night Hosts" so each persona immediately finds their track.</li>
+                                  <li><strong>Clarifying the AI value prop:</strong> adding one concise line under each AI widget about what problem it solves (e.g., "Stop arguing over rules; generate custom UNO house rules in one tap").</li>
+                                </ul>
+                                <p className="report-note">You can package the above into your assignment by: attaching your persona profile(s), pasting revised example copy for key sections (hero, AI widgets, CTAs), and listing the proposed media, accessibility features, answer-engine tweaks, and KPIs in clearly labeled subsections that map directly to the questions in the prompt.</p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 {/* Tools & Models Summary */}
                 <div className="tools-summary">
                   <h5 className="tools-title">⭐ Tools & Models Used</h5>
@@ -2312,6 +2452,10 @@ Please create both infographics based on the YouTube video content provided.`;
                     <div className="tool-row">
                       <span className="tool-purpose">Feature enhancements, components</span>
                       <span className="tool-name">Claude Opus 4.5</span>
+                    </div>
+                    <div className="tool-row">
+                      <span className="tool-purpose">Page optimization analysis (Prompt 3)</span>
+                      <span className="tool-name">Perplexity AI – Comet Browser</span>
                     </div>
                     <div className="tool-row">
                       <span className="tool-purpose">Development environment</span>
@@ -2334,7 +2478,7 @@ Please create both infographics based on the YouTube video content provided.`;
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
               </svg>
               <div className="ai-report-text">
-                <h4>Full report (22 prompts)</h4>
+                <h4>Full report (21 prompts + optimization)</h4>
               </div>
             </div>
             <div className="ai-report-buttons">
