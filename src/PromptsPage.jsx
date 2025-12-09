@@ -2478,7 +2478,7 @@ Please create both infographics based on the YouTube video content provided.`;
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
               </svg>
               <div className="ai-report-text">
-                <h4>Full report (21 prompts + optimization)</h4>
+                <h4>Full report (22 prompts + optimization)</h4>
               </div>
             </div>
             <div className="ai-report-buttons">
