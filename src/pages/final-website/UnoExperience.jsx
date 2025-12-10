@@ -118,6 +118,33 @@ const FinalWebsiteUnoExperience = () => {
   // Video loading state
   const [loadedVideos, setLoadedVideos] = useState({});
   
+  // Expanded infographic state
+  const [expandedInfographic, setExpandedInfographic] = useState(null);
+  
+  // Countdown timer state for meetup section
+  const [countdownTime, setCountdownTime] = useState({
+    days: 12,
+    hours: 8,
+    minutes: 45,
+    seconds: 30
+  });
+
+  // Countdown timer effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdownTime(prev => {
+        let { days, hours, minutes, seconds } = prev;
+        seconds--;
+        if (seconds < 0) { seconds = 59; minutes--; }
+        if (minutes < 0) { minutes = 59; hours--; }
+        if (hours < 0) { hours = 23; days--; }
+        if (days < 0) { days = 0; hours = 0; minutes = 0; seconds = 0; }
+        return { days, hours, minutes, seconds };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+  
   const handleVideoLoad = (videoId) => {
     setLoadedVideos(prev => ({ ...prev, [videoId]: true }));
   };
@@ -604,13 +631,24 @@ const FinalWebsiteUnoExperience = () => {
               <span>📖</span>
               <span>Quick Guide</span>
             </div>
-            <motion.img 
-              src={infoGraphic} 
-              alt="How to Play UNO - Infographic" 
-              className="uno-infographic-img"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            />
+            <div 
+              className="uno-infographic-clickable"
+              onClick={() => setExpandedInfographic({ src: infoGraphic, alt: 'How to Play UNO - Infographic' })}
+            >
+              <motion.img 
+                src={infoGraphic} 
+                alt="How to Play UNO - Infographic" 
+                className="uno-infographic-img"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              />
+              <div className="uno-expand-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                </svg>
+                <span>Click to expand</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Chatbot */}
@@ -1037,7 +1075,7 @@ const FinalWebsiteUnoExperience = () => {
               className="uno-countdown-item"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="uno-countdown-number">12</span>
+              <span className="uno-countdown-number">{String(countdownTime.days).padStart(2, '0')}</span>
               <span className="uno-countdown-label">DAYS</span>
             </motion.div>
             <span className="uno-countdown-separator">:</span>
@@ -1045,7 +1083,7 @@ const FinalWebsiteUnoExperience = () => {
               className="uno-countdown-item"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="uno-countdown-number">08</span>
+              <span className="uno-countdown-number">{String(countdownTime.hours).padStart(2, '0')}</span>
               <span className="uno-countdown-label">HOURS</span>
             </motion.div>
             <span className="uno-countdown-separator">:</span>
@@ -1053,7 +1091,7 @@ const FinalWebsiteUnoExperience = () => {
               className="uno-countdown-item"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="uno-countdown-number">45</span>
+              <span className="uno-countdown-number">{String(countdownTime.minutes).padStart(2, '0')}</span>
               <span className="uno-countdown-label">MINUTES</span>
             </motion.div>
             <span className="uno-countdown-separator">:</span>
@@ -1061,7 +1099,7 @@ const FinalWebsiteUnoExperience = () => {
               className="uno-countdown-item"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="uno-countdown-number">21</span>
+              <span className="uno-countdown-number">{String(countdownTime.seconds).padStart(2, '0')}</span>
               <span className="uno-countdown-label">SECONDS</span>
             </motion.div>
           </motion.div>
@@ -1314,6 +1352,44 @@ const FinalWebsiteUnoExperience = () => {
                   <p>Thanks for joining, {communityForm.name}! Check your inbox for a welcome surprise.</p>
                 </motion.div>
               )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Expanded Infographic Modal */}
+      <AnimatePresence>
+        {expandedInfographic && (
+          <motion.div
+            className="uno-infographic-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setExpandedInfographic(null)}
+          >
+            <motion.div
+              className="uno-infographic-modal"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="uno-infographic-close"
+                onClick={() => setExpandedInfographic(null)}
+                aria-label="Close expanded image"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              <img 
+                src={expandedInfographic.src} 
+                alt={expandedInfographic.alt}
+                className="uno-infographic-expanded"
+              />
             </motion.div>
           </motion.div>
         )}
