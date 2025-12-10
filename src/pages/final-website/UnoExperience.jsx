@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import UnoHouseRulesWidget from '../../components/final-website/UnoHouseRulesWidget';
 import Footer from '../../components/final-website/Footer';
 import { useLanguage } from '../../context/LanguageContext';
@@ -12,6 +12,7 @@ import imgKorea from '../../assets/uno-content/Asia.webp';
 import imgBrazil from '../../assets/uno-content/Brazil.webp';
 import imgRome from '../../assets/uno-content/Rome.webp';
 import teddyImage from '../../assets/uno-content/teddy.webp';
+import intenseGameVideo from '../../assets/uno-content/Intense-game.mov';
 
 // Animation Variants
 const fadeInUp = {
@@ -79,6 +80,86 @@ const staggerItem = {
   }
 };
 
+// Family Quote Typewriter Component
+const FamilyQuoteTypewriter = () => {
+  const quoteRef = useRef(null);
+  const isInView = useInView(quoteRef, { once: true, amount: 0.5 });
+  const [displayedText, setDisplayedText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+  const fullQuote = "A family that PLAYS together STAYS together.";
+  
+  useEffect(() => {
+    if (isInView && displayedText.length < fullQuote.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(fullQuote.slice(0, displayedText.length + 1));
+      }, 50); // Speed of typing
+      return () => clearTimeout(timeout);
+    } else if (displayedText.length === fullQuote.length) {
+      const completeTimeout = setTimeout(() => {
+        setIsComplete(true);
+      }, 500);
+      return () => clearTimeout(completeTimeout);
+    }
+  }, [isInView, displayedText]);
+
+  // Function to render text with highlighted words
+  const renderStyledText = (text) => {
+    return text.split(/(PLAYS|STAYS)/g).map((part, index) => {
+      if (part === 'PLAYS') {
+        return <span key={index} className="uno-highlight-plays">{part}</span>;
+      } else if (part === 'STAYS') {
+        return <span key={index} className="uno-highlight-stays">{part}</span>;
+      }
+      return part;
+    });
+  };
+
+  return (
+    <motion.div 
+      ref={quoteRef}
+      className="uno-family-quote"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="uno-quote-content">
+        <span className="uno-quote-mark uno-quote-open">"</span>
+        
+        <div className="uno-quote-text-wrapper">
+          <p className="uno-quote-text">
+            {renderStyledText(displayedText)}
+            <span className={`uno-quote-pen ${isComplete ? 'uno-pen-hidden' : ''}`}>
+              <svg className="uno-pen-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path 
+                  d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z" 
+                  fill="rgba(237, 28, 36, 0.2)"
+                />
+                <path d="M16 8L2 22" />
+                <path d="M17.5 15H9" />
+              </svg>
+            </span>
+          </p>
+        </div>
+        
+        <span className="uno-quote-mark uno-quote-close">"</span>
+      </div>
+      
+      <motion.div 
+        className="uno-quote-emojis"
+        initial={{ opacity: 0, y: 20 }}
+        animate={isComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ delay: 0.3 }}
+      >
+        <span className="uno-quote-emoji">😂</span>
+        <span className="uno-quote-emoji">❤️</span>
+        <span className="uno-quote-emoji">🙏</span>
+        <span className="uno-quote-emoji">😂</span>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const FinalWebsiteUnoExperience = () => {
   const { t } = useLanguage();
   const location = useLocation();
@@ -120,6 +201,55 @@ const FinalWebsiteUnoExperience = () => {
   
   // Expanded infographic state
   const [expandedInfographic, setExpandedInfographic] = useState(null);
+  
+  // Intense game video state
+  const [intenseVideoLoaded, setIntenseVideoLoaded] = useState(false);
+  const [intenseVideoState, setIntenseVideoState] = useState('muted'); // 'muted' | 'unmuted' | 'normal'
+  const intenseVideoRef = useRef(null);
+  const intenseVideoWrapperRef = useRef(null);
+
+  // Auto-play video when in viewport (muted)
+  useEffect(() => {
+    const video = intenseVideoRef.current;
+    const wrapper = intenseVideoWrapperRef.current;
+    if (!video || !wrapper) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.02 }
+    );
+
+    observer.observe(wrapper);
+    return () => observer.disconnect();
+  }, [intenseVideoLoaded]);
+
+  // Handle custom play button clicks
+  const handleIntenseVideoClick = () => {
+    const video = intenseVideoRef.current;
+    if (!video) return;
+
+    if (intenseVideoState === 'muted') {
+      // First click: unmute and play
+      video.muted = false;
+      video.play();
+      setIntenseVideoState('unmuted');
+    } else if (intenseVideoState === 'unmuted') {
+      // Second click: restart from beginning with sound
+      video.currentTime = 0;
+      video.muted = false;
+      video.play();
+      setIntenseVideoState('normal');
+    }
+    // After 'normal', the native controls handle everything
+  };
   
   // Countdown timer state for meetup section
   const [countdownTime, setCountdownTime] = useState({
@@ -613,6 +743,173 @@ const FinalWebsiteUnoExperience = () => {
           <p className="uno-shorts-hint">
             ← Scroll to see more shorts →
           </p>
+        </div>
+      </section>
+
+      {/* Intense Game Video Section */}
+      <section className="uno-section uno-section-intense">
+        <div className="uno-intense-texture"></div>
+        <div className="uno-section-container">
+          <motion.div 
+            className="uno-intense-bento"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {/* Text Side */}
+            <motion.div 
+              className="uno-intense-text-side"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <motion.div 
+                className="uno-intense-badge"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+              >
+                <span>🔥</span>
+                <span>Real Talk</span>
+              </motion.div>
+              
+              <h2 className="uno-intense-title">
+                <motion.span 
+                  className="uno-intense-word uno-word-the"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  The
+                </motion.span>
+                <motion.span 
+                  className="uno-intense-word uno-word-game"
+                  initial={{ opacity: 0, y: 20, rotate: -5 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, type: "spring" }}
+                >
+                  Game
+                </motion.span>
+                <motion.span 
+                  className="uno-intense-word uno-word-can"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
+                  Can Get
+                </motion.span>
+                <motion.span 
+                  className="uno-intense-word uno-word-intense"
+                  initial={{ opacity: 0, scale: 1.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, type: "spring", stiffness: 150 }}
+                >
+                  INTENSE
+                </motion.span>
+              </h2>
+              
+              <motion.p 
+                className="uno-intense-subtitle"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+              >
+                <span className="uno-intense-but">but don't worry...</span>
+                <motion.span 
+                  className="uno-intense-safe"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 1, type: "spring" }}
+                >
+                  this is a <span className="uno-safe-highlight">safe space</span> 🤗
+                </motion.span>
+              </motion.p>
+              
+              <motion.div 
+                className="uno-intense-emojis"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1.2 }}
+              >
+                <img src={unoCardIcon} alt="UNO card" className="uno-card-float" />
+                <img src={unoCardIcon} alt="UNO card" className="uno-card-float" />
+                <img src={unoCardIcon} alt="UNO card" className="uno-card-float" />
+                <img src={unoCardIcon} alt="UNO card" className="uno-card-float" />
+              </motion.div>
+            </motion.div>
+            
+            {/* Video Side */}
+            <motion.div 
+              className="uno-intense-video-side"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            >
+              <div className="uno-intense-video-wrapper" ref={intenseVideoWrapperRef}>
+                {!intenseVideoLoaded && (
+                  <div className="uno-video-loading-overlay">
+                    <div className="uno-video-spinner"></div>
+                    <span>Loading the drama...</span>
+                  </div>
+                )}
+                <video
+                  ref={intenseVideoRef}
+                  className="uno-intense-video"
+                  src={intenseGameVideo}
+                  controls={intenseVideoState === 'normal'}
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  onLoadedData={() => setIntenseVideoLoaded(true)}
+                />
+                <div className="uno-video-frame-deco uno-frame-tl"></div>
+                <div className="uno-video-frame-deco uno-frame-tr"></div>
+                <div className="uno-video-frame-deco uno-frame-bl"></div>
+                <div className="uno-video-frame-deco uno-frame-br"></div>
+              </div>
+              
+              {/* Control Buttons Below Video */}
+              {intenseVideoState !== 'normal' && intenseVideoLoaded && (
+                <button 
+                  className="uno-video-control-btn"
+                  onClick={handleIntenseVideoClick}
+                  aria-label={intenseVideoState === 'muted' ? 'Unmute video' : 'Restart video'}
+                >
+                  {intenseVideoState === 'muted' ? (
+                    <>
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="uno-control-icon">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                      </svg>
+                      <span>Tap for Sound</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="uno-control-icon">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                      <span>Replay from Start</span>
+                    </>
+                  )}
+                </button>
+              )}
+              
+              <p className="uno-intense-caption">*Actual gameplay. No relationshps were harmed... probably.*</p>
+            </motion.div>
+          </motion.div>
+          
+          {/* Playful Quote Section with Typewriter Effect */}
+          <FamilyQuoteTypewriter />
         </div>
       </section>
 
