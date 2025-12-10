@@ -318,7 +318,7 @@
 .hw-btn-primary {
   background: var(--hw-red);
   color: white;
-  padding: 18px 40px;
+  padding: 25px 40px;
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
