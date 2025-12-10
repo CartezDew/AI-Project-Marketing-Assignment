@@ -631,7 +631,7 @@ const FinalWebsiteUnoExperience = () => {
               whileHover={{ y: -5, scale: 1.05 }}
             >
               <span className="uno-stat-number">2-10</span>
-              <span className="uno-stat-label">PLAYERS</span>
+              <span className="uno-stat-label">{t('uno.playersLabel')}</span>
             </motion.div>
             <motion.div 
               className="uno-stat-card uno-stat-blue"
@@ -659,8 +659,8 @@ const FinalWebsiteUnoExperience = () => {
               <span className="uno-shorts-icon">▶</span>
               <span>Shorts</span>
             </motion.div>
-            <motion.h2 variants={fadeInUp}>UNO Moments</motion.h2>
-            <motion.p variants={fadeInUp}>Quick clips of epic plays, funny moments, and UNO chaos from the community.</motion.p>
+            <motion.h2 variants={fadeInUp}>{t('uno.unoMoments')}</motion.h2>
+            <motion.p variants={fadeInUp}>{t('uno.quickClips')}</motion.p>
           </motion.div>
           
           <div className="uno-shorts-scroll-wrapper">
@@ -772,7 +772,7 @@ const FinalWebsiteUnoExperience = () => {
                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               >
                 <span>🔥</span>
-                <span>Real Talk</span>
+                <span>{t('uno.realTalk')}</span>
               </motion.div>
               
               <h2 className="uno-intense-title">
@@ -783,7 +783,7 @@ const FinalWebsiteUnoExperience = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                 >
-                  The
+                  {t('uno.theWord')}
                 </motion.span>
                 <motion.span 
                   className="uno-intense-word uno-word-game"
@@ -792,7 +792,7 @@ const FinalWebsiteUnoExperience = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4, type: "spring" }}
                 >
-                  Game
+                  {t('uno.gameWord')}
                 </motion.span>
                 <motion.span 
                   className="uno-intense-word uno-word-can"
@@ -801,7 +801,7 @@ const FinalWebsiteUnoExperience = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                 >
-                  Can Get
+                  {t('uno.canWord')} {t('uno.getWord')}
                 </motion.span>
                 <motion.span 
                   className="uno-intense-word uno-word-intense"
@@ -810,7 +810,7 @@ const FinalWebsiteUnoExperience = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.6, type: "spring", stiffness: 150 }}
                 >
-                  INTENSE
+                  {t('uno.intenseWord')}
                 </motion.span>
               </h2>
               
@@ -821,7 +821,7 @@ const FinalWebsiteUnoExperience = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.8 }}
               >
-                <span className="uno-intense-but">but don't worry...</span>
+                <span className="uno-intense-but">{t('uno.butDontWorry')}</span>
                 <motion.span 
                   className="uno-intense-safe"
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -829,7 +829,7 @@ const FinalWebsiteUnoExperience = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 1, type: "spring" }}
                 >
-                  this is a <span className="uno-safe-highlight">safe space</span> 🤗
+                  {t('uno.safeSpace')} 🤗
                 </motion.span>
               </motion.p>
               
@@ -859,7 +859,7 @@ const FinalWebsiteUnoExperience = () => {
                 {!intenseVideoLoaded && (
                   <div className="uno-video-loading-overlay">
                     <div className="uno-video-spinner"></div>
-                    <span>Loading the drama...</span>
+                    <span>{t('uno.loadingDrama')}</span>
                   </div>
                 )}
                 <video
@@ -1077,8 +1077,8 @@ const FinalWebsiteUnoExperience = () => {
             viewport={{ once: true, amount: 0.5 }}
             variants={staggerContainer}
           >
-            <motion.h2 variants={fadeInUp}>Players Around the World</motion.h2>
-            <motion.p variants={fadeInUp}>From Tokyo to Rio, UNO speaks every language.</motion.p>
+            <motion.h2 variants={fadeInUp}>{t('uno.playersAroundWorld')}</motion.h2>
+            <motion.p variants={fadeInUp}>{t('uno.fromTokyoToRio')}</motion.p>
           </motion.div>
 
           <motion.div 
@@ -1358,7 +1358,7 @@ const FinalWebsiteUnoExperience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="uno-meetup-eyebrow">NEXT UNO COMMUNITY MEETUP</span>
+            <span className="uno-meetup-eyebrow">{t('uno.nextCommunityMeetup')}</span>
           </motion.div>
           
           <motion.div 
@@ -1373,7 +1373,7 @@ const FinalWebsiteUnoExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="uno-countdown-number">{String(countdownTime.days).padStart(2, '0')}</span>
-              <span className="uno-countdown-label">DAYS</span>
+              <span className="uno-countdown-label">{t('uno.daysLabel')}</span>
             </motion.div>
             <span className="uno-countdown-separator">:</span>
             <motion.div 
@@ -1381,7 +1381,7 @@ const FinalWebsiteUnoExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="uno-countdown-number">{String(countdownTime.hours).padStart(2, '0')}</span>
-              <span className="uno-countdown-label">HOURS</span>
+              <span className="uno-countdown-label">{t('uno.hoursLabel')}</span>
             </motion.div>
             <span className="uno-countdown-separator">:</span>
             <motion.div 
@@ -1389,7 +1389,7 @@ const FinalWebsiteUnoExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="uno-countdown-number">{String(countdownTime.minutes).padStart(2, '0')}</span>
-              <span className="uno-countdown-label">MINUTES</span>
+              <span className="uno-countdown-label">{t('uno.minutesLabel')}</span>
             </motion.div>
             <span className="uno-countdown-separator">:</span>
             <motion.div 
@@ -1397,7 +1397,7 @@ const FinalWebsiteUnoExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="uno-countdown-number">{String(countdownTime.seconds).padStart(2, '0')}</span>
-              <span className="uno-countdown-label">SECONDS</span>
+              <span className="uno-countdown-label">{t('uno.secondsLabel')}</span>
             </motion.div>
           </motion.div>
           
@@ -1467,8 +1467,8 @@ const FinalWebsiteUnoExperience = () => {
             viewport={{ once: true, amount: 0.5 }}
             variants={staggerContainer}
           >
-            <motion.h2 variants={fadeInUp}>Community Highlights</motion.h2>
-            <motion.p variants={fadeInUp}>Watch how players around the world are making UNO their own.</motion.p>
+            <motion.h2 variants={fadeInUp}>{t('uno.communityHighlights')}</motion.h2>
+            <motion.p variants={fadeInUp}>{t('uno.watchHow')}</motion.p>
           </motion.div>
           
           <motion.div 
@@ -1497,7 +1497,7 @@ const FinalWebsiteUnoExperience = () => {
                 onLoad={() => handleVideoLoad('gOhDPwxzKFg')}
               ></iframe>
               <div className="uno-video-pill uno-pill-white">
-                <span>🏆</span> Tournament
+                <span>🏆</span> {t('uno.tournament')}
               </div>
             </motion.div>
             
@@ -1520,7 +1520,7 @@ const FinalWebsiteUnoExperience = () => {
                   onLoad={() => handleVideoLoad('q0bNRPVgNvE')}
                 ></iframe>
                 <div className="uno-video-pill uno-pill-white">
-                  <span>🎰</span> Vegas
+                  <span>🎰</span> {t('uno.vegasLabel')}
               </div>
             </motion.div>
             
@@ -1542,7 +1542,7 @@ const FinalWebsiteUnoExperience = () => {
                   onLoad={() => handleVideoLoad('NFnXep4pGOk')}
                 ></iframe>
                 <div className="uno-video-pill uno-pill-dark">
-                  <span>🎲</span> Game Night
+                  <span>🎲</span> {t('uno.gameNightLabel')}
                 </div>
               </motion.div>
             </motion.div>

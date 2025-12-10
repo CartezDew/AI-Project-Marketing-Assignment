@@ -447,7 +447,7 @@ const FinalWebsiteHotWheelsExperience = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="hw-btn-wrench">🔧</span>
-                Collectors Workshop
+                {t('hotWheels.collectorsWorkshop')}
               </motion.a>
             </motion.div>
           </motion.div>
@@ -465,7 +465,7 @@ const FinalWebsiteHotWheelsExperience = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <span className="hw-pill-icon">🏎️</span>
-              <span className="hw-pill-text">Collecting since age 6</span>
+              <span className="hw-pill-text">{t('hotWheels.collectingSince')}</span>
             </motion.div>
             <img 
               src={heroImage} 
@@ -491,11 +491,11 @@ const FinalWebsiteHotWheelsExperience = () => {
         </div>
 
         <motion.div className="hw-avatar-header" variants={fadeInUp}>
-          <span className="hw-avatar-eyebrow">🏁 Discover Your Collector DNA</span>
+          <span className="hw-avatar-eyebrow">🏁 {t('hotWheels.discoverCollectorDna')}</span>
           <h2 className="hw-avatar-title">
-            What's Your <span className="hw-avatar-accent">Ride Style</span>?
+            {t('hotWheels.whatsYourRideStyle')} <span className="hw-avatar-accent">?</span>
           </h2>
-          <p className="hw-avatar-subtitle">Hover over the styles to see what fits you best</p>
+          <p className="hw-avatar-subtitle">{t('hotWheels.hoverToSee')}</p>
         </motion.div>
         
         <div className="hw-avatar-stage" ref={stageRef}>
@@ -568,22 +568,22 @@ const FinalWebsiteHotWheelsExperience = () => {
           <div className="hw-collector-card-inner">
             <div className="hw-collector-badge">
               <span className="hw-badge-star">⭐</span>
-              <span>Featured Collector</span>
+              <span>{t('hotWheels.featuredCollector')}</span>
             </div>
             <h3 className="hw-collector-name">Lesley Alejandra Gonzalez</h3>
-            <p className="hw-collector-tagline">"Building dreams, one car at a time"</p>
+            <p className="hw-collector-tagline">"{t('hotWheels.buildingDreams')}"</p>
             <div className="hw-collector-stats">
               <div className="hw-collector-stat">
                 <span className="hw-stat-num">12</span>
-                <span className="hw-stat-label">Collection</span>
+                <span className="hw-stat-label">{t('hotWheels.collection')}</span>
               </div>
               <div className="hw-collector-stat">
                 <span className="hw-stat-num">3</span>
-                <span className="hw-stat-label">Rare Finds</span>
+                <span className="hw-stat-label">{t('hotWheels.rareFinds')}</span>
               </div>
               <div className="hw-collector-stat">
                 <span className="hw-stat-num">3yr</span>
-                <span className="hw-stat-label">Member</span>
+                <span className="hw-stat-label">{t('hotWheels.member')}</span>
               </div>
             </div>
             <div className="hw-collector-interests">
@@ -705,7 +705,7 @@ const FinalWebsiteHotWheelsExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="hw-countdown-number">{String(countdown.days).padStart(2, '0')}</span>
-              <span className="hw-countdown-label">DAYS</span>
+              <span className="hw-countdown-label">{t('hotWheels.daysLabel')}</span>
             </motion.div>
             <span className="hw-countdown-separator">:</span>
             <motion.div 
@@ -713,7 +713,7 @@ const FinalWebsiteHotWheelsExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="hw-countdown-number">{String(countdown.hours).padStart(2, '0')}</span>
-              <span className="hw-countdown-label">HOURS</span>
+              <span className="hw-countdown-label">{t('hotWheels.hoursLabel')}</span>
             </motion.div>
             <span className="hw-countdown-separator">:</span>
             <motion.div 
@@ -721,7 +721,7 @@ const FinalWebsiteHotWheelsExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="hw-countdown-number">{String(countdown.minutes).padStart(2, '0')}</span>
-              <span className="hw-countdown-label">MINS</span>
+              <span className="hw-countdown-label">{t('hotWheels.minsLabel')}</span>
             </motion.div>
             <span className="hw-countdown-separator">:</span>
             <motion.div 
@@ -729,7 +729,7 @@ const FinalWebsiteHotWheelsExperience = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="hw-countdown-number">{String(countdown.seconds).padStart(2, '0')}</span>
-              <span className="hw-countdown-label">SECS</span>
+              <span className="hw-countdown-label">{t('hotWheels.secsLabel')}</span>
             </motion.div>
           </motion.div>
           
@@ -792,14 +792,14 @@ const FinalWebsiteHotWheelsExperience = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <p className="hw-workshop-note">Can't make it in person? Virtual workshops available for all events!</p>
+            <p className="hw-workshop-note">{t('hotWheels.virtualWorkshops')}</p>
             <motion.button 
               className="hw-btn-secondary" 
               onClick={() => setShowWorkshopsModal(true)}
               whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 107, 0, 0.4)' }}
               whileTap={{ scale: 0.95 }}
             >
-              View All Workshops
+              {t('hotWheels.viewAllWorkshops')}
             </motion.button>
           </motion.div>
         </div>
@@ -823,7 +823,7 @@ const FinalWebsiteHotWheelsExperience = () => {
           >
             <motion.div className="hw-diy-header-badge" variants={fadeInDown}>
               <span className="hw-diy-badge-icon">🛠️</span>
-              <span className="hw-diy-badge-text">DIY ZONE</span>
+              <span className="hw-diy-badge-text">{t('hotWheels.diyZone')}</span>
             </motion.div>
             <motion.h2 className="hw-diy-title" variants={fadeInUp}>
               <span className="hw-diy-title-top">BUILD YOUR</span>
@@ -859,13 +859,13 @@ const FinalWebsiteHotWheelsExperience = () => {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
                   </svg>
-                  <span>Click to expand</span>
+                  <span>{t('hotWheels.clickToExpand')}</span>
                 </div>
               </div>
               <div className="hw-diy-tools-compact">
                 <div className="hw-diy-tools-header-compact">
                   <span className="hw-diy-tools-icon-sm">🔧</span>
-                  <h3>Tools Needed</h3>
+                  <h3>{t('hotWheels.toolsNeeded')}</h3>
                   <div className="hw-diy-difficulty-badge hw-difficulty-hard">
                     <span className="hw-difficulty-label-text">DIFFICULTY</span>
                     <div className="hw-difficulty-meter">
@@ -906,13 +906,13 @@ const FinalWebsiteHotWheelsExperience = () => {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
                   </svg>
-                  <span>Click to expand</span>
+                  <span>{t('hotWheels.clickToExpand')}</span>
                 </div>
               </div>
               <div className="hw-diy-tools-compact">
                 <div className="hw-diy-tools-header-compact">
                   <span className="hw-diy-tools-icon-sm">🏠</span>
-                  <h3>Tools Needed</h3>
+                  <h3>{t('hotWheels.toolsNeeded')}</h3>
                   <div className="hw-diy-difficulty-badge hw-difficulty-medium">
                     <span className="hw-difficulty-label-text">DIFFICULTY</span>
                     <div className="hw-difficulty-meter">
