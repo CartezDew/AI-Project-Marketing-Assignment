@@ -1208,7 +1208,21 @@
   }
   .fwh-cta-secondary {
     font-size: 1rem;
+    transform: skewX(0deg);
+    max-width: 100%;
+    margin: 1rem 2rem;
+    margin-bottom: 0;
   }
+  
+  .fwh-cta-secondary .fwh-btn-text {
+    padding: 1.3rem 1.5rem;
+    transform: skewX(0deg);
+  }
+
+.fwh-cta-secondary:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
 }
 
 @media (max-width: 480px) {
@@ -1251,6 +1265,9 @@
   .fwh-doodle-burst-2 {
     font-size: 1.2rem;
   }
+  .fwh-stat-label {
+    font-size: 0.6rem;
+  }
 }
 
 @media (max-width: 445px) {
@@ -1268,6 +1285,22 @@
     width: 10px;
     height: 2px;
   }
+  .fwh-stat-label {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .fwh-stat-label {
+    font-size: 0.5rem;
+  }
+  .fwh-section {
+    padding: 100px 1.5rem 4rem 1.5rem;
+  }
+  .fwh-stats {
+    padding: .5rem;
+    gap: .2rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -1283,5 +1316,13 @@
   }
   .fwh-container {
     margin-bottom: -3rem;  
+  }
+}
+
+
+@media (max-width: 375px) {
+
+  .fwh-stats .fwh-stat-item:nth-child(5){
+    display: none;
   }
 }
