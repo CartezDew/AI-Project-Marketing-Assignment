@@ -104,7 +104,7 @@ body {
 .final-website-content::before {
   content: '';
   position: absolute;
-  top: -10px;
+  top: -3px;
   left: 5%;
   width: 80px;
   height: 42px;
@@ -115,6 +115,7 @@ body {
   opacity: 0.7;
   animation: float 4s ease-in-out infinite;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  display: none;
 }
 
 /* UNO Card Icon - floating on right */
@@ -132,6 +133,8 @@ body {
   opacity: 0.7;
   animation: float 3.5s ease-in-out infinite reverse;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  display: none;
+
 }
 
 /* Floating AI Doodle Icons */
@@ -204,9 +207,10 @@ body {
 
 .final-scroll-hint {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   margin: 0 auto 28px;
 }
 
@@ -222,6 +226,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 3px;
+  padding-top: 10px;
 }
 
 .mouse-body {
@@ -878,6 +883,24 @@ body {
   margin-top: 16px !important;
 }
 
+@media (max-width: 800px) {
+  .final-website-btn {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+  }
+}
+
+
+@media (max-width: 750px) {
+  .final-website-content::before {
+  display: none;
+  }
+  
+  /* UNO Card Icon - floating on right */
+  .final-website-content::after {
+   display: none;
+  }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .optimization-report-title {
@@ -901,6 +924,40 @@ body {
   .report-section-content p {
     font-size: 0.8rem;
   }
+  .scroll-mouse {
+    display: none;
+  }
+
+  .enhancement-title {
+    font-size: clamp(0.9rem, 3.4vw, 1rem);
+    text-align: left;
+  }
+  .enhancement-meta h3 {
+    font-size: clamp(0.9rem, 3.4vw, 1rem);
+    text-align: left;
+  }
+  .enhancement-tags {
+    flex-direction: column;
+    gap: .5rem;
+    border-radius: 16px;
+  }
+  .enhancement-tags span {
+    font-size: 0.8rem;
+  }
+  .enhancement-desc {
+    font-size: clamp(0.8rem, 3.4vw, 0.9rem);
+    text-align: left;
+  }
+  .prompt-code-block {
+    font-size: clamp(0.8rem, 3.4vw, 0.9rem);
+    text-align: left;
+  }
+  .prompt-output {
+    font-size: clamp(0.8rem, 3.4vw, 0.9rem);
+    text-align: left;
+  }
+
+
 }
 
 /* Tools Summary */
@@ -964,7 +1021,30 @@ body {
     align-items: flex-start;
     gap: 6px;
   }
+  
+  .final-accordion-header .accordion-meta::before {
+    content: '\A';
+    white-space: pre;
+  }
+  .final-accordion-header .accordion-title {
+    font-size: 0.9rem;
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+  }
+  .final-accordion-header .accordion-meta {
+    text-align: left;
+    font-size: 0.8rem;
+    align-items: left;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+ 
+  }
 }
+
 
 /* ============================================
    BUILD STATS DASHBOARD
@@ -1030,10 +1110,53 @@ body {
   margin: 0 4px;
 }
 
+@media (max-width: 1030px) {
+  .build-stats-dashboard {
+    gap: .5rem;
+    padding: 16px 20px;
+    border-radius: 20px;
+  }
+  
+  .build-stat-item {
+    padding: 6px 10px;
+  }
+  
+  .build-stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .build-stat-label {
+    font-size: 0.6rem;
+  }
+  
+}
+
+@media (max-width: 875px) {
+  .build-stats-dashboard {
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+  
+  .build-stat-item {
+    padding: 6px 10px;
+  }
+  
+  .build-stat-value {
+    font-size: 1.2rem;
+  }
+  
+  .build-stat-label {
+    font-size: 0.6rem;
+  }
+  
+}
+
 @media (max-width: 768px) {
   .build-stats-dashboard {
     gap: 8px;
     padding: 16px 20px;
+    padding: .5rem;
     border-radius: 20px;
   }
   
@@ -1049,7 +1172,13 @@ body {
     font-size: 0.6rem;
   }
   
-  .build-stat-divider {
+  /* .build-stat-divider {
+    display: none;
+  } */
+}
+
+@media (max-width: 500px) {
+  .floating-ai-icon {
     display: none;
   }
 }
@@ -1058,13 +1187,29 @@ body {
   .build-stats-dashboard {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap:.1rem;
     border-radius: 16px;
   }
-  
+  .build-stat-value {
+    font-size: 1rem;
+  }
+  .build-stat-label {
+    font-size: 0.5rem;
+  }
+
   .build-stat-divider {
     display: none;
   }
+}
+
+  @media (max-width: 400px) {
+    .build-stats-dashboard {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:.1rem;
+      border-radius: 16px;
+    }
+  
 }
 
 /* ============================================
@@ -1199,6 +1344,19 @@ body {
   .ai-report-btn .btn-icon-download {
     width: 12px;
     height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-report-download-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .ai-report-buttons {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -1395,7 +1553,7 @@ body {
   }
   
   .glossary-title {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 4.2vw, 1.2rem);
   }
   
   .glossary-grid {
@@ -1496,10 +1654,45 @@ body {
   .final-website-section {
     padding: 50px 24px 40px;
   }
+
+  .tech-glossary {
+    padding: .2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 16px;
+  }
+
+  .glossary-card-header h4 {
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+  }
   
   .final-title {
     font-size: 2rem;
     text-shadow: 1px 1px 0 #E31E24, 2px 2px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .glossary-subtitle {
+    font-size: clamp(0.85rem, 3.4vw, 0.95rem);
+  }
+  .glossary-card p {
+    font-size: clamp(0.75rem, 3.4vw, 0.85rem);
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+
+  }
+  .gloassy-card p strong {
+    font-size: clamp(0.85rem, 3.4vw, 0.95rem);
+  }
+  .gloassy-card p strong {
+    font-size: clamp(0.85rem, 3.4vw, 0.95rem);
+  }
+  .gloassy-card p strong {
+    font-size: clamp(0.85rem, 3.4vw, 0.95rem);
   }
   
   .improvements-grid {
@@ -2056,6 +2249,26 @@ body {
   .prompt-meta {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-nav {
+    flex-direction: column;
+    gap: .5rem;
+    border-radius: 16px;
+  }
+  
+  .subtitle {
+    margin-top: 8px;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
