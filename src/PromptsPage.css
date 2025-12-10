@@ -509,6 +509,7 @@ body {
   color: white;
   margin: 0 0 6px 0;
   line-height: 1.3;
+  text-align: left;
 }
 
 .enhancement-tags {
@@ -595,6 +596,7 @@ body {
   font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
   border-left: 3px solid #00A859;
   white-space: pre-wrap;
+  text-align: left;
 }
 
 .prompt-output {
@@ -674,6 +676,7 @@ body {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin: 0;
+  text-align: left;
 }
 
 /* Enhancement Note */
@@ -1482,6 +1485,7 @@ body {
   color: white;
   margin: 0;
   line-height: 1.3;
+  text-align: left;
 }
 
 .glossary-card p {
@@ -1489,6 +1493,7 @@ body {
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.6;
   margin: 0 0 16px 0;
+  text-align: left;
 }
 
 .glossary-card p strong {
@@ -2290,8 +2295,12 @@ body {
     flex-direction: column;
   }
   
-  .prompt-download-btn {
-    width: 100%;
-    justify-content: center;
+  .comparison-section {
+    display: none;
   }
+  .tab-btn:nth-child(2) {
+    display: none;
+  }
+  
+ 
 }
