@@ -1140,13 +1140,6 @@
   display: none;
 } */
 }
-.site-footer {
-  display: none;
-}
-
-.fnav-right-group {
-  display: none;
-}
 
 @media (max-width: 630px) {
   .fwh-pills {
