@@ -13,6 +13,7 @@ const FinalWebsiteNavbar = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
   const dropdownRef = useRef(null);
   
@@ -46,7 +47,19 @@ const FinalWebsiteNavbar = () => {
   // Close dropdown when route changes
   useEffect(() => {
     setDropdownOpen(false);
+    setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 650) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   let navTheme = 'fnav-default';
   if (isUno) navTheme = 'fnav-uno';
@@ -60,17 +73,35 @@ const FinalWebsiteNavbar = () => {
           <span className="fnav-logo-divider">×</span>
           <span className="fnav-logo-ai">AI LAB</span>
         </Link>
+
+        {/* Mobile Right Group - Language + Hamburger */}
+        <div className="fnav-mobile-right">
+          <div className="fnav-language-mobile">
+            <LanguageDropdown />
+          </div>
+          <span className="fnav-mobile-divider-bar">|</span>
+          <button 
+            className={`fnav-hamburger ${mobileMenuOpen ? 'active' : ''}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className="fnav-hamburger-line"></span>
+            <span className="fnav-hamburger-line"></span>
+          </button>
+        </div>
         
         {/* Right Side Navigation */}
-        <div className="fnav-right-group">
-          {/* Language Dropdown */}
-          <LanguageDropdown />
+        <div className={`fnav-right-group ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+          {/* Language Dropdown - Desktop only */}
+          <div className="fnav-language-desktop">
+            <LanguageDropdown />
+          </div>
 
           <span className="fnav-divider">|</span>
 
-          {/* About Dropdown */}
+          {/* About Dropdown - Desktop only */}
           <div 
-            className="fnav-dropdown-container"
+            className="fnav-dropdown-container fnav-about-desktop"
             ref={dropdownRef}
           >
             <button 
@@ -183,6 +214,70 @@ const FinalWebsiteNavbar = () => {
                 <span className="fnav-dropdown-accent fnav-accent-blue"></span>
               </div>
             </div>
+          </div>
+
+          {/* Mobile Nav Links - Shows at 650px */}
+          <div className="fnav-mobile-nav">
+            {(isUno || isHotWheels) && (
+              <Link to="/final-website" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <Home size={18} /> Home
+              </Link>
+            )}
+            {(isUno || isHotWheels) ? (
+              <a href="/final-website#overview" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <BookOpen size={18} /> {t('nav.overview')}
+              </a>
+            ) : (
+              <a href="#overview" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <BookOpen size={18} /> {t('nav.overview')}
+              </a>
+            )}
+            {(isUno || isHotWheels) ? (
+              <a href="/final-website#features" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <Sparkles size={18} /> Features
+              </a>
+            ) : (
+              <a href="#features" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <Sparkles size={18} /> Features
+              </a>
+            )}
+            {(isUno || isHotWheels) ? (
+              <a href="/final-website#faq" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <HelpCircle size={18} /> FAQ
+              </a>
+            ) : (
+              <a href="#faq" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <HelpCircle size={18} /> FAQ
+              </a>
+            )}
+            {(isUno || isHotWheels) ? (
+              <a href="/final-website#team" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <Users size={18} /> {t('nav.team')}
+              </a>
+            ) : (
+              <a href="#team" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+                <Users size={18} /> {t('nav.team')}
+              </a>
+            )}
+            
+            <div className="fnav-mobile-divider"></div>
+            
+            {!isUno && (
+              <Link to="/final-website/uno" className="fnav-mobile-link fnav-mobile-brand" onClick={() => setMobileMenuOpen(false)}>
+                <img src={unoLogo} alt="UNO" className="fnav-mobile-brand-img" /> UNO®
+              </Link>
+            )}
+            {!isHotWheels && (
+              <Link to="/final-website/hotwheels" className="fnav-mobile-link fnav-mobile-brand" onClick={() => setMobileMenuOpen(false)}>
+                <img src={hotwheelsLogo} alt="Hot Wheels" className="fnav-mobile-brand-img fnav-mobile-hw-img" /> Hot Wheels®
+              </Link>
+            )}
+            
+            <div className="fnav-mobile-divider"></div>
+            
+            <Link to="/" className="fnav-mobile-link" onClick={() => setMobileMenuOpen(false)}>
+              <FileText size={18} /> {t('nav.backToPrompts')}
+            </Link>
           </div>
 
           <span className="fnav-divider">|</span>

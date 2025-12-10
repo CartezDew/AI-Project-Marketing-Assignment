@@ -772,14 +772,38 @@
 .team-bottom-text span:nth-child(5) { color: #FFD53D; }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .team-grid {
     gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    max-width: 600px;
   }
   
   .team-card {
-    flex: 0 0 calc(33.333% - 16px);
-    max-width: 250px;
+    flex: none;
+    max-width: none;
+    width: 100%;
+    min-width: 200px;
+  }
+  
+  /* Center the last card when odd number of items */
+  .team-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    min-width: 260px;
+    /* max-width: 260px; */
+  }
+}
+
+@media (max-width: 900px) {
+  .team-grid {
+    gap: 20px;
+    max-width: 500px;
+  }
+  
+  .team-card:last-child:nth-child(odd) {
+    max-width: 240px;
   }
   
   .team-card-info {
@@ -797,12 +821,12 @@
   }
   
   .team-grid {
-    gap: 20px;
+    gap: 16px;
+    max-width: 450px;
   }
   
-  .team-card {
-    flex: 0 0 calc(50% - 10px);
-    max-width: 200px;
+  .team-card:last-child:nth-child(odd) {
+    max-width: 450px;
   }
   
   .team-card-info {
@@ -834,13 +858,18 @@
 
 @media (max-width: 480px) {
   .team-grid {
-    gap: 15px;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    max-width: 300px;
   }
   
   .team-card {
-    flex: 0 0 calc(50% - 8px);
-    max-width: 160px;
+    min-width: 140px;
     border-radius: 16px;
+  }
+  
+  .team-card:last-child:nth-child(odd) {
+    max-width: 300px;
   }
   
   .team-card-info {
@@ -1177,13 +1206,29 @@
     font-size: 1rem;
     gap: 8px;
   }
+  .team-group-overlay {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .pill-text-strategy {
+    color: rgb(181, 179, 197);
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(260px, 1fr));
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 480px) {
   .pill-inner {
     padding: 10px 16px;
     gap: 6px;
-    flex-wrap: wrap;
+
     justify-content: center;
   }
   
@@ -1199,5 +1244,12 @@
   .team-group-caption {
     font-size: 0.9rem;
   }
+
 }
 
+@media (max-width: 415px) {
+
+  .pill-text {
+    font-size: 0.7rem;
+  }
+  }

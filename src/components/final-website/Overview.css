@@ -1673,9 +1673,8 @@
     padding: 10px 24px 60px;
   }
 
-  .ov-hw-spotlight,
-  .ov-uno-spotlight {
-    padding: 0;
+  .ov-hw-spotlight {
+    padding: 4rem;
   }
   
   .ov-uno-grid-wrapper {
@@ -1745,5 +1744,17 @@
 
   .ov-uno-callout {
     padding: 24px;
+  }
+
+  .wwc-carousel-container {
+    height: 300px;
+  }
+
+  .wwc-card {
+    height: 300px;
+  }
+
+  .wwc-card-active {
+    height: 340px;
   }
 }

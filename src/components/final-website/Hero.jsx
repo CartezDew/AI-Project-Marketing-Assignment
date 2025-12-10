@@ -55,64 +55,79 @@ const Hero = () => {
       {/* Background Pattern */}
       <div className="fwh-bg-pattern"></div>
 
-      {/* Floating Doodles - More playful and scattered */}
-      <div className="fwh-doodle fwh-doodle-star-1">✦</div>
-      
-      {/* Hot Wheels Icon Doodle - below star-1 */}
-      <img src={hotwheelsIcon} alt="Hot Wheels toy car icon" className="fwh-doodle fwh-doodle-car" />
+      {/* Floating Doodles Container */}
+      <div className="fwh-doodles-container">
+        {/* Floating Doodles - More playful and scattered */}
+        <div className="fwh-doodle fwh-doodle-star-1">✦</div>
+        <div className="fwh-doodle fwh-doodle-star-4">✨</div>
+        <div className="fwh-doodle fwh-doodle-star-5">✧</div>
 
-      {/* Draw 2 UNO Card Doodle */}
-      <div className="fwh-doodle fwh-doodle-uno-card">
-        <svg viewBox="0 0 50 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="46" height="66" rx="6" stroke="#C8102E" strokeWidth="3" fill="#C8102E"/>
-          <ellipse cx="25" cy="35" rx="18" ry="25" fill="#FEFEFE"/>
-          <text x="25" y="30" textAnchor="middle" fill="#C8102E" fontSize="12" fontWeight="bold" fontFamily="Arial Black">+2</text>
-          <rect x="18" y="38" width="14" height="18" rx="2" fill="#FFD53D" stroke="#1a1a1a" strokeWidth="1"/>
-          <rect x="21" y="42" width="14" height="18" rx="2" fill="#00A651" stroke="#1a1a1a" strokeWidth="1"/>
-        </svg>
-      </div>
+        
+        {/* Hot Wheels Icon Doodle - below star-1 */}
+        <img src={hotwheelsIcon} alt="Hot Wheels toy car icon" className="fwh-doodle fwh-doodle-car" />
 
-      {/* AI Icon Doodles */}
-      <img src={aiIcon} alt="AI technology sparkle icon" className="fwh-doodle fwh-doodle-ai-1" />
-      <img src={aiIcon} alt="AI technology sparkle icon" className="fwh-doodle fwh-doodle-ai-2" />
+        {/* Draw 2 UNO Card Doodle */}
+        <div className="fwh-doodle fwh-doodle-uno-card">
+          <svg viewBox="0 0 50 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="46" height="66" rx="6" stroke="#C8102E" strokeWidth="3" fill="#C8102E"/>
+            <ellipse cx="25" cy="35" rx="18" ry="25" fill="#FEFEFE"/>
+            <text x="25" y="30" textAnchor="middle" fill="#C8102E" fontSize="12" fontWeight="bold" fontFamily="Arial Black">+2</text>
+            <rect x="18" y="38" width="14" height="18" rx="2" fill="#FFD53D" stroke="#1a1a1a" strokeWidth="1"/>
+            <rect x="21" y="42" width="14" height="18" rx="2" fill="#00A651" stroke="#1a1a1a" strokeWidth="1"/>
+          </svg>
+        </div>
 
-      <div className="fwh-doodle fwh-doodle-star-2">✧</div>
-      <div className="fwh-doodle fwh-doodle-star-3">★</div>
-      <div className="fwh-doodle fwh-doodle-star-4">✦</div>
-      <div className="fwh-doodle fwh-doodle-star-5">✧</div>
-      <div className="fwh-doodle fwh-doodle-burst-1">✺</div>
-      <div className="fwh-doodle fwh-doodle-burst-2">✹</div>
-      
-      {/* Hand-drawn style SVG doodles */}
-      <div className="fwh-doodle fwh-doodle-loop">
-        <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 30 Q 35 5, 60 30 T 110 30" stroke="#FFD53D" strokeWidth="4" fill="none" strokeLinecap="round" strokeDasharray="2 6"/>
-        </svg>
-      </div>
-      
-      <div className="fwh-doodle fwh-doodle-squiggle">
-        <svg viewBox="0 0 50 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M25 5 C 5 20, 45 35, 25 50 S 5 80, 25 95" stroke="#4A8CFF" strokeWidth="3" fill="none" strokeLinecap="round"/>
-        </svg>
-      </div>
+        {/* AI Icon Doodles */}
+        <img src={aiIcon} alt="AI technology sparkle icon" className="fwh-doodle fwh-doodle-ai-1" />
+        <img src={aiIcon} alt="AI technology sparkle icon" className="fwh-doodle fwh-doodle-ai-2" />
 
-      <div className="fwh-doodle fwh-doodle-spiral">
-        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 30 C 30 20, 40 20, 40 30 C 40 45, 20 45, 20 30 C 20 10, 50 10, 50 30 C 50 55, 10 55, 10 30" stroke="#FF5E5E" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-        </svg>
-      </div>
+        <div className="fwh-doodle fwh-doodle-star-2">✧</div>
+        <div className="fwh-doodle fwh-doodle-star-3">★</div>
+        <div className="fwh-doodle fwh-doodle-star-4">✦</div>
+        <div className="fwh-doodle fwh-doodle-star-5">✧</div>
+        <div className="fwh-doodle fwh-doodle-burst-1">✺</div>
+        <div className="fwh-doodle fwh-doodle-burst-2">✹</div>
+        
+        {/* Hand-drawn style SVG doodles */}
+        <div className="fwh-doodle fwh-doodle-loop">
+          <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 30 Q 35 5, 60 30 T 110 30" stroke="#FFD53D" strokeWidth="4" fill="none" strokeLinecap="round" strokeDasharray="2 6"/>
+          </svg>
+        </div>
+        
+        <div className="fwh-doodle fwh-doodle-squiggle">
+          <svg viewBox="0 0 50 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 5 C 5 20, 45 35, 25 50 S 5 80, 25 95" stroke="#4A8CFF" strokeWidth="3" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
 
-      <div className="fwh-doodle fwh-doodle-arrow">
-        <svg viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 20 Q 25 5, 50 20 L 70 20 M 60 12 L 70 20 L 60 28" stroke="#00A651" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div>
+        <div className="fwh-doodle fwh-doodle-spiral">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 30 C 30 20, 40 20, 40 30 C 40 45, 20 45, 20 30 C 20 10, 50 10, 50 30 C 50 55, 10 55, 10 30" stroke="#FF5E5E" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
 
-      {/* Fun "let's play!" script text */}
-      <div className="fwh-doodle fwh-doodle-script">
-        <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 25 Q 10 10, 20 25 Q 25 35, 35 20 L 40 25 M 45 15 L 45 30 M 50 22 Q 55 15, 65 22 Q 70 28, 75 22 Q 80 15, 90 25" stroke="#FF6B00" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-        </svg>
+        <div className="fwh-doodle fwh-doodle-arrow">
+          <svg viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 20 Q 25 5, 50 20 L 70 20 M 60 12 L 70 20 L 60 28" stroke="#00A651" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+
+        {/* Fun "let's play!" script text */}
+        <div className="fwh-doodle fwh-doodle-script">
+          <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 25 Q 10 10, 20 25 Q 25 35, 35 20 L 40 25 M 45 15 L 45 30 M 50 22 Q 55 15, 65 22 Q 70 28, 75 22 Q 80 15, 90 25" stroke="#FF6B00" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
+
+        {/* Bottom Doodles */}
+        <div className="fwh-doodle fwh-doodle-star-bottom">★</div>
+        <div className="fwh-doodle fwh-doodle-star-bottom-2">✦</div>
+        <div className="fwh-doodle fwh-doodle-wave">
+          <svg viewBox="0 0 150 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 15 Q 25 0, 50 15 T 100 15 T 150 15" stroke="#FF5E5E" strokeWidth="3" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
       </div>
 
       <div className="fwh-container" ref={contentRef}>
@@ -246,15 +261,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Doodles */}
-      <div className="fwh-doodle fwh-doodle-star-bottom">★</div>
-      <div className="fwh-doodle fwh-doodle-star-bottom-2">✦</div>
-      <div className="fwh-doodle fwh-doodle-wave">
-        <svg viewBox="0 0 150 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 15 Q 25 0, 50 15 T 100 15 T 150 15" stroke="#FF5E5E" strokeWidth="3" fill="none" strokeLinecap="round"/>
-        </svg>
       </div>
       
       {/* Confetti dots */}
