@@ -904,7 +904,7 @@ const FinalWebsiteUnoExperience = () => {
                 </button>
               )}
               
-              <p className="uno-intense-caption">*Actual gameplay. No relationshps were harmed... probably.*</p>
+              <p className="uno-intense-caption">*Viewer discretion advised: UNO chaos inside.*</p>
             </motion.div>
           </motion.div>
           
