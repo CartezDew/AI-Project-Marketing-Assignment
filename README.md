@@ -1,16 +1,23 @@
-# React + Vite
+# Interactive marketing concept
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React and Vite presentation of two campaign concepts: an UNO experience and a Hot Wheels collectors experience. The app keeps earlier prompt iterations alongside the final website so visitors can compare how the ideas developed.
 
-Currently, two official plugins are available:
+## Explore
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `/`: overview of the prompt iterations
+- `/prompt1` and `/prompt2`: early concepts
+- `/prompt3`: third iteration
+- `/final-website`: final landing page, with separate UNO and Hot Wheels pages
 
-## React Compiler
+## Run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Requires Node.js and npm.
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Run `npm run build` to create a production bundle and `npm run lint` to check the source.
+
+This is a concept project, not an official Mattel or UNO website.
